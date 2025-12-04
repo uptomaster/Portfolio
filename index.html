@@ -1,657 +1,507 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이남혁 | Full-Stack Security Engineer Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이남혁 | Security · Web · Network Portfolio</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=SUIT:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- AOS Animation -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        /* RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --grad1: linear-gradient(135deg, #6FB1FC, #4364F7, #805AF5);
+      --grad2: linear-gradient(135deg, #FFAFBD, #FFC3A0);
+      --grad3: linear-gradient(135deg, #43CBFF, #9708CC);
+      --grad4: linear-gradient(135deg, #FAD961, #F76B1C);
+      --grad5: linear-gradient(135deg, #84FAB0, #8FD3F4);
 
-        body {
-            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-            background: #f9f9fc;
-            color: #222;
-            overflow-x: hidden;
-        }
+      --bg-light: #f9fafc;
+      --text-dark: #1a1a1a;
+      --text-gray: #555;
+      --glass: rgba(255,255,255,0.55);
+      --radius: 16px;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "SUIT", "Inter", sans-serif;
+    }
 
-        /* COLOR PALETTE — 2025 네온 그라데이션 */
-        :root {
-            --primary: #6a5af9;
-            --primary2: #ff6ad5;
-            --primary3: #1ac6ff;
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
+    body {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: var(--shadow);
-            z-index: 999;
-        }
+    /* HEADER */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #eee;
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: auto;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: var(--grad3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      transition: 0.25s;
+    }
+    nav a:hover {
+      color: #5b6fff;
+    }
 
-        header .logo {
-            font-size: 22px;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary), var(--primary2), var(--primary3));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    /* SECTION BASE */
+    .section {
+      padding: 120px 30px;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-align: center;
+      background: var(--grad1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-sub {
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--text-gray);
+      font-size: 18px;
+    }
 
-        header nav a {
-            margin-left: 28px;
-            font-weight: 500;
-            color: #444;
-            transition: 0.2s;
-        }
+    /* HERO */
+    .hero {
+      padding-top: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      width: 52%;
+    }
+    .hero-title {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+    .hero-title span {
+      background: var(--grad3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      margin: 20px 0 30px;
+      color: #444;
+      font-size: 18px;
+    }
+    .tagline {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .hero-box {
+      width: 42%;
+      padding: 40px;
+      border-radius: var(--radius);
+      background: var(--grad1);
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
 
-        header nav a:hover {
-            color: var(--primary);
-        }
+    /* ABOUT */
+    .about-wrapper {
+      display: flex;
+      gap: 40px;
+    }
+    .about-text {
+      width: 60%;
+      font-size: 18px;
+      color: #333;
+    }
+    .strength-box {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: var(--radius);
+      background: var(--grad5);
+      color: black;
+      font-weight: 500;
+    }
 
-        /* HERO SECTION */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #e9e4ff, #ffe4f3, #e0f7ff);
-        }
+    /* SKILLS — PENTAGON CHART */
+    .pentagon-wrap {
+      width: 420px;
+      margin: 40px auto;
+    }
+    .pentagon {
+      width: 420px;
+      height: 420px;
+    }
 
-        .hero-wrap {
-            max-width: 1100px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            padding: 0 20px;
-        }
+    /* SKILL BOXES */
+    .skill-boxes {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .skill-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      border: 1px solid #eee;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      min-height: 220px;
+    }
+    .skill-box h3 {
+      margin-bottom: 15px;
+      background: var(--grad3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
 
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
+    /* PROJECTS */
+    .project-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+    .project-card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+    .project-card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: var(--grad4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .project-tags span {
+      display: inline-block;
+      margin-right: 8px;
+      margin-top: 10px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--grad5);
+      font-size: 13px;
+      color: #222;
+    }
 
-        .highlight {
-            background: linear-gradient(90deg, var(--primary), var(--primary2));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    /* EDUCATION */
+    .edu-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .edu-box ul li {
+      margin-bottom: 6px;
+    }
 
-        .hero-text p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            margin-top: 25px;
-        }
-
-        .btn {
-            padding: 13px 24px;
-            margin-right: 12px;
-            border-radius: 10px;
-            font-weight: 600;
-            display: inline-block;
-            transition: 0.25s;
-        }
-
-        .primary {
-            background: linear-gradient(90deg, var(--primary), var(--primary2));
-            color: white;
-        }
-
-        .primary:hover {
-            opacity: 0.8;
-        }
-
-        .outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* PROFILE IMG */
-        .hero-img {
-            width: 260px;
-            height: 260px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-img img {
-            width: 100%;
-            object-fit: cover;
-        }
-
-        /* SECTION BASE */
-        section {
-            padding: 120px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .section-sub {
-            text-align: center;
-            color: #666;
-            margin-bottom: 60px;
-        }
-
-        /* ABOUT */
-        .about-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .info-card {
-            padding: 30px;
-            background: var(--glass-bg);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-        }
-
-        .info-card h3 {
-            margin-bottom: 14px;
-            font-size: 22px;
-        }
-
-        .info-card ul li {
-            margin-bottom: 8px;
-            color: #444;
-        }
-
-        /* SKILLS */
-        .skills-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .skill-box {
-            padding: 25px;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            transition: 0.25s;
-        }
-
-        .skill-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
-        }
-
-        .skill-box h3 {
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        /* PROJECTS */
-        .projects-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .project-card {
-            padding: 25px;
-            background: white;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-        }
-
-        .project-tags span {
-            padding: 6px 12px;
-            background: #eee;
-            border-radius: 8px;
-            margin-right: 8px;
-            font-size: 12px;
-        }
-
-        /* TIMELINE */
-        .timeline {
-            max-width: 900px;
-            margin: auto;
-            position: relative;
-            padding-left: 20px;
-            border-left: 3px solid var(--primary);
-        }
-
-        .t-item {
-            margin-bottom: 40px;
-        }
-
-        .t-item h3 {
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        /* EDUCATION / EXPERIENCE / AWARDS */
-        .table-section {
-            max-width: 1100px;
-            margin: auto;
-            margin-top: 50px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: var(--shadow);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        th,
-        td {
-            padding: 14px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-
-        th {
-            background: #f2f0ff;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 50px;
-            text-align: center;
-            background: #f0f0ff;
-            margin-top: 80px;
-        }
-    </style>
+    /* FOOTER */
+    footer {
+      padding: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">&lt;남혁 Security / Dev / Infra&gt;</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#timeline">Timeline</a>
-            <a href="#edu">Education</a>
-            <a href="#cert">Certifications</a>
-        </nav>
-    </header>
+<header>
+  <div class="nav-container">
+    <div class="logo">Namhyeok Portfolio</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#edu">Education</a>
+      <a href="#cert">Certificates</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-wrap" data-aos="fade-up">
-            <div class="hero-text">
-                <h1>안녕하세요,<br><span class="highlight">이남혁</span>입니다.</h1>
-                <p>웹 개발 · 네트워크 구축 · 서버 운영 · 보안 점검 · 모의해킹까지  
-                    전 구간을 직접 설계·구현·진단해본 Full-Stack Security Engineer입니다.</p>
+<!-- ================= HERO ================= -->
+<section class="hero section">
+  <div class="hero-text" data-aos="fade-right">
+    <p class="tagline">Web Development · Network · Security · Penetration Testing</p>
+    <h1 class="hero-title">
+      안녕하세요,<br>
+      저는 <span>이남혁</span>입니다.
+    </h1>
+    <p class="hero-desc">
+      웹 개발 + 서버 구축 + 네트워크 설계 + 보안 진단을 모두 경험하며  
+      실제 서비스 운영 환경과 동일한 구조를 직접 설계하고,  
+      개발 · 공격 · 방어를 하나의 흐름으로 이해하는 엔지니어입니다.
+    </p>
+  </div>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary">프로젝트 보기</a>
-                    <a href="#skills" class="btn outline">보유 기술</a>
-                </div>
-            </div>
+  <div class="hero-box" data-aos="fade-left">
+    <h3>Current Focus</h3>
+    <ul>
+      <li>웹 서비스 전체 아키텍처 설계</li>
+      <li>Linux 기반 서버 보안 강화</li>
+      <li>OWASP Top 10 기반 취약점 진단</li>
+      <li>네트워크/방화벽 기반 인프라 설계</li>
+    </ul>
+  </div>
+</section>
 
-            <div class="hero-img">
-                <img src="https://i.ibb.co/gZ9fN0k/profile.png" alt="profile">
-            </div>
-        </div>
-    </section>
+<!-- ================ ABOUT ================= -->
+<section id="about" class="section">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">“서비스 전체를 바라보는 시야를 가진 엔지니어”</p>
 
+  <div class="about-wrapper" data-aos="fade-up">
+    <div class="about-text">
+      <p>
+        저는 웹 개발(JSP/PHP), 네트워크(GNS3/PacketTracer), 서버(Rocky/Ubuntu),
+        보안 점검(Kali/BurpSuite) 등 서비스 전 영역을 실제 팀 프로젝트로 경험했습니다.
+      </p>
+      <p>
+        특히 “밥세권 웹 서비스 구축” 프로젝트에서 <strong>Toss Payments 결제 API</strong>,
+        <strong>Kakao Map API</strong>, <strong>관리자 페이지 전체 개발</strong>,
+        장바구니 · 찜 · 상품 리스트 등 실제 서비스 수준 기능을 구현했습니다.
+      </p>
+      <p>
+        이후 서비스 취약점 진단(Stored XSS, CSRF, 파일업로드, 세션 취약점)을 진행하고  
+        AES256 + SHA256 기반 암호화, 서버 인프라 재구축까지 이끌었습니다.
+      </p>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-sub">웹 서비스 개발, 네트워크 & 서버 구축, 보안진단, 모의해킹을 모두 경험한 엔지니어</p>
+      <div class="strength-box">
+        <h3>강점</h3>
+        <ul>
+          <li>전체 아키텍처(웹·DB·서버·네트워크)를 관통하는 이해력</li>
+          <li>공격자 관점에서 분석하는 보안 사고 능력</li>
+          <li>개발 → 공격 → 방어까지 실전형 시나리오 경험</li>
+          <li>문제를 끝까지 파고드는 문제 해결력</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="about-grid" data-aos="fade-up">
+<!-- ================== SKILLS ================== -->
+<section id="skills" class="section">
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">개발 · 인프라 · 네트워크 · 보안까지 전 영역 이해</p>
 
-            <div>
-                <p>
-                    저는 단순 기능 개발을 넘어 “서비스 전체의 구조를 보는 개발자”가 되고자 했습니다.<br><br>
+  <!-- Pentagon Skill Graph -->
+  <div class="pentagon-wrap" data-aos="zoom-in">
+    <svg class="pentagon" viewBox="0 0 100 100">
+      <polygon points="50,5 95,35 78,90 22,90 5,35"
+               fill="url(#grad_penta)" opacity="0.35"/>
+      <polygon points="50,15 85,38 72,82 28,82 15,38"
+               fill="url(#grad_penta)" opacity="0.45"/>
+      <polygon points="50,25 75,40 68,74 32,74 25,40"
+               fill="url(#grad_penta)" opacity="0.55"/>
+      <defs>
+        <linearGradient id="grad_penta" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6FB1FC"/>
+          <stop offset="50%" stop-color="#805AF5"/>
+          <stop offset="100%" stop-color="#9708CC"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
 
-                    실제로 저는 웹 개발(프론트/백엔드), 네트워크 설계(GNS3/Packet Tracer),
-                    서버(Rocky Linux, CentOS, Ubuntu), 보안 점검(OWASP Top 10),
-                    모의해킹(Kali Linux 기반 공격 시나리오) 등  
-                    서비스 전체 Lifecycle을 스스로 구성해왔습니다.<br><br>
+  <div class="skill-boxes" data-aos="fade-up">
+    <div class="skill-box">
+      <h3>Frontend</h3>
+      <ul>
+        <li>HTML / CSS / JavaScript</li>
+        <li>반응형 웹 구조 설계</li>
+        <li>Kakao Map API 활용</li>
+      </ul>
+    </div>
 
-                    특히 밥세권 웹 서비스 구축에서는 결제(TOSS API), 카카오맵 API,  
-                    관리자 페이지 전체 개발, 장바구니·위시리스트·상품 리스트 등  
-                    **실제 사업 가능한 수준의 기능 구현**을 수행했습니다.
-                </p>
-            </div>
+    <div class="skill-box">
+      <h3>Backend</h3>
+      <ul>
+        <li>JSP / Servlet / MVC2</li>
+        <li>PHP 기반 웹서비스 개발</li>
+        <li>REST API / 비동기 통신</li>
+      </ul>
+    </div>
 
-            <div>
-                <div class="info-card">
-                    <h3>강점</h3>
-                    <ul>
-                        <li>전체 구조를 설계하는 능력</li>
-                        <li>보안 사고를 공격자 관점에서 사고하는 능력</li>
-                        <li>개발–네트워크–보안을 연결하는 폭넓은 역량</li>
-                        <li>실전형 시나리오 기반 문제 해결</li>
-                    </ul>
-                </div>
+    <div class="skill-box">
+      <h3>Database</h3>
+      <ul>
+        <li>MariaDB / MySQL / Oracle</li>
+        <li>AES256 / SHA256 암호화 적용</li>
+        <li>ERD 설계 · CRUD 최적화</li>
+      </ul>
+    </div>
 
-                <div style="height:20px;"></div>
+    <div class="skill-box">
+      <h3>Infrastructure</h3>
+      <ul>
+        <li>Linux (Rocky, CentOS, Ubuntu)</li>
+        <li>Apache / Nginx / Tomcat</li>
+        <li>서버 보안 · 접근제어 · 방화벽</li>
+      </ul>
+    </div>
 
-                <div class="info-card">
-                    <h3>사용 장비/도구</h3>
-                    <ul>
-                        <li>Linux (Rocky 8.10, CentOS 7, Ubuntu, Kali)</li>
-                        <li>Packet Tracer, GNS3, VMware, Wireshark</li>
-                        <li>eclipse, VSCode, PuTTY</li>
-                        <li>JSP, HTML/CSS, JavaScript, PHP, Java</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="skill-box">
+      <h3>Network</h3>
+      <ul>
+        <li>VLAN / L3 Routing</li>
+        <li>Packet Tracer, GNS3</li>
+        <li>GRE / IPsec VPN</li>
+      </ul>
+    </div>
 
+    <div class="skill-box">
+      <h3>Security / Pentest</h3>
+      <ul>
+        <li>OWASP Top 10 기반 진단</li>
+        <li>SQLi / XSS / CSRF / File Upload</li>
+        <li>Kali Linux · BurpSuite</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-sub">개발 · 인프라 · 보안까지 전 영역 이해</p>
+<!-- ================== PROJECTS ================== -->
+<section id="projects" class="section">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">개발과 보안을 모두 수행한 실전형 프로젝트</p>
 
-        <div class="skills-grid" data-aos="fade-up">
+  <div class="project-grid" data-aos="fade-up">
 
-            <div class="skill-box">
-                <h3>Web Development</h3>
-                <ul>
-                    <li>JSP / Servlet / MVC2</li>
-                    <li>PHP 기반 웹 서비스 구축</li>
-                    <li>MySQL / MariaDB / Oracle CRUD</li>
-                    <li>REST API 통신 · 비동기 Ajax</li>
-                </ul>
-            </div>
+    <div class="project-card">
+      <h3>밥세권 웹서비스 구축</h3>
+      <p>실제 서비스 수준의 웹 플랫폼 개발</p>
+      <ul>
+        <li>TOSS 결제 API 연동</li>
+        <li>Kakao 지도 API</li>
+        <li>관리자 페이지 전체 개발</li>
+        <li>장바구니/찜/상품 리스트/주문 내역</li>
+      </ul>
+      <div class="project-tags">
+        <span>JSP</span><span>PHP</span><span>MariaDB</span><span>Toss API</span>
+      </div>
+    </div>
 
-            <div class="skill-box">
-                <h3>Infrastructure</h3>
-                <ul>
-                    <li>Linux Server 구축 (Rocky/CentOS)</li>
-                    <li>Apache, Nginx, Tomcat 환경 구성</li>
-                    <li>AD/DNS/DHCP 구성</li>
-                    <li>방화벽 및 접근통제</li>
-                </ul>
-            </div>
+    <div class="project-card">
+      <h3>역삼대학교 네트워크 & 서버 구축</h3>
+      <p>실제 소규모 대학 네트워크 환경을 구성</p>
+      <ul>
+        <li>VLAN·L3 Routing·NAT</li>
+        <li>DNS/DB/LOG 서버 구축</li>
+        <li>방화벽 및 정책 수립</li>
+      </ul>
+      <div class="project-tags">
+        <span>PacketTracer</span><span>GNS3</span><span>Rocky Linux</span>
+      </div>
+    </div>
 
-            <div class="skill-box">
-                <h3>Network Engineering</h3>
-                <ul>
-                    <li>Packet Tracer & GNS3 설계</li>
-                    <li>VLAN, L3 스위치, Routing</li>
-                    <li>GRE/IPsec VPN</li>
-                    <li>네트워크 분리 & 보안 구축</li>
-                </ul>
-            </div>
+    <div class="project-card">
+      <h3>밥세권 서비스 취약점 점검 & 인프라 재구축</h3>
+      <p>OWASP 기반 점검 및 AES256 암호화 적용</p>
+      <ul>
+        <li>Stored XSS / CSRF / File Upload</li>
+        <li>세션 취약점 분석</li>
+        <li>AES256 + SHA256 암호화 적용</li>
+        <li>서버·네트워크 아키텍처 재구축</li>
+      </ul>
+      <div class="project-tags">
+        <span>Kali Linux</span><span>BurpSuite</span><span>OWASP</span>
+      </div>
+    </div>
 
-            <div class="skill-box">
-                <h3>Security / Pentest</h3>
-                <ul>
-                    <li>OWASP Top 10 기반 진단</li>
-                    <li>SQLi, XSS, CSRF, File Upload</li>
-                    <li>세션 관리 취약점 분석</li>
-                    <li>Kali Linux 기반 실전 공격</li>
-                </ul>
-            </div>
+  </div>
+</section>
 
-        </div>
-    </section>
+<!-- ================= EDUCATION ================= -->
+<section id="edu" class="section">
+  <h2 class="section-title">Education</h2>
+  <p class="section-sub">학력 · 교육 이수 내역</p>
 
+  <div class="edu-box" data-aos="fade-up">
+    <h3>학력</h3>
+    <ul>
+      <li><strong>홍익대학교 컴퓨터공학과</strong> (3.21/4.5, 휴학)</li>
+      <li><strong>덕소고등학교 졸업</strong></li>
+    </ul>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-sub">기술과 보안을 모두 사용한 실전형 프로젝트</p>
+    <br><h3>정보보안 & 웹서버 개발 과정 (1033시간)</h3>
+    <p>2025.06.11 ~ 2025.12.26 / 코리아IT아카데미</p>
 
-        <div class="projects-grid" data-aos="fade-up">
+    <ul>
+      <li>웹 개발(Java, JSP, Servlet, Web Security)</li>
+      <li>MySQL/Oracle DB 설계 및 최적화</li>
+      <li>OWASP Top 10 취약점 진단 · 대응</li>
+      <li>Linux 서버 구축 · 방화벽 설정</li>
+      <li>중간 프로젝트: Java 기반 웹서비스 개발</li>
+      <li>보안 로깅 · IDS 구성</li>
+      <li>소규모 대학 네트워크 보안 구축</li>
+    </ul>
+  </div>
+</section>
 
-            <!-- 프로젝트 1 -->
-            <div class="project-card">
-                <h3>밥세권 웹서비스 구축</h3>
-                <p>결제(TOSS API), Kakao 지도, 관리자 페이지 전체 개발</p>
-                <ul>
-                    <li>장바구니, 찜목록, 상품 리스트, 주문 내역</li>
-                    <li>관리자 페이지(회원/가맹점/주문 전체 관리)</li>
-                    <li>보안 점검 후 인프라 재구축</li>
-                </ul>
-                <div class="project-tags">
-                    <span>JSP</span><span>PHP</span><span>MariaDB</span><span>TOSS API</span>
-                </div>
-            </div>
+<!-- ================= CERTIFICATES ================= -->
+<section id="cert" class="section">
+  <h2 class="section-title">Certificates</h2>
+  <p class="section-sub">보유 자격증</p>
 
-            <!-- 프로젝트 2 -->
-            <div class="project-card">
-                <h3>역삼대학교 네트워크 & 서버 구축</h3>
-                <p>소규모 대학 환경의 본사-지사 구조를 네트워크로 구현</p>
-                <ul>
-                    <li>VLAN / Routing / NAT / 방화벽 정책</li>
-                    <li>로그 서버, DB 서버, DNS 서버 구축</li>
-                    <li>Linux 기반 서버 보안 설정</li>
-                </ul>
-                <div class="project-tags">
-                    <span>Packet Tracer</span><span>Rocky Linux</span><span>GNS3</span>
-                </div>
-            </div>
+  <div class="edu-box" data-aos="fade-up">
+    <ul>
+      <li>리눅스마스터 2급 — 2025.10.03</li>
+      <li>SQLD — 2025.09.19</li>
+      <li>네트워크관리사 2급 — 보유</li>
+    </ul>
+  </div>
+</section>
 
-            <!-- 프로젝트 3 -->
-            <div class="project-card">
-                <h3>밥세권 서비스 취약점 점검 & 인프라 재구축</h3>
-                <p>Stored XSS, CSRF, 파일업로드, 세션 취약점 분석</p>
-                <ul>
-                    <li>관리자 계정 탈취 시나리오 기반 공격 재현</li>
-                    <li>DB 암호화(AES256, SHA256) 적용</li>
-                    <li>강화된 서버·네트워크 아키텍처 재구축</li>
-                </ul>
-                <div class="project-tags">
-                    <span>Kali Linux</span><span>Burp Suite</span><span>OWASP</span>
-                </div>
-            </div>
+<footer>
+  © 2025 Namhyeok Portfolio. All rights reserved.
+</footer>
 
-        </div>
-    </section>
-
-
-    <!-- TIMELINE -->
-    <section id="timeline">
-        <h2 class="section-title">Timeline</h2>
-        <p class="section-sub">내가 걸어온 기술과 보안의 여정</p>
-
-        <div class="timeline" data-aos="fade-left">
-
-            <div class="t-item">
-                <h3>2021.03 — 홍익대학교 컴퓨터공학과 입학</h3>
-                <p>3.21/4.5 | 현재 휴학 중</p>
-            </div>
-
-            <div class="t-item">
-                <h3>2025.06 ~ 2025.12 — 코리아IT아카데미 1033시간 과정 수료</h3>
-                <p>웹 개발 · 서버 · 보안 · 네트워크 융합교육</p>
-            </div>
-
-            <div class="t-item">
-                <h3>2025 — 밥세권 웹서비스 구축</h3>
-                <p>결제 API · 지도 API · 관리자 전체 구현</p>
-            </div>
-
-            <div class="t-item">
-                <h3>2025 — 역삼대학교 네트워크 & 서버 구축</h3>
-                <p>본사-지사 구조 설계 및 보안 구축</p>
-            </div>
-
-            <div class="t-item">
-                <h3>2025 — 밥세권 취약점 점검 및 보안개선</h3>
-                <p>Stored XSS, CSRF, File Upload, Session 취약점 재현</p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- EDUCATION -->
-    <section id="edu">
-        <h2 class="section-title">Education</h2>
-        <p class="section-sub">학력 및 교육 이수</p>
-
-        <div class="table-section">
-            <table>
-                <tr>
-                    <th>기간</th>
-                    <th>기관</th>
-                    <th>내용</th>
-                </tr>
-
-                <tr>
-                    <td>2021.03 ~ (휴학)</td>
-                    <td>홍익대학교 서울캠퍼스</td>
-                    <td>컴퓨터공학과 (3.21/4.5)</td>
-                </tr>
-
-                <tr>
-                    <td>2025.06.11 ~ 2025.12.26 (1033시간)</td>
-                    <td>코리아IT아카데미</td>
-                    <td>웹 개발 · 서버 · 보안 · 네트워크 융합과정</td>
-                </tr>
-
-            </table>
-        </div>
-    </section>
-
-
-    <!-- CERTIFICATIONS -->
-    <section id="cert">
-        <h2 class="section-title">Certifications</h2>
-        <p class="section-sub">보유 자격증</p>
-
-        <div class="table-section">
-            <table>
-                <tr>
-                    <th>자격증</th>
-                    <th>취득일</th>
-                    <th>발행처</th>
-                </tr>
-                <tr>
-                    <td>리눅스마스터 2급</td>
-                    <td>2025.10.03</td>
-                    <td>한국정보통신진흥협회</td>
-                </tr>
-                <tr>
-                    <td>SQLD</td>
-                    <td>2025.09.19</td>
-                    <td>한국데이터산업진흥원장</td>
-                </tr>
-                <tr>
-                    <td>네트워크관리사 2급</td>
-                    <td>보유</td>
-                    <td>한국정보통신자격협회</td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-
-    <!-- LINKS -->
-    <section id="links">
-        <h2 class="section-title">Portfolio Links</h2>
-
-        <div class="table-section">
-            <table>
-                <tr>
-                    <th>종류</th>
-                    <th>URL</th>
-                </tr>
-
-                <tr>
-                    <td>개인 프로젝트 (Notion)</td>
-                    <td><a href="https://www.notion.so/20fbbe1d0ab980fe9138c89604953fdb" target="_blank">링크 이동</a></td>
-                </tr>
-
-                <tr>
-                    <td>웹 팀 프로젝트 (JSP)</td>
-                    <td><a href="https://www.notion.so/244bbe1d0ab980078ba4effffb3f8b7b" target="_blank">링크 이동</a></td>
-                </tr>
-
-                <tr>
-                    <td>네트워크 팀 프로젝트</td>
-                    <td><a href="https://olive-scarer-322.notion.site/2a8bbe1d0ab980718447edeea912ff87" target="_blank">링크 이동</a></td>
-                </tr>
-
-                <tr>
-                    <td>GitHub</td>
-                    <td>
-                        <a href="https://github.com/FindMe-GetOh/GetOh_FrontEnd.git" target="_blank">개인 프로젝트 FE</a> /
-                        <a href="https://github.com/FindMe-GetOh/GetOh_Backend.git" target="_blank">BE</a> /
-                        <a href="https://github.com/team2-EAT-IT/EATIT_back.git" target="_blank">팀 BackEnd</a> /
-                        <a href="https://github.com/team2-EAT-IT/EATIT_frontend.git" target="_blank">팀 FrontEnd</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-        © 2025 NamHyuk Portfolio — Built with Pride & Tech
-    </footer>
-
-    <!-- AOS Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 900,
-            once: true
-        });
-    </script>
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 
 </body>
-
 </html>
