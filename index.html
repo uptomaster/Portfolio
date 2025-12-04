@@ -1,507 +1,311 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>이남혁 | Security · Web · Network Portfolio</title>
+  <title>이남혁 | Security · Dev · Infra Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=SUIT:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <style>
-    :root {
-      --grad1: linear-gradient(135deg, #6FB1FC, #4364F7, #805AF5);
-      --grad2: linear-gradient(135deg, #FFAFBD, #FFC3A0);
-      --grad3: linear-gradient(135deg, #43CBFF, #9708CC);
-      --grad4: linear-gradient(135deg, #FAD961, #F76B1C);
-      --grad5: linear-gradient(135deg, #84FAB0, #8FD3F4);
-
-      --bg-light: #f9fafc;
-      --text-dark: #1a1a1a;
-      --text-gray: #555;
-      --glass: rgba(255,255,255,0.55);
-      --radius: 16px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "SUIT", "Inter", sans-serif;
-    }
-
-    body {
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #eee;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: auto;
-      padding: 18px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      background: var(--grad3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav a {
-      margin-left: 22px;
-      text-decoration: none;
-      font-weight: 500;
-      color: #333;
-      transition: 0.25s;
-    }
-    nav a:hover {
-      color: #5b6fff;
-    }
-
-    /* SECTION BASE */
-    .section {
-      padding: 120px 30px;
-      max-width: 1280px;
-      margin: auto;
-    }
-    .section-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      text-align: center;
-      background: var(--grad1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section-sub {
-      text-align: center;
-      margin-bottom: 50px;
-      color: var(--text-gray);
-      font-size: 18px;
-    }
-
-    /* HERO */
-    .hero {
-      padding-top: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .hero-text {
-      width: 52%;
-    }
-    .hero-title {
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1.3;
-    }
-    .hero-title span {
-      background: var(--grad3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-desc {
-      margin: 20px 0 30px;
-      color: #444;
-      font-size: 18px;
-    }
-    .tagline {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .hero-box {
-      width: 42%;
-      padding: 40px;
-      border-radius: var(--radius);
-      background: var(--grad1);
-      color: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
-
-    /* ABOUT */
-    .about-wrapper {
-      display: flex;
-      gap: 40px;
-    }
-    .about-text {
-      width: 60%;
-      font-size: 18px;
-      color: #333;
-    }
-    .strength-box {
-      margin-top: 25px;
-      padding: 20px;
-      border-radius: var(--radius);
-      background: var(--grad5);
-      color: black;
-      font-weight: 500;
-    }
-
-    /* SKILLS — PENTAGON CHART */
-    .pentagon-wrap {
-      width: 420px;
-      margin: 40px auto;
-    }
-    .pentagon {
-      width: 420px;
-      height: 420px;
-    }
-
-    /* SKILL BOXES */
-    .skill-boxes {
-      margin-top: 50px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    .skill-box {
-      background: white;
-      border-radius: var(--radius);
-      padding: 25px;
-      border: 1px solid #eee;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      min-height: 220px;
-    }
-    .skill-box h3 {
-      margin-bottom: 15px;
-      background: var(--grad3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
-
-    /* PROJECTS */
-    .project-grid {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
-    }
-    .project-card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      border: 1px solid #eee;
-    }
-    .project-card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      background: var(--grad4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .project-tags span {
-      display: inline-block;
-      margin-right: 8px;
-      margin-top: 10px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: var(--grad5);
-      font-size: 13px;
-      color: #222;
-    }
-
-    /* EDUCATION */
-    .edu-box {
-      background: white;
-      border-radius: var(--radius);
-      padding: 30px;
-      border: 1px solid #eee;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .edu-box ul li {
-      margin-bottom: 6px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 40px;
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">Namhyeok Portfolio</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#edu">Education</a>
-      <a href="#cert">Certificates</a>
-    </nav>
-  </div>
-</header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">🛡️</span>
+        <span class="logo-text">NamHyuk Security</span>
+      </div>
 
-<!-- ================= HERO ================= -->
-<section class="hero section">
-  <div class="hero-text" data-aos="fade-right">
-    <p class="tagline">Web Development · Network · Security · Penetration Testing</p>
-    <h1 class="hero-title">
-      안녕하세요,<br>
-      저는 <span>이남혁</span>입니다.
-    </h1>
-    <p class="hero-desc">
-      웹 개발 + 서버 구축 + 네트워크 설계 + 보안 진단을 모두 경험하며  
-      실제 서비스 운영 환경과 동일한 구조를 직접 설계하고,  
-      개발 · 공격 · 방어를 하나의 흐름으로 이해하는 엔지니어입니다.
-    </p>
-  </div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">소개</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#career">Career</a>
+        <a href="#cert">Certificates</a>
+      </nav>
 
-  <div class="hero-box" data-aos="fade-left">
-    <h3>Current Focus</h3>
-    <ul>
-      <li>웹 서비스 전체 아키텍처 설계</li>
-      <li>Linux 기반 서버 보안 강화</li>
-      <li>OWASP Top 10 기반 취약점 진단</li>
-      <li>네트워크/방화벽 기반 인프라 설계</li>
-    </ul>
-  </div>
-</section>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </header>
 
-<!-- ================ ABOUT ================= -->
-<section id="about" class="section">
-  <h2 class="section-title">About Me</h2>
-  <p class="section-sub">“서비스 전체를 바라보는 시야를 가진 엔지니어”</p>
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-text" data-aos="fade-right">
+        <p class="hero-role">Web Dev · Network · Server · Security</p>
+        <h1>
+          안녕하세요,<br />
+          <span class="highlight">이남혁</span>입니다.
+        </h1>
+        <p class="hero-desc">
+          웹 개발, 네트워크 구축, 서버 보안, 모의해킹까지  
+          **서비스 전체를 직접 설계하고 구축할 수 있는 엔지니어**입니다.
+        </p>
 
-  <div class="about-wrapper" data-aos="fade-up">
-    <div class="about-text">
-      <p>
-        저는 웹 개발(JSP/PHP), 네트워크(GNS3/PacketTracer), 서버(Rocky/Ubuntu),
-        보안 점검(Kali/BurpSuite) 등 서비스 전 영역을 실제 팀 프로젝트로 경험했습니다.
-      </p>
-      <p>
-        특히 “밥세권 웹 서비스 구축” 프로젝트에서 <strong>Toss Payments 결제 API</strong>,
-        <strong>Kakao Map API</strong>, <strong>관리자 페이지 전체 개발</strong>,
-        장바구니 · 찜 · 상품 리스트 등 실제 서비스 수준 기능을 구현했습니다.
-      </p>
-      <p>
-        이후 서비스 취약점 진단(Stored XSS, CSRF, 파일업로드, 세션 취약점)을 진행하고  
-        AES256 + SHA256 기반 암호화, 서버 인프라 재구축까지 이끌었습니다.
-      </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary">프로젝트 보기</a>
+        </div>
+      </div>
 
-      <div class="strength-box">
-        <h3>강점</h3>
-        <ul>
-          <li>전체 아키텍처(웹·DB·서버·네트워크)를 관통하는 이해력</li>
-          <li>공격자 관점에서 분석하는 보안 사고 능력</li>
-          <li>개발 → 공격 → 방어까지 실전형 시나리오 경험</li>
-          <li>문제를 끝까지 파고드는 문제 해결력</li>
-        </ul>
+      <div class="hero-profile" data-aos="fade-left">
+        <div class="profile-frame">
+          <img src="assets/img/profile_sample.jpg" alt="Profile" />
+        </div>
+        <div class="profile-tag">Full-Stack Infra & Security Engineer</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================== SKILLS ================== -->
-<section id="skills" class="section">
-  <h2 class="section-title">Skills</h2>
-  <p class="section-sub">개발 · 인프라 · 네트워크 · 보안까지 전 영역 이해</p>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>웹 개발 → 네트워크 → 서버 → 보안까지 전 영역을 경험한 엔지니어</p>
+      </div>
 
-  <!-- Pentagon Skill Graph -->
-  <div class="pentagon-wrap" data-aos="zoom-in">
-    <svg class="pentagon" viewBox="0 0 100 100">
-      <polygon points="50,5 95,35 78,90 22,90 5,35"
-               fill="url(#grad_penta)" opacity="0.35"/>
-      <polygon points="50,15 85,38 72,82 28,82 15,38"
-               fill="url(#grad_penta)" opacity="0.45"/>
-      <polygon points="50,25 75,40 68,74 32,74 25,40"
-               fill="url(#grad_penta)" opacity="0.55"/>
-      <defs>
-        <linearGradient id="grad_penta" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#6FB1FC"/>
-          <stop offset="50%" stop-color="#805AF5"/>
-          <stop offset="100%" stop-color="#9708CC"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
+      <div class="about-grid">
 
-  <div class="skill-boxes" data-aos="fade-up">
-    <div class="skill-box">
-      <h3>Frontend</h3>
-      <ul>
-        <li>HTML / CSS / JavaScript</li>
-        <li>반응형 웹 구조 설계</li>
-        <li>Kakao Map API 활용</li>
-      </ul>
-    </div>
+        <div class="about-text" data-aos="fade-up">
+          <p>
+            저는 웹 개발, 네트워크 설계, 서버 구축, 보안 점검, 모의해킹까지  
+            **서비스 전체 Lifecycle을 직접 구성하고 개선하는 과정**을 즐깁니다.
+          </p>
+          <p>
+            대표 프로젝트인 <strong>밥세권 웹서비스 구축</strong>에서는  
+            결제(TOSS API), 카카오맵 API, 관리자 페이지 전체 개발,  
+            상품/장바구니/찜 목록 등 실제 서비스 수준의 기능을 구현했습니다.
+          </p>
+          <p>
+            또한 <strong>역삼대학교 프로젝트</strong>에서는  
+            본사-지사 구조의 네트워크 설계, 서버 구축, 보안 설정,  
+            로그 서버/DB 서버/DNS 서버 운영 등 실전 인프라 구축 경험을 갖고 있습니다.
+          </p>
+          <p>
+            보안 측면에서는 실제 공격자 관점에서 Stored XSS, CSRF, 파일 업로드,  
+            세션 취약점, DB 암호화(AES256) 개선까지 직접 수행했습니다.
+          </p>
+        </div>
 
-    <div class="skill-box">
-      <h3>Backend</h3>
-      <ul>
-        <li>JSP / Servlet / MVC2</li>
-        <li>PHP 기반 웹서비스 개발</li>
-        <li>REST API / 비동기 통신</li>
-      </ul>
-    </div>
+        <div class="about-cards">
+          <div class="info-card" data-aos="fade-left">
+            <h3>Strengths</h3>
+            <ul>
+              <li>서비스 전체 구조 설계 능력</li>
+              <li>공격자 관점에서 보안 사고 분석</li>
+              <li>개발-네트워크-보안을 연결하는 폭넓은 기술 이해</li>
+              <li>실전형 시나리오 기반 문제 해결</li>
+            </ul>
+          </div>
 
-    <div class="skill-box">
-      <h3>Database</h3>
-      <ul>
-        <li>MariaDB / MySQL / Oracle</li>
-        <li>AES256 / SHA256 암호화 적용</li>
-        <li>ERD 설계 · CRUD 최적화</li>
-      </ul>
-    </div>
-
-    <div class="skill-box">
-      <h3>Infrastructure</h3>
-      <ul>
-        <li>Linux (Rocky, CentOS, Ubuntu)</li>
-        <li>Apache / Nginx / Tomcat</li>
-        <li>서버 보안 · 접근제어 · 방화벽</li>
-      </ul>
-    </div>
-
-    <div class="skill-box">
-      <h3>Network</h3>
-      <ul>
-        <li>VLAN / L3 Routing</li>
-        <li>Packet Tracer, GNS3</li>
-        <li>GRE / IPsec VPN</li>
-      </ul>
-    </div>
-
-    <div class="skill-box">
-      <h3>Security / Pentest</h3>
-      <ul>
-        <li>OWASP Top 10 기반 진단</li>
-        <li>SQLi / XSS / CSRF / File Upload</li>
-        <li>Kali Linux · BurpSuite</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ================== PROJECTS ================== -->
-<section id="projects" class="section">
-  <h2 class="section-title">Projects</h2>
-  <p class="section-sub">개발과 보안을 모두 수행한 실전형 프로젝트</p>
-
-  <div class="project-grid" data-aos="fade-up">
-
-    <div class="project-card">
-      <h3>밥세권 웹서비스 구축</h3>
-      <p>실제 서비스 수준의 웹 플랫폼 개발</p>
-      <ul>
-        <li>TOSS 결제 API 연동</li>
-        <li>Kakao 지도 API</li>
-        <li>관리자 페이지 전체 개발</li>
-        <li>장바구니/찜/상품 리스트/주문 내역</li>
-      </ul>
-      <div class="project-tags">
-        <span>JSP</span><span>PHP</span><span>MariaDB</span><span>Toss API</span>
+          <div class="info-card" data-aos="fade-left" data-aos-delay="150">
+            <h3>Tools</h3>
+            <ul>
+              <li>Linux (Rocky/CentOS/Ubuntu/Kali)</li>
+              <li>Packet Tracer · GNS3 · VMware · Wireshark</li>
+              <li>Eclipse · VSCode · PuTTY</li>
+              <li>JSP · PHP · HTML/CSS · JS · Java</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="project-card">
-      <h3>역삼대학교 네트워크 & 서버 구축</h3>
-      <p>실제 소규모 대학 네트워크 환경을 구성</p>
-      <ul>
-        <li>VLAN·L3 Routing·NAT</li>
-        <li>DNS/DB/LOG 서버 구축</li>
-        <li>방화벽 및 정책 수립</li>
-      </ul>
-      <div class="project-tags">
-        <span>PacketTracer</span><span>GNS3</span><span>Rocky Linux</span>
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>Frontend · Backend · Network · Security · DB</p>
+      </div>
+
+      <!-- Pentagon Skill Graph -->
+      <div class="pentagon-wrapper" data-aos="zoom-in">
+        <div class="pentagon">
+          <span class="pt pt1">Frontend</span>
+          <span class="pt pt2">Backend</span>
+          <span class="pt pt3">Network</span>
+          <span class="pt pt4">Security</span>
+          <span class="pt pt5">DB</span>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-box" data-aos="fade-up">
+          <h3>Web Development</h3>
+          <ul>
+            <li>JSP · Servlet · MVC2</li>
+            <li>PHP 기반 서비스 구축</li>
+            <li>REST API · Ajax 비동기 통신</li>
+            <li>MySQL/Oracle/MariaDB CRUD</li>
+          </ul>
+        </div>
+
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Linux Server 구축</li>
+            <li>Apache · Nginx · Tomcat</li>
+            <li>AD/DNS/DHCP 구축</li>
+            <li>방화벽 및 접근 통제</li>
+          </ul>
+        </div>
+
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
+          <h3>Network Engineering</h3>
+          <ul>
+            <li>VLAN / L3 Routing</li>
+            <li>GRE / IPsec VPN</li>
+            <li>본사-지사 구조 설계</li>
+            <li>보안 네트워크 구축</li>
+          </ul>
+        </div>
+
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="300">
+          <h3>Security / Pentest</h3>
+          <ul>
+            <li>OWASP Top 10 기반 웹 진단</li>
+            <li>SQLi / XSS / CSRF / File Upload</li>
+            <li>Kali Linux 공격 시나리오</li>
+            <li>DB 암호화(AES256/SHA256)</li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="project-card">
-      <h3>밥세권 서비스 취약점 점검 & 인프라 재구축</h3>
-      <p>OWASP 기반 점검 및 AES256 암호화 적용</p>
-      <ul>
-        <li>Stored XSS / CSRF / File Upload</li>
-        <li>세션 취약점 분석</li>
-        <li>AES256 + SHA256 암호화 적용</li>
-        <li>서버·네트워크 아키텍처 재구축</li>
-      </ul>
-      <div class="project-tags">
-        <span>Kali Linux</span><span>BurpSuite</span><span>OWASP</span>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>실전형 프로젝트 3종</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- 1) BabSegwon -->
+        <article class="project-card" data-aos="fade-up">
+          <h3>밥세권 웹서비스 구축</h3>
+          <p class="project-sub">
+            결제(Toss API), Kakao Map API, 관리자 페이지 전체 개발
+          </p>
+          <ul>
+            <li>장바구니 · 찜 목록 · 상품 리스트 · 주문 내역</li>
+            <li>관리자 페이지(회원·가맹점·주문 관리)</li>
+            <li>웹 취약점 점검 및 인프라 재설계</li>
+          </ul>
+          <div class="tags">
+            <span>JSP</span> <span>PHP</span> <span>MariaDB</span> <span>Toss API</span>
+          </div>
+        </article>
+
+        <!-- 2) University -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>역삼대학교 네트워크 · 서버 구축</h3>
+          <p class="project-sub">
+            본사-지사 구조, VLAN/Firewall, 로그서버 구축
+          </p>
+          <ul>
+            <li>VLAN / Routing / NAT</li>
+            <li>Linux 기반 DNS/DB/Log 서버 구축</li>
+            <li>보안 정책 & 네트워크 분리</li>
+          </ul>
+          <div class="tags">
+            <span>PacketTracer</span> <span>Rocky Linux</span> <span>GNS3</span>
+          </div>
+        </article>
+
+        <!-- 3) Security -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>밥세권 서비스 취약점 점검·모의해킹</h3>
+          <p class="project-sub">
+            Stored XSS, CSRF, 파일업로드, 세션 취약점 분석
+          </p>
+          <ul>
+            <li>관리자 계정 탈취 시나리오 재현</li>
+            <li>DB AES256 · SHA256 기반 강화</li>
+            <li>웹·서버·네트워크 전면 재구축</li>
+          </ul>
+          <div class="tags">
+            <span>Kali Linux</span> <span>Burp Suite</span> <span>OWASP</span>
+          </div>
+        </article>
+
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- CAREER -->
+  <section id="career" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Career & Experience</h2>
+      </div>
 
-<!-- ================= EDUCATION ================= -->
-<section id="edu" class="section">
-  <h2 class="section-title">Education</h2>
-  <p class="section-sub">학력 · 교육 이수 내역</p>
+      <div class="career-list">
+        <div class="career-item" data-aos="fade-up">
+          <h3>교육부 / 한국과학교육단체총연합회</h3>
+          <p>제33회 과학 싹 큰잔치 부스 운영</p>
+          <span>2025.10.18 ~ 10.19</span>
+        </div>
 
-  <div class="edu-box" data-aos="fade-up">
-    <h3>학력</h3>
-    <ul>
-      <li><strong>홍익대학교 컴퓨터공학과</strong> (3.21/4.5, 휴학)</li>
-      <li><strong>덕소고등학교 졸업</strong></li>
-    </ul>
+        <div class="career-item" data-aos="fade-up" data-aos-delay="100">
+          <h3>DM 수학학원</h3>
+          <p>초·중·고 수학 수업</p>
+          <span>2025.03 ~ 2025.06</span>
+        </div>
 
-    <br><h3>정보보안 & 웹서버 개발 과정 (1033시간)</h3>
-    <p>2025.06.11 ~ 2025.12.26 / 코리아IT아카데미</p>
+        <div class="career-item" data-aos="fade-up" data-aos-delay="200">
+          <h3>GS25</h3>
+          <p>야간 근무</p>
+          <span>2025.03 ~ 2025.06</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <ul>
-      <li>웹 개발(Java, JSP, Servlet, Web Security)</li>
-      <li>MySQL/Oracle DB 설계 및 최적화</li>
-      <li>OWASP Top 10 취약점 진단 · 대응</li>
-      <li>Linux 서버 구축 · 방화벽 설정</li>
-      <li>중간 프로젝트: Java 기반 웹서비스 개발</li>
-      <li>보안 로깅 · IDS 구성</li>
-      <li>소규모 대학 네트워크 보안 구축</li>
-    </ul>
-  </div>
-</section>
+  <!-- Certificates -->
+  <section id="cert" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Certificates</h2>
+      </div>
 
-<!-- ================= CERTIFICATES ================= -->
-<section id="cert" class="section">
-  <h2 class="section-title">Certificates</h2>
-  <p class="section-sub">보유 자격증</p>
+      <div class="cert-grid">
+        <div class="cert-item" data-aos="fade-up">
+          <h3>리눅스마스터 2급</h3>
+          <p>2025.10.03 — 한국정보통신진흥협회</p>
+        </div>
+        <div class="cert-item" data-aos="fade-up" data-aos-delay="100">
+          <h3>SQLD</h3>
+          <p>2025.09.19 — 한국데이터산업진흥원</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="edu-box" data-aos="fade-up">
-    <ul>
-      <li>리눅스마스터 2급 — 2025.10.03</li>
-      <li>SQLD — 2025.09.19</li>
-      <li>네트워크관리사 2급 — 보유</li>
-    </ul>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© <span id="year"></span> NamHyuk Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
 
-<footer>
-  © 2025 Namhyeok Portfolio. All rights reserved.
-</footer>
-
-<!-- AOS Script -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>
