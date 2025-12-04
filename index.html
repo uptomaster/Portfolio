@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이남혁 포트폴리오</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Pretendard', sans-serif;
+            background: #0D1117;
+            color: #E6E6E6;
+        }
+        header {
+            padding: 20px 40px;
+            border-bottom: 1px solid #1F242A;
+            background: #161B22;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #E6E6E6;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #58A6FF;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #9BA3B4;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            font-size: 34px;
+            border-left: 6px solid #58A6FF;
+            padding-left: 16px;
+            margin-bottom: 40px;
+        }
+        .skills-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        }
+        .skill-box {
+            background: #161B22;
+            padding: 20px;
+            border: 1px solid #30363D;
+            border-radius: 10px;
+        }
+        .projects {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+        }
+        .card {
+            background: #161B22;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #30363D;
+            transition: 0.2s;
+        }
+        .card:hover {
+            border-color: #58A6FF;
+            transform: translateY(-3px);
+        }
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #1F242A;
+            margin-top: 80px;
+        }
+        .tag {
+            background: #30363D;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">NamHyuk</div>
+    <nav>
+        <a href="#about">소개</a>
+        <a href="#skills">기술</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락처</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>이남혁 포트폴리오</h1>
+    <p>보안 · 네트워크 · 서버 구축 · 웹 개발을 모두 다루는 올라운드 엔지니어</p>
+</div>
+
+<section id="about">
+    <h2>소개</h2>
+    <p>
+        저는 보안 관제, 침해사고 대응, 서버 구축, 네트워크 설계, 웹 서비스 개발 등  
+        <strong>인프라와 보안, 풀스택 개발까지 모두 이해하는 엔지니어</strong>입니다.<br><br>
+
+        VMware 기반 가상 인프라 구축, 리눅스 서버 운영, MariaDB 이중화,  
+        Rocky Linux 보안 점검(U-01~U-60), 웹 취약점 분석(OWASP Top 10),  
+        실제 서비스를 설계·개발하고 모의해킹까지 수행한 경험이 있습니다.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>보유 기술</h2>
+    <div class="skills-grid">
+        <div class="skill-box">
+            <h3>Security</h3>
+            <p>Web Hacking, XSS/CSRF, SQL Injection, 패킷 분석, Log 분석, 보안 정책 수립</p>
+        </div>
+        <div class="skill-box">
+            <h3>Linux & Server</h3>
+            <p>Rocky Linux, Apache/PHP, MariaDB, Firewall, SSH Hardening, System Audit</p>
+        </div>
+        <div class="skill-box">
+            <h3>Network</h3>
+            <p>VLAN, NAT, OSPF/EIGRP, VPN(IPSec), DHCP, DNS, Packet Tracer</p>
+        </div>
+        <div class="skill-box">
+            <h3>Web Development</h3>
+            <p>HTML/CSS/JS, PHP, JSP, Oracle, MySQL, REST API, MVC 구조</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>프로젝트</h2>
+    <div class="projects">
+
+        <div class="card">
+            <h3>밥세권 웹 서비스 구축</h3>
+            <p>PHP + MariaDB 기반의 지역 밥맛집 플랫폼 개발</p>
+            <span class="tag">PHP</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">보안</span>
+        </div>
+
+        <div class="card">
+            <h3>Rocky Linux 보안취약점 점검</h3>
+            <p>U-01~U-60 전체 항목 점검 및 조치 자동화 스크립트 작성</p>
+            <span class="tag">Linux</span>
+            <span class="tag">Security</span>
+        </div>
+
+        <div class="card">
+            <h3>VMware 기반 인프라 구축</h3>
+            <p>HQ/Branch 환경 구성, DHCP/DNS, DB이중화, 웹서버 운영</p>
+            <span class="tag">VMware</span>
+            <span class="tag">Network</span>
+        </div>
+
+        <div class="card">
+            <h3>웹 모의해킹 프로젝트</h3>
+            <p>Stored XSS, CSRF, File Upload RCE 등 취약점 분석 및 자동화 PoC</p>
+            <span class="tag">Hacking</span>
+            <span class="tag">OWASP</span>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>연락처</h2>
+    <p> Email : <strong>namhyuk@portfolio.com</strong></p>
+    <p> Phone : <strong>010-0000-0000</strong></p>
+    <p> Github : <strong>github.com/your-id</strong></p>
+</section>
+
+<footer>
+    © 2025 NamHyuk — All rights reserved.
+</footer>
+
+</body>
+</html>
