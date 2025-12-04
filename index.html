@@ -1,270 +1,249 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>이남혁 | Security · Infra · Web Engineer Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- AOS Animation CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
-/* -------- Global -------- */
+/* ----------- GLOBAL ----------- */
 body {
-  margin: 0;
-  font-family: 'Poppins','Noto Sans KR',sans-serif;
-  background: #f4f6fb;
-  color: #222;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: 'Poppins','Noto Sans KR',sans-serif;
+    background: #f7f8fc;
+    color: #222;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Wide Layout */
+.container {
+    max-width: 1300px;
+    margin: auto;
 }
 
-a { text-decoration: none; color: inherit; }
-h2 { font-size: 40px; margin-bottom: 10px; }
-
-/* -------- Header -------- */
+/* ----------- HEADER ----------- */
 header {
-  width: 100%;
-  position: fixed;
-  top: 0; left: 0;
-  padding: 15px 40px;
-  background: #ffffffcc;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e5e5e5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background: #ffffffdd;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 700;
-  background: linear-gradient(90deg,#ff7eb3,#ff758c,#ffb47b);
-  -webkit-background-clip: text;
-  color: transparent;
+    font-weight: 800;
+    font-size: 25px;
+    background: linear-gradient(90deg,#ff7eb3,#ff758c,#ffb47b);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
 }
 
 .nav a {
-  margin-left: 25px;
-  font-weight: 600;
-  color: #333;
+    margin-left: 30px;
+    font-weight: 600;
 }
+.nav a:hover { color: #ff7eb3; }
 
-.nav a:hover {
-  color: #ff7eb3;
-}
-
-/* -------- Hero -------- */
+/* ----------- HERO ----------- */
 .hero {
-  padding: 180px 40px 120px;
-  display: flex;
-  justify-content: center;
+    padding: 180px 40px 130px;
 }
 
-.hero-inner {
-  max-width: 1200px;
-  display: flex;
-  gap: 60px;
-  align-items: center;
+.hero-grid {
+    display: flex;
+    gap: 60px;
+    align-items: center;
 }
 
-.hero-text {
-  flex: 1;
+.hero-left {
+    flex: 1;
 }
 
-.hero-text h1 {
-  font-size: 55px;
-  line-height: 1.3;
+.hero-left h1 {
+    font-size: 60px;
+    line-height: 1.3;
 }
 
 .highlight {
-  background: linear-gradient(90deg,#ff7eb3,#ff758c);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 800;
-}
-
-.hero-desc {
-  font-size: 18px;
-  margin: 20px 0;
-  opacity: 0.85;
+    background: linear-gradient(90deg,#ff7eb3,#ff758c);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  margin-right: 15px;
-  font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    margin-right: 12px;
+    margin-top: 20px;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg,#ff7eb3,#ff758c);
-  color: white;
-  box-shadow: 0 5px 20px rgba(255,118,150,0.4);
+    background: linear-gradient(90deg,#ff7eb3,#ff758c);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255,116,150,0.4);
 }
 
 .btn-outline {
-  border: 2px solid #ff7eb3;
-  color: #ff7eb3;
+    border: 2px solid #ff7eb3;
+    color: #ff7eb3;
 }
 
 .hero-card {
-  width: 330px;
-  padding: 25px;
-  background: white;
-  border-radius: 15px;
-  border: 1px solid #e7e7e7;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    flex: 0.7;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
 }
 
-/* -------- Section -------- */
-section {
-  padding: 120px 40px;
-  text-align: center;
+/* Profile photo */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #ddd;
+    margin: 0 auto 20px;
+    background-size: cover;
+    background-position: center;
 }
 
-.section-sub {
-  font-size: 17px;
-  opacity: 0.7;
-  margin-bottom: 40px;
-}
+/* ----------- SECTION ----------- */
+section { padding: 120px 40px; }
+section h2 { font-size: 42px; margin-bottom: 10px; }
+.section-sub { opacity: 0.7; margin-bottom: 50px; }
 
-/* -------- About -------- */
-.about-box {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  gap: 25px;
+/* ----------- ABOUT ----------- */
+.about-grid {
+    display: flex;
+    gap: 30px;
 }
 
 .about-card {
-  background: #fff;
-  padding: 25px;
-  flex: 1;
-  border-radius: 14px;
-  border: 1px solid #e7e7e7;
-  text-align: left;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    flex: 1;
+    padding: 30px;
+    background:white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    text-align: left;
 }
 
-/* -------- Skills -------- */
+/* ----------- SKILLS ----------- */
 .skills-grid {
-  max-width: 1150px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
 }
 
 .skill-card {
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  border: 1px solid #e7e7e7;
-  text-align: left;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    background:white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e6e6e6;
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
-
 .skill-card h3 { color:#ff758c; }
 
-/* -------- Projects -------- */
+/* ----------- PROJECTS ----------- */
 .project-grid {
-  max-width: 1150px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
 }
 
 .project-card {
-  padding: 25px;
-  background: white;
-  border-radius: 14px;
-  border: 1px solid #e7e7e7;
-  text-align: left;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    background:white;
+    padding: 30px;
+    border-radius: 16px;
+    border:1px solid #e6e6e6;
+    box-shadow:0 4px 25px rgba(0,0,0,0.06);
+    text-align:left;
 }
+.project-card h3 { color:#ff7eb3; }
 
-.project-card h3 {
-  color:#ff7eb3;
-  margin-bottom: 8px;
-}
-
-/* CERT */
+/* ----------- CERT ----------- */
 .cert-grid {
-  max-width: 1150px;
-  margin:auto;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
 }
-
 .cert-card {
-  background:#fff;
-  padding: 25px;
-  border-radius: 14px;
-  border: 1px solid #e7e7e7;
-  box-shadow:0 4px 18px rgba(0,0,0,0.05);
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    border:1px solid #e6e6e6;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* TIMELINE */
+/* ----------- TIMELINE ----------- */
 .timeline {
-  max-width: 750px;
-  margin: auto;
+    max-width: 800px;
+    margin:auto;
 }
 .timeline-item {
-  text-align: left;
-  background: white;
-  padding: 20px 25px;
-  border-radius: 14px;
-  border: 1px solid #e7e7e7;
-  margin-bottom: 18px;
-  box-shadow:0 3px 14px rgba(0,0,0,0.05);
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    border:1px solid #e6e6e6;
+    margin-bottom:20px;
+    text-align:left;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
 }
 .timeline-item h3 { color:#ff7eb3; }
 
-/* CONTACT */
+/* ----------- CONTACT ----------- */
 .contact-grid {
-  max-width: 1150px;
-  margin:auto;
-  display: flex;
-  gap: 25px;
+    display:flex;
+    gap:30px;
 }
 
 .contact-box, .contact-form {
-  padding:25px;
-  background:white;
-  border-radius:14px;
-  border:1px solid #e7e7e7;
-  flex:1;
-  text-align:left;
+    flex:1;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    text-align:left;
 }
 
 input,textarea {
-  width:100%;
-  padding:12px;
-  margin-top:8px;
-  border-radius:8px;
-  border:1px solid #ddd;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    margin-top:8px;
+    border:1px solid #ddd;
 }
 
-/* FOOTER */
+/* ----------- FOOTER ----------- */
 footer {
-  padding:25px;
-  margin-top:80px;
-  text-align:center;
-  color:#777;
+    padding:40px;
+    text-align:center;
+    opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
 <header>
-  <div class="logo">NAMHYEOK PORTFOLIO</div>
+  <div class="logo">NAMHYEOK SECURITY</div>
   <nav class="nav">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -276,242 +255,296 @@ footer {
   </nav>
 </header>
 
-
 <!-- HERO -->
 <section id="home" class="hero">
-  <div class="hero-inner">
-    
-    <div class="hero-text">
+  <div class="container hero-grid">
+
+    <!-- LEFT -->
+    <div class="hero-left" data-aos="fade-right">
       <h1>
         안녕하세요.<br>
         저는 <span class="highlight">이남혁</span>입니다.
       </h1>
-      <p class="hero-desc">
-        웹 개발 → 서버 구축 → 네트워크 구성 → 보안 점검 → 모의해킹까지  
-        **서비스 전체를 이해하고 개선하는 엔지니어**입니다.
+      <p style="font-size:18px; opacity:0.8;">
+        웹 개발 → 서버 구축 → 네트워크 설계 → 보안 점검 → 모의해킹까지  
+        서비스 전체를 이해하고 개선하는 실전형 엔지니어입니다.
       </p>
 
-      <a href="#projects" class="btn btn-primary">프로젝트 보러가기</a>
-      <a href="#contact" class="btn btn-outline">연락하기</a>
+      <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+      <a class="btn btn-outline" href="#contact">연락하기</a>
     </div>
 
-    <div class="hero-card">
-      <h3>전문분야</h3>
-      <ul>
-        <li>웹 서비스 개발(PHP, JSP)</li>
-        <li>서버 구축 & 운영(Rocky Linux)</li>
-        <li>네트워크 설계(VLAN, 방화벽, DHCP)</li>
-        <li>보안 진단 & 모의해킹(OWASP)</li>
+    <!-- RIGHT -->
+    <div class="hero-card" data-aos="fade-left">
+      <div class="profile-img" style="background-image:url('profile.jpg');"></div>
+      <h3 style="text-align:center; margin-bottom:10px;">Security · Infra · Web Engineer</h3>
+      <ul style="font-size:15px; line-height:1.7;">
+        <li>웹 서비스 개발(PHP & JSP)</li>
+        <li>결제 API (Toss Payments) 연동</li>
+        <li>Kakao Map 기반 위치 서비스</li>
+        <li>서버 구축 (Rocky Linux)</li>
+        <li>네트워크 설계(VLAN · 방화벽)</li>
+        <li>보안 점검 및 모의해킹</li>
       </ul>
     </div>
 
   </div>
 </section>
-
 
 <!-- ABOUT -->
 <section id="about">
-  <h2>About Me</h2>
-  <p class="section-sub">서비스를 만들고, 공격하고, 다시 고치는 엔지니어</p>
+  <div class="container">
+    <h2 data-aos="fade-up">About Me</h2>
+    <p class="section-sub" data-aos="fade-up">서비스 전체를 설계하고 공격해본 경험이 강점입니다.</p>
 
-  <div class="about-box">
-    <div class="about-card">
-      <p>
-        저는 개발과 인프라, 네트워크, 보안까지  
-        **서비스 전체를 설계하고 관리할 수 있는 엔지니어**입니다.
-      </p>
-      <p>
-        특히 밥세권 서비스 개발 → 취약점 점검 → 인프라 재구축까지  
-        하나의 서비스를 완전히 다뤄본 경험은 실무에서도 큰 강점입니다.
-      </p>
-    </div>
+    <div class="about-grid">
 
-    <div class="about-card">
-      <h3>Key Identity</h3>
-      <ul>
-        <li>● 직접 구축하고 직접 공격해보는 실전형 엔지니어</li>
-        <li>● 서버/네트워크/보안 전체를 이해하는 풀스택 보안</li>
-        <li>● 논리적 설명·기술 문서 작성 능력 우수</li>
-        <li>● 팀 프로젝트 리드 경험 풍부</li>
-      </ul>
+      <div class="about-card" data-aos="fade-right">
+        <p>
+          저는 개발, 인프라, 네트워크, 보안까지 직접 구축하고 실전 공격까지 해본  
+          **Full-spectrum 보안 엔지니어**입니다.
+        </p>
+        <p>
+          특히 “밥세권 웹서비스 개발 → 취약점 점검 → 인프라 재구축” 프로젝트를 통해  
+          하나의 서비스를 **개발자·관리자·공격자** 관점에서 모두 이해한 경험이 있습니다.
+        </p>
+      </div>
+
+      <div class="about-card" data-aos="fade-left">
+        <h3 style="color:#ff758c">Strengths</h3>
+        <ul>
+          <li>✔ 프론트–백엔드–DB–서버–보안 전체 경험</li>
+          <li>✔ 실전 공격 시나리오 기반 모의해킹</li>
+          <li>✔ 네트워크 인프라 설계 가능</li>
+          <li>✔ 조직형 프로젝트 경험 (팀장 역할)</li>
+          <li>✔ 기술 문서화 능력 우수</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
-
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <p class="section-sub">웹 · 서버 · 네트워크 · 보안을 아우르는 역량</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Skills</h2>
+    <p class="section-sub" data-aos="fade-up">웹 · 서버 · 네트워크 · 보안 전체를 아우르는 역량</p>
 
-  <div class="skills-grid">
+    <div class="skills-grid">
 
-    <div class="skill-card">
-      <h3>Security & Pentest</h3>
-      <ul>
-        <li>OWASP Top 10 기반 취약점 분석</li>
-        <li>XSS / CSRF / SQL Injection / File Upload</li>
-        <li>세션 하이재킹 · 서버 취약점 점검</li>
-        <li>실제 공격 흐름 기반 모의해킹</li>
-      </ul>
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Security & Pentest</h3>
+        <ul>
+          <li>OWASP Top 10 취약점 진단</li>
+          <li>Stored/Reflected XSS, CSRF</li>
+          <li>SQL Injection (Boolean/Union/Time)</li>
+          <li>파일 업로드 기반 RCE</li>
+          <li>세션 하이재킹 / 고정 / 평문전송 분석</li>
+          <li>실제 서비스 공격 후 개선까지 경험</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Server & Infra</h3>
+        <ul>
+          <li>Rocky Linux 기반 서버 구축</li>
+          <li>SFTP / Log / Web / DB 서버 구축</li>
+          <li>MariaDB 백업 · 암호화 · 복구</li>
+          <li>Nginx/Apache 설정 및 보안 강화</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Network</h3>
+        <ul>
+          <li>VLAN & L3 인터-VLAN Routing</li>
+          <li>DHCP / DNS / NAT / Routing</li>
+          <li>방화벽 Zone & rich-rule 설계</li>
+          <li>VPN(GRE/IPSec) 구성</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Web Development</h3>
+        <ul>
+          <li>PHP(순수) & JSP/Servlet</li>
+          <li>Toss Payments 결제 API 연동</li>
+          <li>Kakao Map API 기반 위치 서비스</li>
+          <li>관리자 페이지 전체 개발</li>
+          <li>장바구니, 찜 목록, 주문 기능 구현</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Database</h3>
+        <ul>
+          <li>SQL 설계 & 정규화</li>
+          <li>MariaDB / Oracle</li>
+          <li>AES256 암호화 컬럼 사용</li>
+          <li>ERD 작성 & 모델링</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-aos="fade-up">
+        <h3>Tools</h3>
+        <ul>
+          <li>Burp Suite / OWASP ZAP</li>
+          <li>Nmap / Nikto / Metasploit</li>
+          <li>Wireshark 패킷 분석</li>
+          <li>VMware / Packet Tracer / GNS3</li>
+        </ul>
+      </div>
+
     </div>
-
-    <div class="skill-card">
-      <h3>Server & Infra</h3>
-      <ul>
-        <li>Rocky Linux 서버 구축 및 운영</li>
-        <li>MariaDB 구축 · 백업 · 암호화 · 복구</li>
-        <li>SFTP / Log / Web 서버 구성</li>
-        <li>SSL/TLS, 계정관리, 접근통제</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Network</h3>
-      <ul>
-        <li>본사–지사 네트워크 구성</li>
-        <li>VLAN 분리, 방화벽 정책 설계</li>
-        <li>DHCP / DNS / NAT / Routing</li>
-        <li>VPN / GRE / Subnetting</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Web Development</h3>
-      <ul>
-        <li>PHP 기반 웹 개발</li>
-        <li>JSP/Servlet 기반 웹 구조</li>
-        <li>REST API & MVC</li>
-        <li>보안 고려한 개발 경험</li>
-      </ul>
-    </div>
-
   </div>
 </section>
-
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
-  <p class="section-sub">직접 만들고 직접 공격해보며 완성한 프로젝트들</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Projects</h2>
+    <p class="section-sub" data-aos="fade-up">내가 직접 만들고 직접 공격해보고 다시 고친 프로젝트들</p>
 
-  <div class="project-grid">
+    <div class="project-grid">
 
-    <div class="project-card">
-      <h3>① 밥세권 웹서비스 구축</h3>
-      <p>결제 API 연동, 관리자 페이지, 게시판/입점 신청 기능, 포인트 기능 등 개발 후 취약점 점검까지 수행</p>
-      <a href="#" class="btn btn-outline">프로젝트 보기</a>
+      <!-- PROJECT 1 -->
+      <div class="project-card" data-aos="fade-up">
+        <h3>① 밥세권 웹서비스 구축</h3>
+        <p>
+          결제 인증 서비스 기반의 웹 플랫폼 개발.  
+          Toss Payments API로 결제 처리, Kakao Map API로 위치 기반 메뉴 표시.  
+          관리자 페이지 전체(회원 관리·상품 관리·매출 관리 등) 직접 개발.  
+          장바구니, 찜 목록, 상품 리스트, 포인트 충전 기능 구현.
+        </p>
+        <a class="btn btn-outline" href="#">프로젝트 상세보기</a>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card" data-aos="fade-up">
+        <h3>② 역삼대학교 서버 & 네트워크 구축</h3>
+        <p>
+          실제 대학 조직 구조 기반으로 VLAN 분리, DHCP/DNS/WEB/DB 서버 구축.  
+          AD 기반 계정관리, 방화벽 정책, NAT, 서버 존 분리까지  
+          소규모 학교 인프라 전체를 설계·구축한 실전 프로젝트.
+        </p>
+        <a class="btn btn-outline" href="#">프로젝트 상세보기</a>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card" data-aos="fade-up">
+        <h3>③ 밥세권 취약점 점검 & 인프라 재구축</h3>
+        <p>
+          Stored XSS 기반 관리자 계정 탈취, CSRF 기반 관리자 계정 삭제,  
+          파일 업로드 기반 RCE 공격 전체 수행 후,  
+          로그 분석 → 대응 정책 → 인프라 재구축까지 진행한 실전 모의해킹 프로젝트.
+        </p>
+        <a class="btn btn-outline" href="#">보안 보고서 보기</a>
+      </div>
+
     </div>
-
-    <div class="project-card">
-      <h3>② 역삼대학교 서버 & 네트워크 구축</h3>
-      <p>소규모 대학 인프라 전체 설계 — AD/DNS/DHCP/DB/WEB 서버 + VLAN 네트워크 구성</p>
-      <a href="#" class="btn btn-outline">프로젝트 보기</a>
-    </div>
-
-    <div class="project-card">
-      <h3>③ 밥세권 취약점 점검 & 인프라 재구축</h3>
-      <p>Stored XSS, CSRF 계정삭제, 파일업로드 RCE 실제 공격 후 로그 기반 대응 및 인프라 강화</p>
-      <a href="#" class="btn btn-outline">보안 보고서 보기</a>
-    </div>
-
   </div>
 </section>
 
-
-<!-- Certifications -->
+<!-- CERT -->
 <section id="cert">
-  <h2>Certifications</h2>
-  <p class="section-sub">보유 자격증</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Certifications</h2>
+    <p class="section-sub">보유 자격증</p>
 
-  <div class="cert-grid">
+    <div class="cert-grid">
 
-    <div class="cert-card">
-      <h3>네트워크관리사 2급</h3>
-      <a href="#">자격증 보기</a>
+      <div class="cert-card" data-aos="fade-up">
+        <h3>네트워크관리사 2급</h3>
+        <a href="#">자격증 보기</a>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up">
+        <h3>리눅스 마스터 2급</h3>
+        <a href="#">자격증 보기</a>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up">
+        <h3>SQLD</h3>
+        <a href="#">자격증 보기</a>
+      </div>
+
     </div>
-
-    <div class="cert-card">
-      <h3>리눅스 마스터 2급</h3>
-      <a href="#">자격증 보기</a>
-    </div>
-
-    <div class="cert-card">
-      <h3>SQLD</h3>
-      <a href="#">자격증 보기</a>
-    </div>
-
   </div>
 </section>
-
 
 <!-- TIMELINE -->
 <section id="timeline">
-  <h2>Timeline</h2>
-  <p class="section-sub">경험과 성장의 흐름</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Timeline</h2>
 
-  <div class="timeline">
+    <div class="timeline">
 
-    <div class="timeline-item">
-      <h3>2024 — 기반 다지기</h3>
-      <p>웹/서버/DB/네트워크 기초 학습</p>
+      <div class="timeline-item" data-aos="fade-up">
+        <h3>2024 — 기반 다지기</h3>
+        <p>웹, 서버, DB, 네트워크 기초 학습</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <h3>2025 상반기 — 개발 & 인프라 실전</h3>
+        <p>밥세권 웹서비스 최초 개발 / 서버 구축 / 로그 서버 등 다중 서버 구축</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <h3>2025 중반 — 네트워크 구축</h3>
+        <p>역삼대학교 네트워크 전체 설계 및 구축</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <h3>2025 하반기 — 모의해킹</h3>
+        <p>밥세권 서비스 실전 공격(Stored XSS · CSRF · RCE) 수행 후 재구축</p>
+      </div>
+
     </div>
-
-    <div class="timeline-item">
-      <h3>2025 상반기 — 인프라 구축 실전</h3>
-      <p>Rocky Linux 서버 / 네트워크 구성 프로젝트 진행</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>2025 하반기 — 취약점 점검 · 모의해킹</h3>
-      <p>밥세권 실전 취약점 점검 & 공격 · 대응 실습</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>현재 — 보안 엔지니어 성장 중</h3>
-      <p>서비스 전체를 이해하는 실전형 보안 엔지니어 목표</p>
-    </div>
-
   </div>
 </section>
-
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p class="section-sub">협업 및 문의 환영합니다.</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Contact</h2>
 
-  <div class="contact-grid">
+    <div class="contact-grid">
 
-    <div class="contact-box">
-      <h3>Information</h3>
-      <p><strong>Name:</strong> 이남혁</p>
-      <p><strong>Email:</strong> lnh929@naver.com</p>
-      <p><strong>GitHub:</strong> <a href="#">github.com/</a></p>
-      <p><strong>LinkedIn:</strong> <a href="#">링크 바로가기</a></p>
+      <div class="contact-box" data-aos="fade-right">
+        <h3>Information</h3>
+        <p><strong>Name:</strong> 이남혁</p>
+        <p><strong>Email:</strong> example@naver.com</p>
+        <p><strong>GitHub:</strong> <a href="#">github.com/</a></p>
+        <p><strong>LinkedIn:</strong> <a href="#">바로가기</a></p>
+      </div>
+
+      <form class="contact-form" data-aos="fade-left">
+        <h3>문의 보내기 (UI)</h3>
+
+        <label>이름</label>
+        <input type="text" placeholder="이름을 입력하세요">
+
+        <label>이메일</label>
+        <input type="email" placeholder="이메일을 입력하세요">
+
+        <label>내용</label>
+        <textarea rows="5" placeholder="문의 내용을 입력하세요"></textarea>
+
+        <button class="btn btn-primary" style="margin-top:20px;">전송</button>
+      </form>
+
     </div>
-
-    <form class="contact-form">
-      <h3>문의 보내기 (UI)</h3>
-      <label>이름</label>
-      <input type="text" placeholder="이름 입력">
-
-      <label>이메일</label>
-      <input type="email" placeholder="이메일 입력">
-
-      <label>메시지</label>
-      <textarea rows="5" placeholder="문의 내용을 작성하세요"></textarea>
-
-      <button class="btn btn-primary" style="margin-top:15px;">전송</button>
-    </form>
-
   </div>
 </section>
-
 
 <footer>
   © 2025 NAMHYEOK PORTFOLIO — All Rights Reserved.
 </footer>
+
+<!-- AOS Animation JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init();</script>
 
 </body>
 </html>
