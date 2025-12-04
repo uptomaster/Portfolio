@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BABSEGWON Backend | Namhyuk Portfolio</title>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/backend.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="backend-body">
+
+  <!-- ==========================================
+       HEADER (index.html 동일)
+  =========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/logo.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#cert">Certifications</a>
+        <a href="../index.html#timeline">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO
+  =========================================== -->
+  <section class="backend-hero" data-aos="fade-up">
+    <div class="backend-hero-inner">
+
+      <!-- LEFT -->
+      <div class="backend-hero-left">
+        <h1 class="backend-hero-title">밥세권 Backend Engineering</h1>
+        <p class="backend-hero-desc">
+          <strong>밥세권</strong>은 지역 기반의 <strong>유통기한 임박·즉석조리 상품 할인 플랫폼</strong>으로,  
+          소비자에게 가까운 매장의 상품을 빠르게 연결하는 Web 서비스를 목표로 합니다.<br><br>
+
+          저는 본 프로젝트에서  
+          <strong>상품조회 → 장바구니 → 결제(Toss API) → 관리자 페이지 전체</strong>까지  
+          핵심 백엔드 기능들을 책임지고 개발했습니다.
+        </p>
+
+        <div class="backend-tags">
+          <span>#Backend</span>
+          <span>#JSP/Servlet</span>
+          <span>#MVC2</span>
+          <span>#TossPayments</span>
+          <span>#Admin Panel</span>
+        </div>
+      </div>
+
+      <!-- RIGHT — LOGO -->
+      <div class="backend-hero-right">
+        <div class="backend-logo-card">
+          <img src="../assets/img/babsegwon.png" alt="밥세권 로고">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION: WHAT / WHY / HOW / RESULT
+  =========================================== -->
+  <section class="backend-section">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">프로젝트 핵심 설명</h2>
+
+      <div class="info-grid">
+
+        <!-- WHAT -->
+        <div class="info-card" data-aos="fade-right">
+          <h3>What</h3>
+          <p>
+            밥세권 Web 서비스의 <strong>전체 구매 흐름</strong>과  
+            <strong>관리자(Admin) 기능 전체</strong>를 백엔드에서 단독 개발했습니다.
+          </p>
+        </div>
+
+        <!-- WHY -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>Why</h3>
+          <p>
+            픽업 기반 지역 플랫폼 특성상  
+            <strong>가게 간 상품 혼합 불가</strong>,  
+            <strong>재고/상태 검증</strong>,  
+            <strong>주문 무결성</strong>이 필수이기 때문입니다.
+          </p>
+        </div>
+
+        <!-- HOW -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>How</h3>
+          <p>
+            MVC2 패턴 기반으로  
+            Controller 단에서  
+            <strong>예외 검증 → Redirect 처리 → Snapshot 보존</strong>을 수행하고  
+            Toss API 연동은 환경변수 기반 보안설계를 적용했습니다.
+          </p>
+        </div>
+
+        <!-- RESULT -->
+        <div class="info-card" data-aos="fade-left">
+          <h3>Result</h3>
+          <p>
+            결제 승인/취소 흐름이 안정화되고  
+            관리자가 모든 서비스 활동을 통합 관리할 수 있는  
+            <strong>완전한 운영용 Admin Panel</strong>이 완성되었습니다.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FLOW TIMELINE (네온)
+  =========================================== -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">전체 기능 흐름도</h2>
+
+      <div class="backend-timeline" data-aos="fade-up">
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">01</span>
+          <h3>StoreListController</h3>
+          <p>검색어 필터링 · 페이지네이션 · 목록 포워딩</p>
+        </div>
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">02</span>
+          <h3>StoreDetailController</h3>
+          <p>상품번호 검증 → 없는 경우 Redirect → 상세 데이터 로드</p>
+        </div>
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">03</span>
+          <h3>CartListChangeStoreConfirmController</h3>
+          <p>기존 장바구니와 다른 가게 상품 시 Confirm 페이지 제공</p>
+        </div>
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">04</span>
+          <h3>CartListChangeOkController</h3>
+          <p>스냅샷 생성 → 재고/상태 검증 → 장바구니 갱신</p>
+        </div>
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">05</span>
+          <h3>PaymentReadyController</h3>
+          <p>주문금액 계산 · clientKey로 Toss API 준비</p>
+        </div>
+
+        <div class="backend-timeline-item">
+          <span class="timeline-step">06</span>
+          <h3>PaymentApproveOkController</h3>
+          <p>secretKey로 승인 처리 → DB 저장 → 성공 페이지</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SCREENSHOT GRID (1:1)
+  =========================================== -->
+  <section class="backend-section">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">기능 화면 캡쳐</h2>
+
+      <div class="screenshot-grid">
+
+        <div class="shot-card" data-aos="zoom-in">
+          <img src="../assets/img/dummy1.png" alt="screen" />
+        </div>
+
+        <div class="shot-card" data-aos="zoom-in" data-aos-delay="50">
+          <img src="../assets/img/dummy2.png" alt="screen" />
+        </div>
+
+        <div class="shot-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="../assets/img/dummy3.png" alt="screen" />
+        </div>
+
+        <div class="shot-card" data-aos="zoom-in" data-aos-delay="150">
+          <img src="../assets/img/dummy4.png" alt="screen" />
+        </div>
+
+        <div class="shot-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="../assets/img/dummy5.png" alt="screen" />
+        </div>
+
+        <div class="shot-card" data-aos="zoom-in" data-aos-delay="250">
+          <img src="../assets/img/dummy6.png" alt="screen" />
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ADMIN SECTION
+  =========================================== -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">관리자(Admin) 기능 요약</h2>
+
+      <div class="admin-grid">
+
+        <div class="admin-card" data-aos="fade-right">
+          <h3>대시보드</h3>
+          <p>주문/재고/회원 현황을 시각화하여 운영자가 즉시 확인</p>
+        </div>
+
+        <div class="admin-card" data-aos="fade-left">
+          <h3>회원 관리</h3>
+          <p>회원 상세정보, 경고/정지 처리, 블랙리스트 관리</p>
+        </div>
+
+        <div class="admin-card" data-aos="fade-right">
+          <h3>신고 관리</h3>
+          <p>게시글/댓글 신고 접수 → 조치 → 자동 반영</p>
+        </div>
+
+        <div class="admin-card" data-aos="fade-left">
+          <h3>게시글 관리</h3>
+          <p>게시글 조회, 댓글 조회, 삭제/블라인드 기능</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PDF SECTION
+  =========================================== -->
+  <section class="backend-section">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">발표자료 PDF</h2>
+
+      <div class="backend-pdf-box" data-aos="zoom-in">
+        <p>프로젝트 발표자료를 아래 버튼을 통해 다운로드할 수 있습니다.</p>
+
+        <a href="../assets/pdf/babsegwon_backend_presentation.pdf" class="backend-btn" download>
+          📄 PDF 다운로드
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+  <footer class="backend-footer">
+    © 2025 NAMHYUK · Backend Engineering Portfolio
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/backend.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>

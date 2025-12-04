@@ -1,0 +1,399 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+:root {
+  --purple-dark: #1B1140;
+  --purple-mid: #261A5C;
+  --text-light: #F5F5FF;
+  --text-dim: #CFCFE8;
+  --neon-blue: #4DA3FF;
+  --neon-purple: #A17CFF;
+}
+
+.backend-body {
+  background: linear-gradient(180deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
+  color: var(--text-light);
+  font-family: "Pretendard", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Container */
+.backend-container {
+  width: 92%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.backend-hero {
+  padding: 130px 0 110px;
+}
+
+.backend-hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  max-width: 1300px;
+  width: 92%;
+  margin: auto;
+}
+
+.backend-hero-left {
+  flex: 1;
+  min-width: 480px;
+}
+
+.backend-hero-title {
+  font-size: 2.9rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #E5D4FF, #B395FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.backend-hero-desc {
+  margin-top: 18px;
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+/* Tags */
+.backend-tags {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.backend-tags span {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  color: var(--neon-blue);
+  font-weight: 600;
+}
+
+/* RIGHT – LOGO CARD */
+.backend-hero-right {
+  flex: 0 0 230px;
+  display: flex;
+  justify-content: center;
+}
+
+.backend-logo-card {
+  width: 230px;
+  height: 230px;
+  padding: 28px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 25px var(--neon-blue),
+    0 0 35px var(--neon-purple);
+}
+
+.backend-logo-card img {
+  width: 85%;
+  height: auto;
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+.backend-section {
+  padding: 100px 0;
+}
+
+.backend-section-alt {
+  padding: 100px 0;
+  background: rgba(255,255,255,0.03);
+}
+
+.backend-section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 55px;
+
+  background: linear-gradient(90deg, #E5D4FF, #C29EFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   WHAT / WHY / HOW / RESULT — INFO CARDS
+========================================================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.info-card {
+  padding: 32px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  transition: 0.25s;
+
+  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+}
+
+.info-card:hover {
+  box-shadow:
+    0 0 25px var(--neon-blue),
+    0 0 35px var(--neon-purple);
+}
+
+.info-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #E7D4FF;
+}
+
+.info-card p {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TIMELINE (네온 버전)
+========================================================= */
+.backend-timeline {
+  border-left: 3px solid rgba(255,255,255,0.25);
+  padding-left: 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.backend-timeline-item {
+  margin-bottom: 55px;
+  position: relative;
+  padding-left: 5px;
+  transition: 0.25s ease;
+}
+
+.backend-timeline-item::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+
+  background: var(--neon-blue);
+  border: 4px solid var(--neon-purple);
+  border-radius: 50%;
+
+  position: absolute;
+  left: -51px;
+  top: 3px;
+
+  box-shadow:
+    0 0 15px var(--neon-blue),
+    0 0 25px var(--neon-purple);
+}
+
+.timeline-step {
+  font-size: 0.95rem;
+  color: #A7D2FF;
+  font-weight: 700;
+}
+
+.backend-timeline-item h3 {
+  margin-top: 6px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #E8D6FF;
+}
+
+.backend-timeline-item p {
+  margin-top: 6px;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* Highlight when visible (JS adds .timeline-active) */
+.timeline-active {
+  transform: translateX(8px);
+  filter: drop-shadow(0 0 20px var(--neon-blue));
+}
+
+/* =========================================================
+   SCREENSHOT GRID (1:1)
+========================================================= */
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.shot-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+
+  transition: 0.25s;
+}
+
+.shot-card:hover {
+  box-shadow:
+    0 0 30px var(--neon-blue),
+    0 0 40px var(--neon-purple);
+}
+
+.shot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   ADMIN GRID
+========================================================= */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.admin-card {
+  padding: 32px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+  transition: 0.25s;
+}
+
+.admin-card:hover {
+  box-shadow:
+    0 0 28px var(--neon-blue),
+    0 0 38px var(--neon-purple);
+}
+
+.admin-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #E6D4FF;
+}
+
+.admin-card p {
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+
+/* =========================================================
+   PDF DOWNLOAD
+========================================================= */
+.backend-pdf-box {
+  padding: 45px;
+  text-align: center;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 22px var(--neon-blue),
+    0 0 32px var(--neon-purple);
+}
+
+.backend-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 14px 28px;
+
+  background: var(--neon-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+
+  border-radius: 14px;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 18px var(--neon-blue),
+    0 0 28px var(--neon-purple);
+
+  transition: 0.25s;
+}
+
+.backend-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 35px var(--neon-blue),
+    0 0 40px var(--neon-purple);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.backend-footer {
+  text-align: center;
+  padding: 45px 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1020px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .screenshot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .backend-hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .backend-hero-right {
+    margin-top: 20px;
+  }
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
