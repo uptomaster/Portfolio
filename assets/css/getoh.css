@@ -1,0 +1,506 @@
+/* =========================================================
+   GETOH PROJECT — GOLD NEON THEME
+   Dark Mode + Gold Glow Grid + Neon Animation
+========================================================= */
+/* =========================================================
+   GLOBAL (UPDATED PADDING / LEFT-RIGHT SPACING)
+========================================================= */
+
+.gold-container {
+  width: 90%;
+  max-width: 1150px; /* 기존 1300 → 1150로 조정 (여백 확보) */
+  margin: 0 auto;
+  padding-left: 20px;   /* 새로 추가 */
+  padding-right: 20px;  /* 새로 추가 */
+}
+
+/* 섹션 자체도 좌우 여백 확보 */
+.gold-section,
+.gold-section-alt {
+  padding: 110px 0;
+  padding-left: 20px;    /* 추가 */
+  padding-right: 20px;   /* 추가 */
+}
+
+/* HERO 영역도 더 넉넉하게 */
+.gold-hero-inner {
+  width: 90%;
+  max-width: 1150px; 
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+
+/* GRID 구조도 약간 숨통 틔우기 */
+.summary-grid,
+.role-grid,
+.ps-grid,
+.shot-grid {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* TIMELINE 여백 확보 */
+.gold-timeline {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* ---------------------------
+   ROOT COLORS
+---------------------------- */
+:root {
+  --bg-dark: #0A0A0F;
+  --bg-grid: rgba(255, 255, 255, 0.03);
+
+  --gold-light: #FFE08A;
+  --gold-main: #FFD24C;
+  --gold-deep: #FFB300;
+
+  --gold-glow-1: rgba(255, 210, 76, 0.55);
+  --gold-glow-2: rgba(255, 179, 0, 0.75);
+
+  --card-bg: rgba(255,255,255,0.05);
+  --card-border: rgba(255, 210, 76, 0.32);
+
+  --text-light: #FFF4D6;
+  --text-dim: #C8BFA3;
+}
+
+/* ---------------------------
+   GLOBAL
+---------------------------- */
+.gold-body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: "Pretendard", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Cyber Grid Background */
+.gold-body::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: -2;
+}
+
+.gold-container {
+  width: 92%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.gold-section {
+  padding: 100px 0;
+}
+
+.gold-section-alt {
+  padding: 100px 0;
+  background: rgba(255,255,255,0.02);
+}
+
+.gold-section-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-main));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 55px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.gold-hero {
+  padding: 150px 0 120px;
+}
+
+.gold-hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+  width: 92%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.gold-hero-left {
+  flex: 1;
+  min-width: 440px;
+}
+
+.gold-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-main));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-subtitle {
+  margin-top: 12px;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  opacity: 0.8;
+}
+
+.gold-desc {
+  margin-top: 22px;
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+.gold-tag-box {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gold-tag-box span {
+  padding: 8px 17px;
+  border-radius: 28px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  color: var(--gold-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  backdrop-filter: blur(6px);
+}
+
+.gold-hero-right {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+}
+
+.gold-logo-card {
+  width: 260px;
+  height: 260px;
+  padding: 28px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 35px var(--gold-glow-1), 0 0 55px var(--gold-glow-2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gold-logo-card img {
+  width: 85%;
+}
+
+
+/* Mobile HERO */
+@media (max-width: 860px) {
+  .gold-hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .gold-hero-right {
+    order: -1;
+  }
+}
+
+
+/* =========================================================
+   SUMMARY (What / Why / How / Result)
+========================================================= */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.summary-card {
+  padding: 32px;
+  border-radius: 22px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 22px var(--gold-glow-1);
+}
+
+.summary-card h3 {
+  color: var(--gold-main);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.summary-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 650px) {
+  .summary-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   PROBLEM → SOLUTION
+========================================================= */
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.ps-card {
+  padding: 32px;
+  border-radius: 22px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 24px var(--gold-glow-1);
+}
+
+.ps-card h3 {
+  color: var(--gold-main);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.problem {
+  color: #ff7e7e;
+  margin-bottom: 8px;
+}
+
+.solution {
+  color: #C9FFBF;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ps-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   MY ROLE
+========================================================= */
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.role-card {
+  padding: 32px;
+  border-radius: 22px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 22px var(--gold-glow-1);
+}
+
+.role-card h3 {
+  color: var(--gold-main);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.role-card p {
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .role-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 650px) {
+  .role-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   TOPOLOGY
+========================================================= */
+
+.topology-box {
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 22px;
+
+  border-radius: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  box-shadow: 0 0 28px var(--gold-glow-2);
+}
+
+.topology-box img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.gold-timeline {
+  border-left: 3px solid rgba(255, 210, 76, 0.35);
+  padding-left: 40px;
+  margin-top: 40px;
+}
+
+.gold-timeline-item {
+  margin-bottom: 55px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+}
+
+.gold-timeline-item::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: var(--gold-main);
+  border-radius: 50%;
+  border: 4px solid var(--gold-deep);
+  position: absolute;
+  left: -48px;
+
+  box-shadow: 0 0 20px var(--gold-glow-1);
+}
+
+.gold-timeline-item h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gold-main);
+}
+
+.gold-timeline-item p {
+  margin-top: 6px;
+  color: var(--text-dim);
+}
+
+/* Active (JS에서 붙음) */
+.timeline-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  filter: drop-shadow(0 0 25px var(--gold-glow-1));
+}
+
+
+/* =========================================================
+   SCREENSHOTS
+========================================================= */
+
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.shot-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  box-shadow: 0 0 22px var(--gold-glow-1);
+}
+
+.shot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .shot-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .shot-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   PDF & BUTTONS
+========================================================= */
+
+.pdf-box {
+  text-align: center;
+}
+
+.pdf-btn {
+  display: inline-block;
+  padding: 14px 32px;
+
+  background: var(--gold-main);
+  color: #000;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+
+  box-shadow: 0 0 25px var(--gold-glow-1);
+  transition: 0.32s ease-in-out;
+}
+
+.pdf-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px var(--gold-glow-2);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.gold-footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
