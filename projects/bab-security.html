@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BABSEGWON Security Project | Namhyuk Portfolio</title>
+
+  <!-- Common Header CSS -->
+  <link rel="stylesheet" href="../assets/css/common_header.css" />
+
+  <!-- Deep Crimson Cyber Theme -->
+  <link rel="stylesheet" href="../assets/css/bab-security.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bab-body">
+
+  <!-- ==========================================
+       HEADER (index.html 동일)
+  =========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/logo.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#cert">Certifications</a>
+        <a href="../index.html#timeline">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+<!-- =========================================================
+      HERO
+========================================================= -->
+<section class="bab-hero">
+  <div class="bab-hero-inner">
+
+    <!-- LEFT -->
+    <div class="bab-hero-left">
+      <h1 class="bab-hero-title">밥세권 서비스 취약점 점검 및 인프라 재구축</h1>
+      <p class="bab-hero-subtitle">
+        Linux 보안 점검 · DBMS 보안 · PHP 웹 서버 재구축 · 모의해킹 기반 취약점 분석
+      </p>
+
+      <p class="bab-hero-desc">
+        본 프로젝트는 “푸드파이터 팀”이 밥세권 서비스의 보안 취약점을 진단하고,  
+        HQ ↔ BR 양방향 백업 체계, DB 이중화, PHP 웹 서버 보안 설정을 재정비하며  
+        운영 안정성을 극대화하는 인프라 재구축 프로젝트입니다.
+      </p>
+
+      <div class="bab-tag-box">
+        <span>#Security Hardening</span>
+        <span>#Linux Audit</span>
+        <span>#DB Replication</span>
+        <span>#Backup Infra</span>
+        <span>#Pentesting</span>
+      </div>
+    </div>
+
+    <!-- RIGHT — TEAM LOGO -->
+    <div class="bab-hero-right">
+      <div class="bab-logo-card">
+        <img src="../assets/img/foodfighter.png" alt="team logo" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      SUMMARY (WHAT / WHY / HOW / RESULT)
+========================================================= -->
+<section class="bab-section">
+  <div class="bab-container">
+
+    <h2 class="bab-section-title">프로젝트 핵심 요약</h2>
+
+    <div class="bab-summary-grid">
+
+      <div class="bab-summary-card">
+        <h3>WHAT</h3>
+        <p>밥세권 서비스 전체 인프라(Linux · DBMS · PHP Web · Backup) 보안 재구축</p>
+      </div>
+
+      <div class="bab-summary-card">
+        <h3>WHY</h3>
+        <p>침투 시나리오 기반 관리자 페이지 장악 → 서비스 중단 위험 확인</p>
+      </div>
+
+      <div class="bab-summary-card">
+        <h3>HOW</h3>
+        <p>보안 점검(U-01~72) + 취약점 분석 + 백업/DB 이중화 + 웹 보안 강화</p>
+      </div>
+
+      <div class="bab-summary-card">
+        <h3>RESULT</h3>
+        <p>보안수준 향상 · 안정화된 서비스 운영 · 재해복구 시간(RTO) 대폭 감소</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      SERVER ROLES
+========================================================= -->
+<section class="bab-section bab-section-alt">
+  <div class="bab-container">
+
+    <h2 class="bab-section-title">본사·지사 서버 역할</h2>
+
+    <div class="bab-server-grid">
+
+      <div class="bab-server-card">
+        <h3>HQ_DB_SEC</h3>
+        <p>본사 MariaDB Master 서버 · DB 보안 정책 및 로그 감사 적용</p>
+      </div>
+
+      <div class="bab-server-card">
+        <h3>HQ_SFTP_SEC</h3>
+        <p>SSH Key 기반 백업 수신 · 부서별 격리 디렉토리 구성</p>
+      </div>
+
+      <div class="bab-server-card">
+        <h3>HQ_LOG_SEC</h3>
+        <p>로그 수집 및 분석 환경 구축 (syslog / logrotate / 접근 추적)</p>
+      </div>
+
+      <div class="bab-server-card">
+        <h3>HQ_MAIL_SEC</h3>
+        <p>Postfix 기반 사내 메일 시스템 · TLS 강화 및 인증 로그 분석</p>
+      </div>
+
+      <div class="bab-server-card">
+        <h3>BR_BACKUP_SEC</h3>
+        <p>지사 백업 서버 · HQ/BR 양방향 rsync 백업 허브</p>
+      </div>
+
+      <div class="bab-server-card">
+        <h3>BR_PHP_SEC</h3>
+        <p>밥세권 웹서비스 PHP 서버 · 관리자 페이지 보안 설정 강화</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      PROBLEM → SOLUTION
+========================================================= -->
+<section class="bab-section">
+  <div class="bab-container">
+    <h2 class="bab-section-title">문제 → 해결 방식</h2>
+
+    <div class="bab-ps-grid">
+      <div class="bab-ps-card">
+        <h3>보안 취약점 다수 발견</h3>
+        <p class="problem">저장형 XSS · CSRF · Session Fixation · Plain Password</p>
+        <p class="solution">관리자 페이지 전체 인증/세션 구조 개선 & 필터링 적용</p>
+      </div>
+
+      <div class="bab-ps-card">
+        <h3>백업 체계 부재</h3>
+        <p class="problem">한쪽 서버 장애 시 즉시 복구 불가</p>
+        <p class="solution">HQ ↔ BR 양방향 rsync 기반 백업 구조 완성</p>
+      </div>
+
+      <div class="bab-ps-card">
+        <h3>DB 단일 장애점</h3>
+        <p class="problem">Master 장애 시 서비스 중단</p>
+        <p class="solution">Master ↔ Slave DB 복제(MariaDB Replication) 구축</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      TIMELINE
+========================================================= -->
+<section class="bab-section bab-section-alt">
+  <div class="bab-container">
+
+    <h2 class="bab-section-title">작업 타임라인</h2>
+
+    <div class="bab-timeline">
+
+      <div class="bab-timeline-item">
+        <h3>Day 1 — 요구사항 분석 & 침투 시나리오 작성</h3>
+        <p>밥세권 서비스 침투 루트 및 관리자 페이지 권한 탈취 실험</p>
+      </div>
+
+      <div class="bab-timeline-item">
+        <h3>Day 2 — Linux HQ 서버 점검(U-01~72)</h3>
+        <p>root 접근 통제, 패스워드 정책, 접근제어, 로깅 강화</p>
+      </div>
+
+      <div class="bab-timeline-item">
+        <h3>Day 3 — DB 이중화 구축(Master → Slave)</h3>
+        <p>binlog 설정 · CHANGE MASTER TO · 복제 테스트 완료</p>
+      </div>
+
+      <div class="bab-timeline-item">
+        <h3>Day 4 — HQ↔BR 백업 구조 완성</h3>
+        <p>rsync + SSH Key 자동 백업 + 날짜별 정리 스크립트</p>
+      </div>
+
+      <div class="bab-timeline-item">
+        <h3>Day 5 — 관리자 페이지 취약점 조치</h3>
+        <p>XSS/CSRF/Session 구조 개선 + HTTPS 적용 권고</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      SCREENSHOTS 2x2
+========================================================= -->
+<section class="bab-section">
+  <div class="bab-container">
+
+    <h2 class="bab-section-title">작업 화면 캡처</h2>
+
+    <div class="bab-shot-grid">
+      <div class="bab-shot-card"><img src="../assets/img/bab1.png" /></div>
+      <div class="bab-shot-card"><img src="../assets/img/bab2.png" /></div>
+      <div class="bab-shot-card"><img src="../assets/img/bab3.png" /></div>
+      <div class="bab-shot-card"><img src="../assets/img/bab4.png" /></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================================================
+      PDF DOWNLOAD
+========================================================= -->
+<section class="bab-section bab-section-alt">
+  <div class="bab-container">
+    <h2 class="bab-section-title">보고서 다운로드</h2>
+
+    <div class="pdf-box">
+      <a href="../assets/pdf/bab-security.pdf" class="pdf-btn" download>PDF 다운로드</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="bab-footer">
+  © 2025 NAMHYUK · BABSEGWON Security Engineering
+</footer>
+
+<script src="../assets/js/bab-security.js"></script>
+</body>
+</html>

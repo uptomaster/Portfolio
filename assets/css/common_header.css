@@ -1,0 +1,73 @@
+/* =========================================================
+   COMMON HEADER (메인 포트폴리오와 완전 동일)
+========================================================= */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 92%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* ---------------------------
+   HEADER
+---------------------------- */
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: .25s;
+}
+
+.nav a:hover {
+  color: #0066ff;
+}
