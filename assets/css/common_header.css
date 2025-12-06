@@ -71,3 +71,20 @@ img {
 .nav a:hover {
   color: #0066ff;
 }
+
+@media (max-width: 768px) {
+  header .nav {
+    display: none !important;
+    flex-direction: column !important;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  header .nav.active {
+    display: flex !important;
+  }
+}
