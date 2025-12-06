@@ -8,8 +8,10 @@
 }
 
 a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: inherit;        /* 부모 요소(li 등)의 글자색 상속 */
+  text-decoration: none;
+  /* 밑줄 제거 */
+  color: inherit;
+  /* 부모 요소(li 등)의 글자색 상속 */
   font-weight: bold;
 }
 
@@ -17,7 +19,7 @@ body {
   font-family: "Pretendard", "Montserrat", sans-serif;
   background: #f7f9fc;
   color: #222;
-  line-height: 1.65;
+  /* line-height: 1.65; */
   overflow-x: hidden;
 }
 
@@ -89,12 +91,10 @@ img {
 ---------------------------- */
 .hero {
   padding: 120px 0 100px;
-  background: linear-gradient(
-      135deg,
+  background: linear-gradient(135deg,
       #d6e8ff 0%,
       #e9e5ff 40%,
-      #ffe9f6 100%
-  );
+      #ffe9f6 100%);
 }
 
 .hero-container {
@@ -257,6 +257,8 @@ img {
   gap: 30px;
 }
 
+/* 프로젝트 카드 공통 스타일 */
+/* 카드 기본 스타일 */
 .project-card {
   background: #ffffff;
   border-radius: 22px;
@@ -264,6 +266,15 @@ img {
   border: 1px solid #d6e4ff;
   box-shadow: 0 8px 18px rgba(0, 60, 140, 0.08);
   transition: 0.3s;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  /* 핵심!! 전체 카드 높이를 통일 */
+  min-height: 400px;
+
+  padding-bottom: 110px; /* 버튼 공간 확보 */
 }
 
 .project-card:hover {
@@ -271,6 +282,7 @@ img {
   box-shadow: 0 14px 26px rgba(0, 60, 150, 0.13);
 }
 
+/* 제목 */
 .project-card h3 {
   font-size: 1.35rem;
   font-weight: 800;
@@ -278,12 +290,14 @@ img {
   margin-bottom: 15px;
 }
 
+/* 설명 */
 .project-card p {
   font-size: 1rem;
   line-height: 1.55;
   color: #333;
 }
 
+/* 태그 */
 .project-tags {
   margin-bottom: 12px;
   display: flex;
@@ -299,6 +313,38 @@ img {
   font-weight: 700;
   color: #0057ff;
 }
+
+/* ---------------------------
+   프로젝트 버튼 (카드 하단 고정)
+---------------------------- */
+/* 버튼 박스 */
+.project-btn-box {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+/* 버튼 */
+.project-detail-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4a8fff, #0066ff);
+  border-radius: 10px;
+  transition: 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 115, 255, 0.35);
+}
+
+.project-detail-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 140, 255, 0.55);
+}
+
 
 /* ---------------------------
    CERTIFICATIONS
@@ -396,6 +442,7 @@ img {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -406,6 +453,7 @@ img {
     flex-direction: column;
     text-align: center;
   }
+
   .skills-grid,
   .projects-grid,
   .cert-grid {
@@ -431,24 +479,36 @@ img {
   position: absolute;
   width: 100%;
   height: 3px;
-  background: #1DE8FF;              /* 네온 민트 */
+  background: #1DE8FF;
+  /* 네온 민트 */
   left: 0;
   border-radius: 3px;
   transition: 0.35s ease;
-  box-shadow: 0 0 6px #1DE8FF;       /* 네온 발광 효과 */
+  box-shadow: 0 0 6px #1DE8FF;
+  /* 네온 발광 효과 */
 }
 
-.nav-toggle span:nth-child(1) { top: 0; }
-.nav-toggle span:nth-child(2) { top: 11px; }
-.nav-toggle span:nth-child(3) { bottom: 0; }
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 11px;
+}
+
+.nav-toggle span:nth-child(3) {
+  bottom: 0;
+}
 
 /* 클릭 시 X 아이콘으로 변환 */
 .nav-toggle.open span:nth-child(1) {
   transform: translateY(11px) rotate(45deg);
 }
+
 .nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
+
 .nav-toggle.open span:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg);
 }
@@ -481,8 +541,15 @@ img {
 
   /* 등장 애니메이션 */
   @keyframes slideDown {
-    0% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* 햄버거 버튼 활성화 */
@@ -491,3 +558,69 @@ img {
   }
 }
 
+/* 네비게이션 내부 정렬 조정 */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;      /* 간격 일정하게 */
+}
+
+/* 드롭다운 전체 */
+.dropdown-wrapper {
+  position: relative;
+}
+
+/* 버튼 */
+.dropdown-btn {
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  white-space: nowrap;   /* 줄바꿈 방지 */
+  transition: .2s ease;
+}
+
+.dropdown-btn:hover {
+  /* background: rgba(255,255,255,0.15); */
+  color: gold;
+}
+
+/* 메뉴 */
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;                 /* 오른쪽 정렬 */
+  min-width: 160px;
+  background: rgba(20,20,45,0.96);
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  display: none;            /* 기본 숨김 */
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #dbe6ff;
+  font-size: 0.9rem;
+  transition: .2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}

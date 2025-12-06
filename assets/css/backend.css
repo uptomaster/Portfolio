@@ -171,14 +171,15 @@
 .info-card h3 {
   font-size: 1.35rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  line-height: 1.25 !important;
+  margin-bottom: 12px !important;
   color: #E7D4FF;
 }
 
 .info-card p {
   font-size: 1rem;
   color: var(--text-dim);
-  line-height: 1.6;
+  line-height: 1.6 !important;
 }
 
 /* =========================================================
@@ -703,3 +704,4 @@
     height: 52px;
   }
 }
+

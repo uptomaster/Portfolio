@@ -111,3 +111,22 @@ window.addEventListener("scroll", () => {
     header.style.boxShadow = "none";
   }
 });
+/* =========================================================
+    PROJECT DROPDOWN (클릭 시 토글)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("projectDropdownBtn");
+  const menu = document.getElementById("projectDropdownMenu");
+
+  if (btn && menu) {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("open");
+    });
+
+    // 화면 다른 곳 클릭하면 닫힘
+    document.addEventListener("click", () => {
+      menu.classList.remove("open");
+    });
+  }
+});

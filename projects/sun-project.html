@@ -15,6 +15,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/sun-project.css" />
+  <link rel="stylesheet" href="../assets/js/script.js" />
   <link rel="stylesheet" href="../assets/css/style.css" /> <!-- Header 통일 -->
   <link rel="icon" href="./assets/img/favicon.png">
 </head>
@@ -24,34 +25,46 @@
   <!-- ================================
        HEADER (메인과 동일한 화이트 헤더)
   ================================= -->
-<!-- HEADER -->
-<header class="header">
-  <div class="container nav-container">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
 
-    <div class="logo">
-      <img src="/assets/img/favicon.png" alt="logo">
-      <span>Portfolio</span>
+      <div class="logo">
+        <img src="/assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <!-- 햄버거 버튼 -->
+      <div id="navToggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- 네비게이션 메뉴 -->
+      <nav id="navMenu" class="nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#cert">Certifications</a>
+        <a href="../index.html#timeline">Timeline</a>
+
+        <div class="dropdown-wrapper">
+          <button id="projectDropdownBtn" class="dropdown-btn">Projects ▼</button>
+
+          <div id="projectDropdownMenu" class="dropdown-menu">
+            <a href="../index.html">포트폴리오</a>
+            <a href="./project_babsegwon_backend.html">밥세권</a>
+            <a href="./sun-project.html">YIT</a>
+            <a href="./bab-security.html">푸드파이터</a>
+            <a href="./getoh.html">GetOh!</a>
+          </div>
+        </div>
+      </nav>
+
     </div>
-
-    <!-- 햄버거 버튼 -->
-    <div id="navToggle" class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- 네비게이션 메뉴 -->
-    <nav id="navMenu" class="nav">
-      <a href="/index.html#home">Home</a>
-      <a href="/index.html#about">About</a>
-      <a href="/index.html#skills">Skills</a>
-      <a href="/index.html#projects">Projects</a>
-      <a href="/index.html#cert">Certifications</a>
-      <a href="/index.html#timeline">Timeline</a>
-    </nav>
-
-  </div>
-</header>
+  </header>
 
   <!-- ================================
        HERO SECTION
@@ -68,9 +81,9 @@
         </h2>
 
         <p class="sun-hero-desc">
-          실제 대학 환경을 모델링하여 <strong>네트워크 설계 → 서버 구축 → 보안 점검 → 운영 검증</strong>까지  
+          실제 대학 환경을 모델링하여 <strong>네트워크 설계 → 서버 구축 → 보안 점검 → 운영 검증</strong>까지
           인프라 전 과정을 직접 수행한 팀 프로젝트입니다.<br><br>
-          저는 <strong>팀장</strong>으로서 전체 구조 설계와 네트워크·서버·보안 파트를 하나로 잇는  
+          저는 <strong>팀장</strong>으로서 전체 구조 설계와 네트워크·서버·보안 파트를 하나로 잇는
           <strong>통합 운영 책임자 역할</strong>을 맡았습니다.
         </p>
 
@@ -105,7 +118,7 @@
         <div class="summary-card" data-aos="fade-up">
           <h3>What</h3>
           <p>
-            실제 대학을 모델링하여 네트워크 인프라, 서버(FTP/TFTP/DNS),  
+            실제 대학을 모델링하여 네트워크 인프라, 서버(FTP/TFTP/DNS),
             보안체계를 구축하고 운영 가능한 서비스를 만드는 것이 목표였습니다.
           </p>
         </div>
@@ -120,7 +133,7 @@
         <div class="summary-card" data-aos="fade-up" data-aos-delay="100">
           <h3>How</h3>
           <p>
-            VLSM 기반 IP 설계, Static/PAT NAT 구성, Rocky Linux 서버 구축,  
+            VLSM 기반 IP 설계, Static/PAT NAT 구성, Rocky Linux 서버 구축,
             방화벽·SELinux·접근제어 기반 보안점검, GNS3 시뮬레이션 전체 연동을 수행했습니다.
           </p>
         </div>
@@ -128,7 +141,7 @@
         <div class="summary-card" data-aos="fade-up" data-aos-delay="150">
           <h3>Result</h3>
           <p>
-            FTP/TFTP/DNS 서버가 모두 정상 운영되었고,  
+            FTP/TFTP/DNS 서버가 모두 정상 운영되었고,
             내부→서버존→외부 ISP 간 End-to-End 통신이 완전 검증되었습니다.
           </p>
         </div>
@@ -164,7 +177,7 @@
         <div class="role-card" data-aos="fade-right">
           <h3>팀장(Leader)</h3>
           <p>
-            전체 일정 관리,회의록 작성, 작업 로그 수집·정리,  
+            전체 일정 관리,회의록 작성, 작업 로그 수집·정리,
             네트워크/서버/보안 파트 조율을 담당했습니다.
           </p>
         </div>
@@ -172,7 +185,7 @@
         <div class="role-card" data-aos="fade-up">
           <h3>네트워크 설계</h3>
           <p>
-            VLSM 기반 대역 설계, NAT(Static/PAT) 구성,  
+            VLSM 기반 대역 설계, NAT(Static/PAT) 구성,
             GNS3 라우팅 시뮬레이션 및 End-to-End 검증을 수행했습니다.
           </p>
         </div>
@@ -180,7 +193,7 @@
         <div class="role-card" data-aos="fade-left">
           <h3>서버 운영자</h3>
           <p>
-            FTP/TFTP/DNS 서버 구축, 계정 및 디렉토리 구조 설계,  
+            FTP/TFTP/DNS 서버 구축, 계정 및 디렉토리 구조 설계,
             기본 보안 정책(방화벽·SELinux·ACL) 적용을 담당했습니다.
           </p>
         </div>
@@ -234,9 +247,9 @@
         <div class="server-card" data-aos="fade-right">
           <h3>FTP 서버</h3>
           <p>
-            문서/자료 저장 서버  
-            · vsftpd  
-            · 교수/학생/관리부 디렉토리 분리  
+            문서/자료 저장 서버
+            · vsftpd
+            · 교수/학생/관리부 디렉토리 분리
             · setgid 기반 그룹 권한 유지
           </p>
         </div>
@@ -244,18 +257,18 @@
         <div class="server-card" data-aos="fade-up">
           <h3>TFTP 서버</h3>
           <p>
-            장비 설정 백업 서버  
-            · TFTP minimal security  
-            · router/firmware 디렉토리 분리  
+            장비 설정 백업 서버
+            · TFTP minimal security
+            · router/firmware 디렉토리 분리
           </p>
         </div>
 
         <div class="server-card" data-aos="fade-left">
           <h3>DNS 서버</h3>
           <p>
-            내부 도메인 관리  
-            · BIND(named)  
-            · 정방향/역방향 Zone 직접 작성  
+            내부 도메인 관리
+            · BIND(named)
+            · 정방향/역방향 Zone 직접 작성
             · yeoksam.ac.local 도메인 운영
           </p>
         </div>
@@ -346,7 +359,7 @@
       <h2 class="sun-section-title" data-aos="fade-up">팀 협업 구조</h2>
 
       <p class="collab-desc" data-aos="fade-up">
-        노션 기반 회의록·로그·설정파일 정리 시스템을 구축하여  
+        노션 기반 회의록·로그·설정파일 정리 시스템을 구축하여
         각 파트의 작업 흐름을 실시간으로 공유하고 충돌 없이 진행했습니다.
       </p>
 
@@ -387,4 +400,5 @@
   <script>AOS.init();</script>
 
 </body>
+
 </html>

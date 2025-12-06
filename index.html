@@ -25,33 +25,47 @@
   <!-- =========================================================
        HEADER (모바일 대응 완성본)
   ========================================================== -->
-<header class="header">
-  <div class="container nav-container">
+  <header class="header">
+    <div class="container nav-container">
 
-    <div class="logo">
-      <img src="assets/img/favicon.png" alt="logo">
-      <span>Portfolio</span>
+      <div class="logo">
+        <img src="assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <!-- 햄버거 버튼 추가 -->
+      <div id="navToggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- 네비게이션 메뉴 -->
+      <nav id="navMenu" class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#cert">Certifications</a>
+        <a href="#timeline">Timeline</a>
+
+        <!-- 클릭형 드롭다운 -->
+        <div class="dropdown-wrapper">
+          <button id="projectDropdownBtn" class="dropdown-btn">Projects ▼</button>
+
+          <div id="projectDropdownMenu" class="dropdown-menu">
+            <a href="./index.html">포트폴리오</a>
+            <a href="./projects/project_babsegwon_backend.html">밥세권</a>
+            <a href="./projects/sun-project.html">YIT</a>
+            <a href="./projects/bab-security.html">푸드파이터</a>
+            <a href="./projects/getoh.html">GetOh!</a>
+          </div>
+        </div>
+      </nav>
+
+
     </div>
-
-    <!-- 햄버거 버튼 추가 -->
-    <div id="navToggle" class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- 네비게이션 메뉴 -->
-    <nav id="navMenu" class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#cert">Certifications</a>
-      <a href="#timeline">Timeline</a>
-    </nav>
-
-  </div>
-</header>
+  </header>
 
   <!-- =========================================================
        HERO (이하 기존 내용 그대로 유지)
@@ -163,50 +177,85 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <h3>밥세권 웹서비스 구축</h3>
-          <div class="project-tags">
-            <span>#Java</span><span>#JSP</span><span>#TossPayments</span>
-            <span>#KakaoMap</span><span>#MariaDB</span>
-          </div>
-          <p>
-            결제/지도 API 연동, 관리자 페이지 전체 개발,
-            장바구니·찜·상품/주문 관리까지 구현한 실제 서비스 수준의 프로젝트.
-          </p>
+          <h3>밥세권 웹서비스 구축<br>팀프로젝트</h3>
 
-          <a href="./projects/project_babsegwon_backend.html" class="project-detail-btn">
-            밥세권 프로젝트 이동 →
-          </a>
+          <div class="project-tags">
+            <span>#Java</span>
+            <span>#JSP/Servlet</span>
+            <span>#TossPayments</span>
+            <span>#KakaoMap</span>
+            <span>#OracleDB</span>
+          </div>
+
+          <p>
+            지역 기반 재고 최적화 플랫폼 “밥세권”의 웹서비스를 구축한 프로젝트로,<br>
+            상품 조회 → 장바구니 → 결제(Toss API) → 주문 처리까지의
+            <strong>전체 백엔드 흐름을 직접 개발</strong>했습니다.<br><br>
+
+            Kakao Map 기반 매장 매칭, 관리자(Admin) 운영 기능,
+            커뮤니티·배너·회원 관리 등<br>
+            <strong>실제 서비스 수준의 기능을 End-to-End로 구현한 팀프로젝트</strong>입니다.
+          </p>
+          <div class="project-btn-box">
+            <a href="./projects/project_babsegwon_backend.html" class="project-detail-btn">
+              EAT-IT 프로젝트 이동 →
+            </a>
+          </div>
         </div>
+
 
         <div class="project-card">
-          <h3>대학 네트워크·서버 인프라 구축</h3>
-          <div class="project-tags">
-            <span>#PacketTracer</span><span>#RockyLinux</span><span>#DNS</span>
-          </div>
-          <p>
-            VLAN · SVI 라우팅 · DHCP 설계와 함께
-            DNS/WEB 서버를 구축한 소규모 대학 인프라 프로젝트.
-          </p>
+          <h3>가상 대학 네트워크·서버 인프라 구축<br>팀프로젝트</h3>
 
-          <a href="./projects/sun-project.html" class="project-detail-btn"><br>
-            YIT 프로젝트 이동 →
-          </a>
+          <div class="project-tags">
+            <span>#PacketTracer</span>
+            <span>#GNS3</span>
+            <span>#RockyLinux</span>
+            <span>#DNS</span>
+          </div>
+
+          <p>
+            가상의 YIT 캠퍼스 환경을 구축한다는 시나리오로 진행한 프로젝트로,
+            학과·행정·서버망을 분리한 <strong>VLAN 설계</strong>부터
+            SVI 라우팅, DHCP·NAT 구성까지 <strong>캠퍼스 네트워크 전반을 설계</strong>했습니다.<br><br>
+
+            Rocky Linux 기반으로 <strong>서비스 서버를 직접 구축</strong>하고
+            서비스 간 통신 구조, 서브넷 구조 등을 실제 운영 환경처럼 구성한
+            <strong>인프라 구축 프로젝트</strong>입니다.
+          </p>
+          <div class="project-btn-box">
+            <a href="./projects/sun-project.html" class="project-detail-btn">
+              YIT 프로젝트 이동 →
+            </a>
+          </div>
         </div>
+
 
         <div class="project-card">
-          <h3>밥세권 서비스 취약점 진단 & 인프라 보안 강화</h3>
-          <div class="project-tags">
-            <span>#KaliLinux</span><span>#BurpSuite</span><span>#OWASP</span>
-          </div>
-          <p>
-            Stored XSS · CSRF · 파일 업로드 취약점 재현 후
-            점검 리포트 작성 및 인프라 전반 보안 개선 수행.
-          </p>
+          <h3>밥세권 플랫폼 보안진단 <br>& 인프라 재구축 팀프로젝트</h3>
 
-          <a href="./projects/bab-security.html" class="project-detail-btn">
-            푸드파이터 프로젝트 이동 →
-          </a>
+          <div class="project-tags">
+            <span>#보안컨설팅</span><span>#KaliLinux</span>
+            <span>#RockyLinux</span><span>#BurpSuite</span><span>#OWASP</span>
+          </div>
+
+          <p>
+            EAT-IT 사의 <strong>밥세권 플랫폼</strong>에 대한 제안요청서(RFP)를 기반으로
+            우리 팀(푸드파이터팀)이 <strong>입찰에 성공했다는 시나리오</strong>로 진행한 프로젝트입니다.<br><br>
+
+            실제 보안 컨설팅 절차에 맞춰 Stored XSS · CSRF · 파일 업로드 취약점 등을
+            <strong>재현 및 검증</strong>하고,
+            서버·DB·백업 체계를 포함한 <strong>전체 인프라 구조를 재설계 및 강화</strong>했습니다.<br><br>
+
+            결과물은 <strong>보안 점검 보고서 · 개선 제안서 · 인프라 재구축 문서</strong> 형태로 완성했습니다.
+          </p>
+          <div class="project-btn-box">
+            <a href="./projects/bab-security.html" class="project-detail-btn">
+              푸드파이터 프로젝트 이동 →
+            </a>
+          </div>
         </div>
+
 
         <div class="project-card">
           <h3>GetOh! 유실물 찾기 개인 프로젝트</h3>
@@ -217,10 +266,11 @@
             Stored XSS · CSRF · 파일 업로드 취약점 재현 후
             점검 리포트 작성 및 인프라 전반 보안 개선 수행.
           </p>
-
-          <a href="./projects/getoh.html" class="project-detail-btn">
-            GetOh! 프로젝트 이동 →
-          </a>
+          <div class="project-btn-box">
+            <a href="./projects/getoh.html" class="project-detail-btn">
+              GetOh! 프로젝트 이동 →
+            </a>
+          </div>
         </div>
 
       </div>
@@ -327,4 +377,5 @@
   <script src="./assets/js/script.js"></script>
 
 </body>
+
 </html>

@@ -116,3 +116,24 @@ function rotatePentagon() {
   }, 50);
 }
 // rotatePentagon(); // 필요 시 활성화
+
+
+/* =========================================================
+    CLICK DROPDOWN — PROJECTS 메뉴 토글 기능 (추가됨)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdownBtn = document.getElementById("projectDropdownBtn");
+  const dropdownMenu = document.getElementById("projectDropdownMenu");
+
+  if (dropdownBtn && dropdownMenu) {
+    dropdownBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle("show");
+    });
+  }
+
+  // 메뉴 밖 클릭 시 닫기
+  document.addEventListener("click", () => {
+    if (dropdownMenu) dropdownMenu.classList.remove("show");
+  });
+});

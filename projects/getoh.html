@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,205 +17,231 @@
 
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body class="gold-body">
 
-<!-- HEADER -->
-<header class="header">
-  <div class="container nav-container">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
 
-    <div class="logo">
-      <img src="/assets/img/favicon.png" alt="logo">
-      <span>Portfolio</span>
+      <div class="logo">
+        <img src="/assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <!-- 햄버거 버튼 -->
+      <div id="navToggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- 네비게이션 메뉴 -->
+      <nav id="navMenu" class="nav">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#cert">Certifications</a>
+        <a href="../index.html#timeline">Timeline</a>
+
+        <div class="dropdown-wrapper">
+          <button id="projectDropdownBtn" class="dropdown-btn">Projects ▼</button>
+
+          <div id="projectDropdownMenu" class="dropdown-menu">
+            <a href="../index.html">포트폴리오</a>
+            <a href="./project_babsegwon_backend.html">밥세권</a>
+            <a href="./sun-project.html">YIT</a>
+            <a href="./bab-security.html">푸드파이터</a>
+            <a href="./getoh.html">GetOh!</a>
+          </div>
+        </div>
+      </nav>
+
     </div>
+  </header>
 
-    <!-- 햄버거 버튼 -->
-    <div id="navToggle" class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+
+  <!-- HERO -->
+  <section class="gold-hero">
+    <div class="gold-hero-inner">
+
+      <div class="gold-hero-left">
+        <h1 class="gold-title">GetOh! 유실물 찾기 프로젝트</h1>
+        <p class="gold-subtitle">Neon Gold Infra · Web Service · Lost & Found System</p>
+        <p class="gold-desc">
+          실제 지자체/기관에서 운영하는 유실물 DB 체계를 참고하여,
+          <strong>신고 → 접수 → 검증 → 반환</strong>까지 이어지는 전 과정을
+          시스템화한 프로젝트입니다.<br><br>
+          저는 <strong>백엔드 개발 · 인프라 구성 · 보안 적용 · 서비스 구조 설계</strong>를 담당했습니다.
+        </p>
+
+        <div class="gold-tag-box">
+          <span>#LostAndFound</span>
+          <span>#FullStack</span>
+          <span>#NeonGoldTheme</span>
+          <span>#InfraSecurity</span>
+        </div>
+      </div>
+
+      <!-- LOGO BOX -->
+      <div class="gold-hero-right">
+        <div class="gold-logo-card">
+          <img src="../assets/img/getOh.png" alt="project logo">
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- 네비게이션 메뉴 -->
-    <nav id="navMenu" class="nav">
-      <a href="/index.html#home">Home</a>
-      <a href="/index.html#about">About</a>
-      <a href="/index.html#skills">Skills</a>
-      <a href="/index.html#projects">Projects</a>
-      <a href="/index.html#cert">Certifications</a>
-      <a href="/index.html#timeline">Timeline</a>
-    </nav>
+  <!-- SUMMARY -->
+  <section class="gold-section">
+    <h2 class="gold-section-title">프로젝트 핵심 요약</h2>
 
-  </div>
-</header>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h3>What</h3>
+        <p>유실물 제보/조회/반환 기능을 갖춘 One-Stop 플랫폼 구축</p>
+      </div>
 
+      <div class="summary-card">
+        <h3>Why</h3>
+        <p>실제 기관이 사용하는 시스템처럼 공공적 신뢰성 확보 필요</p>
+      </div>
 
-<!-- HERO -->
-<section class="gold-hero">
-  <div class="gold-hero-inner">
+      <div class="summary-card">
+        <h3>How</h3>
+        <p>MVC 기반 개발, 파일 업로드 검증, DB 설계 및 로그 추적 기능 추가</p>
+      </div>
 
-    <div class="gold-hero-left">
-      <h1 class="gold-title">GetOh! 유실물 찾기 프로젝트</h1>
-      <p class="gold-subtitle">Neon Gold Infra · Web Service · Lost & Found System</p>
-      <p class="gold-desc">
-        실제 지자체/기관에서 운영하는 유실물 DB 체계를 참고하여,
-        <strong>신고 → 접수 → 검증 → 반환</strong>까지 이어지는 전 과정을
-        시스템화한 프로젝트입니다.<br><br>
-        저는 <strong>백엔드 개발 · 인프라 구성 · 보안 적용 · 서비스 구조 설계</strong>를 담당했습니다.
-      </p>
-
-      <div class="gold-tag-box">
-        <span>#LostAndFound</span>
-        <span>#FullStack</span>
-        <span>#NeonGoldTheme</span>
-        <span>#InfraSecurity</span>
+      <div class="summary-card">
+        <h3>Result</h3>
+        <p>신고→검증→반환 전체 흐름 완성 & 보안 강화된 운영 가능한 서비스 제공</p>
       </div>
     </div>
+  </section>
 
-    <!-- LOGO BOX -->
-    <div class="gold-hero-right">
-      <div class="gold-logo-card">
-        <img src="../assets/img/getOh.png" alt="project logo">
+  <!-- PROBLEM → SOLUTION -->
+  <section class="gold-section gold-section-alt">
+    <h2 class="gold-section-title">문제 → 해결 과정</h2>
+
+    <div class="ps-grid">
+      <div class="ps-card">
+        <h3>파일 업로드 보안</h3>
+        <p class="problem">악성 스크립트 업로드 위험</p>
+        <p class="solution">확장자 화이트리스트 + MIME 체크 + 랜덤 저장명 적용</p>
+      </div>
+
+      <div class="ps-card">
+        <h3>데이터 무결성</h3>
+        <p class="problem">제보 정보 위조 가능성</p>
+        <p class="solution">접수 로그·IP·타임스탬프 기반 진위 검증 로직 구현</p>
+      </div>
+
+      <div class="ps-card">
+        <h3>반환 관리 프로세스</h3>
+        <p class="problem">반환 승인 관리 불가</p>
+        <p class="solution">관리자 승인 단계 추가 + 증빙 이미지 첨부 기능 제공</p>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- MY ROLE -->
+  <section class="gold-section">
+    <h2 class="gold-section-title">내 역할</h2>
 
-<!-- SUMMARY -->
-<section class="gold-section">
-  <h2 class="gold-section-title">프로젝트 핵심 요약</h2>
-
-  <div class="summary-grid">
-    <div class="summary-card">
-      <h3>What</h3>
-      <p>유실물 제보/조회/반환 기능을 갖춘 One-Stop 플랫폼 구축</p>
+    <div class="role-grid">
+      <div class="role-card">
+        <h3>01. 백엔드 개발</h3>
+        <p>MVC 기반 Controller/Service 설계 및 API 개발</p>
+      </div>
+      <div class="role-card">
+        <h3>02. 인프라 구성</h3>
+        <p>Apache/PHP/MySQL 환경 구축 및 운영 자동화</p>
+      </div>
+      <div class="role-card">
+        <h3>03. DB 설계</h3>
+        <p>유실물 테이블 구조, 신고/접수/반환 흐름 DB 매핑</p>
+      </div>
+      <div class="role-card">
+        <h3>04. 보안 설계</h3>
+        <p>업로드 필터링, 인증로직, 관리자 페이지 보호 적용</p>
+      </div>
     </div>
+  </section>
 
-    <div class="summary-card">
-      <h3>Why</h3>
-      <p>실제 기관이 사용하는 시스템처럼 공공적 신뢰성 확보 필요</p>
+  <!-- TOPOLOGY -->
+  <section class="gold-section gold-section-alt">
+    <h2 class="gold-section-title">서비스 구조도</h2>
+    <div class="topology-box">
+      <img src="../assets/img/getoh_topology.png" alt="architecture">
     </div>
+  </section>
 
-    <div class="summary-card">
-      <h3>How</h3>
-      <p>MVC 기반 개발, 파일 업로드 검증, DB 설계 및 로그 추적 기능 추가</p>
+  <!-- TIMELINE -->
+  <section class="gold-section">
+    <h2 class="gold-section-title">작업 타임라인</h2>
+
+    <div class="gold-timeline">
+      <div class="gold-timeline-item">
+        <h3>Week 1</h3>
+        <p>요구사항 분석 · 서비스 흐름 설계</p>
+      </div>
+
+      <div class="gold-timeline-item">
+        <h3>Week 2</h3>
+        <p>DB 설계 · 인프라 구축 · 기본 UI 설계</p>
+      </div>
+
+      <div class="gold-timeline-item">
+        <h3>Week 3</h3>
+        <p>백엔드 개발 · 관리자 페이지 구축</p>
+      </div>
+
+      <div class="gold-timeline-item">
+        <h3>Week 4</h3>
+        <p>보안 적용 · 테스팅 · 최종보고서 작성</p>
+      </div>
     </div>
+  </section>
 
-    <div class="summary-card">
-      <h3>Result</h3>
-      <p>신고→검증→반환 전체 흐름 완성 & 보안 강화된 운영 가능한 서비스 제공</p>
+  <!-- SCREENSHOTS -->
+  <section class="gold-section gold-section-alt">
+    <h2 class="gold-section-title">서비스 화면</h2>
+
+    <div class="shot-grid">
+      <div class="shot-card"><img src="../assets/img/getoh_login.png"></div>
+      <div class="shot-card"><img src="../assets/img/getoh_2.png"></div>
+      <div class="shot-card"><img src="../assets/img/getoh_3.png"></div>
+      <div class="shot-card"><img src="../assets/img/getoh_4.png"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROBLEM → SOLUTION -->
-<section class="gold-section gold-section-alt">
-  <h2 class="gold-section-title">문제 → 해결 과정</h2>
-
-  <div class="ps-grid">
-    <div class="ps-card">
-      <h3>파일 업로드 보안</h3>
-      <p class="problem">악성 스크립트 업로드 위험</p>
-      <p class="solution">확장자 화이트리스트 + MIME 체크 + 랜덤 저장명 적용</p>
+  <!-- GITHUB -->
+  <section class="gold-section">
+    <div class="pdf-box">
+      <a href="https://github.com/YourRepo" class="pdf-btn">GitHub Repository</a>
     </div>
+  </section>
 
-    <div class="ps-card">
-      <h3>데이터 무결성</h3>
-      <p class="problem">제보 정보 위조 가능성</p>
-      <p class="solution">접수 로그·IP·타임스탬프 기반 진위 검증 로직 구현</p>
+  <!-- PDF -->
+  <section class="gold-section gold-section-alt">
+    <h2 class="gold-section-title">PDF 다운로드</h2>
+    <div class="pdf-box">
+      <a href="../assets/pdf/getoh.pdf" class="pdf-btn" download>PDF 다운로드</a>
     </div>
+  </section>
 
-    <div class="ps-card">
-      <h3>반환 관리 프로세스</h3>
-      <p class="problem">반환 승인 관리 불가</p>
-      <p class="solution">관리자 승인 단계 추가 + 증빙 이미지 첨부 기능 제공</p>
-    </div>
-  </div>
-</section>
+  <footer class="gold-footer">
+    © 2025 NAMHYUK · GetOh! Lost & Found Project
+  </footer>
 
-<!-- MY ROLE -->
-<section class="gold-section">
-  <h2 class="gold-section-title">내 역할</h2>
-
-  <div class="role-grid">
-    <div class="role-card"><h3>01. 백엔드 개발</h3><p>MVC 기반 Controller/Service 설계 및 API 개발</p></div>
-    <div class="role-card"><h3>02. 인프라 구성</h3><p>Apache/PHP/MySQL 환경 구축 및 운영 자동화</p></div>
-    <div class="role-card"><h3>03. DB 설계</h3><p>유실물 테이블 구조, 신고/접수/반환 흐름 DB 매핑</p></div>
-    <div class="role-card"><h3>04. 보안 설계</h3><p>업로드 필터링, 인증로직, 관리자 페이지 보호 적용</p></div>
-  </div>
-</section>
-
-<!-- TOPOLOGY -->
-<section class="gold-section gold-section-alt">
-  <h2 class="gold-section-title">서비스 구조도</h2>
-  <div class="topology-box">
-    <img src="../assets/img/getoh_topology.png" alt="architecture">
-  </div>
-</section>
-
-<!-- TIMELINE -->
-<section class="gold-section">
-  <h2 class="gold-section-title">작업 타임라인</h2>
-
-  <div class="gold-timeline">
-    <div class="gold-timeline-item">
-      <h3>Week 1</h3>
-      <p>요구사항 분석 · 서비스 흐름 설계</p>
-    </div>
-
-    <div class="gold-timeline-item">
-      <h3>Week 2</h3>
-      <p>DB 설계 · 인프라 구축 · 기본 UI 설계</p>
-    </div>
-
-    <div class="gold-timeline-item">
-      <h3>Week 3</h3>
-      <p>백엔드 개발 · 관리자 페이지 구축</p>
-    </div>
-
-    <div class="gold-timeline-item">
-      <h3>Week 4</h3>
-      <p>보안 적용 · 테스팅 · 최종보고서 작성</p>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOTS -->
-<section class="gold-section gold-section-alt">
-  <h2 class="gold-section-title">서비스 화면</h2>
-
-  <div class="shot-grid">
-    <div class="shot-card"><img src="../assets/img/getoh_login.png"></div>
-    <div class="shot-card"><img src="../assets/img/getoh_2.png"></div>
-    <div class="shot-card"><img src="../assets/img/getoh_3.png"></div>
-    <div class="shot-card"><img src="../assets/img/getoh_4.png"></div>
-  </div>
-</section>
-
-<!-- GITHUB -->
-<section class="gold-section">
-  <div class="pdf-box">
-    <a href="https://github.com/YourRepo" class="pdf-btn">GitHub Repository</a>
-  </div>
-</section>
-
-<!-- PDF -->
-<section class="gold-section gold-section-alt">
-  <h2 class="gold-section-title">PDF 다운로드</h2>
-  <div class="pdf-box">
-    <a href="../assets/pdf/getoh.pdf" class="pdf-btn" download>PDF 다운로드</a>
-  </div>
-</section>
-
-<footer class="gold-footer">
-  © 2025 NAMHYUK · GetOh! Lost & Found Project
-</footer>
-
-<!-- JS -->
-<script src="../assets/js/getoh.js"></script>
+  <!-- JS -->
+  <script src="../assets/js/getoh.js"></script>
 
 </body>
+
 </html>
