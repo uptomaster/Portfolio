@@ -11,9 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-    Mobile Navigation (햄버거 메뉴)
+    Mobile Navigation (햄버거 메뉴 & 메뉴 열기/닫기)
 ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-    Smooth Scroll (부드러운 스크롤)
+    Smooth Scroll (부드러운 스크롤 이동)
 ========================================================= */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -44,17 +43,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         headerHeight +
         10;
 
-      window.scrollTo({
-        top: position,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: position, behavior: "smooth" });
     }
 
-    // 모바일이면 자동으로 메뉴 닫기
+    // 모바일일 경우 네비 닫기
     if (window.innerWidth < 768) {
       const navMenu = document.getElementById("navMenu");
       const navToggle = document.getElementById("navToggle");
-
       if (navMenu) navMenu.classList.remove("active");
       if (navToggle) navToggle.classList.remove("open");
     }
@@ -62,7 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 /* =========================================================
-    Header Scroll Shadow
+    Header Scroll Shadow (스크롤 시 헤더 그림자)
 ========================================================= */
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
@@ -121,19 +116,3 @@ function rotatePentagon() {
   }, 50);
 }
 // rotatePentagon(); // 필요 시 활성화
-
-/* =========================================================
-    Mobile Navigation + Neon Animation
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu");
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      navToggle.classList.toggle("open");
-    });
-  }
-});

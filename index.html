@@ -25,29 +25,33 @@
   <!-- =========================================================
        HEADER (모바일 대응 완성본)
   ========================================================== -->
-  <header class="header">
-    <div class="container nav-container">
+<header class="header">
+  <div class="container nav-container">
 
-      <div class="logo">
-        <img src="assets/img/favicon.png" alt="logo">
-        <span>Portfolio</span>
-      </div>
-
-      <!-- 모바일 메뉴 버튼 추가 (id 필수) -->
-      <div id="navToggle" class="nav-toggle">☰</div>
-
-      <!-- 메뉴에 id 추가 (JS 연동용) -->
-      <nav class="nav" id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#cert">Certifications</a>
-        <a href="#timeline">Timeline</a>
-      </nav>
-
+    <div class="logo">
+      <img src="assets/img/favicon.png" alt="logo">
+      <span>Portfolio</span>
     </div>
-  </header>
+
+    <!-- 햄버거 버튼 추가 -->
+    <div id="navToggle" class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- 네비게이션 메뉴 -->
+    <nav id="navMenu" class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#cert">Certifications</a>
+      <a href="#timeline">Timeline</a>
+    </nav>
+
+  </div>
+</header>
 
   <!-- =========================================================
        HERO (이하 기존 내용 그대로 유지)
