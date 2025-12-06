@@ -43,6 +43,12 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .nav-container {
@@ -404,6 +410,83 @@ img {
   .projects-grid,
   .cert-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   NEON MINT HAMBURGER BUTTON
+========================================================= */
+
+.nav-toggle {
+  display: none;
+  width: 32px;
+  height: 26px;
+  position: relative;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.nav-toggle span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #1DE8FF; /* 네온 민트 */
+  left: 0;
+  border-radius: 3px;
+  transition: 0.35s ease;
+  box-shadow: 0 0 6px #1DE8FF;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 11px;
+}
+
+.nav-toggle span:nth-child(3) {
+  bottom: 0;
+}
+
+/* 클릭 시 X 아이콘으로 변신 */
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* =========================================================
+   MOBILE NAV SLIDE DOWN
+========================================================= */
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 12px;
+    animation: slideDown 0.35s ease forwards;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-toggle {
+    display: block;
   }
 }
 

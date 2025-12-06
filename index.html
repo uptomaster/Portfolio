@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta nameviewport="width=device-width, initial-scale=1.0" />
   <title>이남혁 | Full-Stack · Infra · Security Engineer</title>
 
   <!-- Fonts -->
@@ -18,20 +18,26 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="icon" href="./assets/img/favicon.png">
-
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================================================
+       HEADER (모바일 대응 완성본)
+  ========================================================== -->
   <header class="header">
     <div class="container nav-container">
+
       <div class="logo">
         <img src="assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
 
-      <nav class="nav">
+      <!-- 모바일 메뉴 버튼 추가 (id 필수) -->
+      <div id="navToggle" class="nav-toggle">☰</div>
+
+      <!-- 메뉴에 id 추가 (JS 연동용) -->
+      <nav class="nav" id="navMenu">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -39,10 +45,13 @@
         <a href="#cert">Certifications</a>
         <a href="#timeline">Timeline</a>
       </nav>
+
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- =========================================================
+       HERO (이하 기존 내용 그대로 유지)
+  ========================================================== -->
   <section id="home" class="hero" data-aos="fade-up">
     <div class="container hero-container">
 
@@ -83,16 +92,16 @@
       <h2 class="section-title">About Me</h2>
 
       <p class="about-text">
-        단순 기능 구현을 넘어서, 하나의 서비스가 어떻게 설계되고 운영되는지
+        단순 기능 구현을 넘어서, 하나의 서비스가 어떻게 설계되고 운영되는지<br>
         <strong>전체 흐름을 이해하고 직접 구축하는 것</strong>을 목표로 하고 있습니다.<br><br>
 
         웹 개발과 더불어 Packet Tracer/GNS3 기반 네트워크 설계,
-        Rocky Linux 서버 구축, 보안 점검 및 취약점 분석,
+        Rocky Linux 서버 구축, 보안 점검 및 취약점 분석,<br>
         DB 모델링과 운영까지 전 과정을 경험하며
         <strong>개발과 인프라, 보안을 모두 이해하는 엔지니어</strong>로 성장하고 있습니다.<br><br>
 
         대표 프로젝트인 <strong>밥세권 웹서비스</strong>는
-        결제 API·지도 API·관리자 페이지·상품/주문/권한 관리 등
+        결제 API·지도 API·관리자 페이지·상품/주문/권한 관리 등<br>
         실제 서비스 수준의 기능을 전부 직접 개발했습니다.
       </p>
 
@@ -111,12 +120,11 @@
   <section id="skills" class="section-alt" data-aos="fade-up">
     <div class="container section-container">
       <h2 class="section-title">Skills</h2>
-
       <div class="skills-grid">
 
         <div class="skill-card">
           <h3>Front-End</h3>
-          <p>HTML · CSS · JavaScript<br>반응형 UI · 사용자 경험 기반 설계</p>
+          <p>HTML · CSS · JavaScript<br>사용자 경험 기반 설계</p>
         </div>
 
         <div class="skill-card">
@@ -126,12 +134,12 @@
 
         <div class="skill-card">
           <h3>Network</h3>
-          <p>VLAN · Routing(OSPF/RIP) · NAT<br>Packet Tracer · GNS3 실습</p>
+          <p>VLAN · Routing(OSPF) · NAT<br>Packet Tracer · GNS3 실습</p>
         </div>
 
         <div class="skill-card">
           <h3>Security</h3>
-          <p>OWASP Top 10 · 웹 취약점 진단<br>Kali Linux · Burp Suite</p>
+          <p>OWASP Top 10<br>웹 취약점 진단<br>Kali Linux · Burp Suite</p>
         </div>
 
         <div class="skill-card">
@@ -161,12 +169,10 @@
             장바구니·찜·상품/주문 관리까지 구현한 실제 서비스 수준의 프로젝트.
           </p>
 
-          <!-- 🔥 상세 페이지로 이동 -->
           <a href="./projects/project_babsegwon_backend.html" class="project-detail-btn">
             밥세권 프로젝트 이동 →
           </a>
         </div>
-
 
         <div class="project-card">
           <h3>대학 네트워크·서버 인프라 구축</h3>
@@ -175,9 +181,9 @@
           </div>
           <p>
             VLAN · SVI 라우팅 · DHCP 설계와 함께
-            DNS/WEB 서버를 구축한 소규모 대학 인프라 구조 프로젝트.
+            DNS/WEB 서버를 구축한 소규모 대학 인프라 프로젝트.
           </p>
-                    <!-- 🔥 상세 페이지로 이동 -->
+
           <a href="./projects/sun-project.html" class="project-detail-btn"><br>
             YIT 프로젝트 이동 →
           </a>
@@ -192,7 +198,7 @@
             Stored XSS · CSRF · 파일 업로드 취약점 재현 후
             점검 리포트 작성 및 인프라 전반 보안 개선 수행.
           </p>
-                    <!-- 🔥 상세 페이지로 이동 -->
+
           <a href="./projects/bab-security.html" class="project-detail-btn">
             푸드파이터 프로젝트 이동 →
           </a>
@@ -207,7 +213,7 @@
             Stored XSS · CSRF · 파일 업로드 취약점 재현 후
             점검 리포트 작성 및 인프라 전반 보안 개선 수행.
           </p>
-                    <!-- 🔥 상세 페이지로 이동 -->
+
           <a href="./projects/getoh.html" class="project-detail-btn">
             GetOh! 프로젝트 이동 →
           </a>
@@ -239,6 +245,21 @@
           <p>2025.12 취득</p>
         </div>
 
+        <div class="cert-card">
+          <h3>MCF AI-900</h3>
+          <p>2025.12 취득</p>
+        </div>
+
+        <div class="cert-card">
+          <h3>MCF AZ-900</h3>
+          <p>2025.12 취득</p>
+        </div>
+
+        <div class="cert-card">
+          <h3>MCF DP-900</h3>
+          <p>2025.12 취득</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -264,7 +285,7 @@
           <div class="timeline-content">
             <span class="timeline-date">2025.06 ~ 2025.12</span>
             <h3>코리아IT 아카데미 (1033시간)</h3>
-            <p>웹 개발 · 리눅스 서버 · 네트워크 · 보안 실무 프로젝트 수행</p>
+            <p>웹·서버·보안 전문교육 및 실전 프로젝트 수행</p>
           </div>
         </div>
 
@@ -281,8 +302,8 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <span class="timeline-date">2022.07 ~ 2024.01</span>
-            <h3>육군 수색중대 — 병장 전역</h3>
-            <p>상황판단 능력 · 팀워크 · 임무 수행 경험</p>
+            <h3>육군 수색중대 병장 전역</h3>
+            <p>분대장으로 조직 관리 및 위기 대응 경험 확보</p>
           </div>
         </div>
 
@@ -292,13 +313,14 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2025 NamHyuk. All Rights Reserved.</p>
+    <p>© <span id="year"></span> NamHyuk. All Rights Reserved.</p>
   </footer>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init();</script>
+
+  <!-- JS -->
+  <script src="./assets/js/script.js"></script>
 
 </body>
-
 </html>

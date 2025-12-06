@@ -1,48 +1,48 @@
 /* =========================================================
     AOS (Animate On Scroll)
 ========================================================= */
-// AOS 초기화
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     duration: 900,
     once: true,
     offset: 60,
-    easing: "ease-out-cubic"
+    easing: "ease-out-cubic",
   });
 });
 
 /* =========================================================
     Mobile Navigation (햄버거 메뉴)
 ========================================================= */
-const navToggle = document.getElementById("navToggle");
-const navMenu = document.querySelector(".nav");
 
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  navToggle.classList.toggle("open");
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
 
-  if (navMenu.classList.contains("active")) {
-    navMenu.style.display = "flex";
-  } else {
-    navMenu.style.display = "none";
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      navToggle.classList.toggle("open");
+    });
   }
 });
 
 /* =========================================================
-    Smooth Scroll (부드러운 스크롤 이동)
+    Smooth Scroll (부드러운 스크롤)
 ========================================================= */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const targetID = this.getAttribute("href");
 
-    // #이 아니면 스크롤
     if (targetID !== "#" && targetID !== "#!") {
       e.preventDefault();
-      const target = document.querySelector(targetID);
       const headerHeight = document.querySelector(".header").offsetHeight;
+      const target = document.querySelector(targetID);
 
       const position =
-        target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
+        target.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight +
+        10;
 
       window.scrollTo({
         top: position,
@@ -50,18 +50,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
     }
 
-    // 모바일에서 메뉴 자동 닫기
+    // 모바일이면 자동으로 메뉴 닫기
     if (window.innerWidth < 768) {
-      navMenu.style.display = "none";
-      navToggle.classList.remove("open");
+      const navMenu = document.getElementById("navMenu");
+      const navToggle = document.getElementById("navToggle");
+
+      if (navMenu) navMenu.classList.remove("active");
+      if (navToggle) navToggle.classList.remove("open");
     }
   });
 });
 
 /* =========================================================
-    Header Scroll Shadow (스크롤 시 헤더에 그림자 추가)
+    Header Scroll Shadow
 ========================================================= */
-
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
 
@@ -75,9 +77,8 @@ window.addEventListener("scroll", () => {
 });
 
 /* =========================================================
-    Year Auto Insert (Footer)
+    Footer Year Auto Insert
 ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
@@ -86,10 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-    Future Expand Zones (향후 기능 확장용)
+    Project Card Hover Effect
 ========================================================= */
-
-// 프로젝트 카드 hover 효과 강화할 때 활용 가능
 function addHoverEffect() {
   const cards = document.querySelectorAll(".project-card");
 
@@ -106,10 +105,11 @@ function addHoverEffect() {
     });
   });
 }
-
 addHoverEffect();
 
-// 스킬 오각형이 유동적으로 빙글 돌도록 애니메이션 추가 가능
+/* =========================================================
+    Pentagon Rotation (옵션)
+========================================================= */
 function rotatePentagon() {
   const pentagon = document.querySelector(".pentagon");
   if (!pentagon) return;
@@ -120,6 +120,20 @@ function rotatePentagon() {
     pentagon.style.transform = `rotate(${angle}deg)`;
   }, 50);
 }
+// rotatePentagon(); // 필요 시 활성화
 
-// rotatePentagon(); ← 필요 시 활성화
+/* =========================================================
+    Mobile Navigation + Neon Animation
+========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      navToggle.classList.toggle("open");
+    });
+  }
+});
