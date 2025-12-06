@@ -74,8 +74,8 @@
   padding: 8px 16px;
   font-size: 0.9rem;
   border-radius: 30px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px);
   color: var(--neon-blue);
   font-weight: 600;
@@ -93,8 +93,8 @@
   height: 230px;
   padding: 28px;
 
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(18px);
 
   border-radius: 26px;
@@ -122,7 +122,7 @@
 
 .backend-section-alt {
   padding: 100px 0;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .backend-section-title {
@@ -148,12 +148,18 @@
 .info-card {
   padding: 32px;
   border-radius: 22px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(16px);
   transition: 0.25s;
-
-  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 요소들 위/아래 균등 배치 */
+  height: 100%;
+  padding-bottom: 20px;
+  /* 하단 여유 */
+  box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
 }
 
 .info-card:hover {
@@ -179,7 +185,7 @@
    TIMELINE (네온 버전)
 ========================================================= */
 .backend-timeline {
-  border-left: 3px solid rgba(255,255,255,0.25);
+  border-left: 3px solid rgba(255, 255, 255, 0.25);
   padding-left: 40px;
   margin-top: 40px;
   position: relative;
@@ -249,11 +255,11 @@
   border-radius: 18px;
   overflow: hidden;
 
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
 
-  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+  box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
 
   transition: 0.25s;
 }
@@ -283,11 +289,11 @@
   padding: 32px;
   border-radius: 20px;
 
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(14px);
 
-  box-shadow: 0 0 18px rgba(77,163,255,0.25);
+  box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
   transition: 0.25s;
 }
 
@@ -317,9 +323,9 @@
   text-align: center;
   border-radius: 22px;
 
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
   box-shadow:
     0 0 22px var(--neon-blue),
@@ -361,7 +367,7 @@
   padding: 45px 0;
   color: var(--text-dim);
   font-size: 0.95rem;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* =========================================================
@@ -371,6 +377,7 @@
   .info-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .screenshot-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -381,9 +388,11 @@
     flex-direction: column;
     text-align: center;
   }
+
   .backend-hero-right {
     margin-top: 20px;
   }
+
   .admin-grid {
     grid-template-columns: 1fr;
   }
@@ -393,7 +402,304 @@
   .info-grid {
     grid-template-columns: 1fr;
   }
+
   .screenshot-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stack-icon-row img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .stack-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   PROJECT GOAL SECTION
+========================================================= */
+
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.goal-card {
+  padding: 32px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 20px rgba(0, 255, 180, 0.12),
+    inset 0 0 25px rgba(0, 255, 180, 0.05);
+}
+
+.goal-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #22e6a8, #78ffd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.goal-list {
+  margin-top: 12px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+.goal-list li {
+  margin-bottom: 8px;
+  font-size: 0.97rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   Problem Solving - Screenshot Neon Glow
+========================================== */
+
+/* ==========================================
+   Problem Solving — Screenshot (16:9)
+========================================== */
+
+
+/* 이미지 컨테이너를 카드 하단에 고정 */
+.card-shot {
+  margin-top: auto;
+  /* ← 핵심: 이미지가 카드 최하단으로 이동 */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+/* Hover Glow 효과 */
+.card-shot:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 14px rgba(80, 220, 255, 0.55),
+    0 0 30px rgba(80, 220, 255, 0.40),
+    0 0 45px rgba(80, 220, 255, 0.30);
+  border-color: rgba(120, 240, 255, 0.70);
+}
+
+/* =========================================================
+   GITHUB REPO SECTION
+========================================================= */
+
+.git-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.git-card {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: #eaffff;
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.25),
+    0 0 24px rgba(0, 255, 255, 0.15);
+
+  transition: 0.35s ease;
+}
+
+.git-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 18px rgba(0, 255, 255, 0.45),
+    0 0 32px rgba(0, 255, 255, 0.35);
+}
+
+.git-card h3 {
+  color: #7dfcff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.git-card p {
+  color: #c9f7ff;
+  margin-bottom: 18px;
+}
+
+.git-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: rgba(0, 255, 255, 0.25);
+  border: 1px solid rgba(0, 255, 255, 0.45);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #b5ffff;
+  transition: 0.35s ease;
+}
+
+.git-btn:hover {
+  background: rgba(0, 255, 255, 0.45);
+  color: #001010;
+}
+
+@media (max-width: 768px) {
+  .git-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   TECH STACK SECTION
+========================================================= */
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.stack-card {
+  transition: all 0.28s ease;
+  border-radius: 18px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stack-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 255, 0.45);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.3),
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.stack-card h3 {
+  color: var(--crimson-light);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.stack-card p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   SERVICE FLOW SECTION
+========================================================= */
+
+.flow-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.flow-img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 18px;
+  margin: 0 auto 25px auto;
+
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+
+  box-shadow:
+    0 0 20px var(--crimson-glow),
+    0 0 35px var(--crimson-glow-strong);
+}
+
+.flow-desc {
+  color: var(--text-dim);
+  max-width: 850px;
+  margin: auto;
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+/* ================================
+   TECH STACK ICON ROW
+================================ */
+
+.stack-icon-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  margin-top: 20px;
+}
+
+.stack-icon-row img {
+  width: 100px;              /* 기존 60 → 80 */
+  height: 80px;
+  object-fit: contain;
+
+  padding: 6px;             /* 기존 10px → 6px (공간 확보) */
+  border-radius: 12px;      /* 더 자연스러운 라운드 */
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.25s ease;
+
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.25));
+}
+
+.stack-icon-row img:hover {
+  transform: scale(1.12);
+  border-color: rgba(0, 255, 255, 0.55);
+
+  filter:
+    drop-shadow(0 0 10px rgba(0, 255, 255, 0.55)) drop-shadow(0 0 18px rgba(0, 255, 255, 0.35));
+}
+
+@media (max-width: 600px) {
+  .stack-icon-row img {
+    width: 52px;
+    height: 52px;
   }
 }

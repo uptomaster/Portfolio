@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BABSEGWON Backend | Namhyuk Portfolio</title>
+  <title>밥세권 Web Platform Engineering | Namhyuk Portfolio</title>
 
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="icon" href="./assets/img/favicon.png">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body class="backend-body">
@@ -24,21 +25,32 @@
   =========================================== -->
   <header class="header">
     <div class="container nav-container">
+
       <div class="logo">
-        <img src="../assets/img/logo.png" alt="logo">
+        <img src="/assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
 
-      <nav class="nav">
-        <a href="../index.html#home">Home</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#skills">Skills</a>
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#cert">Certifications</a>
-        <a href="../index.html#timeline">Timeline</a>
+      <!-- 햄버거 버튼 -->
+      <div id="navToggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- 네비게이션 메뉴 -->
+      <nav id="navMenu" class="nav">
+        <a href="/index.html#home">Home</a>
+        <a href="/index.html#about">About</a>
+        <a href="/index.html#skills">Skills</a>
+        <a href="/index.html#projects">Projects</a>
+        <a href="/index.html#cert">Certifications</a>
+        <a href="/index.html#timeline">Timeline</a>
       </nav>
+
     </div>
   </header>
+
 
   <!-- ==========================================
        HERO
@@ -48,22 +60,25 @@
 
       <!-- LEFT -->
       <div class="backend-hero-left">
-        <h1 class="backend-hero-title">밥세권 Backend Engineering</h1>
+        <h1 class="backend-hero-title">밥세권 Web Platform Engineering</h1>
         <p class="backend-hero-desc">
-          <strong>밥세권</strong>은 지역 기반의 <strong>유통기한 임박·즉석조리 상품 할인 플랫폼</strong>으로,<br>
-          소비자에게 가까운 매장의 상품을 빠르게 연결하는 <br>Web 서비스를 목표로 합니다.<br><br>
+          <strong>밥세권</strong>은 위치 기반
+          <strong>매장의 남은 재고를 최적화하여<br>외식비 절감과 환경 개선을 실현</strong>하고,<br>
+          소비자에게 가까운 매장의 상품을 빠르게 연결하는<br>
+          Web 서비스를 목표로 합니다.<br><br>
 
-          저는 본 프로젝트에서  
-          <strong>상품조회 → 장바구니 → 결제(Toss API) → <br>관리자 페이지 전체</strong>까지  
-          핵심 백엔드 기능들을 책임지고 개발했습니다.
+          본 프로젝트에서
+          <strong>상품 조회 → 장바구니 → 결제(Toss API) → 관리자(Admin) 기능 전체</strong>까지
+          서비스 핵심 백엔드 기능 및 <br>퍼블리싱/ERD를 설계하고 구현했습니다.
         </p>
 
         <div class="backend-tags">
-          <span>#Backend</span>
+          <span>#WebPlatform</span>
           <span>#JSP/Servlet</span>
-          <span>#MVC2</span>
+          <span>#OrderFlow</span>
+          <span>#DataIntegrity</span>
           <span>#TossPayments</span>
-          <span>#Admin Panel</span>
+          <span>#AdminSystem</span>
         </div>
       </div>
 
@@ -76,6 +91,50 @@
 
     </div>
   </section>
+
+  <!-- =========================================================
+     SECTION: 프로젝트 목표 & 기대 효과
+========================================================= -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">
+        프로젝트 목표 & 기대 효과
+      </h2>
+
+      <div class="goal-grid">
+
+        <!-- 구체적 목표 -->
+        <div class="goal-card" data-aos="fade-right">
+          <h3 class="goal-title">구체적인 목표</h3>
+          <ul class="goal-list">
+            <li>재고 최적화를 통해 외식비 절감 & 폐기 감소 실현</li>
+            <li>사용자 위치 기반 픽업 서비스로 매장 접근성 향상</li>
+            <li>카카오맵 API로 매장 위치 및 반경 기반 탐색 기능 제공</li>
+            <li>Toss 결제 API 연동으로 안전하고 신뢰성 있는 결제 흐름 구축</li>
+            <li>사용자 중심의 편리한 구매·조회·장바구니 UX 설계</li>
+          </ul>
+        </div>
+
+        <!-- 기대 효과 -->
+        <div class="goal-card" data-aos="fade-left">
+          <h3 class="goal-title">기대 효과</h3>
+          <ul class="goal-list">
+            <li>소상공인 매출 증가 및 잉여 재고 즉시 소진</li>
+            <li>소비자 외식비 부담 감소 & 합리적 소비 경험 제공</li>
+            <li>유통기한 경과 전 소비 → 음식 폐기량 감소 → 환경 보호 기여</li>
+            <li>지역 기반 파트너십 확장 → 지역 상권 활성화</li>
+            <li>플랫폼 내 재방문 유도 및 서비스 경쟁력 강화</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="card-shot">
+        <img src="../assets/img/schedule.png" alt="결제 스냅샷 검증 캡처">
+      </div>
+    </div>
+  </section>
+
 
   <!-- ==========================================
        SECTION: WHAT / WHY / HOW / RESULT
@@ -91,8 +150,8 @@
         <div class="info-card" data-aos="fade-right">
           <h3>What</h3>
           <p>
-            밥세권 Web 서비스의 <strong>전체 구매 흐름</strong>과  
-            <strong>관리자(Admin) 기능 전체</strong>를 백엔드에서 단독 개발했습니다.
+            밥세권 서비스의 <strong>전체 구매 흐름</strong>과
+            <strong>관리자(Admin) 기능 전체</strong>를 <br>백엔드에서 단독 개발했습니다.
           </p>
         </div>
 
@@ -100,9 +159,9 @@
         <div class="info-card" data-aos="fade-up">
           <h3>Why</h3>
           <p>
-            픽업 기반 지역 플랫폼 특성상  
-            <strong>가게 간 상품 혼합 불가</strong>,  
-            <strong>재고/상태 검증</strong>,  
+            픽업 기반 지역 플랫폼 특성상
+            <strong>가게 간 상품 혼합 불가</strong>,
+            <strong>재고/상태 검증</strong>,
             <strong>주문 무결성</strong>이 필수이기 때문입니다.
           </p>
         </div>
@@ -111,10 +170,11 @@
         <div class="info-card" data-aos="fade-up">
           <h3>How</h3>
           <p>
-            MVC2 패턴 기반으로  
-            Controller 단에서  
-            <strong>예외 검증 → Redirect 처리 → Snapshot 보존</strong>을 수행하고  
-            Toss API 연동은 환경변수 기반 보안설계를 적용했습니다.
+            MVC2 기반 Controller에서<br>
+            <strong>예외 검증 → Redirect 처리 → Snapshot</strong> 구조를 설계했습니다.<br><br>
+            결제 도중 값이 변조되는 문제를 해결하기 위해
+            <strong>“주문 스냅샷”을 결제 직전에 저장하고 Toss 서버 응답과 비교하는 방식</strong>으로<br>
+            무결성을 보장했습니다
           </p>
         </div>
 
@@ -122,8 +182,8 @@
         <div class="info-card" data-aos="fade-left">
           <h3>Result</h3>
           <p>
-            결제 승인/취소 흐름이 안정화되고  
-            관리자가 모든 서비스 활동을 통합 관리할 수 있는  
+            결제 승인/취소 흐름이 안정화되고
+            관리자가 모든 서비스 활동을 통합 관리할 수 있는
             <strong>완전한 운영용 Admin Panel</strong>이 완성되었습니다.
           </p>
         </div>
@@ -132,6 +192,64 @@
 
     </div>
   </section>
+
+  <!-- ==========================================
+       SECTION: 맡은 부분 (My Role)
+=========================================== -->
+  <section class="backend-section">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">My Role</h2>
+
+      <div class="info-grid">
+
+        <!-- FrontEnd -->
+        <div class="info-card" data-aos="fade-right">
+          <h3>FrontEnd</h3>
+          <p>
+            <strong>커뮤니티 게시판 UI/기능</strong> 전체 개발,<br>
+            <strong>상품 조회</strong> 화면 퍼블리싱 및 사용자 경험 흐름 개선을 담당했습니다.
+          </p>
+        </div>
+
+        <!-- BackEnd -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>BackEnd</h3>
+          <p>
+            장바구니·찜·주문·결제·가게 <br>그리고 관리자 기능 등<br>
+            <strong>핵심 비즈니스 로직을 개발</strong>했습니다.<br><br>
+            특히 Toss 결제 검증 과정에서
+            <strong>스냅샷 기반 무결성 검증 구조</strong>를 도입하여 안정성을 확보했습니다.
+          </p>
+        </div>
+
+        <!-- DBMS -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>DBMS</h3>
+          <p>
+            Oracle 21C 기반으로 <br>ERD를 공동 설계했습니다.<br><br>
+            <strong>상품·가게·주문·회원 등 테이블 <br>구조를 설계 및 정규화</strong>했습니다.<br><br>
+            또한 PK/FK 참조관계 및 인덱스를 조정하여
+            <strong>조회 성능과 데이터 무결성을 개선</strong>했습니다.
+          </p>
+        </div>
+
+        <!-- Contribution Summary -->
+        <div class="info-card" data-aos="fade-left">
+          <h3>Contribution</h3>
+          <p>
+            프론트엔드, 백엔드, DB 설계까지<br>
+            <strong>End-to-End 개발을 수행</strong>했습니다.<br><br>
+            결제 안정성, 데이터 구조 개선, <br>관리자 운영 효율화 등<br>
+            프로젝트 핵심 품질 향상에<br> 많은 부분을 기여했습니다.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- ==========================================
        FLOW TIMELINE (네온)
@@ -223,8 +341,107 @@
   </section>
 
   <!-- ==========================================
-       ADMIN SECTION
-  =========================================== -->
+     SECTION: Problem Solving
+=========================================== -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">Problem Solving</h2>
+
+      <div class="info-grid">
+
+        <!-- Problem 1: 결제 스냅샷 검증 -->
+        <div class="info-card" data-aos="fade-right">
+          <h3>결제 무결성 오류 해결</h3>
+          <p class="problem">
+            TossPayments 결제 과정에서 사용자가 브라우저에서 데이터를 변경할 경우
+            <strong>주문 상태와 결제 결과가 불일치</strong>하는 문제가 발생했습니다.<br><br>
+          </p>
+          <p class="solution">
+            주문 정보를 결제 직전 <strong>스냅샷으로 저장</strong>하고
+            Toss 서버 응답과 비교해 위·변조 가능성을 차단했습니다.<br><br>
+            이를 통해 결제 승인/취소 로직의 <strong>무결성과 안정성</strong>을 확보했습니다.
+          </p>
+
+          <!-- screenshot -->
+          <div class="card-shot">
+            <img src="../assets/img/integrity.png" alt="결제 스냅샷 검증 캡처">
+          </div>
+        </div>
+
+
+        <!-- Problem 2: 공지/이벤트 분리 및 메인 배너 자동 반영 -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>메인페이지 배너 자동 반영</h3>
+          <p>
+            공지사항 게시판에서 <strong>공지</strong>와 <strong>이벤트</strong>를 분리하여 관리할 수 있도록
+            게시글 유형 구조를 재설계했습니다.<br><br>
+
+            이벤트 유형으로 등록된 게시물은 자동으로
+            <strong>메인 페이지 배너 영역에 노출</strong>되도록 구현했으며,
+            이미지 업로드 및 링크 설정 기능을 추가하여
+            운영자가 별도 배포 없이 즉시 이벤트를 반영할 수 있도록 개선했습니다.
+          </p>
+
+          <!-- screenshot -->
+          <div class="card-shot">
+            <img src="../assets/img/mainbanner.png" alt="이벤트 배너 반영 캡처">
+          </div>
+        </div>
+
+
+        <!-- Problem 3: DB 구조 무결성 -->
+        <div class="info-card" data-aos="fade-up">
+          <h3>DB 구조 무결성 강화</h3>
+          <p class="problem">
+            초기 테이블 구조에서 가게·상품·주문 간 참조 관계가 불명확해
+            <strong>데이터 무결성 저하와 수정 어려움</strong>이 우려되었습니다.<br><br>
+          </p>
+          <p class="solution">
+            ERD를 재설계하여 PK/FK 관계를 명확히 하고,
+            테이블 정규화를 통해 데이터 정합성과 유지보수성을 높였습니다.<br><br>
+            결과적으로 시스템 전체 안정성이 향상되었습니다.
+          </p>
+
+          <!-- screenshot -->
+          <div class="card-shot">
+            <img src="../assets/img/ERD_real.png" alt="ERD 구조 개선 캡처">
+          </div>
+        </div>
+
+
+        <!-- Problem 4: 장바구니 무결성 추가 -->
+        <div class="info-card" data-aos="fade-left">
+          <h3>장바구니 무결성 문제 해결</h3>
+          <p class="problem">
+            서로 다른 가게 상품이 장바구니에 함께 담겨
+            플랫폼 핵심 정책인 <strong>“한 장바구니 한 가게 정책”</strong>이 깨지는 상황이 있었습니다.<br><br>
+          </p>
+          <p class="solution">
+            장바구니에 <strong>가게ID 스냅샷</strong>을 저장해
+            다른 가게의 상품이 추가되는 경우 감지하도록 처리했고,
+            혼합 시 장바구니를 초기화하거나 사용자에게 안내하도록 개선했습니다.<br><br>
+            또한 DB 레벨에서 FK 구조를 보완해
+            <strong>서로 다른 가게 상품이 섞여 저장될 수 없도록 무결성을 강화</strong>했습니다.
+          </p>
+
+          <!-- screenshot -->
+          <div class="card-shot">
+            <img src="../assets/img/cartverify.png" alt="장바구니 무결성 강화 캡처">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ==========================================
+     ADMIN SECTION
+=========================================== -->
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
@@ -234,28 +451,42 @@
 
         <div class="admin-card" data-aos="fade-right">
           <h3>대시보드</h3>
-          <p>주문/재고/회원 현황을 시각화하여 운영자가 즉시 확인</p>
+          <p>주문·회원·게시글 현황을 실시간 통계로 제공하여 서비스 운영 상태를 한눈에 파악</p>
         </div>
 
         <div class="admin-card" data-aos="fade-left">
           <h3>회원 관리</h3>
-          <p>회원 상세정보, 경고/정지 처리, 블랙리스트 관리</p>
+          <p>회원 상세 조회, 상태 변경(경고/정지), 블랙리스트 관리 기능 제공</p>
         </div>
 
         <div class="admin-card" data-aos="fade-right">
           <h3>신고 관리</h3>
-          <p>게시글/댓글 신고 접수 → 조치 → 자동 반영</p>
+          <p>게시글 신고 접수 후 처리 → 결과가 게시판 및 회원에 반영<strong>(경고 및 정지/블랙리스트)</strong></p>
         </div>
 
         <div class="admin-card" data-aos="fade-left">
-          <h3>게시글 관리&고객센터 운영</h3>
-          <p>게시글 조회, 댓글 조회, 삭제/블라인드, 문의 기능</p>
+          <h3>게시글 관리</h3>
+          <p>공지·자유·홍보·레시피 등 게시판별 게시글 모니터링 및 삭제·수정 기능</p>
+        </div>
+
+        <div class="admin-card" data-aos="fade-right">
+          <h3>고객센터 운영</h3>
+          <p>FAQ/문의(1:1 게시판) 관리 기능으로 사용자 상담 프로세스 운영</p>
+        </div>
+
+        <div class="admin-card" data-aos="fade-left">
+          <h3>메인페이지 배너 관리</h3>
+          <p>
+            공지/이벤트 글 중 <strong>이벤트 태그</strong>가 선택된 게시글을 자동으로
+            메인 배너에 노출 구현. <br>이미지 업로드·링크 설정 기능 제공
+          </p>
         </div>
 
       </div>
 
     </div>
   </section>
+
 
   <!-- ==========================================
        SCREENSHOT GRID (1:1)
@@ -297,6 +528,141 @@
   </section>
 
   <!-- ==========================================
+     SECTION: Tech Stack
+========================================== -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">Tech Stack</h2>
+
+      <div class="stack-grid">
+
+        <!-- Frontend -->
+        <div class="stack-card" data-aos="fade-right">
+          <h3>Frontend</h3>
+          <p>HTML · CSS · JavaScript</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/html.png" alt="HTML Icon">
+            <img src="../assets/img/css-Photoroom.png" alt="CSS Icon">
+            <img src="../assets/img/js-Photoroom.png" alt="JS Icon">
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="stack-card" data-aos="fade-right">
+          <h3>Backend</h3>
+          <p>Java (JDK 17), JSP/Servlet(JSTL, EL), MVC2</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/java-Photoroom.png" alt="Java Icon">
+            <img src="../assets/img/JSP-Photoroom.png" alt="JSP Icon">
+            <img src="../assets/img/MVC2-Photoroom.png" alt="MVC2 Icon">
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="stack-card" data-aos="fade-up">
+          <h3>Database</h3>
+          <p>Oracle 21c, DBeaver, ERD Cloud</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/Oracle21C.png" alt="Oracle Icon">
+            <img src="../assets/img/Dbeaver-Photoroom.png" alt="DBeaver">
+            <img src="../assets/img/ERD-Photoroom.png" alt="ERD Icon">
+          </div>
+        </div>
+
+        <div class="stack-card" data-aos="fade-up">
+          <h3>Infra / Server</h3>
+          <p>Tomcat 9(배포 환경 설정), Eclipse, VSCode</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/apache-Photoroom.png" alt="Tomcat Icon">
+            <img src="../assets/img/eclipse-Photoroom.png" alt="Eclipse">
+            <img src="../assets/img/vscode-Photoroom.png" alt="Vscode">
+          </div>
+        </div>
+
+        <!-- API -->
+        <div class="stack-card" data-aos="fade-left">
+          <h3>API Integration</h3>
+          <p>TossPayments · Kakao Map API</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/toss-Photoroom.png" alt="Toss Icon">
+            <img src="../assets/img/kakaomap.png" alt="Kakao Map Icon">
+            <img src="../assets/img/restapi-Photoroom.png" alt="REST API Icon">
+          </div>
+        </div>
+
+        <!-- Git -->
+        <div class="stack-card" data-aos="fade-up">
+          <h3>Version Control</h3>
+          <p>Git · GitHub · Git Flow</p>
+          <div class="stack-icon-row">
+            <img src="../assets/img/gitbash-Photoroom.png" alt="Git-Bash">
+            <img src="../assets/img/github.png" alt="GitHub Icon">
+            <img src="../assets/img/gitbranch.png" alt="Git Flow Icon">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+     SECTION: Service Flow
+========================================== -->
+  <section class="backend-section backend-section-alt">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">Service Flow</h2>
+
+      <div class="flow-wrapper" data-aos="fade-up">
+        <img src="../assets/img/flow_babsegwon.png" class="flow-img" alt="Service Flow Diagram">
+
+        <p class="flow-desc">
+          사용자 위치 기반 상품 조회 → 장바구니 담기 → Snapshot 보존 → TossPayments 결제 →
+          Webhook 승인 처리 → 주문 확정 → 관리자(Admin) 확인 및 운영 프로세스까지
+          전체 기능이 하나의 통합 서비스 흐름으로 동작합니다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+     GITHUB REPOSITORY LINKS
+========================================================= -->
+  <section class="backend-section">
+    <div class="backend-container">
+
+      <h2 class="backend-section-title" data-aos="fade-up">
+        GitHub Repositories
+      </h2>
+
+      <div class="git-grid">
+
+        <!-- Frontend Repo -->
+        <a href="https://github.com/team2-EAT-IT/EATIT_frontend.git" target="_blank" class="git-card"
+          data-aos="fade-right">
+          <h3>Frontend Repository</h3>
+          <p>HTML/CSS/JAVASCRIPT 정적 페이지</p>
+          <span class="git-btn">GitHub로 이동</span>
+        </a>
+
+        <!-- Backend Repo -->
+        <a href="https://github.com/team2-EAT-IT/EATIT_back.git" target="_blank" class="git-card" data-aos="fade-left">
+          <h3>Backend Repository</h3>
+          <p>MVC2패턴 · JSP/Servlet · 구매/관리자 기능</p>
+          <span class="git-btn">GitHub로 이동</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
        PDF SECTION
   =========================================== -->
   <section class="backend-section">
@@ -307,7 +673,7 @@
       <div class="backend-pdf-box" data-aos="zoom-in">
         <p>프로젝트 발표자료를 아래 버튼을 통해 다운로드할 수 있습니다.</p>
 
-        <a href="../assets/pdf/babsegwon_backend_presentation.pdf" class="backend-btn" download>
+        <a href="../assets/pdf/EAT_IT_Portfolio.pdf" class="backend-btn" download>
           PDF 다운로드
         </a>
       </div>
@@ -328,4 +694,5 @@
   <script>AOS.init();</script>
 
 </body>
+
 </html>

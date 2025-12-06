@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Snapshot vs Toss Response</title>
+<style>
+  body {
+    background: #0d0f24;
+    font-family: "Pretendard", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    color: #e4e8ff;
+  }
+
+  .wrap {
+    display: flex;
+    gap: 28px;
+  }
+
+  .box {
+    width: 420px;
+    padding: 24px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.3rem;
+    color: #83b4ff;
+  }
+
+  pre {
+    font-size: 0.92rem;
+    white-space: pre-wrap;
+    line-height: 1.55;
+    color: #d6dcff;
+    background: rgba(255,255,255,0.08);
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .result {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    background: rgba(120,255,193,0.15);
+    border: 1px solid rgba(120,255,193,0.4);
+    color: #7affc4;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Snapshot 데이터 -->
+  <div class="box">
+    <h2>Snapshot Data (결제 직전 저장값)</h2>
+<pre>{
+  "orderId": "ORD_20250203_00012",
+  "itemId": 14,
+  "itemName": "한돈 삼겹살 500g",
+  "snapshotPrice": 5900,
+  "snapshotQty": 1,
+  "snapshotAt": "2025-02-03 13:22:11"
+}</pre>
+  </div>
+
+  <!-- Toss 결제 응답 -->
+  <div class="box">
+    <h2>Toss Response</h2>
+<pre>{
+  "paymentKey": "pay_450192",
+  "orderId": "ORD_20250203_00012",
+  "totalAmount": 5900,
+  "status": "DONE",
+  "approvedAt": "2025-02-03T13:22:12+09:00"
+}</pre>
+
+    <div class="result">
+      ✔ Integrity Check : VALID  
+      <small>(스냅샷 = Toss 응답 값 일치)</small>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
