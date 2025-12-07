@@ -154,7 +154,7 @@
   transition: 0.25s;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* 요소들 위/아래 균등 배치 */
   height: 100%;
   padding-bottom: 20px;
