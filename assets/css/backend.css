@@ -432,12 +432,26 @@
   padding: 32px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   box-shadow:
     0 0 20px rgba(0, 255, 180, 0.12),
     inset 0 0 25px rgba(0, 255, 180, 0.05);
+  margin-bottom: 20px;
+
+  transition: all 0.28s ease;
 }
+
+.goal-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 255, 180, 0.35);
+  box-shadow:
+    0 0 28px rgba(0, 255, 180, 0.25),
+    inset 0 0 30px rgba(0, 255, 180, 0.12);
+  transition: all 0.28s ease;
+}
+
 
 .goal-title {
   font-size: 1.4rem;
@@ -509,6 +523,7 @@
     0 0 30px rgba(80, 220, 255, 0.40),
     0 0 45px rgba(80, 220, 255, 0.30);
   border-color: rgba(120, 240, 255, 0.70);
+  transition: all 0.28s ease;
 }
 
 /* =========================================================
@@ -671,12 +686,15 @@
 }
 
 .stack-icon-row img {
-  width: 100px;              /* 기존 60 → 80 */
+  width: 100px;
+  /* 기존 60 → 80 */
   height: 80px;
   object-fit: contain;
 
-  padding: 6px;             /* 기존 10px → 6px (공간 확보) */
-  border-radius: 12px;      /* 더 자연스러운 라운드 */
+  padding: 6px;
+  /* 기존 10px → 6px (공간 확보) */
+  border-radius: 12px;
+  /* 더 자연스러운 라운드 */
 
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -700,4 +718,3 @@
     height: 52px;
   }
 }
-

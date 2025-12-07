@@ -131,22 +131,59 @@ img {
 }
 
 .tag-box span {
-  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #ffffff;
   border: 1px solid #dce6ff;
   border-radius: 30px;
+
   padding: 8px 16px;
+
   font-size: 0.9rem;
   font-weight: 600;
   color: #0066ff;
+
+  transition: all 0.22s ease;
+  box-shadow: 0 3px 8px rgba(0, 102, 255, 0.08);
 }
+
+/* Hover 효과 */
+.tag-box span:hover {
+  transform: translateY(-3px);
+  border-color: #b5ccff;
+  box-shadow: 0 6px 14px rgba(0, 102, 255, 0.18);
+  background: #f8faff;
+  color: #004bcc;
+}
+
+/* 아이콘 */
+.tag-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+
+
 
 .profile-frame {
   width: 290px;
   height: 290px;
   border-radius: 24px;
   overflow: hidden;
+  border: 5px solid black;
+
+  /* 원래 그림자만 유지 */
   box-shadow: 0 8px 25px rgba(0, 60, 150, 0.15);
-  border: 5px solid #fff;
+
+  transition: transform 0.25s ease; /* hover 부드러움만 유지 */
+}
+
+.profile-frame:hover {
+  /* 네온 없이 자연스러운 떠오름 효과만 */
+  transform: translateY(-3px);
 }
 
 .profile-frame img {
@@ -154,6 +191,9 @@ img {
   width: 100%;
   height: 100%;
 }
+
+
+
 
 /* ---------------------------
    SECTION 공통
@@ -219,20 +259,55 @@ img {
   margin-top: 40px;
 }
 
+/* =========================================================
+   SKILL CARD — 업그레이드 디자인
+========================================================= */
+
 .skill-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 28px;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+
+  /* 기본 그림자 */
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    inset 0 0 10px rgba(255, 255, 255, 0.03);
+
+  transition: all 0.25s ease;
+  cursor: default;
   text-align: center;
-  border: 1px solid #dde6ff;
-  box-shadow: 0 8px 18px rgba(30, 70, 140, 0.09);
-  transition: 0.3s ease;
 }
 
+.skill-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0053ff;
+  letter-spacing: -0.3px;
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  color: #e8ecff;
+}
+
+/* Hover 효과 */
 .skill-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 60, 140, 0.12);
+  
+  /* Hover 시 빛 확산 효과 */
+  box-shadow:
+    0 8px 30px rgba(0, 100, 255, 0.25),
+    inset 0 0 15px rgba(255, 255, 255, 0.15),
+    0 0 12px #4da3ff;
+  
+  border-color: rgba(130, 170, 255, 0.5);
 }
+
 
 .skill-card h3 {
   font-size: 1.3rem;
