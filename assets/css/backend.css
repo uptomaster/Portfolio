@@ -838,3 +838,43 @@
     font-size: 0.92rem;
   }
 }
+
+/* ============================================
+   TECH STACK - MOBILE FIX (max-width: 768px)
+============================================ */
+@media (max-width: 768px) {
+
+  /* 1) 카드 1열 */
+  .stack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  /* 2) 아이콘 줄바꿈 */
+  .stack-icon-row {
+    flex-wrap: wrap;          /* 🔥 핵심 */
+    justify-content: center;  /* 중앙 정렬 */
+    gap: 10px 14px;           /* 세로/가로 간격 */
+  }
+
+  /* 3) 아이콘 크기 줄이기 */
+  .stack-icon-row img {
+    width: 70px !important;   /* 기존 100px → 70px */
+    height: 70px !important;
+    padding: 6px;
+  }
+
+  /* 4) 카드 패딩 줄여서 여유 공간 확보 */
+  .stack-card {
+    padding: 24px !important;
+  }
+
+  /* 5) 텍스트 살짝 축소 */
+  .stack-card h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .stack-card p {
+    font-size: 0.9rem !important;
+  }
+}
