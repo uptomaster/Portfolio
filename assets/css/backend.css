@@ -19,8 +19,8 @@
 
 /* Container */
 .backend-container {
-  width: 100%;
-  max-width: 1500px;
+  width: 95%;
+  max-width: 1300px;
   margin: auto;
 }
 
@@ -686,7 +686,7 @@
 }
 
 .stack-icon-row img {
-  width: 100px;
+  width: 80px;
   /* 기존 60 → 80 */
   height: 80px;
   object-fit: contain;
@@ -812,8 +812,8 @@
 
   /* tech stack 아이콘 축소 */
   .stack-icon-row img {
-    width: 52px !important;
-    height: 52px !important;
+    width: 30px !important;
+    height: 30px !important;
   }
 
   /* tech stack 카드 1열 */
