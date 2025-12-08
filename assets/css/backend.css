@@ -848,25 +848,31 @@
   .stack-grid {
     grid-template-columns: 1fr !important;
     gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* 2) 아이콘 줄바꿈 */
   .stack-icon-row {
-    flex-wrap: wrap;          /* 🔥 핵심 */
-    justify-content: center;  /* 중앙 정렬 */
-    gap: 10px 14px;           /* 세로/가로 간격 */
+    flex-wrap: wrap;
+    /* 🔥 핵심 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    gap: 10px 14px;
+    /* 세로/가로 간격 */
   }
 
   /* 3) 아이콘 크기 줄이기 */
   .stack-icon-row img {
-    width: 70px !important;   /* 기존 100px → 70px */
-    height: 70px !important;
+    width: 50px !important;
+    /* 기존 100px → 70px */
+    height: 50px !important;
     padding: 6px;
   }
 
   /* 4) 카드 패딩 줄여서 여유 공간 확보 */
   .stack-card {
-    padding: 24px !important;
+    padding: 12px !important;
   }
 
   /* 5) 텍스트 살짝 축소 */
