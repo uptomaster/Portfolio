@@ -19,8 +19,8 @@
 
 /* Container */
 .backend-container {
-  width: 92%;
-  max-width: 1300px;
+  width: 100%;
+  max-width: 1500px;
   margin: auto;
 }
 
