@@ -10,6 +10,14 @@
   --neon-purple: #A17CFF;
 }
 
+.header{
+  width:100% !important;
+}
+
+.section{
+  width:100% !important;
+}
+
 .backend-body {
   background: linear-gradient(180deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
   color: var(--text-light);
