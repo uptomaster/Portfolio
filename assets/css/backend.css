@@ -374,7 +374,7 @@
 /* =========================================================
    RESPONSIVE
 ========================================================= */
-@media (max-width: 1020px) {
+/* @media (max-width: 1020px) {
   .info-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -416,7 +416,7 @@
   .stack-card:hover {
     transform: translateY(-3px);
   }
-}
+} */
 
 /* =========================================================
    PROJECT GOAL SECTION
@@ -474,11 +474,11 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .goal-grid {
     grid-template-columns: 1fr;
   }
-}
+} */
 
 /* ==========================================
    Problem Solving - Screenshot Neon Glow
@@ -634,11 +634,11 @@
 
 
 /* Responsive */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .stack-grid {
     grid-template-columns: 1fr;
   }
-}
+} */
 
 
 /* =========================================================
@@ -712,9 +712,129 @@
     drop-shadow(0 0 10px rgba(0, 255, 255, 0.55)) drop-shadow(0 0 18px rgba(0, 255, 255, 0.35));
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .stack-icon-row img {
     width: 52px;
     height: 52px;
+  }
+} */
+
+
+
+/* =========================================================
+   MOBILE FIX (max-width: 600px)
+========================================================= */
+@media (max-width: 600px) {
+
+  /* 컨테이너 기본 패딩 조정 */
+  .backend-container,
+  .backend-hero-inner {
+    width: 92%;
+    padding: 0 10px;
+  }
+
+  /* 히어로 타이틀 크기 축소 */
+  .backend-hero-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .backend-hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* 태그 줄바꿈 정돈 */
+  .backend-tags span {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* 로고 카드 크기 축소 */
+  .backend-logo-card {
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+  }
+
+  /* info-card 한 줄 */
+  .info-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* info-card 내부 글자 크기 줄임 */
+  .info-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .info-card p {
+    font-size: 0.92rem;
+  }
+
+  /* 타임라인 패딩 줄이기 */
+  .backend-timeline {
+    padding-left: 25px;
+  }
+
+  .backend-timeline-item {
+    margin-bottom: 40px;
+  }
+
+  .backend-timeline-item::before {
+    left: -34px;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* 스크린샷 1열 */
+  .screenshot-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Admin 카드 전체 1열 */
+  .admin-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-card h3 {
+    font-size: 1.15rem;
+  }
+
+  /* goal 섹션 1열 */
+  .goal-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* GitHub 카드 1열 */
+  .git-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* tech stack 아이콘 축소 */
+  .stack-icon-row img {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  /* tech stack 카드 1열 */
+  .stack-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 이미지 카드 비율 유지하며 살짝 축소 */
+  .card-shot {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* 섹션 타이틀 축소 */
+  .backend-section-title {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  /* 버튼 크기 축소 */
+  .backend-btn {
+    padding: 12px 20px;
+    font-size: 0.92rem;
   }
 }
