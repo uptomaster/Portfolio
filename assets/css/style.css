@@ -19,6 +19,7 @@ body {
   font-family: "Pretendard", "Montserrat", sans-serif;
   background: #f7f9fc;
   color: #222;
+  width: 100%;
   /* line-height: 1.65; */
   overflow-x: hidden;
 }
@@ -45,6 +46,8 @@ img {
   border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   transition: background 0.35s ease, box-shadow 0.35s ease;
 }
@@ -207,7 +210,8 @@ img {
   /* 원래 그림자만 유지 */
   box-shadow: 0 8px 25px rgba(0, 60, 150, 0.15);
 
-  transition: transform 0.25s ease; /* hover 부드러움만 유지 */
+  transition: transform 0.25s ease;
+  /* hover 부드러움만 유지 */
 }
 
 .profile-frame:hover {
@@ -300,7 +304,7 @@ img {
   backdrop-filter: blur(10px);
 
   /* 기본 그림자 */
-  box-shadow: 
+  box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.12),
     inset 0 0 10px rgba(255, 255, 255, 0.03);
 
@@ -327,13 +331,13 @@ img {
 /* Hover 효과 */
 .skill-card:hover {
   transform: translateY(-6px);
-  
+
   /* Hover 시 빛 확산 효과 */
   box-shadow:
     0 8px 30px rgba(0, 100, 255, 0.25),
     inset 0 0 15px rgba(255, 255, 255, 0.15),
     0 0 12px #4da3ff;
-  
+
   border-color: rgba(130, 170, 255, 0.5);
 }
 
@@ -378,7 +382,8 @@ img {
   /* 핵심!! 전체 카드 높이를 통일 */
   min-height: 400px;
 
-  padding-bottom: 110px; /* 버튼 공간 확보 */
+  padding-bottom: 110px;
+  /* 버튼 공간 확보 */
 }
 
 .project-card:hover {
