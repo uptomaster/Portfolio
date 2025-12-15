@@ -33,7 +33,7 @@
         <a href="../index.html">Home</a>
         <a href="./project_babsegwon_backend.html">밥세권</a>
         <a href="./sun-project.html">YIT</a>
-        <a href="./bab-security.html">푸드파이터</a>
+        <a href="./bab-security.html">Food Fighter</a>
         <a href="./getoh.html">GetOh!</a>
       </nav>
     </div>
@@ -116,7 +116,20 @@
     </div>
   </section>
 
+  <section class="bab-section">
+    <div class="bab-container">
 
+      <h2 class="bab-section-title">추진 배경</h2>
+
+      <div class="bab-shot-grid">
+        <div class="bab-shot-card"><img src="../assets/img/back_story.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/senario.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/pro_senario.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/vulner_infra.png" /></div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- =========================================================
       SERVER ROLES
@@ -170,31 +183,51 @@
 ========================================================= -->
   <section class="bab-section">
     <div class="bab-container">
-      <h2 class="bab-section-title">문제 → 해결 방식</h2>
+      <h2 class="bab-section-title">문제</h2>
 
       <div class="bab-ps-grid">
         <div class="bab-ps-card">
           <h3>보안 취약점 다수 발견</h3>
-          <p class="problem">저장형 XSS · CSRF · Session Fixation · Plain Password</p>
-          <p class="solution">관리자 페이지 전체 인증/세션 구조 개선 & 필터링 적용</p>
+          <p class="problem">저장형 XSS · CSRF · Session Fixation · <br>Plain Password</p>
         </div>
 
         <div class="bab-ps-card">
           <h3>백업 체계 부재</h3>
           <p class="problem">한쪽 서버 장애 시 즉시 복구 불가</p>
-          <p class="solution">HQ ↔ BR 양방향 rsync 기반 백업 구조 완성</p>
         </div>
 
         <div class="bab-ps-card">
           <h3>DB 단일 장애점</h3>
           <p class="problem">Master 장애 시 서비스 중단</p>
-          <p class="solution">Master ↔ Slave DB 복제(MariaDB Replication) 구축</p>
         </div>
       </div>
 
     </div>
   </section>
 
+  <section class="bab-section">
+    <div class="bab-container">
+      <h2 class="bab-section-title">해결 방식</h2>
+
+      <div class="bab-ps-grid">
+        <div class="bab-ps-card">
+          <h3>보안 취약점 모의해킹 및 시큐어코딩</h3>
+          <p class="solution">관리자 페이지 전체 인증/세션 구조 개선<br> & 필터링 적용</p>
+        </div>
+
+        <div class="bab-ps-card">
+          <h3>백업 체계 구축</h3>
+          <p class="solution">HQ ↔ BR 양방향 rsync 기반 백업 구조<br>(전체/증분 백업) 완성</p>
+        </div>
+
+        <div class="bab-ps-card">
+          <h3>DB 이중화 구조</h3>
+          <p class="solution">Master ↔ Slave DB 복제 구축<br>(MariaDB Replication) </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 
   <!-- =========================================================
@@ -208,27 +241,27 @@
       <div class="bab-timeline">
 
         <div class="bab-timeline-item">
-          <h3>Day 1 — 요구사항 분석 & 침투 시나리오 작성</h3>
-          <p>밥세권 서비스 침투 루트 및 관리자 페이지 권한 탈취 실험</p>
+          <h3>Part 1 — 요구사항 분석 & 침투 시나리오 작성</h3>
+          <p>밥세권 서비스 침투 루트 정의 및 데이터베이스 삭제</p>
         </div>
 
         <div class="bab-timeline-item">
-          <h3>Day 2 — Linux HQ 서버 점검(U-01~72)</h3>
+          <h3>Part 2 — Linux HQ 서버 취약점 점검 및 이행 점검(U-01~72)</h3>
           <p>root 접근 통제, 패스워드 정책, 접근제어, 로깅 강화</p>
         </div>
 
         <div class="bab-timeline-item">
-          <h3>Day 3 — DB 이중화 구축(Master → Slave)</h3>
-          <p>binlog 설정 · CHANGE MASTER TO · 복제 테스트 완료</p>
+          <h3>Part 3 — DB 이중화 구축(Master → Slave)</h3>
+          <p>binlog 설정 · Replication · 복제 테스트 완료</p>
         </div>
 
         <div class="bab-timeline-item">
-          <h3>Day 4 — HQ↔BR 백업 구조 완성</h3>
-          <p>rsync + SSH Key 자동 백업 + 날짜별 정리 스크립트</p>
+          <h3>Part 4 — HQ↔BR 백업 구조 완성</h3>
+          <p>전체·증분 백업 + SSH Key 자동 백업 + 날짜별 정리 스크립트</p>
         </div>
 
         <div class="bab-timeline-item">
-          <h3>Day 5 — 관리자 페이지 취약점 조치</h3>
+          <h3>Part 5 — 관리자 페이지 모의해킹 및 시큐어 코딩</h3>
           <p>XSS/CSRF/Session 구조 개선 + HTTPS 적용 권고</p>
         </div>
 
@@ -236,7 +269,6 @@
 
     </div>
   </section>
-
 
 
   <!-- =========================================================
@@ -248,10 +280,10 @@
       <h2 class="bab-section-title">작업 화면 캡처</h2>
 
       <div class="bab-shot-grid">
-        <div class="bab-shot-card"><img src="../assets/img/bab1.png" /></div>
-        <div class="bab-shot-card"><img src="../assets/img/bab2.png" /></div>
-        <div class="bab-shot-card"><img src="../assets/img/bab3.png" /></div>
-        <div class="bab-shot-card"><img src="../assets/img/bab4.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/replication.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/backup_direc.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/script_integrity.png" /></div>
+        <div class="bab-shot-card"><img src="../assets/img/integrity_success.png" /></div>
       </div>
 
     </div>
