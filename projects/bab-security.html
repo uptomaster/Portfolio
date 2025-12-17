@@ -101,8 +101,32 @@
       <img src="../assets/img/foodfighter_teammate.png" alt="team date">
     </div>
   </section>
-
 <hr>
+
+<!-- =========================================================
+     REFERENCE DOCUMENTS
+========================================================= -->
+<section class="bab-section bab-section-alt">
+  <div class="bab-container">
+
+    <h2 class="bab-section-title">프로젝트 기준 문서</h2>
+
+    <p class="bab-section-desc">
+      본 프로젝트는 사업 제안서·제안요청서(RFP)를 기반으로 요구사항을 정의하고,<br>
+      <span class="summary-key">주요정보통신기반시설 및 전자금융기반시설 보안 기준</span>을 참고하여
+      점검 및 개선 항목을 도출했습니다.
+    </p>
+
+    <div class="bab-reference-image">
+      <img
+        src="../assets/img/document.png"
+        alt="사업제안서, 주요정보통신기반시설, 전자금융기반시설 보안 기준 문서"
+      >
+    </div>
+
+  </div>
+</section>
+
 <!-- =========================================================
      SUMMARY (WHAT / WHY / HOW / RESULT)
 ========================================================= -->
@@ -125,9 +149,9 @@
       <div class="bab-summary-card">
         <h3>WHY</h3>
         <p>
-          <span class="summary-key">침투 시나리오 기반 점검</span> 결과
-          <span class="summary-key">관리자 페이지 취약점</span>이 확인되어
-          서비스 중단 및 <span class="summary-key">데이터 유출 위험</span>이 존재
+          <span class="summary-key">침투 시나리오 기반 점검</span> 결과<br>
+          <span class="summary-key">관리자 페이지 취약점</span>이 확인<br>
+          서비스 중단 및 <span class="summary-key">데이터 유출 위험</span>
         </p>
       </div>
 
@@ -174,7 +198,7 @@
       <div class="bab-bg-card">
         <h3 class="bab-bg-title">현장 중심 문제 인식</h3>
         <p class="bab-bg-desc">
-          기존 시스템은 실제 운영 환경과 동떨어진 구조로 인해
+          기존 시스템은 실제 운영 환경과 동떨어진 구조로 인해<br>
           장애 대응 및 관리 효율에 한계가 존재했습니다.
         </p>
       </div>
@@ -182,7 +206,7 @@
       <div class="bab-bg-card">
         <h3 class="bab-bg-title">보안 위협 증가</h3>
         <p class="bab-bg-desc">
-          관리자 페이지, 인증 로직, 서버 접근 영역에서
+          관리자 페이지, 인증 로직, 서버 접근 영역에서<br>
           실질적인 공격 시나리오 기반 점검의 필요성이 대두되었습니다.
         </p>
       </div>
@@ -190,7 +214,7 @@
       <div class="bab-bg-card">
         <h3 class="bab-bg-title">데이터 안정성 요구</h3>
         <p class="bab-bg-desc">
-          장애·침해 사고 발생 시에도 서비스 연속성을 유지할 수 있는
+          장애·침해 사고 발생 시에도 서비스 연속성을 유지할 수 있는<br>
           DB 이중화 및 백업 체계 구축이 요구되었습니다.
         </p>
       </div>
@@ -199,7 +223,7 @@
         <h3 class="bab-bg-title">운영·보안 통합 설계 필요</h3>
         <p class="bab-bg-desc">
           개별 기능 중심이 아닌 운영·백업·보안을 하나의 흐름으로
-          설계하는 아키텍처 접근이 필요했습니다.
+          설계하는 <br>접근이 필요했습니다.
         </p>
       </div>
 
@@ -221,7 +245,7 @@
     <p class="bab-section-desc">
       기존 환경은 보안·백업·데이터 구조 전반에서 단일 장애점과
       운영 리스크가 존재했습니다.
-      본 프로젝트는 이를 구조적으로 해결하는 것을 목표로 설계되었습니다.
+      <br>본 프로젝트는 이를 구조적으로 해결하는 것을 목표로 설계되었습니다.
     </p>
 
     <!-- PROBLEM -->
@@ -304,45 +328,69 @@
 
   <hr>
 
-  <!-- =========================================================
-      TIMELINE
+<!-- =========================================================
+     TIMELINE
 ========================================================= -->
-  <section class="bab-section bab-section-alt">
-    <div class="bab-container">
+<section class="bab-section bab-section-alt">
+  <div class="bab-container">
 
-      <h2 class="bab-section-title">작업 타임라인</h2>
+    <h2 class="bab-section-title">작업 타임라인</h2>
 
-      <div class="bab-timeline">
+    <div class="bab-timeline">
 
-        <div class="bab-timeline-item">
-          <h3>Part 1 — 요구사항 분석 & 침투 시나리오 작성</h3>
-          <p>밥세권 서비스 침투 루트 정의 및 데이터베이스 삭제</p>
-        </div>
+      <div class="bab-timeline-item">
+        <h3>Part 1 — 사업 제안서·제안요청서 기반 요구사항 분석</h3>
+        <p>
+          사업 제안서 및 제안요청서를 기반으로
+          밥세권 서비스의 운영 환경과 보안 요구사항을 정리
+          <br>점검 범위 및 침투 시나리오 설계
+        </p>
+      </div>
 
-        <div class="bab-timeline-item">
-          <h3>Part 2 — Linux HQ 서버 취약점 점검 및 이행 점검(U-01~72)</h3>
-          <p>root 접근 통제, 패스워드 정책, 접근제어, 로깅 강화</p>
-        </div>
+      <div class="bab-timeline-item">
+        <h3>Part 2 — 주요정보통신기반시설 보안 기준 기반 서버 점검</h3>
+        <p>
+          주요정보통신기반시설 취약점 진단 가이드를 참조하여
+          Linux HQ 서버를 대상으로
+          <br>계정·권한 관리, root 접근 통제, 패스워드 정책,
+          접근 제어 및 로깅 설정 등을 점검하고 이행 조치 수행
+        </p>
+      </div>
 
-        <div class="bab-timeline-item">
-          <h3>Part 3 — DB 이중화 구축(Master → Slave)</h3>
-          <p>binlog 설정 · Replication · 복제 테스트 완료</p>
-        </div>
+      <div class="bab-timeline-item">
+        <h3>Part 3 — DB 이중화 구조 구축 및 안정성 검증</h3>
+        <p>
+          데이터 무결성과 가용성을 고려한
+          MariaDB Replication 환경을 구축하고
+          binlog 설정 및 복제 동작을 검증
+        </p>
+      </div>
 
-        <div class="bab-timeline-item">
-          <h3>Part 4 — HQ↔BR 백업 구조 완성</h3>
-          <p>전체·증분 백업 + SSH Key 자동 백업 + 날짜별 정리 스크립트</p>
-        </div>
+      <div class="bab-timeline-item">
+        <h3>Part 4 — HQ ↔ BR 백업 구조 설계 및 구현</h3>
+        <p>
+          금융·정보통신 기반 서비스 운영 환경을 고려해
+          전체·증분 백업 정책을 수립하고,<br>
+          SSH Key 기반 자동 백업과
+          날짜별 백업 관리 스크립트를 적용
+        </p>
+      </div>
 
-        <div class="bab-timeline-item">
-          <h3>Part 5 — 관리자 페이지 모의해킹 및 시큐어 코딩</h3>
-          <p>XSS/CSRF/Session 구조 개선 + HTTPS 적용 권고</p>
-        </div>
-
+      <div class="bab-timeline-item">
+        <h3>Part 5 — 관리자 페이지 보안 점검 및 시큐어 코딩 적용</h3>
+        <p>
+          모의해킹 결과를 바탕으로
+          XSS·CSRF·세션 관리 취약점을 개선하고,<br>
+          주요정보통신기반시설·전자금융기반시설
+          보안 기준을 참고해 관리자 페이지 보안 수준을 강화
+        </p>
       </div>
 
     </div>
-  </section>
+
+  </div>
+</section>
+
 <hr>
 
 <!-- =========================================================
@@ -355,9 +403,8 @@
 
     <p class="bab-section-desc">
       본사와 지사는 동일한 서버 역할 구조를 기준으로 구성되며,
-      본인은 서비스 운영 및 보안, 데이터 안정성과 직접 연관된
-      SFTP, MAIL, DB, WEB, BACKUP 서버 영역을 담당했습니다.
-      로그 서버(LOG)는 전체 인프라 구조에는 포함되지만,
+      <br>본인은 SFTP, MAIL, DB, WEB, BACKUP 서버 영역을 담당했습니다.
+      <br>로그 서버(LOG)는 전체 인프라 구조에는 포함되지만,
       별도의 팀원이 구축 및 운영을 전담한 영역입니다.
       (DNS, DHCP는 공통 네트워크 인프라)
     </p>
@@ -510,7 +557,7 @@
 
     <!-- 섹션 요약 -->
     <p class="bab-section-desc">
-      본사 DB Master 장애 발생 시 지사 서버군을 중심으로
+      DB Master 장애 발생 시 백업 Slave를 이용하여
       서비스 연속성을 유지하도록 Failover 흐름을 설계했습니다.
     </p>
 
@@ -521,8 +568,8 @@
         <span>01</span>
         <h3>장애 감지</h3>
         <p>
-          HQ_BACKUP_SEC(DB Master) 장애 발생 시<br>
-          서비스 오류 및 로그 이상 징후를 통해
+          DB Master 장애 발생 시<br>
+          서비스 오류 및 로그 이상 징후를 <br>통해
           장애 상황을 인지합니다.
         </p>
       </div>
@@ -532,8 +579,8 @@
         <span>02</span>
         <h3>DB Slave 전환</h3>
         <p>
-          지사 서버군 내 DB Slave를 기준으로<br>
-          쓰기 가능 상태로 전환하여
+          DB Slave(백업서버)를 기준으로<br>
+          쓰기 가능 상태로 전환하여<br>
           DB Master 역할을 대체합니다.
         </p>
       </div>
@@ -544,7 +591,7 @@
         <h3>서비스 연결 변경</h3>
         <p>
           웹 서비스 및 애플리케이션의<br>
-          DB 연결 대상을 본사 → 지사 서버군으로
+          DB 연결 대상을 Master → Slave로<br>
           전환합니다.
         </p>
       </div>
@@ -554,7 +601,7 @@
         <span>04</span>
         <h3>백업·로그 유지</h3>
         <p>
-          BR_BACKUP_SEC를 기준으로<br>
+          Slave 서버를 기준으로<br>
           백업 및 로그 수집을 지속하며
           복구 및 재동기화를 준비합니다.
         </p>
@@ -714,7 +761,7 @@
 
   <!-- FOOTER -->
   <footer class="bab-footer">
-    © NAMHYUK · 정보보호 컨설팅 기반 네트워크·웹 보안 구축 프로젝트
+    © NAMHYUK · 침해사고 대응 기반 인프라 및 보호체계 강화 사업
   </footer>
 
   <!-- JS -->

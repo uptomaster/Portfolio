@@ -30,7 +30,7 @@ floatShapes.forEach((shape) => {
 
 
 /* ---------------------------------------------------------
-   2) NEON CARD HOVER GLOW (붉은 네온 강조)
+   2) NEON CARD HOVER GLOW (CSS 변수 기반)
 --------------------------------------------------------- */
 const neonCards = document.querySelectorAll(
   ".bab-summary-card, .bab-server-card, .bab-ps-card, .bab-shot-card"
@@ -39,12 +39,12 @@ const neonCards = document.querySelectorAll(
 neonCards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
     card.style.boxShadow =
-      "0 0 30px rgba(212,20,90,0.85), 0 0 45px rgba(255,79,129,0.85)";
+      "0 0 30px var(--crimson-glow-strong), 0 0 45px var(--crimson-glow-strong)";
   });
 
   card.addEventListener("mouseleave", () => {
     card.style.boxShadow =
-      "0 0 18px rgba(212,20,90,0.6), 0 0 28px rgba(255,79,129,0.6)";
+      "0 0 18px var(--crimson-glow), 0 0 28px var(--crimson-glow)";
   });
 });
 
@@ -71,7 +71,7 @@ style.innerHTML = `
   .timeline-active {
     transform: translateX(10px);
     transition: 0.4s ease;
-    filter: drop-shadow(0 0 22px rgba(212,20,90,0.85));
+    filter: drop-shadow(0 0 22px var(--crimson-glow-strong));
   }
 `;
 document.head.appendChild(style);
@@ -85,9 +85,9 @@ const pdfBtn = document.querySelector(".pdf-btn");
 if (pdfBtn) {
   pdfBtn.animate(
     [
-      { boxShadow: "0 0 16px rgba(212,20,90,0.6)" },
-      { boxShadow: "0 0 36px rgba(255,79,129,0.95)" },
-      { boxShadow: "0 0 16px rgba(212,20,90,0.6)" }
+      { boxShadow: "0 0 16px var(--crimson-glow)" },
+      { boxShadow: "0 0 36px var(--crimson-glow-strong)" },
+      { boxShadow: "0 0 16px var(--crimson-glow)" }
     ],
     {
       duration: 2600,

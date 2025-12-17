@@ -10,8 +10,8 @@
   width: 90%;
   max-width: 1150px; /* 기존 1300 → 1150로 조정 (여백 확보) */
   margin: 0 auto;
-  padding-left: 20px;   /* 새로 추가 */
-  padding-right: 20px;  /* 새로 추가 */
+  padding-left: 50px;   /* 새로 추가 */
+  padding-right: 50px;  /* 새로 추가 */
 }
 
 /* 섹션 자체도 좌우 여백 확보 */
