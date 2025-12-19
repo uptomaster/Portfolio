@@ -282,176 +282,456 @@ img {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------------------------
-   SKILLS
----------------------------- */
+/* =========================================================
+   SKILLS SECTION
+========================================================= */
+.section-skills {
+  background: #f7f9fc;
+}
+
+/* GRID */
 .skills-grid {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 25px;
-  margin-top: 40px;
+  gap: 24px;
+}
+
+/* CARD */
+.skill-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px 24px;
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 6px 16px rgba(0, 40, 120, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 60, 150, 0.12);
+}
+
+/* TITLE */
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: #0f172a;
+}
+
+/* LIST */
+.skill-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-card li {
+  font-size: 0.88rem;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.skill-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: 900;
+}
+
+/* CATEGORY ACCENT (SUBTLE) */
+.skill-card.frontend h3 { color: #2563eb; }
+.skill-card.backend h3  { color: #0ea5e9; }
+.skill-card.network h3  { color: #22c55e; }
+.skill-card.security h3 { color: #ef4444; }
+.skill-card.database h3 { color: #a855f7; }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================================================
-   SKILL CARD — 업그레이드 디자인
+   PROJECTS SLIDER — FINAL CSS (ARROW CENTER FIX INCLUDED)
+   사용 중인 HTML 그대로 적용 가능
 ========================================================= */
 
-.skill-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 28px;
-  border-radius: 24px;
-  backdrop-filter: blur(10px);
-
-  /* 기본 그림자 */
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.12),
-    inset 0 0 10px rgba(255, 255, 255, 0.03);
-
-  transition: all 0.25s ease;
-  cursor: default;
-  text-align: center;
+/* SECTION */
+#projects {
+  background: #f7f9fc;
 }
 
-.skill-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #0053ff;
-  letter-spacing: -0.3px;
-}
-
-.skill-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  color: #e8ecff;
-}
-
-/* Hover 효과 */
-.skill-card:hover {
-  transform: translateY(-6px);
-
-  /* Hover 시 빛 확산 효과 */
-  box-shadow:
-    0 8px 30px rgba(0, 100, 255, 0.25),
-    inset 0 0 15px rgba(255, 255, 255, 0.15),
-    0 0 12px #4da3ff;
-
-  border-color: rgba(130, 170, 255, 0.5);
-}
-
-
-.skill-card h3 {
-  font-size: 1.3rem;
-  color: #003d9e;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.skill-card p {
-  color: #444;
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-
-/* ---------------------------
-   PROJECTS
----------------------------- */
-.projects-grid {
+/* =========================================================
+   SLIDER LAYOUT
+========================================================= */
+.project-slider {
+  position: relative;
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
 }
 
-/* 프로젝트 카드 공통 스타일 */
-/* 카드 기본 스타일 */
-.project-card {
+.slider-viewport {
+  position: relative;      /* 화살표 기준점 */
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  gap: 36px;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+.slider-track .project-card {
+  flex: 0 0 calc((100% - 72px) / 3);
+
   background: #ffffff;
   border-radius: 22px;
-  padding: 28px;
+  padding: 22px 24px 110px;
   border: 1px solid #d6e4ff;
-  box-shadow: 0 8px 18px rgba(0, 60, 140, 0.08);
-  transition: 0.3s;
 
+  box-shadow: 0 10px 24px rgba(0, 60, 140, 0.08);
   position: relative;
   display: flex;
   flex-direction: column;
 
-  /* 핵심!! 전체 카드 높이를 통일 */
-  min-height: 400px;
-
-  padding-bottom: 110px;
-  /* 버튼 공간 확보 */
+  min-height: 460px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 26px rgba(0, 60, 150, 0.13);
+.slider-track .project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 60, 150, 0.15);
 }
 
-/* 제목 */
-.project-card h3 {
-  font-size: 1.35rem;
+/* =========================================================
+   PROJECT LOGO (NO CROP)
+========================================================= */
+.project-thumb {
+  width: 100%;
+  height: 150px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #f1f4ff, #eef3ff);
+  margin-bottom: 16px;
+  padding: 18px;
+}
+
+.project-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.project-header {
+  min-height: 68px;
+  margin-bottom: 8px;
+}
+
+.project-header h3 {
+  font-size: 1.22rem;
   font-weight: 800;
-  color: #0052d6;
-  margin-bottom: 15px;
+  color: #004fd8;
+  line-height: 1.35;
 }
 
-/* 설명 */
-.project-card p {
-  font-size: 1rem;
-  line-height: 1.55;
-  color: #333;
+/* =========================================================
+   PROJECT TYPE BADGE
+========================================================= */
+.project-type {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 12px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+
+  border-radius: 999px;
+  border: 1.5px solid;
+  background: #ffffff;
 }
 
-/* 태그 */
+.project-type.team {
+  color: #0057ff;
+  border-color: #0057ff;
+}
+
+.project-type.personal {
+  color: #00a86b;
+  border-color: #00a86b;
+}
+
+.project-type.security {
+  color: #d64545;
+  border-color: #d64545;
+}
+
+/* =========================================================
+   TAGS
+========================================================= */
 .project-tags {
-  margin-bottom: 12px;
+  margin: 12px 0 14px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .project-tags span {
-  background: #e8f1ff;
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #0057ff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #555;
+  background: #f1f4fb;
+  padding: 4px 10px;
+  border-radius: 999px;
 }
 
-/* ---------------------------
-   프로젝트 버튼 (카드 하단 고정)
----------------------------- */
-/* 버튼 박스 */
+/* =========================================================
+   SUMMARY & POINTS
+========================================================= */
+.project-summary {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.project-points {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: auto;
+}
+
+.project-points li {
+  font-size: 0.88rem;
+  color: #444;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.project-points li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0057ff;
+  font-weight: 900;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
 .project-btn-box {
   position: absolute;
-  bottom: 25px;
+  bottom: 26px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
 }
 
-/* 버튼 */
 .project-detail-btn {
-  display: inline-block;
-  padding: 10px 25px;
-  font-size: 0.95rem;
+  padding: 10px 26px;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(90deg, #4a8fff, #0066ff);
-  border-radius: 10px;
-  transition: 0.25s ease;
-  box-shadow: 0 0 10px rgba(0, 115, 255, 0.35);
+  background: linear-gradient(90deg, #4a8fff, #005bff);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 115, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-detail-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(0, 140, 255, 0.55);
+  box-shadow: 0 10px 24px rgba(0, 140, 255, 0.55);
+}
+
+/* =========================================================
+   SLIDER NAV BUTTON — PERFECT CENTER FIX
+========================================================= */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+
+  /* 핵심 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+
+  font-size: 22px;          /* 숫자로 명확히 */
+  font-weight: 900;
+  line-height: 1;           /* baseline 영향 제거 */
+  color: #004fd8;
+
+  cursor: pointer;
+  z-index: 20;
+  padding: 0;               /* 혹시 모를 여백 제거 */
+}
+
+/* 좌우 위치 */
+.slider-btn.prev {
+  left: -32px;
+}
+
+.slider-btn.next {
+  right: -32px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
+  .slider-track .project-card {
+    flex: 0 0 calc((100% - 36px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .slider-track .project-card {
+    flex: 0 0 100%;
+  }
+
+  .slider-btn {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   RESEARCH SECTION
+========================================================= */
+.section-research {
+  background: #ffffff;
+}
+
+/* GRID */
+.research-grid {
+  margin-top: 50px;
+  max-width: 900px;      /* 논문 느낌: 너무 넓지 않게 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CARD */
+.research-card {
+  background: #f9fafc;
+  border-radius: 18px;
+  padding: 36px 40px;
+  border: 1px solid #e3e8f5;
+
+  box-shadow: 0 6px 16px rgba(0, 40, 120, 0.06);
+}
+
+/* HEADER */
+.research-header {
+  margin-bottom: 18px;
+}
+
+.research-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: #0f172a; /* 거의 블랙 */
+  margin-bottom: 10px;
+}
+
+.research-type {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  background: #eef2ff;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* TAGS */
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.research-tags span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* ABSTRACT */
+.research-abstract {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #1e293b;
+  margin-bottom: 26px;
+}
+
+/* FOOTER */
+.research-footer {
+  text-align: right;
+}
+
+.research-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.research-link:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .research-card {
+    padding: 26px 24px;
+  }
+
+  .research-title {
+    font-size: 1.15rem;
+  }
 }
 
 
@@ -531,12 +811,121 @@ img {
   line-height: 1.55;
 }
 
+/* =========================================================
+   CONTACT / CTA SECTION
+========================================================= */
+.section-contact {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3ff 100%);
+}
+
+/* BOX */
+.contact-box {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 60px 40px;
+
+  border: 1px solid #dbe4ff;
+  box-shadow: 0 14px 32px rgba(0, 60, 140, 0.12);
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+.contact-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 36px;
+}
+
+/* ACTION BUTTONS */
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* PRIMARY */
+.contact-btn.primary {
+  background: linear-gradient(90deg, #4a8fff, #005bff);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 115, 255, 0.45);
+}
+
+.contact-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 115, 255, 0.6);
+}
+
+/* OUTLINE */
+.contact-btn.outline {
+  background: #ffffff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.contact-btn.outline:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* INFO */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-box {
+    padding: 44px 24px;
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+
 /* ---------------------------
    FOOTER
 ---------------------------- */
 .footer {
   padding: 40px;
-  margin-top: 60px;
   background: #f1f4fc;
   text-align: center;
   color: #444;
@@ -783,3 +1172,4 @@ html {
     line-height: 1.4;
   }
 }
+
