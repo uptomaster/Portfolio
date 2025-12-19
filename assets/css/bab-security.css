@@ -1201,3 +1201,254 @@
   box-shadow: 0 0 40px var(--crimson-glow-strong) !important;
 }
 
+/* =========================================================
+   BABSEGWON SECURITY — RESPONSIVE FINAL
+========================================================= */
+
+/* -------------------------
+   BASE FONT SCALE
+------------------------- */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1199px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 767px) {
+  html { font-size: 14px; }
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+@media (max-width: 767px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.bab-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .bab-hero-inner {
+    gap: 50px;
+  }
+
+  .bab-hero-title {
+    font-size: 2rem;
+  }
+
+  .bab-hero-subtitle,
+  .bab-hero-desc {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .bab-hero-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .bab-hero-title {
+    font-size: 1.7rem;
+    line-height: 1.35;
+  }
+
+  .bab-tag-box {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bab-logo-card {
+    max-width: 220px;
+    margin: auto;
+  }
+}
+
+/* =========================================================
+   TEAM / IMAGE SECTIONS
+========================================================= */
+@media (max-width: 767px) {
+  .bab-team {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .bab-project img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   SUMMARY GRID (WHAT / WHY / HOW / RESULT)
+========================================================= */
+.bab-summary-grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .bab-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   BACKGROUND / PROBLEM / SOLUTION GRIDS
+========================================================= */
+@media (max-width: 1024px) {
+  .bab-bg-grid,
+  .bab-ps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-bg-grid,
+  .bab-ps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+@media (max-width: 767px) {
+  .bab-timeline {
+    gap: 24px;
+  }
+
+  .bab-timeline-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .bab-timeline-item p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   SERVER ROLE GRID
+========================================================= */
+@media (max-width: 1024px) {
+  .bab-server-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-server-compact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   FLOW DIAGRAM
+========================================================= */
+@media (max-width: 1024px) {
+  .bab-flow {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .bab-flow-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-flow-node {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   FAILOVER STEPS
+========================================================= */
+@media (max-width: 1024px) {
+  .bab-failover-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-failover-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SCREENSHOT GRID
+========================================================= */
+@media (max-width: 1024px) {
+  .bab-shot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bab-shot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bab-shot-caption h4 {
+    font-size: 1rem;
+  }
+
+  .bab-shot-caption p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   PDF SECTION
+========================================================= */
+@media (max-width: 767px) {
+  .bab-pdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+@media (max-width: 767px) {
+  .bab-footer {
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+}

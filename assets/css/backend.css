@@ -721,175 +721,214 @@
     drop-shadow(0 0 10px rgba(0, 255, 255, 0.55)) drop-shadow(0 0 18px rgba(0, 255, 255, 0.35));
 }
 
-/* @media (max-width: 600px) {
-  .stack-icon-row img {
-    width: 52px;
-    height: 52px;
-  }
-} */
-
 
 
 /* =========================================================
-   MOBILE FIX (max-width: 600px)
+   BABSEGWON BACKEND — RESPONSIVE FINAL
 ========================================================= */
-@media (max-width: 600px) {
 
-  /* 컨테이너 기본 패딩 조정 */
-  .backend-container,
-  .backend-hero-inner {
-    width: 92%;
-    padding: 0 10px;
+/* -------------------------
+   BASE FONT SCALE
+------------------------- */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1199px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 767px) {
+  html { font-size: 14px; }
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+@media (max-width: 767px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 14px;
   }
 
-  /* 히어로 타이틀 크기 축소 */
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.backend-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .backend-hero-inner {
+    gap: 50px;
+  }
+
   .backend-hero-title {
     font-size: 2rem;
-    line-height: 1.25;
   }
 
   .backend-hero-desc {
     font-size: 0.95rem;
-    line-height: 1.55;
-  }
-
-  /* 태그 줄바꿈 정돈 */
-  .backend-tags span {
-    padding: 6px 14px;
-    font-size: 0.8rem;
-  }
-
-  /* 로고 카드 크기 축소 */
-  .backend-logo-card {
-    width: 160px;
-    height: 160px;
-    padding: 20px;
-  }
-
-  /* info-card 한 줄 */
-  .info-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* info-card 내부 글자 크기 줄임 */
-  .info-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .info-card p {
-    font-size: 0.92rem;
-  }
-
-  /* 타임라인 패딩 줄이기 */
-  .backend-timeline {
-    padding-left: 25px;
-  }
-
-  .backend-timeline-item {
-    margin-bottom: 40px;
-  }
-
-  .backend-timeline-item::before {
-    left: -34px;
-    width: 16px;
-    height: 16px;
-  }
-
-  /* 스크린샷 1열 */
-  .screenshot-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Admin 카드 전체 1열 */
-  .admin-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .admin-card h3 {
-    font-size: 1.15rem;
-  }
-
-  /* goal 섹션 1열 */
-  .goal-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* GitHub 카드 1열 */
-  .git-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* tech stack 아이콘 축소 */
-  .stack-icon-row img {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
-  /* tech stack 카드 1열 */
-  .stack-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* 이미지 카드 비율 유지하며 살짝 축소 */
-  .card-shot {
-    aspect-ratio: 16 / 10;
-  }
-
-  /* 섹션 타이틀 축소 */
-  .backend-section-title {
-    font-size: 1.6rem;
-    margin-bottom: 40px;
-  }
-
-  /* 버튼 크기 축소 */
-  .backend-btn {
-    padding: 12px 20px;
-    font-size: 0.92rem;
   }
 }
 
-/* ============================================
-   TECH STACK - MOBILE FIX (max-width: 768px)
-============================================ */
-@media (max-width: 768px) {
-
-  /* 1) 카드 1열 */
-  .stack-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Mobile */
+@media (max-width: 767px) {
+  .backend-hero-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
   }
 
-  /* 2) 아이콘 줄바꿈 */
-  .stack-icon-row {
-    flex-wrap: wrap;
-    /* 🔥 핵심 */
+  .backend-hero-title {
+    font-size: 1.7rem;
+    line-height: 1.35;
+  }
+
+  .backend-tags {
     justify-content: center;
-    /* 중앙 정렬 */
-    gap: 10px 14px;
-    /* 세로/가로 간격 */
+    flex-wrap: wrap;
   }
 
-  /* 3) 아이콘 크기 줄이기 */
-  .stack-icon-row img {
-    width: 50px !important;
-    /* 기존 100px → 70px */
-    height: 50px !important;
-    padding: 6px;
+  .backend-logo-card {
+    max-width: 220px;
+    margin: auto;
+  }
+}
+
+/* =========================================================
+   GOAL / INFO / ADMIN GRID
+========================================================= */
+.goal-grid,
+.info-grid,
+.admin-grid,
+.stack-grid,
+.git-grid {
+  display: grid;
+  gap: 30px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .goal-grid,
+  .info-grid,
+  .admin-grid,
+  .stack-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  /* 4) 카드 패딩 줄여서 여유 공간 확보 */
-  .stack-card {
-    padding: 12px !important;
+  .git-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .goal-grid,
+  .info-grid,
+  .admin-grid,
+  .stack-grid,
+  .git-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   TIMELINE (FLOW)
+========================================================= */
+@media (max-width: 767px) {
+  .backend-timeline {
+    gap: 24px;
   }
 
-  /* 5) 텍스트 살짝 축소 */
-  .stack-card h3 {
-    font-size: 1.2rem !important;
+  .backend-timeline-item h3 {
+    font-size: 1.05rem;
   }
 
-  .stack-card p {
-    font-size: 0.9rem !important;
+  .backend-timeline-item p {
+    font-size: 0.9rem;
+  }
+
+  .timeline-step {
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+   SCREENSHOT GRID
+========================================================= */
+@media (max-width: 1024px) {
+  .screenshot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shot-card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   CARD SHOT (INLINE IMAGE)
+========================================================= */
+@media (max-width: 767px) {
+  .card-shot img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   SERVICE FLOW
+========================================================= */
+@media (max-width: 767px) {
+  .flow-wrapper {
+    text-align: center;
+  }
+
+  .flow-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .flow-desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   PDF / BUTTON
+========================================================= */
+@media (max-width: 767px) {
+  .backend-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+@media (max-width: 767px) {
+  .backend-footer {
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
   }
 }
