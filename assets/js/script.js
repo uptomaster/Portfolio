@@ -1,96 +1,113 @@
 /* =========================================================
-    AOS (Animate On Scroll)
+   GLOBAL INIT
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
+  initAOS();
+  initMobileNav();
+  initSmoothScroll();
+  initHeaderShadow();
+  initFooterYear();
+  initProjectHover();
+  initProjectSlider();
+  initCertTrackSwitch();
+});
+
+/* =========================================================
+   AOS
+========================================================= */
+function initAOS() {
+  if (!window.AOS) return;
+
   AOS.init({
     duration: 900,
     once: true,
     offset: 60,
     easing: "ease-out-cubic",
   });
-});
+}
 
 /* =========================================================
-    Mobile Navigation (햄버거 메뉴 & 메뉴 열기/닫기)
+   MOBILE NAVIGATION
 ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
+function initMobileNav() {
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      navToggle.classList.toggle("open");
-    });
-  }
-});
+  if (!navToggle || !navMenu) return;
+
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    navToggle.classList.toggle("open");
+  });
+}
 
 /* =========================================================
-    Smooth Scroll (부드러운 스크롤 이동)
+   SMOOTH SCROLL
 ========================================================= */
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const targetID = this.getAttribute("href");
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const targetID = anchor.getAttribute("href");
+      if (targetID === "#" || targetID === "#!") return;
 
-    if (targetID !== "#" && targetID !== "#!") {
-      e.preventDefault();
-      const headerHeight = document.querySelector(".header").offsetHeight;
       const target = document.querySelector(targetID);
+      if (!target) return;
 
-      const position =
+      e.preventDefault();
+
+      const header = document.querySelector(".header");
+      const offset = header ? header.offsetHeight : 0;
+
+      const top =
         target.getBoundingClientRect().top +
         window.pageYOffset -
-        headerHeight +
+        offset +
         10;
 
-      window.scrollTo({ top: position, behavior: "smooth" });
-    }
+      window.scrollTo({ top, behavior: "smooth" });
 
-    // 모바일일 경우 네비 닫기
-    if (window.innerWidth < 768) {
-      const navMenu = document.getElementById("navMenu");
-      const navToggle = document.getElementById("navToggle");
-      if (navMenu) navMenu.classList.remove("active");
-      if (navToggle) navToggle.classList.remove("open");
+      // 모바일 네비 닫기
+      if (window.innerWidth < 768) {
+        document.getElementById("navMenu")?.classList.remove("active");
+        document.getElementById("navToggle")?.classList.remove("open");
+      }
+    });
+  });
+}
+
+/* =========================================================
+   HEADER SCROLL SHADOW
+========================================================= */
+function initHeaderShadow() {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+      header.style.boxShadow = "0 3px 18px rgba(0,0,0,0.1)";
+    } else {
+      header.classList.remove("scrolled");
+      header.style.boxShadow = "none";
     }
   });
-});
+}
 
 /* =========================================================
-    Header Scroll Shadow (스크롤 시 헤더 그림자)
+   FOOTER YEAR
 ========================================================= */
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled");
-    header.style.boxShadow = "0 3px 18px rgba(0,0,0,0.1)";
-  } else {
-    header.classList.remove("scrolled");
-    header.style.boxShadow = "none";
-  }
-});
+function initFooterYear() {
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+}
 
 /* =========================================================
-    Footer Year Auto Insert
+   PROJECT CARD HOVER
 ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-});
-
-/* =========================================================
-    Project Card Hover Effect
-========================================================= */
-function addHoverEffect() {
-  const cards = document.querySelectorAll(".project-card");
-
-  cards.forEach((card) => {
+function initProjectHover() {
+  document.querySelectorAll(".project-card").forEach((card) => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-6px)";
-      card.style.transition = "0.3s";
       card.style.boxShadow = "0 14px 30px rgba(0,0,0,0.13)";
     });
 
@@ -100,40 +117,72 @@ function addHoverEffect() {
     });
   });
 }
-addHoverEffect();
 
 /* =========================================================
-    Pentagon Rotation (옵션)
+   PROJECT SLIDER (통합 관리)
 ========================================================= */
-function rotatePentagon() {
-  const pentagon = document.querySelector(".pentagon");
-  if (!pentagon) return;
+function initProjectSlider() {
+  const track = document.querySelector(".slider-track");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+  const cards = document.querySelectorAll(".slider-track .project-card");
 
-  let angle = 0;
-  setInterval(() => {
-    angle += 0.3;
-    pentagon.style.transform = `rotate(${angle}deg)`;
-  }, 50);
-}
-// rotatePentagon(); // 필요 시 활성화
+  if (!track || !prevBtn || !nextBtn || !cards.length) return;
 
+  let index = 0;
+  const GAP = 36;
 
-/* =========================================================
-    CLICK DROPDOWN — PROJECTS 메뉴 토글 기능 (추가됨)
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdownBtn = document.getElementById("projectDropdownBtn");
-  const dropdownMenu = document.getElementById("projectDropdownMenu");
-
-  if (dropdownBtn && dropdownMenu) {
-    dropdownBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle("show");
-    });
+  function getVisibleCount() {
+    if (window.innerWidth <= 767) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
   }
 
-  // 메뉴 밖 클릭 시 닫기
-  document.addEventListener("click", () => {
-    if (dropdownMenu) dropdownMenu.classList.remove("show");
+  function updateSlider() {
+    const cardWidth = cards[0].offsetWidth;
+    const moveX = (cardWidth + GAP) * index;
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const visible = getVisibleCount();
+    if (index < cards.length - visible) {
+      index++;
+      updateSlider();
+    }
   });
-});
+
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    index = 0;
+    updateSlider();
+  });
+}
+
+/* =========================================================
+   CERTIFICATIONS TRACK SWITCH
+========================================================= */
+function initCertTrackSwitch() {
+  const buttons = document.querySelectorAll(".cert-track-btn");
+  const panels = document.querySelectorAll(".cert-panel");
+
+  if (!buttons.length || !panels.length) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.track;
+      panels.forEach((panel) => {
+        panel.classList.toggle(
+          "active",
+          panel.dataset.panel === target
+        );
+      });
+    });
+  });
+}

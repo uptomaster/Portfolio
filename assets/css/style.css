@@ -122,12 +122,24 @@ img {
    HERO
 ---------------------------- */
 .hero {
-  padding: 120px 0 100px;
-  background: linear-gradient(135deg,
-      #d6e8ff 0%,
-      #e9e5ff 40%,
-      #ffe9f6 100%);
+  position: relative;
+  padding: 140px 0 120px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.9),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #edf4ff 0%,
+      #e8efff 50%,
+      #f2f6ff 100%
+    );
 }
+
+
 
 .hero-container {
   display: flex;
@@ -197,47 +209,51 @@ img {
   opacity: 0.9;
 }
 
-
-
-
 .profile-frame {
   width: 290px;
   height: 290px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 5px solid black;
+  border-radius: 28px;
+  padding: 5px;
+  /* 그라데이션 테두리용 */
+  background: linear-gradient(135deg,
+      #9dbaff,
+      #b7c9ff);
 
-  /* 원래 그림자만 유지 */
-  box-shadow: 0 8px 25px rgba(0, 60, 150, 0.15);
+  box-shadow:
+    0 12px 28px rgba(0, 60, 150, 0.18),
+    0 2px 6px rgba(0, 0, 0, 0.04);
 
-  transition: transform 0.25s ease;
-  /* hover 부드러움만 유지 */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.profile-frame:hover {
-  /* 네온 없이 자연스러운 떠오름 효과만 */
-  transform: translateY(-3px);
-}
-
+/* 실제 이미지 영역 */
 .profile-frame img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  background: #fff;
+  display: block;
 }
 
-
-
+/* Hover: 과하지 않게 고급스러운 부각 */
+.profile-frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 38px rgba(0, 60, 150, 0.25),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+}
 
 /* ---------------------------
    SECTION 공통
 ---------------------------- */
 .section {
-  padding: 100px 0;
+  padding: 100px 0px;
   background: #fff;
 }
 
 .section-alt {
-  padding: 100px 0;
+  padding: 100px 0px;
   background: #f0f4ff;
 }
 
@@ -252,6 +268,11 @@ img {
 /* ---------------------------
    ABOUT
 ---------------------------- */
+
+#about {
+  border-top: 1px solid #e5e7eb;
+}
+
 .about-text {
   font-size: 1.15rem;
   max-width: 900px;
@@ -285,8 +306,15 @@ img {
 /* =========================================================
    SKILLS SECTION
 ========================================================= */
+
+/* =========================================================
+   SKILLS SECTION BACKGROUND
+   (CONTACT와 톤 통일)
+========================================================= */
+
 .section-skills {
   background: #f7f9fc;
+  border-top: 1px solid #e5e7eb;
 }
 
 /* GRID */
@@ -346,11 +374,25 @@ img {
 }
 
 /* CATEGORY ACCENT (SUBTLE) */
-.skill-card.frontend h3 { color: #2563eb; }
-.skill-card.backend h3  { color: #0ea5e9; }
-.skill-card.network h3  { color: #22c55e; }
-.skill-card.security h3 { color: #ef4444; }
-.skill-card.database h3 { color: #a855f7; }
+.skill-card.frontend h3 {
+  color: #2563eb;
+}
+
+.skill-card.backend h3 {
+  color: #0ea5e9;
+}
+
+.skill-card.network h3 {
+  color: #22c55e;
+}
+
+.skill-card.security h3 {
+  color: #ef4444;
+}
+
+.skill-card.database h3 {
+  color: #a855f7;
+}
 
 /* RESPONSIVE */
 @media (max-width: 1200px) {
@@ -378,8 +420,26 @@ img {
 
 /* SECTION */
 #projects {
-  background: #f7f9fc;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
 }
+
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 59, 167, 0.18),
+    transparent
+  );
+}
+
 
 /* =========================================================
    SLIDER LAYOUT
@@ -390,7 +450,8 @@ img {
 }
 
 .slider-viewport {
-  position: relative;      /* 화살표 기준점 */
+  position: relative;
+  /* 화살표 기준점 */
   overflow: hidden;
 }
 
@@ -411,7 +472,7 @@ img {
   border-radius: 22px;
   padding: 22px 24px 110px 24px;
   border: 1px solid #d6e4ff;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   box-shadow: 0 10px 24px rgba(0, 60, 140, 0.08);
   position: relative;
   display: flex;
@@ -595,14 +656,17 @@ img {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 
-  font-size: 22px;          /* 숫자로 명확히 */
+  font-size: 22px;
+  /* 숫자로 명확히 */
   font-weight: 900;
-  line-height: 1;           /* baseline 영향 제거 */
+  line-height: 1;
+  /* baseline 영향 제거 */
   color: #004fd8;
 
   cursor: pointer;
   z-index: 20;
-  padding: 0;               /* 혹시 모를 여백 제거 */
+  padding: 0;
+  /* 혹시 모를 여백 제거 */
 }
 
 /* 좌우 위치 */
@@ -645,7 +709,8 @@ img {
 /* GRID */
 .research-grid {
   margin-top: 50px;
-  max-width: 900px;      /* 논문 느낌: 너무 넓지 않게 */
+  max-width: 900px;
+  /* 논문 느낌: 너무 넓지 않게 */
   margin-left: auto;
   margin-right: auto;
 }
@@ -669,7 +734,8 @@ img {
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.45;
-  color: #0f172a; /* 거의 블랙 */
+  color: #0f172a;
+  /* 거의 블랙 */
   margin-bottom: 10px;
 }
 
@@ -735,40 +801,142 @@ img {
   }
 }
 
+/* =========================================================
+   CERTIFICATIONS – PERFECT ALIGN (PC)
+   Theme Color: #003ba7
+========================================================= */
 
-/* ---------------------------
-   CERTIFICATIONS
----------------------------- */
-.cert-grid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+#cert {
+  border-top: 1px solid #e5e7eb;
 }
 
-.cert-card {
+/* Section */
+.section-alt {
+  padding: 110px 0;
   background: #ffffff;
-  padding: 25px;
-  border-radius: 18px;
-  border: 1px solid #dbe4ff;
+}
+
+/* Container */
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Title */
+.section-title {
   text-align: center;
-  box-shadow: 0 7px 15px rgba(0, 70, 160, 0.08);
-}
-
-.cert-card h3 {
-  color: #0044c2;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  color: #003ba7;
+  margin-bottom: 70px;
+  letter-spacing: -0.02em;
 }
 
-.cert-card p {
-  font-size: 0.95rem;
-  color: #444;
+/* =========================================================
+   BLOCK
+========================================================= */
+
+.cert-block {
+  margin-bottom: 70px;
 }
+
+.cert-block-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #003ba7;
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   LIST – TRUE AXIS ALIGN
+========================================================= */
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* 핵심: column + 숫자 고정 */
+.cert-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px;
+  /* 날짜 축 고정 */
+  align-items: center;
+  padding: 14px 6px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+/* Name */
+.cert-name {
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+/* Date — 절대 안 흔들리게 */
+.cert-meta {
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+  white-space: nowrap;
+
+  /* 🔥 이게 핵심 */
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: 0.02em;
+}
+
+/* Hover (PC) */
+.cert-list li:hover {
+  background: rgba(0, 59, 167, 0.04);
+}
+
+
+/* =========================================================
+   OTHER / LANGUAGE LIST (동일 스타일 재사용)
+========================================================= */
+
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.simple-list li {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  align-items: center;
+  padding: 14px 6px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+.simple-list .cert-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.simple-list .cert-meta {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
 
 /* ---------------------------
    TIMELINE
 ---------------------------- */
+
+#timeline {
+  border-top: 1px solid #e5e7eb;
+}
+
 .timeline-wrapper {
   margin-top: 50px;
   border-left: 3px solid #bcd3ff;
@@ -813,111 +981,128 @@ img {
 }
 
 /* =========================================================
-   CONTACT / CTA SECTION
+   CONTACT / CTA
+   Theme Color: #003ba7
 ========================================================= */
+
+#contact {
+  border-top: 1px solid #e5e7eb;
+}
+
 .section-contact {
-  background: linear-gradient(180deg, #f8fafc 0%, #eef3ff 100%);
+  padding: 50px 0;
+  background: linear-gradient(135deg,
+      #eef4ff 0%,
+      #f4f1ff 50%,
+      #faf7ff 100%);
 }
 
-/* BOX */
-.contact-box {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 60px 40px;
-
-  border: 1px solid #dbe4ff;
-  box-shadow: 0 14px 32px rgba(0, 60, 140, 0.12);
-}
-
-/* TITLE */
-.contact-title {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #0f172a;
-  margin-bottom: 18px;
-}
-
-/* DESCRIPTION */
-.contact-desc {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #334155;
-  margin-bottom: 36px;
-}
-
-/* ACTION BUTTONS */
-.contact-actions {
+/* Container는 기존 공용 container 사용 */
+.section-contact .section-container {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 28px;
+}
+
+/* =========================================================
+   CONTACT BOX
+========================================================= */
+
+.contact-box {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 56px 64px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 59, 167, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.05);
+
+  text-align: center;
+}
+
+/* =========================================================
+   HEADER / MESSAGE
+========================================================= */
+
+.contact-header {
+  margin-bottom: 42px;
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #003ba7;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.contact-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #374151;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.contact-actions {
+  margin-bottom: 38px;
 }
 
 .contact-btn {
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 0.95rem;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
   border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: none;
+
   transition: all 0.25s ease;
 }
 
-/* PRIMARY */
+/* Primary Button */
 .contact-btn.primary {
-  background: linear-gradient(90deg, #4a8fff, #005bff);
+  background: #003ba7;
   color: #ffffff;
-  box-shadow: 0 10px 24px rgba(0, 115, 255, 0.45);
+  box-shadow:
+    0 8px 20px rgba(0, 59, 167, 0.35);
 }
 
 .contact-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(0, 115, 255, 0.6);
+  background: #002f88;
+  box-shadow:
+    0 14px 32px rgba(0, 59, 167, 0.45);
 }
 
-/* OUTLINE */
-.contact-btn.outline {
-  background: #ffffff;
-  color: #2563eb;
-  border: 2px solid #2563eb;
-}
+/* =========================================================
+   FOOTER / CONTACT INFO
+========================================================= */
 
-.contact-btn.outline:hover {
-  background: #2563eb;
-  color: #ffffff;
-}
-
-/* INFO */
-.contact-info {
+.contact-footer {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  font-size: 0.85rem;
-  color: #475569;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 0.95rem;
+  color: #6b7280;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .contact-box {
-    padding: 44px 24px;
-  }
+.contact-label {
+  font-weight: 500;
+}
 
-  .contact-title {
-    font-size: 1.6rem;
-  }
-
-  .contact-actions {
-    flex-direction: column;
-  }
-
-  .contact-info {
-    flex-direction: column;
-    gap: 8px;
-  }
+.contact-value {
+  font-weight: 700;
+  color: #003ba7;
+  letter-spacing: 0.02em;
 }
 
 
@@ -947,230 +1132,175 @@ html {
 }
 
 @media (max-width: 1199px) {
-  html { font-size: 15px; }
+  html {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 767px) {
-  html { font-size: 14px; }
-}
-
-/* =========================================================
-   HEADER / NAV
-========================================================= */
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .nav {
-    gap: 18px;
-  }
-
-  .nav a {
-    font-size: 0.95rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .logo span {
-    font-size: 1.1rem;
+  html {
+    font-size: 14px;
   }
 }
 
 /* =========================================================
-   HERO
+   MOBILE RESPONSIVE (max-width: 768px)
 ========================================================= */
-.hero-container {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
+@media (max-width: 768px) {
 
-/* Tablet */
-@media (max-width: 1024px) {
+  /* ---------------------------
+     GLOBAL
+  ---------------------------- */
+  body {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    margin-bottom: 42px;
+  }
+
+  /* ---------------------------
+     HERO
+  ---------------------------- */
+  .hero {
+    padding: 120px 0 90px;
+    text-align: center;
+  }
+
   .hero-container {
-    gap: 50px;
+    flex-direction: column;
+    gap: 48px;
   }
 
   .hero-left h1 {
     font-size: 2.1rem;
-  }
-
-  .hero-desc {
-    font-size: 0.95rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .hero-container {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .hero-left h1 {
-    font-size: 1.8rem;
     line-height: 1.35;
   }
 
   .hero-desc {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    margin: 22px auto 0;
+    max-width: 90%;
   }
 
-  .tag-box {
+  .hero-keywords {
     justify-content: center;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .hero-keywords span {
+    font-size: 0.85rem;
+    padding: 6px 10px;
   }
 
   .profile-frame {
-    max-width: 240px;
-    margin: auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
   }
-}
 
-/* =========================================================
-   ABOUT
-========================================================= */
-@media (max-width: 1024px) {
-  .about-text {
+  /* ---------------------------
+     SKILLS
+  ---------------------------- */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .skill-card {
+    padding: 28px 26px;
+  }
+
+  .skill-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+
+  .skill-card ul li {
     font-size: 0.95rem;
+    line-height: 1.6;
   }
 
-  .pentagon-wrapper {
+  /* ---------------------------
+     PROJECTS
+  ---------------------------- */
+  #projects {
+    padding-top: 110px;
+  }
+
+  #projects::before {
+    width: 90%;
+  }
+
+  .slider-wrapper {
+    overflow-x: hidden;
+  }
+
+  .slider-track {
     gap: 24px;
   }
-}
 
-@media (max-width: 767px) {
-  .about-text {
-    text-align: center;
-    font-size: 0.9rem;
+  .project-card {
+    min-width: 85%;
+    max-width: 85%;
   }
 
-  .pentagon-wrapper {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/* =========================================================
-   GRID SYSTEM (SKILLS / PROJECTS / CERT)
-========================================================= */
-.skills-grid,
-.projects-grid,
-.cert-grid {
-  display: grid;
-  gap: 30px;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .skills-grid,
-  .projects-grid,
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   PROJECT CARD
-========================================================= */
-@media (max-width: 767px) {
-  .project-card h3 {
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-  }
-
-  .project-detail-btn {
-    font-size: 0.9rem;
-  }
-}
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-@media (max-width: 1024px) {
-  .timeline-wrapper {
-    padding-left: 20px;
-  }
-}
-
-/* Mobile — 깨짐 방지 핵심 */
-@media (max-width: 767px) {
-  .timeline-wrapper {
-    padding-left: 0;
-  }
-
-  .timeline-item {
-    padding-left: 0;
-  }
-
-  .timeline-dot {
+  .slider-btn {
     display: none;
   }
 
-  .timeline-content {
-    margin-left: 0;
-    padding-left: 0;
+  /* ---------------------------
+     CERTIFICATIONS
+  ---------------------------- */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .timeline-date {
-    font-size: 0.85rem;
-  }
-
-  .timeline-content h3 {
-    font-size: 1.05rem;
-  }
-
-  .timeline-content p {
-    font-size: 0.9rem;
-  }
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-@media (max-width: 767px) {
-  .footer p {
-    font-size: 0.85rem;
+  .cert-card {
+    padding: 22px;
     text-align: center;
-    line-height: 1.4;
+  }
+
+  /* ---------------------------
+     CONTACT
+  ---------------------------- */
+  .contact-box {
+    padding: 42px 26px;
+    border-radius: 22px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-desc {
+    font-size: 0.95rem;
+  }
+
+  .contact-btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+
+  .contact-footer {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* ---------------------------
+     FOOTER
+  ---------------------------- */
+  footer {
+    padding: 36px 0;
+    font-size: 0.85rem;
   }
 }
+
 
