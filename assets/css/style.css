@@ -290,7 +290,7 @@ img {
 }
 
 .pentagon {
-  width: 140px;
+  width: 170px;
   height: 140px;
   background: linear-gradient(135deg, #79a7ff, #a673ff);
   clip-path: polygon(50% 0%, 92% 35%, 75% 100%, 25% 100%, 8% 35%);
