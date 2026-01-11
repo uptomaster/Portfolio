@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmarker | Personal Service Project</title>
+
+  <!-- Common Style -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <!-- Bookmarker Dedicated Style -->
+  <link rel="stylesheet" href="../assets/css/bookmarker.css" />
+
+  <link rel="icon" href="../assets/img/favicon.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="bm-body">
+
+  <!-- ==========================================
+     HEADER
+=========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="./project_babsegwon_backend.html">밥세권</a>
+        <a href="./sun-project.html">YIT</a>
+        <a href="./bab-security.html">Food Fighter</a>
+        <a href="./bookmarker.html" class="active">Bookmarker</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================
+     HERO
+=========================================== -->
+  <section class="bm-hero">
+    <div class="bm-hero-inner">
+
+      <div class="bm-hero-left">
+        <h1 class="bm-hero-title">
+          Bookmarker
+        </h1>
+
+        <p class="bm-hero-subtitle">
+          개인 기록을 위한 인증 기반 북마크 서비스
+        </p>
+
+        <p class="bm-hero-desc">
+          Bookmarker는 단순한 링크 저장 도구가 아니라,<br>
+          <strong>기록 서비스에서 반드시 필요한 인증·접근 제어·상태 변경 보호</strong>를
+          최소 단위로 직접 구현해본 개인 서비스 프로젝트입니다.
+        </p>
+
+        <div class="bm-hero-actions">
+          <a href="https://bookmarker929.dothome.co.kr" target="_blank" class="bm-btn primary">
+            실제 서비스 보기
+          </a>
+          <a href="https://proofylife.com/records/bookmarker" target="_blank" class="bm-btn ghost">
+            ProofyLife 기록 보기
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT — LOGO -->
+      <div class="backend-hero-right">
+        <div class="backend-logo-card">
+          <img src="../assets/img/bookmarkerlogo.png" alt="북마커 로고">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+     OVERVIEW
+=========================================== -->
+  <section class="bm-section">
+    <h2>Service Overview</h2>
+
+    <p class="bm-desc">
+      이 프로젝트는 “무엇을 만들었는가”보다
+      <strong>서비스가 성립하기 위한 최소 조건을 어떻게 설계했는가</strong>에
+      초점을 맞췄습니다.
+    </p>
+
+    <div class="bm-grid three">
+      <div class="bm-card">
+        <h3>Authentication First</h3>
+        <p>
+          모든 기능은 로그인 상태를 기준으로 동작하며,
+          인증되지 않은 접근은 페이지 단위에서 차단됩니다.
+        </p>
+      </div>
+
+      <div class="bm-card">
+        <h3>User Boundary</h3>
+        <p>
+          북마크 데이터는 항상 user_id 기준으로 접근되며,
+          타 사용자 데이터 접근 가능성을 구조적으로 제거했습니다.
+        </p>
+      </div>
+
+      <div class="bm-card">
+        <h3>Minimal but Real</h3>
+        <p>
+          기능은 단순하지만, 실제 서비스에서 요구되는
+          인증·보안·운영 조건을 모두 고려해 구현했습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     KEY OUTCOMES
+=========================================== -->
+  <section class="bm-section bm-alt">
+    <h2>Key Outcomes</h2>
+
+    <div class="bm-grid three">
+      <div class="bm-card">
+        <h3>인증 흐름 고정</h3>
+        <p>
+          로그인 전/후 접근 페이지를 명확히 분리하고,
+          인증 상태에 따른 라우팅 흐름을 고정했습니다.
+        </p>
+        <span class="bm-caption">login / register / mypage</span>
+      </div>
+
+      <div class="bm-card">
+        <h3>CRUD 접근 제어</h3>
+        <p>
+          조회·수정·삭제 모든 쿼리에 user_id 조건을 포함해
+          데이터 접근 경계를 일관되게 유지했습니다.
+        </p>
+        <span class="bm-caption">SELECT · UPDATE · DELETE</span>
+      </div>
+
+      <div class="bm-card">
+        <h3>상태 변경 보호</h3>
+        <p>
+          POST 기반 요청과 세션 검증을 중심으로
+          CSRF·비정상 요청을 방어했습니다.
+        </p>
+        <span class="bm-caption">CSRF Token / Session</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     ARCHITECTURE
+=========================================== -->
+  <section class="bm-section">
+    <h2>Request Flow</h2>
+
+    <div class="bm-flow">
+      <div class="bm-flow-item">Login</div>
+      <div class="bm-flow-arrow">→</div>
+      <div class="bm-flow-item">Mypage</div>
+      <div class="bm-flow-arrow">→</div>
+      <div class="bm-flow-item">Add / Edit / Delete</div>
+    </div>
+
+    <p class="bm-desc">
+      모든 요청은 세션 인증을 선행 조건으로 하며,
+      상태 변경 요청은 POST 방식으로만 처리됩니다.
+    </p>
+  </section>
+
+  <!-- ==========================================
+     SCREENSHOTS
+=========================================== -->
+  <section class="bm-section bm-alt">
+    <h2>Implementation Screens</h2>
+
+    <div class="bm-shot-grid">
+      <div class="bm-shot">
+        <img src="../assets/img/bookmarker_login.png" alt="login">
+        <span>로그인 인증 처리</span>
+      </div>
+
+      <div class="bm-shot">
+        <img src="../assets/img/bookmarker_add.png" alt="mypage">
+        <span>마이페이지 북마크 관리</span>
+      </div>
+
+      <div class="bm-shot">
+        <img src="../assets/img/bookmarker_query.png" alt="query">
+        <span>user_id 기반 쿼리</span>
+      </div>
+
+      <div class="bm-shot">
+        <img src="../assets/img/bookmarker_csrf.png" alt="csrf">
+        <span>CSRF 토큰 검증</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     DEPLOYMENT & INSIGHT
+=========================================== -->
+  <section class="bm-section">
+    <h2>Deployment & Insight</h2>
+
+    <div class="bm-grid two">
+      <div class="bm-card">
+        <h3>배포 환경</h3>
+        <p>
+          로컬(XAMPP)에서 기능을 검증한 뒤,
+          FileZilla를 통해 dothome 호스팅 환경에 배포했습니다.
+          개발 환경과 운영 환경의 차이를 직접 경험하며
+          배포를 하나의 검증 단계로 인식하게 되었습니다.
+        </p>
+      </div>
+
+      <div class="bm-card">
+        <h3>Technical Insight</h3>
+        <p>
+          배포는 개발의 끝이 아니라,
+          <strong>서비스가 성립하는 조건을 확인하는 과정</strong>이었습니다.
+          의존 파일 누락 문제를 계기로
+          런타임 전제를 문서화하고 배포 흐름을 고정했습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     FOOTER
+=========================================== -->
+  <footer class="bm-footer">
+    © NAMHYUK · Bookmarker Personal Service Project
+  </footer>
+
+</body>
+
+</html>

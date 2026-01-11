@@ -1,0 +1,358 @@
+/* =========================================================
+   ROOT COLORS — BOOKMARKER
+========================================================= */
+:root {
+  --bm-bg-dark: #1f2328;
+  --bm-bg-grid: rgba(255, 255, 255, 0.04);
+
+  --bm-text-light: #f1f5f9;
+  --bm-text-dim: #b6c2cf;
+
+  /* Primary Accent — Indigo */
+  --bm-primary: #6366f1;
+  --bm-primary-light: #818cf8;
+  --bm-primary-glow: rgba(99, 102, 241, 0.45);
+
+  /* Secondary Accent — Mint */
+  --bm-accent: #5eead4;
+
+  /* Card */
+  --bm-card-bg: rgba(255, 255, 255, 0.07);
+  --bm-card-border: rgba(129, 140, 248, 0.35);
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+.bm-body {
+  background: var(--bm-bg-dark);
+  color: var(--bm-text-light);
+  font-family: "Pretendard", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Grid Background */
+.bm-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--bm-bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bm-bg-grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: -2;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.bm-hero {
+  padding: 150px 0 120px;
+}
+
+.bm-hero-inner {
+  max-width: 1300px;
+  width: 92%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.bm-hero-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    var(--bm-primary),
+    var(--bm-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bm-hero-subtitle {
+  margin-top: 14px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--bm-text-dim);
+}
+
+.bm-hero-desc {
+  margin-top: 22px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--bm-text-dim);
+  max-width: 640px;
+}
+
+/* Action Buttons */
+.bm-hero-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+}
+
+.bm-btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bm-btn.primary {
+  background: linear-gradient(
+    90deg,
+    var(--bm-primary),
+    var(--bm-primary-light)
+  );
+  color: #020617;
+  box-shadow:
+    0 0 18px var(--bm-primary-glow),
+    0 0 32px var(--bm-primary-glow);
+}
+
+.bm-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 28px var(--bm-primary-glow);
+}
+
+.bm-btn.ghost {
+  border: 1px solid var(--bm-card-border);
+  color: var(--bm-text-light);
+  background: transparent;
+}
+
+.bm-btn.ghost:hover {
+  background: var(--bm-card-bg);
+}
+
+/* Right Card */
+.bm-hero-card {
+  padding: 36px 32px;
+  border-radius: 24px;
+  background: var(--bm-card-bg);
+  border: 1px solid var(--bm-card-border);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 36px var(--bm-primary-glow);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  font-weight: 700;
+  color: var(--bm-primary-light);
+}
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+.bm-section {
+  padding: 120px 0;
+  max-width: 1300px;
+  width: 92%;
+  margin: auto;
+}
+
+.bm-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 60px;
+
+  background: linear-gradient(
+    90deg,
+    var(--bm-primary),
+    var(--bm-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bm-alt {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Section Description */
+.bm-desc {
+  max-width: 860px;
+  margin: -20px auto 60px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--bm-text-dim);
+}
+
+/* =========================================================
+   GRID SYSTEM
+========================================================= */
+.bm-grid {
+  display: grid;
+  gap: 36px;
+}
+
+.bm-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bm-grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+.bm-card {
+  padding: 36px 34px 38px;
+  border-radius: 22px;
+  background: var(--bm-card-bg);
+  border: 1px solid var(--bm-card-border);
+  backdrop-filter: blur(14px);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px var(--bm-primary-glow);
+}
+
+.bm-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--bm-primary-light);
+}
+
+.bm-card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--bm-text-dim);
+}
+
+.bm-caption {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--bm-accent);
+  opacity: 0.85;
+}
+
+/* =========================================================
+   FLOW
+========================================================= */
+.bm-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 40px;
+}
+
+.bm-flow-item {
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: var(--bm-card-bg);
+  border: 1px solid var(--bm-card-border);
+  font-weight: 700;
+}
+
+.bm-flow-arrow {
+  font-size: 1.6rem;
+  color: var(--bm-primary-light);
+}
+
+/* =========================================================
+   SCREENSHOTS
+========================================================= */
+.bm-shot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.bm-shot {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bm-card-bg);
+  border: 1px solid var(--bm-card-border);
+  box-shadow: 0 0 30px var(--bm-primary-glow);
+
+  transition: transform 0.35s ease;
+}
+
+.bm-shot:hover {
+  transform: translateY(-6px);
+}
+
+.bm-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.bm-shot span {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.9),
+    transparent
+  );
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.bm-footer {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--bm-text-dim);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* RIGHT – LOGO CARD */
+.backend-hero-right {
+  flex: 0 0 230px;
+  display: flex;
+  justify-content: center;
+}
+
+.backend-logo-card {
+  width: 230px;
+  height: 230px;
+  padding: 28px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 25px var(--neon-blue),
+    0 0 35px var(--neon-purple);
+}
+
+.backend-logo-card img {
+  width: 100%;
+  height: auto;
+}
