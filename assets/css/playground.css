@@ -1,0 +1,160 @@
+/* =========================================================
+   PLAYGROUND THEME
+========================================================= */
+.pg-body {
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* HERO */
+.pg-hero {
+  padding: 140px 0 110px;
+  text-align: center;
+}
+
+.pg-hero-inner {
+  max-width: 820px;
+  margin: auto;
+}
+
+.pg-title {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #818cf8;
+}
+
+.pg-subtitle {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #c7d2fe;
+}
+
+.pg-desc {
+  margin-top: 16px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #9ca3af;
+}
+
+/* SECTION */
+.pg-section {
+  padding: 110px 0;
+}
+
+.pg-container {
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 60px;
+}
+
+/* CARD */
+.pg-card {
+  padding: 44px 42px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  backdrop-filter: blur(14px);
+}
+
+.pg-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pg-card-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #a5b4fc;
+}
+
+.pg-tag {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  font-weight: 700;
+}
+
+/* TEXT */
+.pg-card-desc {
+  margin-top: 18px;
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+.pg-list {
+  margin-top: 18px;
+  padding-left: 18px;
+  line-height: 1.7;
+  color: #9ca3af;
+}
+
+.pg-list li {
+  margin-bottom: 6px;
+}
+
+/* LINKS */
+.pg-links {
+  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pg-btn {
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.pg-btn.primary {
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  color: #020617;
+}
+
+.pg-btn.primary:hover {
+  transform: translateY(-2px);
+}
+
+.pg-btn.ghost {
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  color: #e5e7eb;
+}
+
+.pg-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* CLOSING */
+.pg-closing {
+  text-align: center;
+  max-width: 820px;
+  margin: auto;
+  color: #9ca3af;
+}
+
+.pg-closing p {
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .pg-card {
+    padding: 36px 28px;
+  }
+
+  .pg-title {
+    font-size: 2.2rem;
+  }
+}

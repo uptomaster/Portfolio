@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FortuneBear | Service Case Study</title>
+
+  <link rel="stylesheet" href="../assets/css/fortunebear.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="fb-body">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="./fortunebear.html" class="active">FortuneBear</a>
+        <a href="./project_babsegwon_backend.html">밥세권</a>
+        <a href="./sun-project.html">YIT</a>
+        <a href="./bab-security.html">Food Fighter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="fb-hero">
+    <div class="fb-hero-inner">
+
+      <div>
+        <h1 class="fb-hero-title">FortuneBear</h1>
+
+        <p class="fb-hero-subtitle">
+          오늘 하루를 기준으로<br>
+          조심하면 좋을 것만 말해주는 작은 서비스
+        </p>
+
+        <p class="fb-hero-desc">
+          FortuneBear는 미래를 단정하거나 겁을 주는 말을 하지 않는다.<br>
+          오늘 하루의 흐름을 기준으로
+          이 정도는 조심해도 되겠다 싶은 이야기를<br>
+          곰의 말투로 조용히 건네는 서비스다.
+        </p>
+
+        <p class="fb-hero-desc">
+          재미로 시작했지만
+          아이디어에서 구현 그리고 배포와 운영까지<br>
+          하나의 서비스 흐름을 끝까지 경험해보고 싶어서
+          실제 배포를 전제로 설계했다.
+        </p>
+
+        <div class="fb-tag-box">
+          <span>#ChatGPT API</span>
+          <span>#HTML/CSS/JAVASCRIPT</span>
+          <span>#Netlify/Render/Supabase</span>
+        </div>
+      </div>
+
+      <div class="fb-hero-right">
+        <div class="fb-logo-card">
+          <video class="fb-logo-video" src="../assets/video/bear-loop.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="fb-section fb-section-alt">
+    <h2 class="fb-section-title">Service & Repository</h2>
+
+    <div class="fb-flow">
+      <a class="fb-flow-step" href="https://fortunebears.netlify.app" target="_blank">
+        <span>Service</span>
+        FortuneBear 링크
+      </a>
+
+      <div class="fb-flow-arrow">→</div>
+
+      <a class="fb-flow-step" href="https://github.com/uptomaster/fortune-bear-frontend.git" target="_blank">
+        <span>Front</span>
+        GitHub Repository
+      </a>
+      <a class="fb-flow-step" href="https://github.com/uptomaster/fortune-bear-backend.git" target="_blank">
+        <span>Backend</span>
+        GitHub Repository
+      </a>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="fb-section">
+    <h2 class="fb-section-title">서비스 개요</h2>
+
+    <p class="fb-section-desc">
+      거창한 운세 서비스보다는
+      작지만 끝까지 만들어 배포해볼 수 있는 서비스를 목표로 했다.<br>
+      그래서 기능은 단순하게 유지하되
+      설계 이유와 구조는 명확하게 남기는 방향으로 진행했다.
+    </p>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="fb-section fb-section-alt">
+    <h2 class="fb-section-title">사용 기술 및 배포 환경</h2>
+
+    <div class="fb-summary-grid">
+
+      <div class="fb-summary-card">
+        <h3>Frontend</h3>
+        <p>
+          HTML CSS JavaScript만 사용해 화면을 구성했다.
+          프레임워크를 쓰지 않은 이유는
+          구조를 단순하게 유지하고
+          수정과 배포를 빠르게 반복하기 위해서였다.
+        </p>
+      </div>
+
+      <div class="fb-summary-card">
+        <h3>Backend</h3>
+        <p>
+          Node.js와 Express로 API 서버를 구성했다.
+          기능별로 역할이 분명한 엔드포인트만 두고
+          서버는 순수 API 역할에만 집중하도록 설계했다.
+        </p>
+      </div>
+
+      <div class="fb-summary-card">
+        <h3>AI API</h3>
+        <p>
+          OpenAI API를 사용했다.
+          결과를 그대로 쓰기보다는
+          프롬프트 단계에서 말투와 표현을 강하게 제한해
+          서비스 성격이 흔들리지 않도록 했다.
+        </p>
+      </div>
+
+      <div class="fb-summary-card">
+        <h3>Database</h3>
+        <p>
+          초기에는 SQLite를 사용했지만
+          서버 재시작 시 데이터가 유지되지 않는 한계가 있어
+          Supabase 기반 PostgreSQL로 후기 저장 구조를 이전했다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEPLOYMENT -->
+  <section class="fb-section">
+    <h2 class="fb-section-title">배포 구조</h2>
+
+    <div class="fb-flow">
+      <div class="fb-flow-step">
+        <span>Frontend</span>
+        Netlify
+      </div>
+
+      <div class="fb-flow-arrow">→</div>
+
+      <div class="fb-flow-step">
+        <span>Backend</span>
+        Render
+      </div>
+
+      <div class="fb-flow-arrow">→</div>
+
+      <div class="fb-flow-step">
+        <span>Database</span>
+        Supabase
+      </div>
+    </div>
+
+    <p class="fb-section-desc">
+      프론트엔드는 Netlify에 정적 배포하고
+      백엔드는 Render에 API 서버로 분리 배포했다.
+      프론트에서는 Render에 배포된 API 주소로만 요청을 보낸다.
+    </p>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="fb-section fb-section-alt">
+    <h2 class="fb-section-title">트러블슈팅</h2>
+
+    <div class="fb-design-grid">
+
+      <div class="fb-design-card">
+        <h3>배포 반영 문제</h3>
+        <p>
+          GitHub에 코드를 푸시했지만
+          Render 서버에서 변경 사항이 반영되지 않는 문제가 있었다.
+          자동 배포 옵션이 비활성화된 상태였고
+          이후 Manual Deploy와 Auto Deploy 설정을 명확히 구분하게 되었다.
+        </p>
+      </div>
+
+      <div class="fb-design-card">
+        <h3>AI 선택 편향</h3>
+        <p>
+          선택 결정 페이지에서<br>
+          항상 A 선택지가 더 많이 추천되는 문제가 있었다.<br>
+          서버에서 랜덤 선택 후<br>
+          AI는 설명만 하도록 구조를 변경했다.
+        </p>
+      </div>
+
+      <div class="fb-design-card">
+        <h3>프롬프트 제어</h3>
+        <p>
+          결과가 자극적으로 나오는 문제가 있었다.<br>
+          예언 금지, 사고 재난 표현 금지, 1인칭 관찰형 문체<br>
+          말끝 고정 규칙을 프롬프트에 강제했다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="fb-section">
+    <h2 class="fb-section-title">마무리하며</h2>
+
+    <p class="fb-section-desc">
+      어떤 구조로 만들 것인지<br>
+      그리고 AI를 어디까지 사용하고 어디서 멈출지를<br>
+      스스로 설명할 수 있는 상태를 만드는 데에 더 집중했다.
+    </p>
+
+    <p class="fb-section-desc">
+      아이디어를 떠올리는 단계에서부터<br>
+      직접 구현하고 배포한 뒤<br>
+      실제로 발생한 문제를 해결하는 과정까지<br>
+      하나의 서비스를 끝까지 만들어보았다.
+    </p>
+  </section>
+
+
+  <footer class="fb-footer">
+    © FortuneBear · Service Case Study
+  </footer>
+
+</body>
+
+</html>

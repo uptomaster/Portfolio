@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playground | Namhyuk Portfolio</title>
+
+  <!-- Global Style -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <!-- Playground Only -->
+  <link rel="stylesheet" href="../assets/css/playground.css" />
+
+  <link rel="icon" href="../assets/img/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="pg-body">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html" class="active">Playground</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pg-hero">
+    <div class="pg-hero-inner">
+      <h1 class="pg-title">Playground</h1>
+
+      <p class="pg-subtitle">
+        아이디어를 빠르게 구현하고<br>
+        실제 배포까지 가져가 본<br>
+        작은 실험 공간입니다
+      </p>
+
+      <p class="pg-desc">
+        완성도를 증명하기 위한 프로젝트라기보다는<br>
+        구조를 직접 설계하고 사용해 보며<br>
+        판단 기준을 쌓기 위한 공간입니다
+      </p>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <section class="pg-section">
+    <div class="pg-container">
+
+      <!-- FortuneBear -->
+      <article class="pg-card">
+        <div class="pg-card-header">
+          <h2>FortuneBear</h2>
+          <span class="pg-tag">AI · Web Service</span>
+        </div>
+
+        <p class="pg-card-desc">
+          오늘 하루를 기준으로<br>
+          조심하면 좋을 것만 조용히 말해주는 서비스입니다<br><br>
+
+          예언하거나 겁을 주는 표현은 최대한 배제하고<br>
+          관찰하듯 말하는 캐릭터 톤을 유지하는 데에<br>
+          초점을 두고 설계했습니다
+        </p>
+
+        <ul class="pg-list">
+          <li>ChatGPT API 기반 텍스트 생성</li>
+          <li>프롬프트 규칙 중심 설계</li>
+          <li>선택 결정 페이지 분리 구현</li>
+          <li>Netlify · Render · Supabase 배포</li>
+        </ul>
+
+        <div class="pg-links">
+          <a href="./fortunebear.html" class="pg-btn primary">Case Study</a>
+          <a href="https://fortunebears.netlify.app" target="_blank" class="pg-btn ghost">Service</a>
+          <a href="https://github.com/uptomaster/fortune-bear-frontend" target="_blank" class="pg-btn ghost">Frontend</a>
+          <a href="https://github.com/uptomaster/fortune-bear-backend" target="_blank" class="pg-btn ghost">Backend</a>
+        </div>
+      </article>
+
+      <!-- Bookmarker -->
+      <article class="pg-card">
+        <div class="pg-card-header">
+          <h2>Bookmarker</h2>
+          <span class="pg-tag">UX · Experiment</span>
+        </div>
+
+        <p class="pg-card-desc">
+          단순히 북마크를 저장하는 기능보다는<br>
+          왜 이 링크를 저장했는지를 남기는 흐름을<br>
+          실험하기 위해 만든 서비스입니다<br><br>
+
+          기능은 최소화하고<br>
+          화면 밀도와 사용 흐름에 집중해<br>
+          UX 실험 목적 중심으로 설계했습니다
+        </p>
+
+        <ul class="pg-list">
+          <li>순수 HTML CSS JavaScript 구성</li>
+          <li>LocalStorage 기반 데이터 관리</li>
+          <li>개인 사용 전제 구조</li>
+          <li>UX 흐름 실험 목적</li>
+        </ul>
+
+        <div class="pg-links">
+          <a href="./bookmarker.html" class="pg-btn primary">Case Study</a>
+          <a href="https://github.com/uptomaster/bookmarker" target="_blank" class="pg-btn ghost">GitHub</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="pg-section pg-closing">
+    <p>
+      Playground에 있는 작업들은<br>
+      결과보다 과정과 판단을 남기기 위한 기록입니다
+    </p>
+
+    <p>
+      작더라도 끝까지 만들어보고<br>
+      직접 배포하고 문제를 겪어본 경험을<br>
+      중요하게 생각하며 정리하고 있습니다
+    </p>
+  </section>
+
+  <footer class="footer">
+    © Playground · Small Experiments
+  </footer>
+
+</body>
+
+</html>

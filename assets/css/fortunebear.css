@@ -1,0 +1,333 @@
+/* =========================================================
+   ROOT COLORS — FORTUNEBEAR
+========================================================= */
+:root {
+  --fb-bg-dark: #171625;
+  --fb-bg-grid: rgba(255, 255, 255, 0.035);
+
+  --fb-text-light: #f4f2ff;
+  --fb-text-dim: #b9b6d3;
+
+  /* Primary Accent — Soft Purple */
+  --fb-primary: #a78bfa;
+  --fb-primary-light: #c4b5fd;
+  --fb-primary-glow: rgba(167, 139, 250, 0.45);
+
+  /* Secondary Accent — Warm Pink */
+  --fb-accent: #f0abfc;
+
+  /* Card */
+  --fb-card-bg: rgba(255, 255, 255, 0.07);
+  --fb-card-border: rgba(196, 181, 253, 0.35);
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+.fb-body {
+  background: var(--fb-bg-dark);
+  color: var(--fb-text-light);
+  font-family: "Pretendard", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Grid Background */
+.fb-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--fb-bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--fb-bg-grid) 1px, transparent 1px);
+  background-size: 90px 90px;
+  z-index: -2;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.fb-hero {
+  padding: 150px 0 120px;
+}
+
+.fb-hero-inner {
+  max-width: 1300px;
+  width: 92%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.fb-hero-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    var(--fb-primary),
+    var(--fb-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fb-hero-subtitle {
+  margin-top: 14px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--fb-text-dim);
+}
+
+.fb-hero-desc {
+  margin-top: 22px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--fb-text-dim);
+  max-width: 640px;
+}
+
+/* Tag Box */
+.fb-tag-box {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fb-tag-box span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--fb-primary-light);
+  background: rgba(196, 181, 253, 0.12);
+  border: 1px solid var(--fb-card-border);
+}
+
+/* Right Logo Card */
+.fb-hero-right {
+  flex: 0 0 230px;
+  display: flex;
+  justify-content: center;
+}
+
+.fb-logo-card {
+  width: 230px;
+  height: 230px;
+  padding: 28px;
+
+  background: var(--fb-card-bg);
+  border: 1px solid var(--fb-card-border);
+  backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 26px var(--fb-primary-glow),
+    0 0 46px var(--fb-primary-glow);
+}
+
+.fb-logo-card img {
+  width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+.fb-section {
+  padding: 120px 0;
+  max-width: 1300px;
+  width: 92%;
+  margin: auto;
+}
+
+.fb-section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 60px;
+
+  background: linear-gradient(
+    90deg,
+    var(--fb-primary),
+    var(--fb-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fb-section-alt {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.fb-section-desc {
+  max-width: 860px;
+  margin: -20px auto 60px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--fb-text-dim);
+}
+
+/* =========================================================
+   GRID SYSTEM
+========================================================= */
+.fb-summary-grid,
+.fb-design-grid,
+.fb-storage-grid {
+  display: grid;
+  gap: 36px;
+}
+
+.fb-summary-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fb-design-grid,
+.fb-storage-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+.fb-summary-card,
+.fb-design-card,
+.fb-storage-card {
+  padding: 36px 34px 38px;
+  border-radius: 22px;
+  background: var(--fb-card-bg);
+  border: 1px solid var(--fb-card-border);
+  backdrop-filter: blur(14px);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fb-summary-card:hover,
+.fb-design-card:hover,
+.fb-storage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 42px var(--fb-primary-glow);
+}
+
+.fb-summary-card h3,
+.fb-design-card h3,
+.fb-storage-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--fb-primary-light);
+}
+
+.fb-summary-card p,
+.fb-design-card p,
+.fb-storage-card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fb-text-dim);
+}
+
+/* =========================================================
+   FLOW
+========================================================= */
+.fb-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.fb-flow-step {
+  padding: 18px 26px;
+  border-radius: 18px;
+  background: var(--fb-card-bg);
+  border: 1px solid var(--fb-card-border);
+  font-weight: 700;
+  color: var(--fb-primary-light);
+  text-align: center;
+  min-width: 140px;
+}
+
+.fb-flow-step span {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.fb-footer {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--fb-text-dim);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
+  .fb-hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fb-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fb-design-grid,
+  .fb-storage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+.fb-logo-card {
+  width: 240px;
+  height: 240px;
+  padding: 0; /* 핵심 */
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+
+  overflow: hidden; /* 영상 넘침 방지 */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 30px rgba(99, 102, 241, 0.35);
+}
+
+
+.fb-logo-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 핵심 */
+}
+

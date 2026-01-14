@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Namhyuk Portfolio</title>
+
+  <!-- Global -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <!-- Projects Only -->
+  <link rel="stylesheet" href="../assets/css/projects.css" />
+
+  <link rel="icon" href="../assets/img/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="pr-body">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="./projects.html" class="active">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html">Playground</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pr-hero">
+    <div class="pr-hero-inner">
+      <h1 class="pr-title">Projects</h1>
+
+      <p class="pr-subtitle">
+        끝까지 만들어<br>
+        실제로 동작하는 상태까지<br>
+        가져간 작업들입니다
+      </p>
+
+      <p class="pr-desc">
+        단순 과제나 예제가 아니라<br>
+        직접 설계하고 구현하고 배포한 뒤<br>
+        문제가 발생하면 다시 고친 경험을<br>
+        프로젝트 단위로 정리했습니다
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECT LIST -->
+  <section class="pr-section">
+    <div class="pr-container">
+
+      <!-- BABSEGWON -->
+      <article class="pr-card">
+        <h2>밥세권 웹서비스</h2>
+
+        <p class="pr-card-desc">
+          지역 기반 재고 최적화를 목표로 한 웹 서비스입니다.<br>
+          백엔드 전반과 관리자 기능 구현을 담당했습니다.
+        </p>
+
+        <ul class="pr-list">
+          <li>Java JSP Servlet 기반 MVC 구조 설계</li>
+          <li>상품 조회 주문 결제 전체 흐름 구현</li>
+          <li>관리자 페이지 운영 기능 개발</li>
+          <li>Oracle DB 설계 및 연동</li>
+        </ul>
+
+        <div class="pr-tags">
+          <span>Java</span>
+          <span>JSP</span>
+          <span>Oracle</span>
+          <span>Web Backend</span>
+        </div>
+
+        <div class="pr-links">
+          <a href="./project_babsegwon_backend.html" class="pr-btn">
+            프로젝트 상세
+          </a>
+        </div>
+      </article>
+
+      <!-- FOOD FIGHTER -->
+      <article class="pr-card">
+        <h2>침해사고 대응 기반 보안 컨설팅</h2>
+
+        <p class="pr-card-desc">
+          밥세권 서비스를 대상으로<br>
+          모의해킹과 인프라 보안 강화를 수행한 프로젝트입니다.
+        </p>
+
+        <ul class="pr-list">
+          <li>웹 취약점 진단 XSS CSRF 점검</li>
+          <li>DB 이중화 및 백업 구조 설계</li>
+          <li>HQ BR 분리 인프라 구성</li>
+          <li>보안 기준 문서 기반 점검 수행</li>
+        </ul>
+
+        <div class="pr-tags">
+          <span>Security</span>
+          <span>Linux</span>
+          <span>MariaDB</span>
+          <span>Backup</span>
+        </div>
+
+        <div class="pr-links">
+          <a href="./bab-security.html" class="pr-btn">
+            프로젝트 상세
+          </a>
+        </div>
+      </article>
+
+      <!-- GETOH -->
+      <article class="pr-card">
+        <h2>GetOh 유실물 찾기 서비스</h2>
+
+        <p class="pr-card-desc">
+          유실물 등록과 조회를 목표로 만든 개인 프로젝트입니다.<br>
+          웹과 모바일 연계를 전제로 설계했습니다.
+        </p>
+
+        <ul class="pr-list">
+          <li>Spring Boot 기반 API 설계</li>
+          <li>React 프론트엔드 연동</li>
+          <li>안드로이드 앱 연계 구조</li>
+          <li>기능 확장 진행 중</li>
+        </ul>
+
+        <div class="pr-tags">
+          <span>Spring Boot</span>
+          <span>React</span>
+          <span>Android</span>
+        </div>
+
+        <div class="pr-links">
+          <a href="./getoh.html" class="pr-btn">
+            프로젝트 상세
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</body>
+
+</html>
