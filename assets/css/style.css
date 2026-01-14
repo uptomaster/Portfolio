@@ -1327,3 +1327,21 @@ html {
 }
 
 
+/* =========================================================
+   MOBILE NAV FIX
+========================================================= */
+@media (max-width: 768px) {
+
+  .nav {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .nav a {
+    margin-left: 0;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
