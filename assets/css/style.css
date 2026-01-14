@@ -394,24 +394,6 @@ img {
   color: #a855f7;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* =========================================================
    PROJECTS SLIDER — FINAL CSS (ARROW CENTER FIX INCLUDED)
@@ -680,49 +662,6 @@ img {
 
 
 /* =========================================================
-   RESPONSIVE
-========================================================= */
-@media (max-width: 1024px) {
-  .slider-track .project-card {
-    flex: 0 0 calc((100% - 36px) / 2);
-  }
-}
-
-/* =========================================================
-   PROJECTS — MOBILE LIST MODE
-   슬라이더 → 세로 리스트 전환
-========================================================= */
-
-@media (max-width: 767px) {
-
-  /* 1️⃣ 슬라이더 영역 잘림 해제 */
-  .slider-viewport {
-    overflow: visible;
-  }
-
-  /* 2️⃣ 슬라이더 트랙을 세로 리스트로 변경 */
-  .slider-track {
-    flex-direction: column;
-    transform: none !important;
-  }
-
-  /* 3️⃣ 카드 1장씩 세로 노출 */
-  .slider-track .project-card {
-    flex: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto 36px;
-  }
-
-  /* 4️⃣ 모바일에서는 화살표 제거 (기존 유지) */
-  .slider-btn {
-    display: none;
-  }
-}
-
-
-
-/* =========================================================
    RESEARCH SECTION
 ========================================================= */
 .section-research {
@@ -813,16 +752,6 @@ img {
   text-decoration: underline;
 }
 
-/* RESPONSIVE */
-@media (max-width: 767px) {
-  .research-card {
-    padding: 26px 24px;
-  }
-
-  .research-title {
-    font-size: 1.15rem;
-  }
-}
 
 /* =========================================================
    CERTIFICATIONS – PERFECT ALIGN (PC)
@@ -1154,6 +1083,18 @@ html {
   font-size: 16px;
 }
 
+/* =========================================================
+   RESPONSIVE — FINAL CLEAN VERSION
+   Mobile First Fix (Header / Projects / Layout)
+========================================================= */
+
+/* -------------------------
+   BASE FONT SCALE
+------------------------- */
+html {
+  font-size: 16px;
+}
+
 @media (max-width: 1199px) {
   html {
     font-size: 15px;
@@ -1167,7 +1108,7 @@ html {
 }
 
 /* =========================================================
-   MOBILE RESPONSIVE (max-width: 768px)
+   MOBILE (max-width: 768px)
 ========================================================= */
 @media (max-width: 768px) {
 
@@ -1185,6 +1126,31 @@ html {
   .section-title {
     font-size: 1.9rem;
     margin-bottom: 42px;
+  }
+
+  /* ---------------------------
+     HEADER / NAV (🔥 핵심 수정)
+  ---------------------------- */
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    margin-bottom: 6px;
+  }
+
+  .nav {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav a {
+    margin-left: 0;
+    padding: 6px 10px;
+    font-size: 0.9rem;
   }
 
   /* ---------------------------
@@ -1211,15 +1177,8 @@ html {
     max-width: 90%;
   }
 
-  .hero-keywords {
+  .tag-box {
     justify-content: center;
-    gap: 10px;
-    margin-top: 26px;
-  }
-
-  .hero-keywords span {
-    font-size: 0.85rem;
-    padding: 6px 10px;
   }
 
   .profile-frame {
@@ -1251,7 +1210,7 @@ html {
   }
 
   /* ---------------------------
-     PROJECTS
+     PROJECTS (🔥 슬라이더 → 리스트)
   ---------------------------- */
   #projects {
     padding-top: 110px;
@@ -1261,17 +1220,21 @@ html {
     width: 90%;
   }
 
-  .slider-wrapper {
-    overflow-x: hidden;
+  .slider-viewport {
+    overflow: visible;
   }
 
   .slider-track {
-    gap: 24px;
+    flex-direction: column;
+    transform: none !important;
+    gap: 32px;
   }
 
-  .project-card {
-    min-width: 85%;
-    max-width: 85%;
+  .slider-track .project-card {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .slider-btn {
@@ -1279,16 +1242,22 @@ html {
   }
 
   /* ---------------------------
-     CERTIFICATIONS
+     RESEARCH
   ---------------------------- */
-  .cert-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+  .research-card {
+    padding: 26px 24px;
   }
 
-  .cert-card {
-    padding: 22px;
-    text-align: center;
+  .research-title {
+    font-size: 1.15rem;
+  }
+
+  /* ---------------------------
+     CERTIFICATIONS
+  ---------------------------- */
+  .cert-list li {
+    grid-template-columns: 1fr 90px;
+    font-size: 0.95rem;
   }
 
   /* ---------------------------
@@ -1326,22 +1295,3 @@ html {
   }
 }
 
-
-/* =========================================================
-   MOBILE NAV FIX
-========================================================= */
-@media (max-width: 768px) {
-
-  .nav {
-    flex-wrap: wrap !important;
-    white-space: normal !important;
-    gap: 12px;
-    justify-content: center;
-  }
-
-  .nav a {
-    margin-left: 0;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-  }
-}
