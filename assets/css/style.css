@@ -688,15 +688,38 @@ img {
   }
 }
 
+/* =========================================================
+   PROJECTS — MOBILE LIST MODE
+   슬라이더 → 세로 리스트 전환
+========================================================= */
+
 @media (max-width: 767px) {
-  .slider-track .project-card {
-    flex: 0 0 100%;
+
+  /* 1️⃣ 슬라이더 영역 잘림 해제 */
+  .slider-viewport {
+    overflow: visible;
   }
 
+  /* 2️⃣ 슬라이더 트랙을 세로 리스트로 변경 */
+  .slider-track {
+    flex-direction: column;
+    transform: none !important;
+  }
+
+  /* 3️⃣ 카드 1장씩 세로 노출 */
+  .slider-track .project-card {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 36px;
+  }
+
+  /* 4️⃣ 모바일에서는 화살표 제거 (기존 유지) */
   .slider-btn {
     display: none;
   }
 }
+
 
 
 /* =========================================================
