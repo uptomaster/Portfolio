@@ -1,12 +1,10 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/uptomaster/Portfolio/main/assets/profile-banner.png" width="800"/>
-</p>
-
 <h2 align="center">안녕하세요 👋</h2>
 <p align="center">
-서비스를 <b>구현하는 것과</b> <br/>
-<b>운영 가능하고 신뢰할 수 있게 설계하는 과정</b>에 관심이 있습니다.
+서비스의 <b>기능을 구현하는 과정</b>과 <br/>
+그 기능이 <b>운영 환경에서 안정적으로 동작하도록 설계하는 과정</b>을 <br/>
+함께 고민하며 프로젝트를 진행해 왔습니다.
 </p>
+
 
 ---
 
@@ -22,9 +20,32 @@ OWASP 기준의 보안 점검까지 경험하며
 
 JSP/Servlet 기반 웹 서비스, PHP와 Node.js를 활용한 서비스 구현,  
 VM 환경에서의 서버 배포와 운영을 직접 수행했고,  
-최근에는 QR 인증과 상태 전이를 중심으로 한  
-분실물 서비스 **FindMe**를 기획·개발하며  
-사람 간 신뢰를 시스템적으로 보장하는 구조에 대해 고민하고 있습니다.
+각 프로젝트마다 왜 이 구조가 필요한지,  
+어디에서 문제가 발생할 수 있는지를 중심으로 고민해 왔습니다.
+
+---
+
+## 🔗 Links
+
+- **ProofyLife**  
+  https://proofylife.com  
+  → 개인 기록·포트폴리오 중심 서비스
+
+- **Bookmarker**  
+  https://bookmarker929.dothome.co.kr/bookmarker/  
+  → 로그인 기반 개인 북마크 관리 웹 서비스 (PHP / MySQL)
+
+- **Portfolio Site**  
+  https://uptomaster.github.io/Portfolio/  
+  → 프로젝트·인프라·보안 경험 정리
+
+- **FortuneBear**  
+  https://fortunebear.vercel.app/  
+  → Node.js 기반 서비스 실험 프로젝트
+
+- **Tech Blog (Naver)**  
+  https://blog.naver.com/hilnh__  
+  → 개발·서버·보안 학습 기록
 
 ---
 
@@ -55,29 +76,28 @@ VM 환경에서의 서버 배포와 운영을 직접 수행했고,
   <img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white"/>
 </p>
 
-### Infra / OS
+### OS / Linux
 <p>
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black"/>
   <img src="https://img.shields.io/badge/Rocky%20Linux-10B981?style=flat"/>
-  <img src="https://img.shields.io/badge/VM%20Server-6C757D?style=flat"/>
+  <img src="https://img.shields.io/badge/CentOS%207-262577?style=flat&logo=centos&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Kali%20Linux-557C94?style=flat&logo=kali-linux&logoColor=white"/>
 </p>
 
-### Network / Security
+### Virtualization
 <p>
-  <img src="https://img.shields.io/badge/VLAN-495057?style=flat"/>
-  <img src="https://img.shields.io/badge/Routing-495057?style=flat"/>
+  <img src="https://img.shields.io/badge/VMware%20Workstation-607078?style=flat"/>
+</p>
+
+### Network / Simulation
+<p>
+  <img src="https://img.shields.io/badge/Cisco%20Packet%20Tracer-1BA0D7?style=flat"/>
+  <img src="https://img.shields.io/badge/GNS3-4E8EE9?style=flat"/>
+</p>
+
+### Security
+<p>
   <img src="https://img.shields.io/badge/OWASP%20Top%2010-000000?style=flat"/>
-  <br/>
   <img src="https://img.shields.io/badge/Burp%20Suite-FF6F00?style=flat"/>
-</p>
-
-### Mobile
-<p>
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=androidstudio&logoColor=white"/>
-  <img src="https://img.shields.io/badge/XML%20Layout-6C757D?style=flat"/>
-  <br/>
-  <img src="https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=flat&logo=firebase&logoColor=black"/>
 </p>
 
 ---
@@ -96,7 +116,7 @@ VM 환경에서의 서버 배포와 운영을 직접 수행했고,
 - 클라우드 인프라 (VM, AWS)
 - 서비스 신뢰성과 검증 흐름 설계
 - 보안과 운영을 고려한 시스템 구조
-- 모바일 앱과 서버 간 연동 아키텍처
+- 네트워크·서버 기반 서비스 아키텍처
 
 ---
 
