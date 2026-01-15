@@ -4,7 +4,7 @@
 
 <h2 align="center">안녕하세요 👋</h2>
 <p align="center">
-서비스를 <b>구현하는 것</b>보다 <br/>
+서비스를 <b>구현하는 것과</b> <br/>
 <b>운영 가능하고 신뢰할 수 있게 설계하는 과정</b>에 관심이 있습니다.
 </p>
 
@@ -31,37 +31,54 @@ VM 환경에서의 서버 배포와 운영을 직접 수행했고,
 ## 🛠 Tech Stack
 
 ### Backend / Server
-<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white"/>
-<img src="https://img.shields.io/badge/JSP%20%2F%20Servlet-323330?style=flat"/>
-<img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white"/>
-<img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"/>
-<img src="https://img.shields.io/badge/REST%20API-005571?style=flat"/>
+<p>
+  <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JSP%20%2F%20Servlet-323330?style=flat"/>
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/REST%20API-005571?style=flat"/>
+  <img src="https://img.shields.io/badge/JWT-000000?style=flat"/>
+</p>
 
 ### Frontend
-<img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/>
+<p>
+  <img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/>
+</p>
 
 ### Database
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white"/>
-<img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white"/>
-<img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white"/>
+<p>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white"/>
+</p>
 
 ### Infra / OS
-<img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black"/>
-<img src="https://img.shields.io/badge/Rocky%20Linux-10B981?style=flat"/>
-<img src="https://img.shields.io/badge/VM%20Server-6C757D?style=flat"/>
+<p>
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Rocky%20Linux-10B981?style=flat"/>
+  <img src="https://img.shields.io/badge/VM%20Server-6C757D?style=flat"/>
+</p>
 
 ### Network / Security
-<img src="https://img.shields.io/badge/Network-VLAN%20%2F%20Routing-495057?style=flat"/>
-<img src="https://img.shields.io/badge/OWASP%20Top%2010-000000?style=flat"/>
-<img src="https://img.shields.io/badge/Burp%20Suite-FF6F00?style=flat"/>
+<p>
+  <img src="https://img.shields.io/badge/VLAN-495057?style=flat"/>
+  <img src="https://img.shields.io/badge/Routing-495057?style=flat"/>
+  <img src="https://img.shields.io/badge/OWASP%20Top%2010-000000?style=flat"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Burp%20Suite-FF6F00?style=flat"/>
+</p>
 
 ### Mobile
-<img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white"/>
-<img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=androidstudio&logoColor=white"/>
-<img src="https://img.shields.io/badge/XML%20Layout-6C757D?style=flat"/>
-<img src="https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=flat&logo=firebase&logoColor=black"/>
+<p>
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=androidstudio&logoColor=white"/>
+  <img src="https://img.shields.io/badge/XML%20Layout-6C757D?style=flat"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=flat&logo=firebase&logoColor=black"/>
+</p>
 
 ---
 
