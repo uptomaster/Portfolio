@@ -1,10 +1,10 @@
+
 <h2 align="center">안녕하세요 👋</h2>
 <p align="center">
 서비스의 <b>기능을 구현하는 과정</b>과 <br/>
 그 기능이 <b>운영 환경에서 안정적으로 동작하도록 설계하는 과정</b>을 <br/>
 함께 고민하며 프로젝트를 진행해 왔습니다.
 </p>
-
 
 ---
 
@@ -100,14 +100,23 @@ VM 환경에서의 서버 배포와 운영을 직접 수행했고,
   <img src="https://img.shields.io/badge/Burp%20Suite-FF6F00?style=flat"/>
 </p>
 
+### Deployment / Hosting
+<p>
+  <img src="https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=netlify&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=flat"/>
+</p>
+
 ---
 
 ## 📜 Certifications
-
-- SQLD  
-- 리눅스마스터 2급  
-- 네트워크관리사 2급  
-- Microsoft Certified Fundamentals (AI-900)
+<p>
+  <img src="https://img.shields.io/badge/SQLD-0052CC?style=flat"/>
+  <img src="https://img.shields.io/badge/Linux%20Master%20Level%202-2E8B57?style=flat"/>
+  <img src="https://img.shields.io/badge/Network%20Administrator%20Level%202-4B5563?style=flat"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Microsoft%20AI--900-0078D4?style=flat&logo=microsoft&logoColor=white"/>
+</p>
 
 ---
 
