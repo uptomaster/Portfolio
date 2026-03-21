@@ -303,6 +303,30 @@
   }
 }
 
+@media (max-width: 768px) {
+  .fb-body {
+    overflow-x: hidden;
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
+  }
+
+  .fb-body .nav-container {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .fb-body .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .fb-body .nav a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
 .fb-logo-card {
   width: 240px;
   height: 240px;

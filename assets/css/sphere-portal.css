@@ -1,0 +1,136 @@
+/* 구체 포털 — 미디어 아트 + Three.js 캔버스 */
+
+.sphere-portal {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  min-height: 72vh;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(ellipse 85% 70% at 50% 40%, rgba(61, 214, 195, 0.12), transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(5, 8, 14, 0.96), rgba(6, 10, 18, 0.9));
+}
+
+.sphere-portal #sphere-canvas {
+  width: 100%;
+  height: min(68vh, 680px);
+  min-height: 400px;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+
+.sphere-portal.is-dragging #sphere-canvas {
+  cursor: grabbing;
+}
+
+.sphere-portal-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, rgba(61, 214, 195, 0.5), rgba(232, 168, 124, 0.22), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.sphere-portal-flash.is-active {
+  opacity: 1;
+}
+
+.sphere-portal-ui {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem 1.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.sphere-portal-hint {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(126, 232, 220, 0.88);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.sphere-portal-sub {
+  font-size: 0.9rem;
+  color: rgba(230, 238, 248, 0.82);
+  max-width: 22rem;
+  line-height: 1.45;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.sphere-portal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  pointer-events: auto;
+}
+
+.sphere-portal-btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(232, 168, 124, 0.9), rgba(61, 214, 195, 0.88));
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sphere-portal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(61, 214, 195, 0.32);
+}
+
+.sphere-portal-btn:focus-visible {
+  outline: 2px solid rgba(126, 232, 220, 0.9);
+  outline-offset: 3px;
+}
+
+.sphere-portal-fallback {
+  display: none;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(230, 238, 248, 0.9);
+}
+
+.sphere-portal.is-fallback .sphere-portal-fallback {
+  display: block;
+}
+
+.sphere-portal.is-fallback #sphere-canvas {
+  display: none;
+}
+
+/* 전역 커스텀 커서와 충돌 방지 */
+body.media-portfolio.media-cursor #sphere-canvas {
+  cursor: grab !important;
+}
+
+body.media-portfolio.media-cursor .sphere-portal.is-dragging #sphere-canvas {
+  cursor: grabbing !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sphere-portal-flash {
+    transition: none;
+  }
+}

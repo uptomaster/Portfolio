@@ -6,28 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Notes | Namhyuk Portfolio</title>
 
-  <!-- Global -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <!-- Notes Only -->
-  <link rel="stylesheet" href="../assets/css/notes.css" />
-
-  <link rel="icon" href="../assets/img/favicon.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
+  <link rel="stylesheet" href="../assets/css/notes-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="nt-body">
+<body class="media-portfolio notes-page nt-body">
 
-  <!-- HEADER -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
       <div class="logo">
         <img src="../assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
-
-      <nav class="nav">
+      <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
         <a href="./projects.html">Projects</a>
         <a href="./notes.html" class="active">Notes</a>
@@ -36,83 +54,99 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="nt-hero">
-    <div class="nt-hero-inner">
-      <h1 class="nt-title">Notes</h1>
+  <main class="page-main">
 
-      <p class="nt-subtitle">
-        작업 중 고민했던 것들<br>
-        설계 판단과 기록을 남기는 공간
+    <section class="nt-hero nt-hero--journal" aria-labelledby="nt-main-title">
+      <div class="nt-hero-spine" aria-hidden="true"></div>
+      <div class="nt-hero-inner">
+        <p class="nt-hero-kicker">Journal · Decision log</p>
+        <h1 id="nt-main-title" class="nt-title nt-title--journal">Notes</h1>
+        <p class="nt-hero-lead">
+          완성본만큼 중요한 <strong>중간 과정</strong>—막힌 지점, 다시 고른 기준, 기술 선택의 이유를
+          여기서 모아 둡니다. 평가용이 아니라 <strong>스스로 돌아보기 위한 기록</strong>입니다.
+        </p>
+      </div>
+    </section>
+
+    <div class="nt-divider" aria-hidden="true"></div>
+
+    <section class="nt-body-section" aria-labelledby="nt-content-heading">
+      <h2 id="nt-content-heading" class="visually-hidden">기록 및 링크</h2>
+      <div class="nt-body-inner">
+
+        <article class="nt-card nt-card--featured" data-aos="fade-up">
+          <p class="nt-card-label">External log</p>
+          <h2>ProofyLife</h2>
+          <p class="nt-card-desc">
+            매일의 작업과 생각을 남기기 위해 만든 <strong>개인 기록 공간</strong>입니다.
+            글을 잘 쓰는 것보다, 무엇을 했고 왜 그렇게 했는지를 남기는 데 초점을 두었습니다.
+          </p>
+          <ul class="nt-list">
+            <li>포트폴리오 진행에 대한 기록</li>
+            <li>진행 중 겪은 문제와 해결 과정 정리</li>
+            <li>기술 선택에 대한 개인적인 판단 기록</li>
+            <li>하루 단위 작업 기록 축적</li>
+          </ul>
+          <div class="nt-links">
+            <a
+              class="nt-btn-primary"
+              href="https://proofylife.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ProofyLife 열기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="nt-card nt-card--subtle" data-aos="fade-up" data-aos-delay="80">
+          <p class="nt-card-label">Why this page</p>
+          <h2>왜 Notes를 따로 두었는가</h2>
+          <p class="nt-card-desc">
+            프로젝트 페이지에는 <strong>결과와 구조</strong>를 정리하고 싶었습니다.
+            그런데 실제로 중요한 것은 중간에 어떤 선택을 했고, 어디서 막혔고,
+            어떻게 다시 결정했는지입니다.
+          </p>
+          <p class="nt-card-desc">
+            Notes는 외부 블로그 대신 직접 쓰는 웹 기록인 <strong>ProofyLife</strong>로 연결합니다.
+            같은 흐름을 포트폴리오 안에서만 찾을 수 있도록, 이 페이지로 입구를 하나 두었습니다.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="nt-closing" data-aos="fade-up">
+      <p>
+        <strong>기록</strong>은 나중에 나를 설득할 수 있는 유일한 증거에 가깝습니다.<br />
+        Notes는 그 흔적을 남기기 위한 공간입니다.
       </p>
+    </section>
 
-      <p class="nt-desc">
-        완성된 결과도 중요하지만<br>
-        왜 이런 선택을 했는지를 기록하는 것도 중요합니다.<br>
-        이 페이지는 그 기록을 모아두는 용도입니다.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTENT -->
-  <section class="nt-section">
-    <div class="nt-container">
-
-      <!-- ProofyLife -->
-      <article class="nt-card">
-        <h2>ProofyLife</h2>
-
-        <p class="nt-card-desc">
-          ProofyLife는 매일의 작업과 생각을 기록하기 위해 만든 개인 기록 공간입니다.<br>
-          목적은 글을 잘 쓰는 게 아니라,
-          무엇을 했고 왜 그렇게 했는지를 남기는 데에 있습니다.
-        </p>
-
-        <ul class="nt-list">
-          <li>포트폴리오 진행에 대한 기록</li>
-          <li>진행 중 겪은 문제와 해결 과정 정리</li>
-          <li>기술 선택에 대한 개인적인 판단 기록</li>
-          <li>하루 단위 작업 기록 축적</li>
-        </ul>
-
-        <div class="nt-links">
-          <a href="https://proofylife.com" target="_blank" class="nt-btn primary">
-            ProofyLife 바로가기
-          </a>
-        </div>
-      </article>
-
-      <!-- WHY NOTES -->
-      <article class="nt-card subtle">
-        <h2>왜 Notes를 따로 두었는가</h2>
-
-        <p class="nt-card-desc">
-          프로젝트 페이지에는 결과만 남기고 싶었습니다.<br>
-          하지만 실제로 중요한 건
-          중간에 어떤 선택을 했고,
-          어디서 막혔고,
-          어떻게 다시 결정했는지입니다.
-        </p>
-
-        <p class="nt-card-desc">
-          Notes는 평가용 페이지가 아니라
-          스스로 다시 돌아보기 위한 기록입니다.<br>
-          그래서 외부 블로그 대신 직접 만든 웹사이트인
-          ProofyLife로 연결했습니다.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- CLOSING -->
-  <section class="nt-section nt-closing">
-
-    <p>
-      Notes는 그 흔적을 남기기 위한 공간입니다.
+    <p class="nt-footer-mini">
+      <a class="nt-back" href="../index.html">← Home</a><br />
+      © <span id="year-nt"></span> NamHyuk · Notes
     </p>
-  </section>
 
+  </main>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
+  <script>
+    (function () {
+      var y = document.getElementById("year-nt");
+      if (y) y.textContent = new Date().getFullYear();
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 
 </html>

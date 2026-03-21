@@ -1,0 +1,216 @@
+/* Hero — 개성 있는 소개 블록 (미디어 테마 전용) */
+
+body.media-portfolio .hero.hero--identity {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  overflow: hidden;
+}
+
+/* 히어로 전용 대기권 분위기 (전체 배경과 겹치되 영역만 강조) */
+body.media-portfolio .hero-atmosphere {
+  position: absolute;
+  inset: -5% -10% 35% -10%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 15% 25%, rgba(232, 168, 124, 0.14), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 15%, rgba(61, 214, 195, 0.12), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(88, 70, 140, 0.1), transparent 55%);
+  filter: blur(2px);
+  opacity: 0.95;
+}
+
+body.media-portfolio .hero--identity .hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+body.media-portfolio .hero-identity-frame {
+  position: relative;
+  padding: 1.35rem 0 1.35rem 1.35rem;
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, var(--warm-1, #e8a87c), var(--cool-1, #3dd6c3), rgba(88, 70, 140, 0.85)) 1;
+}
+
+body.media-portfolio .hero-identity-frame::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 20%,
+    rgba(255, 255, 255, 0.12) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+body.media-portfolio .hero-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  margin-bottom: 1rem;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(180, 200, 220, 0.85);
+}
+
+body.media-portfolio .hero-meta-dot {
+  opacity: 0.45;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.media-portfolio .hero-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 12, 22, 0.55);
+  color: rgba(126, 232, 220, 0.88);
+  letter-spacing: 0.1em;
+}
+
+body.media-portfolio .hero-kicker {
+  margin-bottom: 0.65rem;
+}
+
+body.media-portfolio .hero--identity .hero-left h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+body.media-portfolio .hero-role {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+  color: rgba(248, 250, 252, 0.96) !important;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.45);
+}
+
+body.media-portfolio .hero-name {
+  font-size: clamp(2.4rem, 6vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+body.media-portfolio .hero-motto {
+  margin-top: 1.1rem;
+  margin-bottom: 0.25rem;
+  max-width: 32rem;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(200, 215, 230, 0.82);
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  background: rgba(6, 10, 20, 0.45);
+}
+
+body.media-portfolio .hero-motto::before {
+  content: "// ";
+  color: rgba(61, 214, 195, 0.55);
+}
+
+body.media-portfolio .hero-manifest {
+  margin-top: 1.15rem;
+}
+
+body.media-portfolio .hero--identity .tag-box {
+  margin-top: 1.5rem;
+}
+
+body.media-portfolio .hero--identity .tag-box span:nth-child(1) {
+  border-color: rgba(232, 168, 124, 0.35);
+}
+
+body.media-portfolio .hero--identity .tag-box span:nth-child(2) {
+  border-color: rgba(244, 196, 168, 0.3);
+}
+
+body.media-portfolio .hero--identity .tag-box span:nth-child(3) {
+  border-color: rgba(61, 214, 195, 0.35);
+}
+
+body.media-portfolio .hero--identity .tag-box span:nth-child(4) {
+  border-color: rgba(139, 120, 200, 0.35);
+}
+
+body.media-portfolio .hero-right {
+  position: relative;
+}
+
+body.media-portfolio .hero-right::before {
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: -10%;
+  width: min(320px, 55vw);
+  height: min(320px, 55vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61, 214, 195, 0.12) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.media-portfolio .hero-visual {
+  position: relative;
+  z-index: 1;
+}
+
+body.media-portfolio .profile-frame {
+  position: relative;
+  box-shadow:
+    0 20px 56px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 0 48px rgba(61, 214, 195, 0.12);
+}
+
+@media (max-width: 900px) {
+  body.media-portfolio .hero--identity .hero-left h1 {
+    align-items: center;
+  }
+
+  body.media-portfolio .hero-identity-frame {
+    padding-left: 0;
+    padding-top: 1.1rem;
+    border-left: none;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--warm-1, #e8a87c), var(--cool-1, #3dd6c3), rgba(88, 70, 140, 0.85)) 1;
+  }
+
+  body.media-portfolio .hero-identity-frame::before {
+    display: none;
+  }
+
+  body.media-portfolio .hero-meta-line {
+    justify-content: center;
+  }
+
+  body.media-portfolio .hero-motto {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio .hero-atmosphere {
+    filter: none;
+  }
+}

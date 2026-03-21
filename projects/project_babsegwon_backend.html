@@ -3,29 +3,46 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta nameviewport="width=device-width, initial-scale=1.0" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>밥세권 Web Platform Engineering | Namhyuk Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- Custom CSS -->
-  <!-- <link rel="stylesheet" href="../assets/css/common_header.css" /> -->
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
   <link rel="stylesheet" href="../assets/css/backend.css" />
+  <link rel="stylesheet" href="../assets/css/project-babsegwon-media-art.css" />
 
-  <link rel="icon" href="./assets/img/favicon.png">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="backend-body">
+<body class="media-portfolio backend-body bab-project-page">
 
-  <!-- ==========================================
-       HEADER (index.html 동일)
-  =========================================== -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
 
@@ -34,49 +51,48 @@
         <span>Portfolio</span>
       </div>
 
-      <!-- 네비게이션 메뉴 -->
       <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
-        <a href="./project_babsegwon_backend.html">밥세권</a>
-        <a href="./sun-project.html">YIT</a>
-        <a href="./bab-security.html">Food Fighter</a>
-        <a href="./getoh.html">GetOh!</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html">Playground</a>
       </nav>
     </div>
   </header>
 
+  <main class="page-main">
 
-  <!-- ==========================================
-       HERO
-  =========================================== -->
+  <!-- HERO -->
   <section class="backend-hero" data-aos="fade-up">
     <div class="backend-hero-inner">
 
-      <!-- LEFT -->
       <div class="backend-hero-left">
+        <p class="backend-hero-kicker">Team Project · EAT-IT / 밥세권</p>
         <h1 class="backend-hero-title">밥세권 Web Platform Engineering</h1>
         <p class="backend-hero-desc">
-          <strong>밥세권</strong>은 위치 기반
-          <strong>매장의 남은 재고를 최적화하여<br>외식비 절감과 환경 개선을 실현</strong>하고,<br>
-          소비자에게 가까운 매장의 상품을 빠르게 연결하는<br>
-          Web 서비스를 목표로 합니다.<br><br>
+          <strong>밥세권</strong>은 위치 기반으로
+          <strong>매장의 남은 재고를 최적화해 외식비 절감과 환경 개선</strong>을 목표로 하고,<br>
+          가까운 매장의 상품을 빠르게 연결하는 Web 서비스입니다.<br><br>
 
-          본 프로젝트에서
-          <strong>상품 조회 → 장바구니 → 결제(Toss API) → 관리자(Admin) 기능 전체</strong>까지
-          서비스 핵심 백엔드 기능 및 <br>퍼블리싱/ERD를 설계하고 구현했습니다.
+          저는 팀에서 <strong>주문·결제·장바구니·관리자(Admin) 도메인</strong>을 중심으로 백엔드를 담당했고,<br>
+          퍼블리싱·ERD·연동(Toss·카카오맵)까지 <strong>기획·구현·운영이 이어지는 축</strong>을 끝까지 맞췄습니다.
+        </p>
+        <p class="backend-hero-lead">
+          공식 PM 직책은 아니었지만, <strong>결제 무결성·DB 구조·관리자 흐름</strong>처럼 서비스 전체에 걸친 결정에서는
+          팀 안에서 <strong>기술·일정·범위를 조율하며 방향을 제시</strong>한 경험이 있습니다.
+          아래는 기획자·PM 관점의 정리와 개발자로서의 구현을 함께 적었습니다.
         </p>
 
         <div class="backend-tags">
           <span>#WebPlatform</span>
           <span>#JSP/Servlet</span>
           <span>#OrderFlow</span>
-          <span>#DataIntegrity</span>
+          <span>#PM·기획</span>
           <span>#TossPayments</span>
           <span>#AdminSystem</span>
         </div>
       </div>
 
-      <!-- RIGHT — LOGO -->
       <div class="backend-hero-right">
         <div class="backend-logo-card">
           <img src="../assets/img/babsegwon.png" alt="밥세권 로고">
@@ -85,16 +101,60 @@
 
     </div>
   </section>
-<hr>
+
+  <div class="bab-divider" aria-hidden="true"></div>
+
+  <!-- 기획 · 주도 · 개발 -->
+  <section class="backend-section" data-aos="fade-up">
+    <div class="backend-container">
+      <div class="bab-section-head">
+        <p class="bab-kicker">Role · Leadership</p>
+        <h2 class="backend-section-title">기획·주도·개발</h2>
+      </div>
+      <div class="bab-lead-shell">
+        <p class="bab-lead-intro">
+          PM이 아닐 때도 <strong>도메인을 잇는 사람</strong>으로서, 요구를 기능·데이터·일정으로 바꾸는 축을 맡았습니다.
+        </p>
+        <div class="bab-lead-grid">
+          <article class="bab-lead-card">
+            <h3>기획 · 제품</h3>
+            <p>
+              픽업·한 가게 한 장바구니 같은 <strong>비즈니스 규칙</strong>을 코드와 DB에 일치시키기 위해
+              흐름을 먼저 정리하고, MVP와 운영(관리자·배너) 범위를 <strong>문서·ERD 수준에서 합의</strong>했습니다.
+            </p>
+          </article>
+          <article class="bab-lead-card">
+            <h3>지휘 · 의사결정</h3>
+            <p>
+              결제 스냅샷·무결성, 장바구니 가게 ID 검증 등 <strong>리스크가 큰 설계</strong>는 제가 제안하고 구현을 주도했습니다.
+              연동·DB 이슈에서 <strong>대안 비교와 우선순위</strong>를 팀과 맞추며 기술 방향을 정했습니다.
+            </p>
+          </article>
+          <article class="bab-lead-card">
+            <h3>개발 · 전달</h3>
+            <p>
+              MVC2 컨트롤러·주문·결제·Admin까지 <strong>엔드투엔드 구현</strong>과 커뮤니티·상품 UI 일부를 담당했습니다.
+              운영자가 <strong>배포 없이 이벤트를 메인에 올릴 수 있게</strong> 하는 등 실행 가능한 형태로 마감했습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- =========================================================
      SECTION: 프로젝트 목표 & 기대 효과
 ========================================================= -->
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">
-        프로젝트 목표 & 기대 효과
-      </h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Vision</p>
+        <h2 class="backend-section-title" data-aos="fade-up">
+          프로젝트 목표 & 기대 효과
+        </h2>
+      </div>
 
       <div class="goal-grid">
 
@@ -129,14 +189,17 @@
     </div>
   </section>
 
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
        SECTION: WHAT / WHY / HOW / RESULT
   =========================================== -->
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">프로젝트 핵심 설명</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">What · Why · How</p>
+        <h2 class="backend-section-title" data-aos="fade-up">프로젝트 핵심 설명</h2>
+      </div>
 
       <div class="info-grid">
 
@@ -186,14 +249,17 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
        SECTION: 맡은 부분 (My Role)
 =========================================== -->
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">My Role</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">My Role</p>
+        <h2 class="backend-section-title" data-aos="fade-up">맡은 역할 & 기여</h2>
+      </div>
 
       <div class="info-grid">
 
@@ -232,10 +298,9 @@
         <div class="info-card" data-aos="fade-left">
           <h3>Contribution</h3>
           <p>
-            프론트엔드, 백엔드, DB 설계까지<br>
-            <strong>End-to-End 개발을 수행</strong>했습니다.<br><br>
-            결제 안정성, 데이터 구조 개선, <br>관리자 운영 효율화 등<br>
-            프로젝트 핵심 품질 향상에<br> 많은 부분을 기여했습니다.
+            프론트·백·DB까지 <strong>End-to-End로 연결</strong>했고,<br>
+            결제·무결성·관리자처럼 <strong>서비스 품질이 갈리는 지점</strong>을 직접 책임졌습니다.<br><br>
+            팀 일정 안에서 <strong>우선순위를 조율</strong>하며 기능을 마감했습니다.
           </p>
         </div>
 
@@ -243,7 +308,7 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
   <!-- ==========================================
        FLOW TIMELINE (네온)
@@ -251,7 +316,10 @@
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">전체 기능 흐름도</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Flow · MVC</p>
+        <h2 class="backend-section-title" data-aos="fade-up">전체 기능 흐름도</h2>
+      </div>
 
       <div class="backend-timeline" data-aos="fade-up">
 
@@ -294,53 +362,130 @@
       </div>
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
        SCREENSHOT GRID (1:1)
   =========================================== -->
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">구매 과정</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Screens</p>
+        <h2 class="backend-section-title" data-aos="fade-up">구매 과정</h2>
+      </div>
+      <p class="bab-gallery-lead" data-aos="fade-up">
+        사용자가 <strong>탐색 → 담기 → 검증 → 결제</strong>로 이어지는 동선을 화면 흐름으로 정리했습니다. 각 스텝은 실제 서비스 캡처입니다.
+      </p>
 
-      <div class="screenshot-grid">
+      <div class="bab-gallery-shell bab-gallery-shell--purchase" data-aos="fade-up">
+        <div class="bab-gallery bab-gallery--purchase" aria-label="구매 화면 흐름">
 
-        <div class="shot-card" data-aos="zoom-in">
-          <img src="../assets/img/foodList.png" alt="screen" />
+          <figure class="bab-shot-frame bab-shot--p1" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">eat-it.local / discover</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/foodList.png" alt="상품·매장 탐색 목록 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">01</span>
+              <span class="bab-shot-frame__title">탐색</span>
+              <span class="bab-shot-frame__sub">목록 · 검색</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--p2" data-aos="fade-up" data-aos-delay="40">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">store / detail</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/StorePage.png" alt="매장 상세·상품 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">02</span>
+              <span class="bab-shot-frame__title">매장 상세</span>
+              <span class="bab-shot-frame__sub">픽업 기준</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--p3" data-aos="fade-up" data-aos-delay="80">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">cart / list</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/CartList.png" alt="장바구니 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">03</span>
+              <span class="bab-shot-frame__title">장바구니</span>
+              <span class="bab-shot-frame__sub">한 가게 정책</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--p4" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">cart / change-ok</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/ChangeOk.png" alt="가게 전환 확인 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">04</span>
+              <span class="bab-shot-frame__title">전환 확인</span>
+              <span class="bab-shot-frame__sub">스냅샷 검증</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--p5" data-aos="fade-up" data-aos-delay="40">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">pay / toss-ready</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/PayFirst.png" alt="Toss 결제 준비 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">05</span>
+              <span class="bab-shot-frame__title">결제 준비</span>
+              <span class="bab-shot-frame__sub">Toss 연동</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--p6" data-aos="fade-up" data-aos-delay="80">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">pay / complete</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/PayFin.png" alt="결제 완료 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">06</span>
+              <span class="bab-shot-frame__title">완료</span>
+              <span class="bab-shot-frame__sub">승인 · 저장</span>
+            </figcaption>
+          </figure>
+
         </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="50">
-          <img src="../assets/img/StorePage.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="100">
-          <img src="../assets/img/CartList.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="150">
-          <img src="../assets/img/ChangeOk.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="200">
-          <img src="../assets/img/PayFirst.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="250">
-          <img src="../assets/img/PayFin.png" alt="screen" />
-        </div>
-
       </div>
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
      SECTION: Problem Solving
 =========================================== -->
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">Problem Solving</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Deep dive</p>
+        <h2 class="backend-section-title" data-aos="fade-up">Problem Solving</h2>
+      </div>
 
       <div class="info-grid">
 
@@ -429,7 +574,7 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
 
 
@@ -439,7 +584,10 @@
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">관리자(Admin) 기능 요약</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Operations</p>
+        <h2 class="backend-section-title" data-aos="fade-up">관리자(Admin) 기능 요약</h2>
+      </div>
 
       <div class="admin-grid">
 
@@ -481,53 +629,130 @@
     </div>
   </section>
 
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
        SCREENSHOT GRID (1:1)
   =========================================== -->
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">관리자 기능</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Admin UI</p>
+        <h2 class="backend-section-title" data-aos="fade-up">관리자 화면</h2>
+      </div>
+      <p class="bab-gallery-lead" data-aos="fade-up">
+        운영·모더레이션·문의까지 <strong>한 패널에서 통제</strong>할 수 있도록 화면을 묶었습니다. 로그인 이후 동선을 시각적으로 나열했습니다.
+      </p>
 
-      <div class="screenshot-grid">
+      <div class="bab-gallery-shell bab-gallery-shell--admin" data-aos="fade-up">
+        <div class="bab-gallery bab-gallery--admin" aria-label="관리자 화면 흐름">
 
-        <div class="shot-card" data-aos="zoom-in">
-          <img src="../assets/img/adminLogin.png" alt="screen" />
+          <figure class="bab-shot-frame bab-shot--a1" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin.eat-it / auth</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminLogin.png" alt="관리자 로그인 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">01</span>
+              <span class="bab-shot-frame__title">접근</span>
+              <span class="bab-shot-frame__sub">관리자 인증</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--a2" data-aos="fade-up" data-aos-delay="50">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin / dashboard</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminDashboard.png" alt="관리자 대시보드" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">02</span>
+              <span class="bab-shot-frame__title">대시보드</span>
+              <span class="bab-shot-frame__sub">운영 지표</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--a3" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin / members</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminMember.png" alt="회원 관리 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">03</span>
+              <span class="bab-shot-frame__title">회원</span>
+              <span class="bab-shot-frame__sub">상태 · 제재</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--a4" data-aos="fade-up" data-aos-delay="40">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin / boards</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminNotice.png" alt="게시글·공지 관리 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">04</span>
+              <span class="bab-shot-frame__title">게시글</span>
+              <span class="bab-shot-frame__sub">공지 · 모니터</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--a5" data-aos="fade-up" data-aos-delay="80">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin / reports</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminBlack.png" alt="신고·블랙리스트 관리 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">05</span>
+              <span class="bab-shot-frame__title">신고</span>
+              <span class="bab-shot-frame__sub">처리 · 반영</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame bab-shot--a6" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">admin / inquiry</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/adminInquiry.png" alt="고객 문의 관리 화면" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">06</span>
+              <span class="bab-shot-frame__title">문의</span>
+              <span class="bab-shot-frame__sub">1:1 · CS</span>
+            </figcaption>
+          </figure>
+
         </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="50">
-          <img src="../assets/img/adminDashboard.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="100">
-          <img src="../assets/img/adminMember.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="150">
-          <img src="../assets/img/adminNotice.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="200">
-          <img src="../assets/img/adminBlack.png" alt="screen" />
-        </div>
-
-        <div class="shot-card" data-aos="zoom-in" data-aos-delay="250">
-          <img src="../assets/img/adminInquiry.png" alt="screen" />
-        </div>
-
       </div>
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
      SECTION: Tech Stack
 ========================================== -->
   <section class="backend-section backend-section-alt">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">Tech Stack</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Stack</p>
+        <h2 class="backend-section-title" data-aos="fade-up">Tech Stack</h2>
+      </div>
 
       <div class="stack-grid">
 
@@ -599,7 +824,7 @@
       </div>
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
   <!-- ==========================================
      SECTION: Service Flow
@@ -621,7 +846,7 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
   <!-- =========================================================
      GITHUB REPOSITORY LINKS
@@ -629,9 +854,12 @@
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">
-        GitHub Repositories
-      </h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Source</p>
+        <h2 class="backend-section-title" data-aos="fade-up">
+          GitHub Repositories
+        </h2>
+      </div>
 
       <div class="git-grid">
 
@@ -654,7 +882,7 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
   <!-- ==========================================
        PDF SECTION
@@ -662,7 +890,10 @@
   <section class="backend-section">
     <div class="backend-container">
 
-      <h2 class="backend-section-title" data-aos="fade-up">발표자료 PDF</h2>
+      <div class="bab-section-head">
+        <p class="bab-kicker">Deck</p>
+        <h2 class="backend-section-title" data-aos="fade-up">발표자료 PDF</h2>
+      </div>
 
       <div class="backend-pdf-box" data-aos="zoom-in">
         <p>프로젝트 발표자료를 아래 버튼을 통해 다운로드할 수 있습니다.</p>
@@ -674,16 +905,32 @@
 
     </div>
   </section>
-<hr>
+  <div class="bab-divider" aria-hidden="true"></div>
   <!-- ==========================================
        FOOTER
   =========================================== -->
+  </main>
+
   <footer class="backend-footer">
-    © 2025 NAMHYUK · Backend Engineering Portfolio
+    © <span id="year-bab"></span> NamHyuk · 밥세권 프로젝트
   </footer>
-  <!-- JS -->
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
+  <script>
+    document.getElementById("year-bab").textContent = new Date().getFullYear();
+    (function () {
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 
 </body>
 

@@ -1,0 +1,262 @@
+/* FortuneBear — 미디어아트 (바이올렛 · 오로라 · 곰) */
+
+body.media-portfolio.fortunebear-page {
+  background: transparent !important;
+}
+
+body.media-portfolio.fortunebear-page.fb-body::before {
+  opacity: 0 !important;
+}
+
+body.media-portfolio.fortunebear-page main.page-main {
+  position: relative;
+  z-index: 20;
+}
+
+.fb-divider {
+  height: 1px;
+  max-width: min(92%, 880px);
+  margin: clamp(2rem, 5vw, 3rem) auto;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(167, 139, 250, 0.5),
+    rgba(61, 214, 195, 0.35),
+    rgba(240, 171, 252, 0.3),
+    transparent
+  );
+}
+
+body.media-portfolio.fortunebear-page .fb-hero {
+  position: relative;
+  padding: clamp(6rem, 12vw, 8rem) 0 clamp(3rem, 6vw, 4.5rem);
+  overflow: hidden;
+}
+
+body.media-portfolio.fortunebear-page .fb-hero::before {
+  content: "";
+  position: absolute;
+  inset: -35% -20% auto;
+  height: 85%;
+  background: radial-gradient(
+    ellipse 55% 48% at 70% 0%,
+    rgba(167, 139, 250, 0.22),
+    rgba(61, 214, 195, 0.08),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-kicker {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(196, 181, 253, 0.9);
+  margin-bottom: 0.65rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-title {
+  background: linear-gradient(
+    125deg,
+    #f5f3ff 0%,
+    #c4b5fd 22%,
+    #a78bfa 45%,
+    #3dd6c3 72%,
+    #f0abfc 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 36px rgba(0, 0, 0, 0.45));
+  animation: fb-title-aurora 20s ease-in-out infinite alternate;
+}
+
+@keyframes fb-title-aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-subtitle {
+  color: rgba(215, 210, 235, 0.92);
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-desc {
+  color: rgba(200, 198, 225, 0.9);
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-desc strong {
+  color: #fff;
+}
+
+body.media-portfolio.fortunebear-page .fb-tag-box span {
+  background: rgba(8, 10, 22, 0.55);
+  border: 1px solid rgba(196, 181, 253, 0.28);
+  color: rgba(221, 214, 255, 0.95);
+}
+
+body.media-portfolio.fortunebear-page .fb-logo-card {
+  background: rgba(6, 8, 20, 0.55) !important;
+  border: 1px solid rgba(196, 181, 253, 0.22) !important;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 48px rgba(167, 139, 250, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+body.media-portfolio.fortunebear-page .fb-hero-left {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+body.media-portfolio.fortunebear-page .fb-section {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 1rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-section-alt {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 14, 32, 0.42) 0%,
+    rgba(8, 10, 22, 0.38) 100%
+  ) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.media-portfolio.fortunebear-page .fb-section-head {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+body.media-portfolio.fortunebear-page .fb-section-head .fb-section-title {
+  margin-bottom: 0;
+}
+
+body.media-portfolio.fortunebear-page .fb-kicker {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(142, 240, 228, 0.78);
+  margin-bottom: 0.75rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-section-title {
+  background: linear-gradient(
+    125deg,
+    #f0f4ff 0%,
+    #c4b5fd 40%,
+    #8ef0e4 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 22px rgba(0, 0, 0, 0.35));
+}
+
+body.media-portfolio.fortunebear-page .fb-section-desc {
+  color: rgba(210, 210, 230, 0.92);
+  margin: 0.75rem auto 0 !important;
+  max-width: 42rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-section-desc + .fb-section-desc {
+  margin-top: 1.25rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-summary-card,
+body.media-portfolio.fortunebear-page .fb-design-card {
+  background: rgba(5, 8, 20, 0.52) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body.media-portfolio.fortunebear-page .fb-summary-card h3,
+body.media-portfolio.fortunebear-page .fb-design-card h3 {
+  color: #ddd6fe !important;
+}
+
+body.media-portfolio.fortunebear-page .fb-summary-card p,
+body.media-portfolio.fortunebear-page .fb-design-card p {
+  color: rgba(205, 205, 225, 0.9) !important;
+}
+
+body.media-portfolio.fortunebear-page .fb-summary-card:hover,
+body.media-portfolio.fortunebear-page .fb-design-card:hover {
+  border-color: rgba(167, 139, 250, 0.35) !important;
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(167, 139, 250, 0.12) !important;
+}
+
+body.media-portfolio.fortunebear-page .fb-flow {
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+body.media-portfolio.fortunebear-page .fb-flow-arrow {
+  color: rgba(196, 181, 253, 0.85);
+  font-size: 1.35rem;
+}
+
+body.media-portfolio.fortunebear-page .fb-flow-step {
+  background: rgba(6, 8, 20, 0.55) !important;
+  border: 1px solid rgba(196, 181, 253, 0.2) !important;
+  color: rgba(230, 228, 255, 0.95) !important;
+  text-decoration: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+  display: block;
+}
+
+body.media-portfolio.fortunebear-page a.fb-flow-step:hover {
+  border-color: rgba(61, 214, 195, 0.4) !important;
+  box-shadow: 0 12px 40px rgba(167, 139, 250, 0.15);
+  transform: translateY(-3px);
+}
+
+body.media-portfolio.fortunebear-page .fb-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(160, 175, 200, 0.82);
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: clamp(2rem, 5vw, 3rem) 1rem;
+}
+
+@media (max-width: 900px) {
+  body.media-portfolio.fortunebear-page .fb-flow {
+    flex-direction: column;
+  }
+
+  body.media-portfolio.fortunebear-page .fb-flow-arrow {
+    display: none;
+  }
+
+  body.media-portfolio.fortunebear-page .fb-flow-step {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.media-portfolio.fortunebear-page .fb-hero-inner {
+    gap: 2.5rem;
+  }
+}

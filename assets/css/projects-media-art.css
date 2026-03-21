@@ -1,0 +1,538 @@
+/* Projects index — 미디어아트 · 웅장한 아카이브 */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.media-portfolio.projects-index-page {
+  --pr-glow-a: rgba(61, 214, 195, 0.45);
+  --pr-glow-b: rgba(232, 168, 124, 0.38);
+  --pr-glow-c: rgba(196, 181, 253, 0.28);
+}
+
+body.media-portfolio.projects-index-page main.page-main {
+  position: relative;
+  z-index: 20;
+}
+
+/* 히어로 — 스펙터클 */
+.pr-hero--spectacle {
+  position: relative;
+  padding: clamp(5.5rem, 14vw, 8.5rem) 1rem clamp(3rem, 8vw, 5rem);
+  text-align: center;
+  overflow: hidden;
+}
+
+.pr-hero--spectacle::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 85%;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 0%,
+    rgba(61, 214, 195, 0.22),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.pr-hero--spectacle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(92%, 720px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pr-glow-a),
+    var(--pr-glow-b),
+    var(--pr-glow-c),
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.pr-hero-orbit {
+  position: absolute;
+  inset: 8% 10% auto;
+  height: min(420px, 48vw);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 80px rgba(61, 214, 195, 0.08),
+    inset 0 0 60px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  opacity: 0.55;
+  animation: pr-orbit-pulse 14s ease-in-out infinite alternate;
+}
+
+.pr-hero-orbit--b {
+  inset: 12% 18% auto;
+  height: min(340px, 42vw);
+  border-color: rgba(232, 168, 124, 0.12);
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes pr-orbit-pulse {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 0.65;
+    transform: scale(1.02);
+  }
+}
+
+.pr-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.pr-hero-kicker {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(142, 240, 228, 0.88);
+  margin-bottom: 1rem;
+}
+
+.pr-title--spectacle {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    125deg,
+    #f4f8ff 0%,
+    #8ef0e4 28%,
+    #e8a87c 55%,
+    #c4b5fd 88%,
+    #f0f4f8 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.45));
+  animation: pr-title-shimmer 18s ease-in-out infinite alternate;
+}
+
+@keyframes pr-title-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.pr-hero-lead {
+  margin: 1.35rem auto 0;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(210, 220, 235, 0.92);
+}
+
+.pr-hero-lead strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pr-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.pr-stat {
+  text-align: center;
+  min-width: 5.5rem;
+}
+
+.pr-stat-num {
+  display: block;
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #8ef0e4, #e8a87c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pr-stat-label {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(160, 180, 205, 0.75);
+}
+
+/* 필터 */
+.pr-toolbar {
+  width: min(92%, 1100px);
+  margin: 0 auto;
+  padding: 0 1rem clamp(2rem, 5vw, 3rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.pr-filter-btn {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(6, 10, 18, 0.45);
+  color: rgba(200, 215, 230, 0.88);
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pr-filter-btn:hover {
+  border-color: rgba(61, 214, 195, 0.35);
+  color: #fff;
+}
+
+.pr-filter-btn.is-active {
+  border-color: rgba(61, 214, 195, 0.55);
+  color: #fff;
+  box-shadow:
+    0 0 28px rgba(61, 214, 195, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    165deg,
+    rgba(61, 214, 195, 0.18) 0%,
+    rgba(6, 10, 18, 0.65) 100%
+  );
+}
+
+/* 그리드 */
+.pr-works {
+  padding: 0 1rem clamp(4rem, 10vw, 6rem);
+}
+
+.pr-works-inner {
+  width: min(92%, 1200px);
+  margin: 0 auto;
+}
+
+.pr-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 1.85rem);
+}
+
+@media (max-width: 900px) {
+  .pr-work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pr-work-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(5, 9, 18, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 24px 72px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(1.06);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+.pr-work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    120% 80% at 10% 0%,
+    rgba(61, 214, 195, 0.12),
+    transparent 55%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.pr-work-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(61, 214, 195, 0.28);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.5),
+    0 0 48px rgba(61, 214, 195, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.pr-work-card:hover::before {
+  opacity: 1;
+}
+
+.pr-work-card[data-category="security"]:hover {
+  border-color: rgba(232, 168, 124, 0.35);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.5),
+    0 0 48px rgba(232, 168, 124, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.pr-work-card[data-category="security"]:hover::before {
+  background: radial-gradient(
+    120% 80% at 10% 0%,
+    rgba(232, 168, 124, 0.14),
+    transparent 55%
+  );
+  opacity: 1;
+}
+
+.pr-work-card[hidden] {
+  display: none !important;
+}
+
+.pr-work-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(12, 18, 32, 0.9), rgba(4, 8, 16, 0.95));
+}
+
+.pr-work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pr-work-card:hover .pr-work-thumb img {
+  transform: scale(1.05);
+}
+
+.pr-work-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 8, 16, 0.92) 0%,
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.pr-work-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(4, 8, 16, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.pr-work-badge--team {
+  color: rgba(168, 240, 228, 0.95);
+  border-color: rgba(61, 214, 195, 0.35);
+}
+
+.pr-work-badge--security {
+  color: rgba(248, 210, 180, 0.95);
+  border-color: rgba(232, 168, 124, 0.4);
+}
+
+.pr-work-badge--personal {
+  color: rgba(212, 200, 255, 0.95);
+  border-color: rgba(196, 181, 253, 0.35);
+}
+
+.pr-work-body {
+  position: relative;
+  z-index: 1;
+  padding: 1.35rem 1.4rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pr-work-title {
+  margin: 0;
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #f0f4f8;
+  letter-spacing: -0.02em;
+}
+
+.pr-work-desc {
+  margin: 0.65rem 0 0;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: rgba(195, 210, 228, 0.9);
+  flex: 1;
+}
+
+.pr-work-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.pr-work-tags span {
+  font-size: 0.68rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(168, 240, 228, 0.88);
+}
+
+.pr-work-foot {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pr-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(61, 214, 195, 0.22) 45%,
+    rgba(232, 168, 124, 0.18) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pr-work-link:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(61, 214, 195, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.pr-work-link span[aria-hidden="true"] {
+  font-size: 1.1em;
+  opacity: 0.85;
+}
+
+/* 풀블리드 카드 (첫 번째 강조) — 선택적 */
+.pr-work-card--feature {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .pr-work-card--feature {
+    flex-direction: column;
+  }
+}
+
+.pr-work-card--feature .pr-work-thumb {
+  flex: 0 0 min(42%, 380px);
+  aspect-ratio: auto;
+  min-height: 200px;
+}
+
+@media (max-width: 900px) {
+  .pr-work-card--feature .pr-work-thumb {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+}
+
+.pr-work-card--feature .pr-work-body {
+  justify-content: center;
+}
+
+/* 푸터 스트립 */
+.pr-page-footer {
+  text-align: center;
+  padding: clamp(2.5rem, 6vw, 4rem) 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(150, 170, 195, 0.75);
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.pr-back-home {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(142, 240, 228, 0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(61, 214, 195, 0.35);
+  padding-bottom: 0.15rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.pr-back-home:hover {
+  color: #fff;
+  border-color: rgba(142, 240, 228, 0.7);
+}

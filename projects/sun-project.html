@@ -4,56 +4,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUN교사(YIT) 네트워크·서버 인프라 구축 프로젝트</title>
+  <title>YIT 네트워크·서버 인프라 구축 | Namhyuk Portfolio</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-  <!-- CSS -->
-  <!-- <link rel="stylesheet" href="../assets/css/common_header.css" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
   <link rel="stylesheet" href="../assets/css/sun-project.css" />
-  <link rel="stylesheet" href="../assets/js/script.js" />
-  <link rel="stylesheet" href="../assets/css/style.css" /> <!-- Header 통일 -->
-  <link rel="icon" href="./assets/img/favicon.png">
+  <link rel="stylesheet" href="../assets/css/project-babsegwon-media-art.css" />
+  <link rel="stylesheet" href="../assets/css/project-sun-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="sun-body">
+<body class="media-portfolio sun-body sun-project-page">
 
-  <!-- ================================
-       HEADER (메인과 동일한 화이트 헤더)
-  ================================= -->
-  <!-- HEADER -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
-
       <div class="logo">
         <img src="../assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
-
-      <!-- 네비게이션 메뉴 -->
       <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
-        <a href="./project_babsegwon_backend.html">밥세권</a>
-        <a href="./sun-project.html">YIT</a>
-        <a href="./bab-security.html">Food Fighter</a>
-        <a href="./getoh.html">GetOh!</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html">Playground</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- ================================
-       HERO SECTION
-  ================================= -->
+  <main class="page-main">
+
   <section class="sun-hero">
     <div class="sun-hero-inner">
 
       <div class="sun-hero-left" data-aos="fade-right">
+        <p class="sun-hero-kicker">Team Lead · YIT / SUN 교사 인프라</p>
         <h1 class="sun-hero-title">
           YIT 네트워크·서버 인프라 구축 프로젝트
         </h1>
@@ -63,15 +72,22 @@
 
         <p class="sun-hero-desc">
           실제 대학 환경을 모델링하여 <strong>네트워크 설계 → 서버 구축 → 보안 점검 → 운영 검증</strong>까지
-          인프라 전 과정을 직접 수행한 팀 프로젝트입니다.<br><br>
-          저는 <strong>팀장</strong>으로서 전체 구조 설계와 네트워크·서버·보안 파트를 하나로 잇는
-          <strong>통합 운영 책임자 역할</strong>을 맡았습니다.
+          인프라 전 과정을 수행한 팀 프로젝트입니다.<br><br>
+          저는 <strong>팀장</strong>으로서 일정·회의·산출물 정리와 파트 간 조율을 맡았고,
+          네트워크·서버·보안이 같은 목표를 향하도록 <strong>의사결정과 검증 순서</strong>를 정리했습니다.
+        </p>
+
+        <p class="sun-hero-lead">
+          <strong>네트워크와 인프라는 “완성된 도면”이 없었기에</strong>, 목표 서비스와 기관 모델을 먼저 고정한 뒤
+          IP·NAT·라우팅·서버 존을 <strong>역으로 도출하는 역설계</strong>로 접근했습니다.
+          GNS3에서 경로를 검증한 뒤 Rocky Linux에 옮기며, 팀장으로서 <strong>설계 근거를 문서·회의로 공유</strong>해 합의를 맞췄습니다.
         </p>
 
         <div class="sun-tag-box">
+          <span>#Team Lead</span>
+          <span>#역설계</span>
           <span>#Network Engineering</span>
           <span>#Server Infra</span>
-          <span>#Security Hardening</span>
           <span>#GNS3</span>
           <span>#Rocky Linux 8.10</span>
         </div>
@@ -86,13 +102,61 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       WHAT / WHY / HOW / RESULT
-  ================================= -->
+  <section class="sun-section sun-section-alt">
+    <div class="sun-container">
+      <div class="sun-section-head">
+        <p class="sun-kicker">Lead · Reverse design</p>
+        <h2 class="sun-section-title">팀장으로서 · 인프라 역설계</h2>
+      </div>
+      <p class="sun-lead-intro" data-aos="fade-up">
+        공식 직함은 팀 프로젝트의 <strong>팀장</strong>이었고, 기술적으로는 <strong>네트워크·서버·보안을 한 흐름으로 묶는 역할</strong>을 맡았습니다.
+        아래 네 축이 이 프로젝트에서 제가 밀어붙인 기준입니다.
+      </p>
+      <div class="bab-lead-shell" data-aos="fade-up">
+        <div class="bab-lead-grid">
+          <article class="bab-lead-card">
+            <h3>팀장 · 조율</h3>
+            <p>
+              <strong>일정·회의록·작업 로그</strong>를 한곳에 모으고, 네트워크/서버/보안 파트의 범위가 겹칠 때
+              <strong>우선순위와 검증 순서</strong>를 정해 병목을 줄였습니다.
+            </p>
+          </article>
+          <article class="bab-lead-card">
+            <h3>역설계 관점</h3>
+            <p>
+              “어떤 선으로 그릴까”가 아니라 <strong>목표 서비스·트래픽·존 분리</strong>를 먼저 두고
+              IP 대역·NAT·라우팅을 <strong>요구에서 역으로</strong> 맞춰 나갔습니다.
+            </p>
+          </article>
+          <article class="bab-lead-card">
+            <h3>네트워크 검증</h3>
+            <p>
+              VLSM·Static/PAT·라우팅은 <strong>GNS3에서 End-to-End</strong>로 먼저 깨지지 않게 확인한 뒤,
+              구성 의도를 팀과 공유했습니다.
+            </p>
+          </article>
+          <article class="bab-lead-card">
+            <h3>서버·보안 연동</h3>
+            <p>
+              FTP/TFTP/DNS는 <strong>방화벽·SELinux·ACL</strong>과 동시에 설계해야 해서,
+              서비스 포트와 정책을 같은 표로 묶어 점검했습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+
   <section class="sun-section">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">프로젝트 핵심 요약</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Summary</p>
+        <h2 class="sun-section-title" data-aos="fade-up">프로젝트 핵심 요약</h2>
+      </div>
 
       <div class="summary-grid">
 
@@ -131,35 +195,74 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       TOPOLOGY
-  ================================= -->
   <section class="sun-section-alt">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">네트워크 토폴로지</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Topology</p>
+        <h2 class="sun-section-title" data-aos="fade-up">네트워크 토폴로지</h2>
+      </div>
 
-      <div class="topology-box" data-aos="zoom-in">
-        <img src="../assets/img/network-topology.png" alt="Topology Diagram">
+      <div class="bab-gallery-shell bab-gallery-shell--purchase" data-aos="zoom-in">
+        <figure class="bab-shot-frame">
+          <div class="bab-shot-frame__chrome" aria-hidden="true">
+            <span class="bab-shot-frame__dots"></span>
+            <span class="bab-shot-frame__url">campus / topology · v1</span>
+          </div>
+          <div class="bab-shot-frame__body">
+            <img src="../assets/img/network-topology.png" alt="캠퍼스 네트워크 토폴로지 다이어그램" loading="lazy" />
+          </div>
+          <figcaption class="bab-shot-frame__cap">
+            <span class="bab-shot-frame__step">MAP</span>
+            <span class="bab-shot-frame__title">전체 구조</span>
+            <span class="bab-shot-frame__sub">VLAN · 존 · 라우팅</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       MY ROLE
-  ================================= -->
   <section class="sun-section">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">My Role</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Reverse engineering</p>
+        <h2 class="sun-section-title" data-aos="fade-up">네트워크·인프라 역설계 과정</h2>
+      </div>
+      <div class="sun-reverse-body" data-aos="fade-up">
+        <p>
+          처음부터 “토폴로지 한 장”이 주어진 것이 아니라, <strong>대학 모델과 제공해야 할 서비스</strong>가 먼저였습니다.
+          그래서 <strong>요구 → 트래픽·존 → IP·NAT → 시뮬레이션 → 실서버</strong> 순으로, 필요한 구성을 뒤에서 앞을 밀어 올리는 방식으로 정리했습니다.
+        </p>
+        <ol>
+          <li><strong>기관 단위 요구 고정</strong> — 학과·행정·서버존·외부 ISP 등 구역을 나누고, 각 구역의 호스트 규모를 추정했습니다.</li>
+          <li><strong>서비스별 트래픽 전제</strong> — FTP/TFTP/DNS가 어느 존에 열려야 하는지, 관리 접속은 어디서 들어오는지부터 맞췄습니다.</li>
+          <li><strong>VLSM·라우팅 역산</strong> — 호스트 수에 맞춰 대역을 쪼개고, Static NAT(서버존)와 PAT(사용자 구역)를 나눴습니다.</li>
+          <li><strong>GNS3에서 경로 검증</strong> — 패킷이 끊기는 지점을 시뮬레이션에서 먼저 제거한 뒤, 동일 논리를 실장비·Rocky에 이식했습니다.</li>
+          <li><strong>서버·방화벽 동시 맞춤</strong> — 포트·SELinux·ACL을 네트워크 정책과 같은 표로 묶어, “열린 서비스만큼 닫힌 면”도 함께 설계했습니다.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+
+  <section class="sun-section sun-section-alt">
+    <div class="sun-container">
+      <div class="sun-section-head">
+        <p class="sun-kicker">My role</p>
+        <h2 class="sun-section-title" data-aos="fade-up">맡은 역할</h2>
+      </div>
 
       <div class="role-grid">
 
-        <div class="role-card" data-aos="fade-right">
-          <h3>팀장(Leader)</h3>
+        <div class="role-card role-card--lead" data-aos="fade-right">
+          <h3>팀장 (Leader)</h3>
           <p>
-            전체 일정 관리,회의록 작성, 작업 로그 수집·정리,
-            네트워크/서버/보안 파트 조율을 담당했습니다.
+            <strong>전체 일정·회의·회의록·작업 로그</strong>를 관리하고, 네트워크/서버/보안 파트가 같은 마감을 바라보게 조율했습니다.
+            설계 변경이 생길 때마다 <strong>근거와 영향 범위</strong>를 먼저 공유해, 팀이 같은 토폴로지 그림을 보게 만드는 것을 우선했습니다.
           </p>
         </div>
 
@@ -172,7 +275,7 @@
         </div>
 
         <div class="role-card" data-aos="fade-left">
-          <h3>서버 운영자</h3>
+          <h3>서버 운영</h3>
           <p>
             FTP/TFTP/DNS 서버 구축, 계정 및 디렉토리 구조 설계,
             기본 보안 정책(방화벽·SELinux·ACL) 적용을 담당했습니다.
@@ -183,13 +286,14 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       PROBLEM → SOLUTION
-  ================================= -->
-  <section class="sun-section-alt">
+  <section class="sun-section">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">문제 해결 기반 접근</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Problem solving</p>
+        <h2 class="sun-section-title" data-aos="fade-up">문제 해결 기반 접근</h2>
+      </div>
 
       <div class="ps-grid">
 
@@ -215,13 +319,14 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       SERVER ROLES
-  ================================= -->
-  <section class="sun-section">
+  <section class="sun-section sun-section-alt">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">서버 구성 및 역할</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Servers</p>
+        <h2 class="sun-section-title" data-aos="fade-up">서버 구성 및 역할</h2>
+      </div>
 
       <div class="server-grid">
 
@@ -258,13 +363,14 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       SECURITY HARDENING
-  ================================= -->
-  <section class="sun-section-alt">
+  <section class="sun-section">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">보안 강화 작업</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Security</p>
+        <h2 class="sun-section-title" data-aos="fade-up">보안 강화 작업</h2>
+      </div>
 
       <ul class="sec-list" data-aos="fade-up">
         <li>• 방화벽 설정 (21/69/53 등 서비스 포트 최소 허용)</li>
@@ -276,13 +382,14 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       TIMELINE
-  ================================= -->
-  <section class="sun-section">
+  <section class="sun-section sun-section-alt">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">프로젝트 타임라인</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Timeline</p>
+        <h2 class="sun-section-title" data-aos="fade-up">프로젝트 타임라인</h2>
+      </div>
 
       <div class="sun-timeline">
 
@@ -314,50 +421,129 @@
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       SCREENSHOTS
-  ================================= -->
-  <section class="sun-section-alt">
-    <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">협업 과정</h2>
-
-      <div class="shot-grid">
-        <div class="shot-card"><img src="../assets/img/plan1.png" /></div>
-        <div class="shot-card"><img src="../assets/img//plan2.png" /></div>
-        <div class="shot-card"><img src="../assets/img/plan3.png" /></div>
-        <div class="shot-card"><img src="../assets/img/plan4.png" /></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================
-       TEAM COLLABORATION
-  ================================= -->
   <section class="sun-section">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">팀 협업 구조</h2>
-
-      <p class="collab-desc" data-aos="fade-up">
-        노션 기반 회의록·로그·설정파일 정리 시스템을 구축하여
-        각 파트의 작업 흐름을 실시간으로 공유하고 충돌 없이 진행했습니다.
-      </p>
-
-      <div class="notion-box" data-aos="zoom-in">
-        <img src="../assets/img/notion-template.png" alt="Notion Template">
+      <div class="sun-section-head">
+        <p class="sun-kicker">Collaboration</p>
+        <h2 class="sun-section-title" data-aos="fade-up">협업 과정</h2>
       </div>
 
+      <div class="bab-gallery-shell sun-collab-shell" data-aos="fade-up">
+        <div class="bab-gallery bab-gallery--bab4" aria-label="기획·설계 협업 캡처">
+          <figure class="bab-shot-frame">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">plan / step-01</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/plan1.png" alt="협업 계획 1" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">01</span>
+              <span class="bab-shot-frame__title">기획</span>
+              <span class="bab-shot-frame__sub">초안</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">plan / step-02</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/plan2.png" alt="협업 계획 2" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">02</span>
+              <span class="bab-shot-frame__title">조율</span>
+              <span class="bab-shot-frame__sub">역할</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">plan / step-03</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/plan3.png" alt="협업 계획 3" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">03</span>
+              <span class="bab-shot-frame__title">설계</span>
+              <span class="bab-shot-frame__sub">검증</span>
+            </figcaption>
+          </figure>
+
+          <figure class="bab-shot-frame">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">plan / step-04</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/plan4.png" alt="협업 계획 4" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">04</span>
+              <span class="bab-shot-frame__title">마감</span>
+              <span class="bab-shot-frame__sub">산출물</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 
+  <div class="sun-divider" aria-hidden="true"></div>
 
-  <!-- ================================
-       PDF Download
-  ================================= -->
-  <section class="sun-section-alt">
+  <section class="sun-section sun-section-alt">
     <div class="sun-container">
-      <h2 class="sun-section-title" data-aos="fade-up">프로젝트 발표자료</h2>
+      <div class="sun-section-head">
+        <p class="sun-kicker">Verification</p>
+        <h2 class="sun-section-title" data-aos="fade-up">GNS3 검증 → Rocky 이식</h2>
+      </div>
+
+      <p class="sun-lead-intro" data-aos="fade-up">
+        시뮬레이션과 실서버가 어긋나면 나중에 잡기 어렵기 때문에, 팀장으로서 <strong>검증 순서와 이식 체크</strong>를 먼저 고정했습니다.
+        아래는 GNS3에서 끊긴 경로를 Rocky에 옮길 때 같이 맞춘 포인트입니다.
+      </p>
+
+      <div class="sun-verify-grid" data-aos="fade-up">
+        <article class="sun-verify-card">
+          <h3>네트워크 레이어</h3>
+          <p>
+            VLSM·Static/PAT·라우팅이 GNS3에서 <strong>End-to-End</strong>로 맞는지 먼저 확인한 뒤,
+            동일한 인터페이스·게이트웨이 전제를 Rocky 쪽에 그대로 적용했습니다.
+          </p>
+        </article>
+        <article class="sun-verify-card">
+          <h3>서비스·정책</h3>
+          <p>
+            FTP/TFTP/DNS 포트와 바인딩 주소를 <strong>방화벽·SELinux 규칙</strong>과 한 줄로 묶어 점검해,
+            “열린 서비스”만큼 “막힌 경로”가 없는지 단계별로 확인했습니다.
+          </p>
+        </article>
+        <article class="sun-verify-card">
+          <h3>운영 검증</h3>
+          <p>
+            내부 호스트 → 서버존 → 외부 ISP 흐름에서 <strong>NAT·DNS 응답·파일 전송</strong>을
+            시뮬과 실장비에서 같은 시나리오로 재현해 마감 전에 맞췄습니다.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+
+  <section class="sun-section">
+    <div class="sun-container">
+      <div class="sun-section-head">
+        <p class="sun-kicker">Deck</p>
+        <h2 class="sun-section-title" data-aos="fade-up">프로젝트 발표자료</h2>
+      </div>
 
       <div class="pdf-box" data-aos="fade-up">
         <a href="../assets/pdf/sun-project.pdf" class="pdf-btn" download>
@@ -367,18 +553,29 @@
     </div>
   </section>
 
+  </main>
 
-  <!-- ================================
-       FOOTER
-  ================================= -->
   <footer class="sun-footer">
-    © 2025 NAMHYUK · SUN Project Infrastructure Portfolio
+    © <span id="year-sun"></span> NamHyuk · YIT SUN 인프라 프로젝트
   </footer>
 
-  <!-- JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
   <script src="../assets/js/sun-project.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    document.getElementById("year-sun").textContent = new Date().getFullYear();
+    (function () {
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 
 </html>

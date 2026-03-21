@@ -1,0 +1,139 @@
+/* Certifications — 미디어 아트 강화 (index 미디어 테마) */
+
+body.media-portfolio #cert.section-cert--media {
+  position: relative;
+  overflow: hidden;
+  border-top: none !important;
+  background:
+    radial-gradient(ellipse 90% 60% at 80% 20%, rgba(139, 120, 200, 0.1), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 10% 80%, rgba(61, 214, 195, 0.08), transparent 52%),
+    linear-gradient(180deg, rgba(11, 15, 26, 0.62) 0%, rgba(8, 11, 20, 0.55) 100%) !important;
+}
+
+body.media-portfolio #cert.section-cert--media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 25%, transparent 78%);
+}
+
+body.media-portfolio .cert-media-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: 22px;
+  background: rgba(5, 9, 18, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(1.1);
+}
+
+body.media-portfolio .cert-media-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.45;
+  background: radial-gradient(ellipse 55% 40% at 100% 0%, rgba(61, 214, 195, 0.12), transparent 55%);
+}
+
+body.media-portfolio .cert-intro {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.15rem 1.05rem 1.1rem;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: rgba(220, 230, 242, 0.93) !important;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 12, 22, 0.55);
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, #e8a87c, #3dd6c3, rgba(139, 120, 200, 0.85)) 1;
+}
+
+body.media-portfolio .cert-intro strong {
+  color: #f8fafc !important;
+  font-weight: 700;
+}
+
+body.media-portfolio .cert-media-shell .cert-block {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0 !important;
+}
+
+body.media-portfolio .cert-media-shell .cert-block-title {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(142, 240, 228, 0.82) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.media-portfolio .cert-media-shell .cert-list {
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  background: rgba(4, 8, 16, 0.4);
+}
+
+body.media-portfolio .cert-media-shell .cert-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 1rem 1rem 1rem 1.1rem !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+body.media-portfolio .cert-media-shell .cert-list li:last-child {
+  border-bottom: none !important;
+}
+
+body.media-portfolio .cert-media-shell .cert-list li:hover {
+  background: rgba(61, 214, 195, 0.07) !important;
+  border-left-color: rgba(61, 214, 195, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+body.media-portfolio .cert-media-shell .cert-name {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+}
+
+body.media-portfolio .cert-media-shell .cert-meta {
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.82rem !important;
+  color: rgba(180, 205, 225, 0.88) !important;
+  padding: 0.25rem 0.55rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  justify-self: end;
+}
+
+@media (max-width: 560px) {
+  body.media-portfolio .cert-media-shell .cert-list li {
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem;
+  }
+
+  body.media-portfolio .cert-media-shell .cert-meta {
+    justify-self: start;
+    text-align: left !important;
+  }
+}

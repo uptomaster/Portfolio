@@ -394,6 +394,14 @@ img {
   color: #a855f7;
 }
 
+.skill-card.fullstack h3 {
+  color: #7c3aed;
+}
+
+.skill-card.product h3 {
+  color: #db2777;
+}
+
 /* =========================================================
    PROJECTS SLIDER — PREMIUM INTERNAL UPGRADE
 ========================================================= */
@@ -566,6 +574,11 @@ img {
 .project-type.security {
   color: #d64545;
   border-color: #d64545;
+}
+
+.project-type.planning {
+  color: #7c3aed;
+  border-color: #7c3aed;
 }
 
 /* =========================================================

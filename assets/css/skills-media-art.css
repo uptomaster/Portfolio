@@ -1,0 +1,181 @@
+/* Skills — 미디어 아트 톤 + 가독성 우선 (index 미디어 테마 전용) */
+
+body.media-portfolio .section-skills--media {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(42, 157, 143, 0.09), transparent 50%),
+    rgba(8, 12, 20, 0.72) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.media-portfolio .section-skills--media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 75%);
+}
+
+body.media-portfolio .skills-media-shell {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 18px;
+  background: rgba(5, 9, 16, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+
+/* 카테고리별 액센트 */
+body.media-portfolio .section-skills--media .skill-card.fullstack {
+  --skill-accent: #a78bfa;
+}
+
+body.media-portfolio .section-skills--media .skill-card.product {
+  --skill-accent: #f472b6;
+}
+
+body.media-portfolio .section-skills--media .skill-card.frontend {
+  --skill-accent: #60a5fa;
+}
+
+body.media-portfolio .section-skills--media .skill-card.database {
+  --skill-accent: #c084fc;
+}
+
+body.media-portfolio .section-skills--media .skill-card.security {
+  --skill-accent: #fb7185;
+}
+
+body.media-portfolio .section-skills--media .skill-card.network {
+  --skill-accent: #4ade80;
+}
+
+body.media-portfolio .section-skills--media .skill-card {
+  position: relative;
+  background: rgba(12, 18, 30, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px;
+  padding: 1.35rem 1.25rem 1.4rem 1.35rem !important;
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+body.media-portfolio .section-skills--media .skill-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(90deg, var(--skill-accent, #2a9d8f), transparent 85%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+body.media-portfolio .section-skills--media .skill-card:hover {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transform: translateY(-3px);
+}
+
+body.media-portfolio .section-skills--media .skill-card[data-skill-label]::before {
+  content: attr(data-skill-label);
+  display: block;
+  font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(126, 232, 220, 0.72);
+  margin-bottom: 0.5rem;
+}
+
+body.media-portfolio .section-skills--media .skill-card h3 {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #f1f5f9 !important;
+  margin-bottom: 0.95rem !important;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--skill-accent, #2a9d8f);
+  filter: none !important;
+}
+
+body.media-portfolio .section-skills--media .skill-card ul {
+  margin: 0;
+}
+
+body.media-portfolio .section-skills--media .skill-card li {
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  color: rgba(226, 232, 240, 0.96) !important;
+  margin-bottom: 0.55rem !important;
+  padding-left: 1.1rem !important;
+}
+
+body.media-portfolio .section-skills--media .skill-card li strong {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+body.media-portfolio .section-skills--media .skill-card li:last-child {
+  margin-bottom: 0 !important;
+}
+
+body.media-portfolio .section-skills--media .skill-card li::before {
+  content: "›";
+  color: var(--skill-accent, #7ee8dc);
+  font-weight: 700;
+  opacity: 0.85;
+  left: 0 !important;
+}
+
+body.media-portfolio .section-skills--media .skills-grid {
+  margin-top: 0;
+  gap: 1.15rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+body.media-portfolio .section-skills--media .section-head .section-title {
+  text-shadow: none;
+}
+
+@media (max-width: 600px) {
+  body.media-portfolio .skills-media-shell {
+    padding: 1rem 0.75rem;
+  }
+
+  body.media-portfolio .section-skills--media .skill-card li {
+    font-size: 0.88rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio .section-skills--media .skill-card {
+    transition: none;
+  }
+
+  body.media-portfolio .section-skills--media .skill-card:hover {
+    transform: none;
+  }
+}

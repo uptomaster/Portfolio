@@ -4,23 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BABSEGWON Security Project | Namhyuk Portfolio</title>
+  <title>침해사고 대응 인프라 강화 · Food Fighter | Namhyuk Portfolio</title>
 
-  <!-- Deep Crimson Cyber Theme -->
-  <link rel="stylesheet" href="../assets/css/bab-security.css" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="icon" href="../assets/img/favicon.png">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
+  <link rel="stylesheet" href="../assets/css/bab-security.css" />
+  <link rel="stylesheet" href="../assets/css/project-babsegwon-media-art.css" />
+  <link rel="stylesheet" href="../assets/css/project-bab-security-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="bab-body">
+<body class="media-portfolio bab-body bab-security-page">
 
-  <!-- ==========================================
-       HEADER (index.html 동일)
-  =========================================== -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
       <div class="logo">
@@ -28,44 +48,47 @@
         <span>Portfolio</span>
       </div>
 
-      <!-- 네비게이션 메뉴 -->
       <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
-        <a href="./project_babsegwon_backend.html">밥세권</a>
-        <a href="./sun-project.html">YIT</a>
-        <a href="./bab-security.html">Food Fighter</a>
-        <a href="./getoh.html">GetOh!</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html">Playground</a>
       </nav>
     </div>
   </header>
 
+  <main class="page-main">
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+
+<!-- HERO -->
 <section class="bab-hero">
   <div class="bab-hero-inner">
 
-    <!-- LEFT -->
     <div class="bab-hero-left">
+      <p class="bab-hero-kicker">Team Project · Food Fighter / 보안 인프라</p>
       <h1 class="bab-hero-title">
         침해사고 대응 기반 인프라 및 보호체계 강화 사업
       </h1>
 
       <p class="bab-hero-subtitle">
-        Linux·DB·웹 서버 전반에 대한 보안 점검과
-        <br>모의해킹 기반 취약점 분석을 통해 인프라를 재정비한 프로젝트
+        Linux·DB·웹 서버 전반 보안 점검과 모의해킹 기반 취약점 분석으로<br>
+        인프라를 재정비한 프로젝트입니다.
       </p>
 
       <p class="bab-hero-desc">
-        본 프로젝트는 공격 시나리오를 기반으로 밥세권 서비스의 보안 취약점을 진단,
-        <br>운영 환경 전반의 안정성을 확보하는 것을 목표로 진행되었습니다.
+        공격 시나리오를 바탕으로 밥세권 서비스의 취약점을 진단하고,
+        <strong>운영 환경 전반의 안정성</strong>을 확보하는 것을 목표로 했습니다.
       </p>
 
       <p class="bab-hero-desc">
-        HQ ↔ BR 양방향 백업 체계, DB 이중화 구조, PHP 웹 서버 보안 설정을 재구축해,
-        실제 서비스 환경에서도 신뢰할 수 있는 인프라 구조를 구현했습니다.
+        HQ ↔ BR 양방향 백업, <strong>DB 이중화</strong>, 웹·관리자 보안 설정을 재구축해
+        실서비스에 가까운 <strong>신뢰 가능한 인프라</strong>를 맞췄습니다.
+      </p>
+
+      <p class="bab-hero-lead">
+        문서·기준(RFP, 보안 가이드)을 먼저 읽고 <strong>점검 범위와 우선순위</strong>를 정한 뒤,
+        본사·지사 역할과 백업·복제 흐름을 <strong>설계 관점에서 정리</strong>하는 데 집중했습니다.
       </p>
 
       <div class="bab-tag-box">
@@ -73,35 +96,63 @@
         <span>#Rocky Linux</span>
         <span>#DB Replication</span>
         <span>#Backup Infra</span>
-        <span>#Secure Coding</span>
+        <span>#기획·설계</span>
       </div>
     </div>
 
-    <!-- RIGHT — TEAM LOGO -->
     <div class="bab-hero-right">
       <div class="bab-logo-card">
-        <img src="../assets/img/foodfighter.png" alt="team logo" />
+        <img src="../assets/img/foodfighter.png" alt="Food Fighter 팀 로고" />
       </div>
     </div>
 
   </div>
 </section>
 
+<div class="bab-divider" aria-hidden="true"></div>
 
-<hr>
+  <section class="bab-section bab-section-alt">
+    <div class="bab-container">
+      <div class="bab-section-head">
+        <p class="bab-kicker">Plan · WBS</p>
+        <h2 class="bab-section-title">일정 · 역할</h2>
+      </div>
+      <div class="bab-gallery-shell bab-gallery-shell--purchase">
+        <div class="bab-team-showcase">
+          <figure class="bab-shot-frame" data-aos="fade-up">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">project / wbs</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/foodfighter_date.png" alt="프로젝트 진행 기간 WBS" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">01</span>
+              <span class="bab-shot-frame__title">진행 일정</span>
+              <span class="bab-shot-frame__sub">WBS</span>
+            </figcaption>
+          </figure>
 
-  <section class="bab-team">
-    <div class="bab-project">
-      <h1>프로젝트 진행 기간(WBS)</h1>
-      <img src="../assets/img/foodfighter_date.png" alt="team date">
-    </div>
-
-    <div class="bab-project">
-      <h1>팀원 별 맡은 역할</h1>
-      <img src="../assets/img/foodfighter_teammate.png" alt="team date">
+          <figure class="bab-shot-frame" data-aos="fade-up" data-aos-delay="60">
+            <div class="bab-shot-frame__chrome" aria-hidden="true">
+              <span class="bab-shot-frame__dots"></span>
+              <span class="bab-shot-frame__url">team / roles</span>
+            </div>
+            <div class="bab-shot-frame__body">
+              <img src="../assets/img/foodfighter_teammate.png" alt="팀원별 역할" loading="lazy" />
+            </div>
+            <figcaption class="bab-shot-frame__cap">
+              <span class="bab-shot-frame__step">02</span>
+              <span class="bab-shot-frame__title">역할 분담</span>
+              <span class="bab-shot-frame__sub">R&amp;R</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      REFERENCE DOCUMENTS
@@ -109,7 +160,10 @@
 <section class="bab-section bab-section-alt">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">프로젝트 기준 문서</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Reference</p>
+      <h2 class="bab-section-title">프로젝트 기준 문서</h2>
+    </div>
 
     <p class="bab-section-desc">
       본 프로젝트는 사업 제안서·제안요청서(RFP)를 기반으로 요구사항을 정의하고,<br>
@@ -117,11 +171,14 @@
       점검 및 개선 항목을 도출했습니다.
     </p>
 
-    <div class="bab-reference-image">
-      <img
-        src="../assets/img/document.png"
-        alt="사업제안서, 주요정보통신기반시설, 전자금융기반시설 보안 기준 문서"
-      >
+    <div class="bab-reference-shell">
+      <div class="bab-reference-image">
+        <img
+          src="../assets/img/document.png"
+          alt="사업제안서, 주요정보통신기반시설, 전자금융기반시설 보안 기준 문서"
+          loading="lazy"
+        >
+      </div>
     </div>
 
   </div>
@@ -133,7 +190,10 @@
 <section class="bab-section">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">프로젝트 내 담당 역할 요약</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Role</p>
+      <h2 class="bab-section-title">프로젝트 내 담당 역할 요약</h2>
+    </div>
 
     <div class="bab-summary-grid">
 
@@ -185,13 +245,16 @@
 
 
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 
 <section class="bab-section">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">추진 배경</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Context</p>
+      <h2 class="bab-section-title">추진 배경</h2>
+    </div>
 
     <div class="bab-bg-grid">
 
@@ -231,7 +294,7 @@
   </div>
 </section>
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      PROBLEM → SOLUTION OVERVIEW
@@ -326,7 +389,7 @@
   </div>
 </section>
 
-  <hr>
+  <div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      TIMELINE
@@ -334,7 +397,10 @@
 <section class="bab-section bab-section-alt">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">작업 타임라인</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Timeline</p>
+      <h2 class="bab-section-title">작업 타임라인</h2>
+    </div>
 
     <div class="bab-timeline">
 
@@ -391,7 +457,7 @@
   </div>
 </section>
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      SERVER ROLES (COMPACT VIEW)
@@ -475,7 +541,7 @@
 
 
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      DATA FLOW DIAGRAM
@@ -483,7 +549,10 @@
 <section class="bab-section">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">서버 간 데이터 흐름</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Data flow</p>
+      <h2 class="bab-section-title">서버 간 데이터 흐름</h2>
+    </div>
 
     <!-- 섹션 요약 설명 -->
     <p class="bab-section-desc">
@@ -545,7 +614,7 @@
 </section>
 
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      FAILOVER FLOW
@@ -553,7 +622,10 @@
 <section class="bab-section bab-section-alt">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">장애 발생 시 Failover 흐름</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Resilience</p>
+      <h2 class="bab-section-title">장애 발생 시 Failover 흐름</h2>
+    </div>
 
     <!-- 섹션 요약 -->
     <p class="bab-section-desc">
@@ -612,7 +684,7 @@
   </div>
 </section>
 
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 
 
   <!-- =========================================================
@@ -622,57 +694,85 @@
 <section class="bab-section">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">DB 이중화 & 백업 구조 구축</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Evidence</p>
+      <h2 class="bab-section-title">DB 이중화 & 백업 구조 구축</h2>
+    </div>
 
-    <!-- 한 줄 요약 -->
-    <p class="bab-section-desc">
-      장애 대응과 데이터 안정성을 확보하기 위해 <br>DB 이중화와 백업·무결성 검증 체계를 단계적으로 설계·구현했습니다.
+    <p class="bab-section-desc bab-gallery-lead bab-gallery-lead--center">
+      장애 대응과 데이터 안정성을 위해 <strong>복제 · 백업 · 무결성 검증</strong>을 단계적으로 설계·구현했습니다.
     </p>
 
-    <div class="bab-shot-grid">
+    <div class="bab-gallery-shell bab-gallery-shell--purchase" data-aos="fade-up">
+      <div class="bab-gallery bab-gallery--bab4" aria-label="DB 및 백업 구축 증빙 화면">
 
-      <!-- 1. 이중화 아키텍처 -->
-      <div class="bab-shot-card">
-        <img src="../assets/img/replication.png" alt="DB Replication Architecture">
-        <div class="bab-shot-caption">
-          <h4>DB 실시간 복제본 형성</h4>
-          <p>Master–Slave 구조 기반 <br>데이터 복제 및 장애 대비 설계</p>
-        </div>
+        <figure class="bab-shot-frame" data-aos="fade-up">
+          <div class="bab-shot-frame__chrome" aria-hidden="true">
+            <span class="bab-shot-frame__dots"></span>
+            <span class="bab-shot-frame__url">db / replication</span>
+          </div>
+          <div class="bab-shot-frame__body">
+            <img src="../assets/img/replication.png" alt="DB Replication 아키텍처" loading="lazy" />
+          </div>
+          <figcaption class="bab-shot-frame__cap">
+            <span class="bab-shot-frame__step">01</span>
+            <span class="bab-shot-frame__title">복제</span>
+            <span class="bab-shot-frame__sub">Master–Slave</span>
+          </figcaption>
+        </figure>
+
+        <figure class="bab-shot-frame" data-aos="fade-up" data-aos-delay="50">
+          <div class="bab-shot-frame__chrome" aria-hidden="true">
+            <span class="bab-shot-frame__dots"></span>
+            <span class="bab-shot-frame__url">backup / tree</span>
+          </div>
+          <div class="bab-shot-frame__body">
+            <img src="../assets/img/backup_direc.png" alt="백업 디렉터리 구조" loading="lazy" />
+          </div>
+          <figcaption class="bab-shot-frame__cap">
+            <span class="bab-shot-frame__step">02</span>
+            <span class="bab-shot-frame__title">백업 트리</span>
+            <span class="bab-shot-frame__sub">전체·증분</span>
+          </figcaption>
+        </figure>
+
+        <figure class="bab-shot-frame" data-aos="fade-up" data-aos-delay="100">
+          <div class="bab-shot-frame__chrome" aria-hidden="true">
+            <span class="bab-shot-frame__dots"></span>
+            <span class="bab-shot-frame__url">scripts / integrity</span>
+          </div>
+          <div class="bab-shot-frame__body">
+            <img src="../assets/img/script_integrity.png" alt="SHA-256 무결성 검증 스크립트" loading="lazy" />
+          </div>
+          <figcaption class="bab-shot-frame__cap">
+            <span class="bab-shot-frame__step">03</span>
+            <span class="bab-shot-frame__title">무결성</span>
+            <span class="bab-shot-frame__sub">SHA-256</span>
+          </figcaption>
+        </figure>
+
+        <figure class="bab-shot-frame" data-aos="fade-up" data-aos-delay="150">
+          <div class="bab-shot-frame__chrome" aria-hidden="true">
+            <span class="bab-shot-frame__dots"></span>
+            <span class="bab-shot-frame__url">verify / success</span>
+          </div>
+          <div class="bab-shot-frame__body">
+            <img src="../assets/img/integrity_success.png" alt="무결성 검증 성공 결과" loading="lazy" />
+          </div>
+          <figcaption class="bab-shot-frame__cap">
+            <span class="bab-shot-frame__step">04</span>
+            <span class="bab-shot-frame__title">검증 완료</span>
+            <span class="bab-shot-frame__sub">복구 절차</span>
+          </figcaption>
+        </figure>
+
       </div>
-
-      <!-- 2. 백업 구조 -->
-      <div class="bab-shot-card">
-        <img src="../assets/img/backup_direc.png" alt="Backup Directory Structure">
-        <div class="bab-shot-caption">
-          <h4>백업 디렉터리 구조</h4>
-          <p>날짜 단위 전체·증분 백업 관리체계 구축</p>
-        </div>
-      </div>
-
-      <!-- 3. 무결성 검증 -->
-      <div class="bab-shot-card">
-        <img src="../assets/img/script_integrity.png" alt="Integrity Check Script">
-        <div class="bab-shot-caption">
-          <h4>무결성 검증 로직</h4>
-          <p>SHA-256 해시 기반 백업 파일 <br>무결성 자동 검증 스크립트</p>
-        </div>
-      </div>
-
-      <!-- 4. 검증 결과 -->
-      <div class="bab-shot-card">
-        <img src="../assets/img/integrity_success.png" alt="Integrity Verification Result">
-        <div class="bab-shot-caption">
-          <h4>검증 및 복구 성공</h4>
-          <p>백업 검증 및 복구 절차 정상 완료 확인</p>
-        </div>
-      </div>
-
     </div>
 
   </div>
 </section>
 
-    <hr>
+    <div class="bab-divider" aria-hidden="true"></div>
 
 <!-- =========================================================
      PROJECT SUMMARY
@@ -680,7 +780,10 @@
 <section class="bab-section">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">마무리</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">Closing</p>
+      <h2 class="bab-section-title">마무리</h2>
+    </div>
 
     <p class="bab-section-desc">
       본 프로젝트는 단순히 서버를 구축하는 데 그치지 않고,
@@ -701,14 +804,17 @@
 
   </div>
 </section>
-<hr>
+<div class="bab-divider" aria-hidden="true"></div>
 <!-- =========================================================
      PDF VIEW SECTION (OPEN IN NEW TAB)
 ========================================================= -->
 <section class="bab-section bab-section-alt">
   <div class="bab-container">
 
-    <h2 class="bab-section-title">포트폴리오 PDF</h2>
+    <div class="bab-section-head">
+      <p class="bab-kicker">PDF</p>
+      <h2 class="bab-section-title">포트폴리오 PDF</h2>
+    </div>
 
     <div class="bab-pdf-grid">
 
@@ -759,13 +865,29 @@
 
 
 
-  <!-- FOOTER -->
+  </main>
+
   <footer class="bab-footer">
-    © NAMHYUK · 침해사고 대응 기반 인프라 및 보호체계 강화 사업
+    © <span id="year-bab-sec"></span> NamHyuk · 침해사고 대응 인프라 강화
   </footer>
 
-  <!-- JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
   <script src="../assets/js/bab-security.js"></script>
+  <script>
+    document.getElementById("year-bab-sec").textContent = new Date().getFullYear();
+    (function () {
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+{
+  "visuals": {
+    "colorPalette": ["#E8A87C", "#F4C4A8", "#3DD6C3", "#5B6E8C", "#0F172A"],
+    "rotationSpeed": 0.45,
+    "distortionIntensity": 0.08,
+    "backgrounds": {
+      "primary": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85",
+      "secondary": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85",
+      "accent": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85"
+    }
+  },
+  "floatingParticles": [
+    "Full-Stack",
+    "PM",
+    "REST",
+    "API",
+    "React",
+    "Scope",
+    "Roadmap",
+    "MVP",
+    "Express",
+    "Supabase",
+    "Deploy",
+    "OWASP",
+    "Linux",
+    "HTTPS"
+  ]
+}

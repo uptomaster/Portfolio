@@ -6,28 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Namhyuk Portfolio</title>
 
-  <!-- Global -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <!-- Projects Only -->
-  <link rel="stylesheet" href="../assets/css/projects.css" />
-
-  <link rel="icon" href="../assets/img/favicon.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
+  <link rel="stylesheet" href="../assets/css/projects-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="pr-body">
+<body class="media-portfolio projects-index-page pr-body">
 
-  <!-- HEADER -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
       <div class="logo">
         <img src="../assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
-
-      <nav class="nav">
+      <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
         <a href="./projects.html" class="active">Projects</a>
         <a href="./notes.html">Notes</a>
@@ -36,121 +54,226 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="pr-hero">
-    <div class="pr-hero-inner">
-      <h1 class="pr-title">Projects</h1>
+  <main class="page-main">
 
-      <p class="pr-subtitle">
-        끝까지 만들어<br>
-        실제로 동작하는 상태까지<br>
-        가져간 작업들입니다
-      </p>
+    <section class="pr-hero pr-hero--spectacle" aria-labelledby="pr-main-title">
+      <div class="pr-hero-orbit" aria-hidden="true"></div>
+      <div class="pr-hero-orbit pr-hero-orbit--b" aria-hidden="true"></div>
+      <div class="pr-hero-inner">
+        <p class="pr-hero-kicker">Archive · Selected Works</p>
+        <h1 id="pr-main-title" class="pr-title pr-title--spectacle">Projects</h1>
+        <p class="pr-hero-lead">
+          팀·보안·개인까지 <strong>기획에서 운영·배포까지 이어진 작업</strong>을 한곳에 모았습니다.<br />
+          슬라이더가 아닌 <strong>아카이브</strong>처럼, 끝까지 구현하고 고친 흐름을 카드로 펼칩니다.
+        </p>
+        <div class="pr-hero-stats" aria-label="프로젝트 개요">
+          <div class="pr-stat">
+            <span class="pr-stat-num">07</span>
+            <span class="pr-stat-label">Works</span>
+          </div>
+          <div class="pr-stat">
+            <span class="pr-stat-num">02</span>
+            <span class="pr-stat-label">Team</span>
+          </div>
+          <div class="pr-stat">
+            <span class="pr-stat-num">01</span>
+            <span class="pr-stat-label">Security</span>
+          </div>
+          <div class="pr-stat">
+            <span class="pr-stat-num">04</span>
+            <span class="pr-stat-label">Solo</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p class="pr-desc">
-        단순 과제나 예제가 아니라<br>
-        직접 설계하고 구현하고 배포한 뒤<br>
-        문제가 발생하면 다시 고친 경험을<br>
-        프로젝트 단위로 정리했습니다
-      </p>
+    <div class="pr-toolbar" role="toolbar" aria-label="프로젝트 유형 필터">
+      <button type="button" class="pr-filter-btn is-active" data-filter="all">전체</button>
+      <button type="button" class="pr-filter-btn" data-filter="team">팀</button>
+      <button type="button" class="pr-filter-btn" data-filter="security">보안</button>
+      <button type="button" class="pr-filter-btn" data-filter="personal">개인</button>
     </div>
-  </section>
 
-  <!-- PROJECT LIST -->
-  <section class="pr-section">
-    <div class="pr-container">
+    <section class="pr-works" aria-labelledby="pr-works-heading">
+      <h2 id="pr-works-heading" class="visually-hidden">프로젝트 목록</h2>
+      <div class="pr-works-inner">
+        <div class="pr-work-grid">
 
-      <!-- BABSEGWON -->
-      <article class="pr-card">
-        <h2>밥세권 웹서비스</h2>
+          <article class="pr-work-card pr-work-card--feature" data-category="team" data-aos="fade-up">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--team">Team</span>
+              <img src="../assets/img/bab-logo.png" alt="" width="800" height="450" loading="eager" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">밥세권 웹서비스 구축</h3>
+              <p class="pr-work-desc">
+                지역 기반 재고 최적화를 목표로 한 웹 서비스에서 주문·결제·데이터 흐름을 중심으로 백엔드 핵심과 관리자 기능을 구현했습니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>Java</span><span>JSP / Servlet</span><span>Toss Payments</span><span>Kakao Map</span><span>Oracle</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./project_babsegwon_backend.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
 
-        <p class="pr-card-desc">
-          지역 기반 재고 최적화를 목표로 한 웹 서비스입니다.<br>
-          백엔드 전반과 관리자 기능 구현을 담당했습니다.
-        </p>
+          <article class="pr-work-card" data-category="team" data-aos="fade-up" data-aos-delay="40">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--team">Team · Lead</span>
+              <img src="../assets/img/yit-logo.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">대학 인프라 모의 구축 (YIT · SUN)</h3>
+              <p class="pr-work-desc">
+                가상 대학 환경을 가정하고 네트워크·서버·보안 인프라를 단계적으로 설계·검증한 팀 프로젝트입니다. 팀장으로서 역설계·GNS3·문서화를 맡았습니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>GNS3</span><span>Rocky Linux</span><span>DNS / NAT</span><span>Packet Tracer</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./sun-project.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
 
-        <ul class="pr-list">
-          <li>Java JSP Servlet 기반 MVC 구조 설계</li>
-          <li>상품 조회 주문 결제 전체 흐름 구현</li>
-          <li>관리자 페이지 운영 기능 개발</li>
-          <li>Oracle DB 설계 및 연동</li>
-        </ul>
+          <article class="pr-work-card" data-category="security" data-aos="fade-up" data-aos-delay="80">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--security">Security</span>
+              <img src="../assets/img/foodfighter_portfolio_img.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">침해사고 대응 기반 인프라·보호체계 강화</h3>
+              <p class="pr-work-desc">
+                밥세권 서비스를 대상으로 웹·서버 취약점을 점검하고 DB 이중화·백업·HQ/BR 분리 등 인프라 보강을 수행한 보안 컨설팅 프로젝트입니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>Kali</span><span>Burp</span><span>OWASP</span><span>MariaDB</span><span>Rocky Linux</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./bab-security.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
 
-        <div class="pr-tags">
-          <span>Java</span>
-          <span>JSP</span>
-          <span>Oracle</span>
-          <span>Web Backend</span>
+          <article class="pr-work-card" data-category="personal" data-aos="fade-up">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--personal">Personal</span>
+              <img src="../assets/img/getoh_portfolio_logo.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">GetOh! 유실물 찾기 서비스</h3>
+              <p class="pr-work-desc">
+                분실물 등록·조회를 단순화하고 웹·모바일을 함께 고려해 설계한 개인 프로젝트입니다. Spring Boot API와 React, 안드로이드 연계를 전제로 구현했습니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>Spring Boot</span><span>React</span><span>Android</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./getoh.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pr-work-card" data-category="personal" data-aos="fade-up" data-aos-delay="40">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--personal">Personal</span>
+              <img src="../assets/img/bookmarker_add.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">Bookmarker — 개인 웹 링크 관리</h3>
+              <p class="pr-work-desc">
+                로그인 기반으로 북마크를 안전하게 CRUD하고, CSRF·세션 등 기본 보안을 적용한 뒤 PHP 호스팅에 배포한 개인 서비스입니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>PHP</span><span>HTML/CSS</span><span>Dothome</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./project_bookmarker.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pr-work-card" data-category="personal" data-aos="fade-up" data-aos-delay="80">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--personal">Personal</span>
+              <img src="../assets/img/fortunebear.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">FortuneBear — 운세·선택 결정 서비스</h3>
+              <p class="pr-work-desc">
+                OpenAI API와 Supabase를 활용한 소규모 웹 서비스로, 카드형 UI와 서버 측 랜덤 결정 구조로 가벼운 운세·선택 경험을 구현했습니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>Node.js</span><span>Express</span><span>OpenAI</span><span>Supabase</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./fortunebear.html" target="_blank" rel="noopener noreferrer">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pr-work-card" data-category="personal" data-aos="fade-up" data-aos-delay="120">
+            <div class="pr-work-thumb">
+              <span class="pr-work-badge pr-work-badge--personal">Personal</span>
+              <img src="../assets/img/futurebox.png" alt="" width="800" height="450" loading="lazy" />
+            </div>
+            <div class="pr-work-body">
+              <h3 class="pr-work-title">FutureBox — 디지털 타임캡슐</h3>
+              <p class="pr-work-desc">
+                날짜 기반 잠금·해제와 사용자별 캡슐 분리, 스케줄 공개를 설계한 타임캡슐 웹 플랫폼입니다. Supabase와 TypeScript API로 확장 가능한 구조를 지향했습니다.
+              </p>
+              <div class="pr-work-tags">
+                <span>Node.js</span><span>Express</span><span>TypeScript</span><span>Supabase</span>
+              </div>
+              <div class="pr-work-foot">
+                <a class="pr-work-link" href="./futurebox.html">프로젝트 상세 <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
         </div>
+      </div>
+    </section>
 
-        <div class="pr-links">
-          <a href="./project_babsegwon_backend.html" class="pr-btn">
-            프로젝트 상세
-          </a>
-        </div>
-      </article>
+    <footer class="pr-page-footer">
+      <a class="pr-back-home" href="../index.html">← Home으로</a>
+      <p>© <span id="year-pr"></span> NamHyuk · Portfolio Projects</p>
+    </footer>
 
-      <!-- FOOD FIGHTER -->
-      <article class="pr-card">
-        <h2>침해사고 대응 기반 보안 컨설팅</h2>
+  </main>
 
-        <p class="pr-card-desc">
-          밥세권 서비스를 대상으로<br>
-          모의해킹과 인프라 보안 강화를 수행한 프로젝트입니다.
-        </p>
-
-        <ul class="pr-list">
-          <li>웹 취약점 진단 XSS CSRF 점검</li>
-          <li>DB 이중화 및 백업 구조 설계</li>
-          <li>HQ BR 분리 인프라 구성</li>
-          <li>보안 기준 문서 기반 점검 수행</li>
-        </ul>
-
-        <div class="pr-tags">
-          <span>Security</span>
-          <span>Linux</span>
-          <span>MariaDB</span>
-          <span>Backup</span>
-        </div>
-
-        <div class="pr-links">
-          <a href="./bab-security.html" class="pr-btn">
-            프로젝트 상세
-          </a>
-        </div>
-      </article>
-
-      <!-- GETOH -->
-      <article class="pr-card">
-        <h2>GetOh 유실물 찾기 서비스</h2>
-
-        <p class="pr-card-desc">
-          유실물 등록과 조회를 목표로 만든 개인 프로젝트입니다.<br>
-          웹과 모바일 연계를 전제로 설계했습니다.
-        </p>
-
-        <ul class="pr-list">
-          <li>Spring Boot 기반 API 설계</li>
-          <li>React 프론트엔드 연동</li>
-          <li>안드로이드 앱 연계 구조</li>
-          <li>기능 확장 진행 중</li>
-        </ul>
-
-        <div class="pr-tags">
-          <span>Spring Boot</span>
-          <span>React</span>
-          <span>Android</span>
-        </div>
-
-        <div class="pr-links">
-          <a href="./getoh.html" class="pr-btn">
-            프로젝트 상세
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </section>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
+  <script>
+    (function () {
+      var y = document.getElementById("year-pr");
+      if (y) y.textContent = new Date().getFullYear();
+      var header = document.querySelector(".header");
+      if (header) {
+        function onScroll() {
+          header.classList.toggle("scrolled", window.scrollY > 10);
+        }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
+      var buttons = document.querySelectorAll(".pr-filter-btn");
+      var cards = document.querySelectorAll(".pr-work-card");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var f = btn.getAttribute("data-filter");
+          buttons.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+          cards.forEach(function (card) {
+            var cat = card.getAttribute("data-category");
+            var show = f === "all" || cat === f;
+            card.hidden = !show;
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>

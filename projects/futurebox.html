@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FutureBox — 디지털 타임캡슐 | Namhyuk Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
+  <link rel="stylesheet" href="../assets/css/project-futurebox-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
+</head>
+
+<body class="media-portfolio futurebox-page">
+
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="../assets/img/favicon.png" alt="logo">
+        <span>Portfolio</span>
+      </div>
+      <nav id="navMenu" class="nav">
+        <a href="../index.html">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./playground.html">Playground</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+
+    <section class="fbx-hero">
+      <div class="fbx-hero-inner">
+
+        <div class="fbx-hero-left" data-aos="fade-right">
+          <p class="fbx-hero-kicker">Personal · Time capsule · TypeScript</p>
+          <h1 class="fbx-title">FutureBox</h1>
+          <p class="fbx-hero-subtitle">디지털 타임캡슐 웹 플랫폼</p>
+          <p class="fbx-hero-desc">
+            현재의 기록을 <strong>미래의 나에게 전달</strong>하는 시간 기반 서비스입니다.
+            로그인 사용자마다 캡슐을 분리하고, 지정한 날짜·스케줄에 맞춰 열리도록
+            API와 저장 구조를 설계했습니다.
+          </p>
+          <div class="fbx-tag-box">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>TypeScript</span>
+            <span>Supabase</span>
+            <span>Cloud</span>
+          </div>
+        </div>
+
+        <div class="fbx-hero-right" data-aos="fade-left">
+          <div class="fbx-logo-card">
+            <img src="../assets/img/futurebox.png" alt="FutureBox" width="560" height="560" loading="eager" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="fbx-divider" aria-hidden="true"></div>
+
+    <section class="fbx-section">
+      <div class="fbx-section-head">
+        <p class="fbx-kicker">Summary</p>
+        <h2 class="fbx-section-title">프로젝트 핵심 요약</h2>
+      </div>
+
+      <div class="fbx-grid fbx-grid--4">
+        <article class="fbx-card" data-aos="fade-up">
+          <h3>What</h3>
+          <p>작성한 콘텐츠를 날짜·조건에 맞춰 다시 열어보는 타임캡슐형 웹 서비스입니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="50">
+          <h3>Why</h3>
+          <p>기록이 쌓일수록 “언제 다시 볼지”를 시스템이 기억하도록 설계하고 싶었습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>How</h3>
+          <p>Express API + Supabase(PostgreSQL) + 서버 스케줄로 잠금·공개를 나눴습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="150">
+          <h3>Result</h3>
+          <p>사용자·캡슐 단위로 데이터를 분리하고, 확장 가능한 API 형태로 정리했습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="fbx-section fbx-section-alt">
+      <div class="fbx-section-head">
+        <p class="fbx-kicker">Stack</p>
+        <h2 class="fbx-section-title">기술 스택</h2>
+      </div>
+
+      <div class="fbx-grid fbx-grid--4">
+        <article class="fbx-card" data-aos="fade-up">
+          <h3>Runtime</h3>
+          <p>Node.js 환경에서 Express로 라우트·미들웨어를 구성하고, TypeScript로 타입 안정성을 맞췄습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="60">
+          <h3>API</h3>
+          <p>캡슐 CRUD·공개 시점 조회 등 역할별 엔드포인트를 나누고, 인증 이후 요청만 허용하도록 설계했습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="120">
+          <h3>Data</h3>
+          <p>Supabase(PostgreSQL)에 사용자·캡슐 메타를 저장하고, 서버 재시작 후에도 데이터가 유지되도록 했습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="180">
+          <h3>Deploy</h3>
+          <p>클라우드에 API·정적 자원을 올려 접속 가능한 URL 기준으로 동작하도록 배포 흐름을 잡았습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="fbx-section">
+      <div class="fbx-section-head">
+        <p class="fbx-kicker">Flow</p>
+        <h2 class="fbx-section-title">요청·저장 흐름</h2>
+      </div>
+
+      <div class="fbx-flow" data-aos="fade-up">
+        <div class="fbx-flow-node">
+          <span>Client</span>
+          웹 · 요청
+        </div>
+        <span class="fbx-flow-arrow" aria-hidden="true">→</span>
+        <div class="fbx-flow-node">
+          <span>API</span>
+          Express · 검증
+        </div>
+        <span class="fbx-flow-arrow" aria-hidden="true">→</span>
+        <div class="fbx-flow-node">
+          <span>DB</span>
+          Supabase
+        </div>
+        <span class="fbx-flow-arrow" aria-hidden="true">→</span>
+        <div class="fbx-flow-node">
+          <span>Schedule</span>
+          공개 시점
+        </div>
+      </div>
+
+      <p class="fbx-section-desc">
+        클라이언트는 인증된 세션·토큰 기준으로만 캡슐을 생성·수정하고,<br>
+        서버는 스케줄러(또는 배치)로 <strong>공개 시점</strong>을 판별해 잠금 해제 로직과 맞춥니다.
+      </p>
+    </section>
+
+    <section class="fbx-section fbx-section-alt">
+      <div class="fbx-section-head">
+        <p class="fbx-kicker">Design</p>
+        <h2 class="fbx-section-title">주요 설계 포인트</h2>
+      </div>
+
+      <div class="fbx-grid fbx-grid--2">
+        <article class="fbx-card" data-aos="fade-up">
+          <h3>날짜 기반 잠금·해제</h3>
+          <p>작성 시점과 공개 시점을 메타데이터로 두고, 조회 시점에 따라 응답을 필터링해 “아직 열리지 않은 캡슐”을 보호합니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>사용자별 분리</h3>
+          <p>로그인 계정(또는 사용자 ID) 단위로 캡슐을 묶어, 타인 데이터와 섞이지 않도록 쿼리·권한 경계를 맞췄습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up">
+          <h3>스케줄·자동 공개</h3>
+          <p>특정 시각에 공개 상태로 전환되도록 서버 측 스케줄·폴링 등 실행 전제를 두고, 누락 시 재시도 가능한 구조를 지향했습니다.</p>
+        </article>
+        <article class="fbx-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>확장 가능한 API</h3>
+          <p>캡슐 수·첨부·알림 등 기능이 늘어나도 라우트와 서비스 레이어를 나눠 유지보수하기 쉽게 정리했습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="fbx-section">
+      <div class="fbx-section-head">
+        <p class="fbx-kicker">Closing</p>
+        <h2 class="fbx-section-title">마무리</h2>
+      </div>
+
+      <p class="fbx-section-desc" data-aos="fade-up">
+        “나중에 읽을 기록”을 서비스 차원에서 지키려면 <strong>시간·권한·저장</strong>이 한 세트로 설계되어야 합니다.<br>
+        FutureBox는 그 전제를 코드와 스키마로 표현해 본 개인 프로젝트입니다.
+      </p>
+
+      <p class="fbx-section-desc" data-aos="fade-up" data-aos-delay="60">
+        <a class="fbx-back" href="./projects.html">← Projects 목록</a>
+      </p>
+    </section>
+
+    <footer class="fbx-footer">
+      © <span id="year-fbx"></span> NamHyuk · FutureBox
+    </footer>
+
+  </main>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
+  <script>
+    (function () {
+      var el = document.getElementById("year-fbx");
+      if (el) el.textContent = new Date().getFullYear();
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

@@ -33,22 +33,3 @@ const observer = new IntersectionObserver(
 );
 
 timelineItems.forEach((item) => observer.observe(item));
-
-
-/* PDF Button Neon Pulse */
-const pdfBtn = document.querySelector(".pdf-btn");
-
-if (pdfBtn) {
-  pdfBtn.animate(
-    [
-      { boxShadow: "0 0 20px rgba(255,210,76,0.45)" },
-      { boxShadow: "0 0 40px rgba(255,179,0,0.75)" },
-      { boxShadow: "0 0 20px rgba(255,210,76,0.45)" }
-    ],
-    {
-      duration: 2600,
-      iterations: Infinity,
-      easing: "ease-in-out"
-    }
-  );
-}

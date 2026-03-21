@@ -4,30 +4,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playground | Namhyuk Portfolio</title>
-
-  <!-- Global Style -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <!-- Playground Only -->
-  <link rel="stylesheet" href="../assets/css/playground.css" />
-
-  <link rel="icon" href="../assets/img/favicon.png">
+  <title>Playground · 기획 실험장 | Namhyuk Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
+  <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
+  <link rel="stylesheet" href="../assets/css/playground-media-art.css" />
+  <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
-<body class="pg-body">
+<body class="media-portfolio playground-page pg-body">
 
-  <!-- HEADER -->
+  <div class="media-stage" id="media-stage" aria-hidden="true">
+    <div class="photo-layer photo-layer--a" id="photo-a"></div>
+    <div class="photo-layer photo-layer--b" id="photo-b"></div>
+    <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
+    <div class="photo-gradient-overlay"></div>
+    <div class="photo-vignette"></div>
+    <div class="photo-noise"></div>
+    <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="chromatic-edges"></div>
+    <div class="scanlines"></div>
+    <div class="lens-flare"></div>
+  </div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="distortion-layer" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container nav-container">
       <div class="logo">
         <img src="../assets/img/favicon.png" alt="logo">
         <span>Portfolio</span>
       </div>
-
-      <nav class="nav">
+      <nav id="navMenu" class="nav">
         <a href="../index.html">Home</a>
         <a href="./projects.html">Projects</a>
         <a href="./notes.html">Notes</a>
@@ -36,112 +54,128 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="pg-hero">
-    <div class="pg-hero-inner">
-      <h1 class="pg-title">Playground</h1>
+  <main class="page-main">
 
-      <p class="pg-subtitle">
-        아이디어를 빠르게 구현하고<br>
-        실제 배포까지 가져가 본<br>
-        작은 실험 공간입니다
-      </p>
+    <section class="pg-hero pg-hero--lab" aria-labelledby="pg-main-title">
+      <div class="pg-hero-pulse" aria-hidden="true"></div>
+      <div class="pg-hero-inner">
+        <p class="pg-hero-kicker">Planning Lab · Ideas in motion</p>
+        <h1 id="pg-main-title" class="pg-title pg-title--lab">Playground</h1>
+        <p class="pg-hero-lead">
+          완성본을 쌓는 <strong>Projects</strong>와 달리, 여기는 <strong>새로 짜는 기획과 가설</strong>을 올려 두는 공간입니다.<br />
+          서비스 한 편이 되기 전, 질문·서사·UX를 먼저 실험합니다.
+        </p>
+      </div>
+    </section>
 
-      <p class="pg-desc">
-        완성도를 증명하기 위한 프로젝트라기보다는<br>
-        구조를 직접 설계하고 사용해 보며<br>
-        판단 기준을 쌓기 위한 공간입니다
-      </p>
-    </div>
-  </section>
+    <div class="pg-divider" aria-hidden="true"></div>
 
-  <!-- LIST -->
-  <section class="pg-section">
-    <div class="pg-container">
+    <section class="pg-ten-section" id="ten-days" aria-labelledby="pg-ten-title">
+      <div class="pg-ten-inner">
+        <header class="pg-section-head">
+          <p class="pg-section-kicker">UMC Plan · Recruiting concept</p>
+          <h2 id="pg-ten-title" class="pg-section-title" data-aos="fade-up">PROJECT : 열흘 (Ten Days)</h2>
+        </header>
 
-      <!-- FortuneBear -->
-      <article class="pg-card">
-        <div class="pg-card-header">
-          <h2>FortuneBear</h2>
-          <span class="pg-tag">AI · Web Service</span>
+        <div class="pg-ten-ribbon" data-aos="fade-up">
+          <span>사랑하지만 서먹한 관계</span>
+          <span>대화의 시작 설계</span>
+          <span>10일의 서사</span>
         </div>
 
-        <p class="pg-card-desc">
-          오늘 하루를 기준으로<br>
-          조심하면 좋을 것만 조용히 말해주는 서비스입니다<br><br>
+        <blockquote class="pg-ten-quote" data-aos="fade-up">
+          <p>
+            “살가운 안부 너머, 평생 곁에 있었지만 가장 몰랐던 <strong>‘타인’의 세계</strong>를 탐험하는 열흘.”<br />
+            부모라는 상징 너머, <strong>한 사람을 발견하는 여정</strong>을 기획합니다.
+          </p>
+        </blockquote>
 
-          예언하거나 겁을 주는 표현은 최대한 배제하고<br>
-          관찰하듯 말하는 캐릭터 톤을 유지하는 데에<br>
-          초점을 두고 설계했습니다
+        <p class="pg-ten-cta-note" data-aos="fade-up" style="margin-bottom: 1.75rem;">
+          사랑하지만 서먹한 부모님께 <strong>다가갈 명분</strong>이 필요한 자식들을 위해,
+          뻔한 안부 대신 스스로는 던지기 어려운 <strong>낯선 질문</strong>을 설계하고 관계의 문턱을 낮추는 프로젝트입니다.
+          당연한 관계를 <strong>특별한 발견</strong>으로 바꾸는 기획을 실험 중입니다.
         </p>
 
-        <ul class="pg-list">
-          <li>ChatGPT API 기반 텍스트 생성</li>
-          <li>프롬프트 규칙 중심 설계</li>
-          <li>선택 결정 페이지 분리 구현</li>
-          <li>Netlify(Vercel 이전) · Render · Supabase 배포</li>
-        </ul>
+        <div class="pg-ten-pillars">
 
-        <div class="pg-links">
-          <a href="./fortunebear.html" class="pg-btn primary">Detail</a>
-          <a href="https://fortunebear.vercel.app/" target="_blank" class="pg-btn ghost">Service</a>
-          <a href="https://github.com/uptomaster/fortune-bear-frontend" target="_blank" class="pg-btn ghost">Frontend Github</a>
-          <a href="https://github.com/uptomaster/fortune-bear-backend" target="_blank" class="pg-btn ghost">Backend Github</a>
+          <article class="pg-pillar" data-aos="fade-up">
+            <p class="pg-pillar-num">01 · 기획의 배경</p>
+            <h3>당연함 속에 가려진 관심의 사각지대</h3>
+            <p>
+              우리는 부모님을 잘 안다고 착각하지만, 계절을 가장 좋아했던 이유나 유년의 작은 꿈처럼
+              <strong>한 개인의 고유한 서사</strong>에는 무관심하기 쉽습니다.
+              <strong>열흘</strong>은 형식적인 효도 대신, 자식이 혼자서는 꺼내기 힘든 질문을 설계해
+              익숙함 뒤에 가려진 <strong>진짜 모습</strong>을 마주하게 하는 데서 출발합니다.
+            </p>
+          </article>
+
+          <article class="pg-pillar" data-aos="fade-up" data-aos-delay="60">
+            <p class="pg-pillar-num">02 · 핵심 전략</p>
+            <h3>무채색 기억을 깨우는 점진적 질문 시퀀스</h3>
+            <p>
+              질문은 정보만 묻지 않고, <strong>층위를 단계적으로 높여</strong> 내면으로 들어갑니다.
+              예측 가능한 답을 넘어, 부모님 스스로도 잊고 지냈던 취향과 역사를 끌어올리는
+              <strong>정교한 질문 설계</strong>로 10일간 빌드업합니다.
+              그 명분 위에서 자식은 상징 뒤에 숨은 <strong>한 사람</strong>을 처음으로 마주합니다.
+            </p>
+          </article>
+
+          <article class="pg-pillar" data-aos="fade-up" data-aos-delay="120">
+            <p class="pg-pillar-num">03 · 전략적 UX</p>
+            <h3>데이터에서 피어나는 이해의 감각</h3>
+            <p>
+              열흘간 쌓인 응답은 단순 기록이 아니라, 몰랐던 부모님의 세계를 시각화하고
+              <strong>공통의 연결고리</strong>를 찾는 기획적 인터랙션을 지향합니다.
+              스마트폰의 햅틱·시각 피드백으로 닿지 않던 진심을 감각으로 전달하고,
+              기술이 <strong>심리적 거리감</strong>을 어떻게 좁힐 수 있는지 증명하는 것을 목표로 합니다.
+            </p>
+          </article>
+
         </div>
-      </article>
 
-      <!-- Bookmarker -->
-      <article class="pg-card">
-        <div class="pg-card-header">
-          <h2>Bookmarker</h2>
-          <span class="pg-tag">UX · Experiment</span>
+        <div class="pg-ten-cta" data-aos="fade-up">
+          <p class="pg-ten-cta-note">
+            프로토타입·리크루팅용 기획 페이지와 프로젝트 유니버스는 아래에서 확인할 수 있습니다.
+            구현 가능한 기획으로, 디자이너·개발자와 같은 목표로 리딩하는 방향을 함께 적어 두었습니다.
+          </p>
+          <div class="pg-cta-row">
+            <a class="pg-btn-primary" href="https://umc-plan-recruit.vercel.app/" target="_blank" rel="noopener noreferrer">
+              열흘 · 기획 리크루팅 페이지
+            </a>
+            <a class="pg-btn-ghost" href="../index.html#projects">Portfolio 메인</a>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <p class="pg-card-desc">
-          단순히 북마크를 저장하는 기능보다는<br>
-          왜 이 링크를 저장했는지를 남기는 흐름을<br>
-          실험하기 위해 만든 서비스입니다<br><br>
-
-          기능은 최소화하고<br>
-          화면 밀도와 사용 흐름에 집중해<br>
-          UX 실험 목적 중심으로 설계했습니다
-        </p>
-
-        <ul class="pg-list">
-          <li>순수 HTML CSS JavaScript 구성</li>
-          <li>LocalStorage 기반 데이터 관리</li>
-          <li>개인 사용 전제 구조</li>
-          <li>UX 흐름 실험 목적</li>
-        </ul>
-
-        <div class="pg-links">
-          <a href="./bookmarker.html" class="pg-btn primary">Detail</a>
-          <a href="https://bookmarker929.dothome.co.kr/bookmarker/" target="_blank" class="pg-btn ghost">Service</a>
-          <a href="https://github.com/uptomaster/bookmarker" target="_blank" class="pg-btn ghost">GitHub</a>
-        </div>
-      </article>
-
+    <div class="pg-footnote">
+      <p>
+        Playground에는 완성도보다 <strong>가설·서사·검증 순서</strong>를 남깁니다.
+        새 아이디어가 생기면 이 페이지에 차례로 이어질 예정입니다.
+      </p>
     </div>
-  </section>
 
-  <!-- CLOSING -->
-  <section class="pg-section pg-closing">
-    <p>
-      Playground에 있는 작업들은<br>
-      결과보다 과정과 판단을 남기기 위한 기록입니다
-    </p>
+    <p class="pg-footer-mini">© <span id="year-pg"></span> NamHyuk · Playground</p>
 
-    <p>
-      작더라도 끝까지 만들어보고<br>
-      직접 배포하고 문제를 겪어본 경험을<br>
-      중요하게 생각하며 정리하고 있습니다
-    </p>
-  </section>
+  </main>
 
-  <footer class="footer">
-    © Playground · Small Experiments
-  </footer>
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true });</script>
+  <script src="../assets/js/starfield.js" defer></script>
+  <script type="module" src="../assets/js/media-art.js"></script>
+  <script>
+    (function () {
+      var el = document.getElementById("year-pg");
+      if (el) el.textContent = new Date().getFullYear();
+      var header = document.querySelector(".header");
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 
 </html>
