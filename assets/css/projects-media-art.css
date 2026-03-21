@@ -391,6 +391,11 @@ body.media-portfolio.projects-index-page main.page-main {
   border-color: rgba(196, 181, 253, 0.35);
 }
 
+.pr-work-badge--planning {
+  color: rgba(216, 200, 255, 0.96);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
 .pr-work-body {
   position: relative;
   z-index: 1;
