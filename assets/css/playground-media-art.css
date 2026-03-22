@@ -315,6 +315,15 @@ body.media-portfolio.playground-page main.page-main {
   --pg-art-tint: rgba(167, 139, 250, 0.08);
 }
 
+.pg-art-card--ppojiki .pg-art-card__shell {
+  --pg-art-tint: rgba(45, 212, 191, 0.08);
+}
+
+.pg-art-card--ppojiki .pg-art-card__tagline-sub {
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+
 /* 열흘 — 장밋빛·따뜻한 그라데이션 테두리 */
 .pg-art-card--ten {
   background: linear-gradient(
