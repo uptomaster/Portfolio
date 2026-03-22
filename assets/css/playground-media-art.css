@@ -474,41 +474,97 @@ body.media-portfolio.playground-page main.page-main {
   backdrop-filter: blur(18px) saturate(1.12);
 }
 
-/* 상단 풀폭 비주얼 → 아래 본문 (좌우 분할 제거) */
-.pg-art-card__visual {
+/* Hero: 왼쪽 썸네일 + 오른쪽 프로젝트명·한줄 설명 (아래 body에 상세) */
+.pg-art-card__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+  gap: 0.85rem 1.25rem;
+  align-items: center;
+  padding: 0.85rem 1.1rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    165deg,
+    rgba(12, 17, 28, 0.72) 0%,
+    rgba(6, 9, 16, 0.4) 100%
+  );
+}
+
+.pg-art-card__intro {
+  min-width: 0;
+}
+
+.pg-art-card__intro .pg-art-card__name {
+  margin: 0 0 0.4rem;
+}
+
+.pg-art-card__intro .pg-art-card__tagline {
+  margin: 0 0 0.65rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: rgba(195, 208, 228, 0.92);
+}
+
+.pg-art-card__hero .pg-art-card__visual {
   position: relative;
   margin: 0;
-  flex-shrink: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: clamp(168px, 32vw, 300px);
-  padding: 0.75rem clamp(0.85rem, 2.5vw, 1.35rem);
-  box-sizing: border-box;
+  max-width: 260px;
+  justify-self: start;
+  align-self: center;
+  padding: 0;
   overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 3 / 4;
+  max-height: 300px;
   background:
-    radial-gradient(ellipse 70% 80% at 50% 35%, rgba(40, 52, 78, 0.45) 0%, transparent 58%),
-    linear-gradient(180deg, rgba(14, 18, 30, 0.98) 0%, rgba(6, 9, 16, 1) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 -1px 0 rgba(196, 181, 253, 0.06);
+    radial-gradient(ellipse 80% 70% at 50% 35%, rgba(40, 52, 78, 0.45) 0%, transparent 60%),
+    #0a0e18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.4);
 }
 
-.pg-art-card__visual img {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.pg-art-card__hero .pg-art-card__visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center center;
-  display: block;
-  transition: opacity 0.4s ease;
+  border-radius: 12px;
+  z-index: 1;
+  transition: opacity 0.35s ease;
 }
 
-.pg-art-card:hover .pg-art-card__visual img {
-  opacity: 0.96;
+.pg-art-card:hover .pg-art-card__hero .pg-art-card__visual img {
+  opacity: 0.94;
+}
+
+@media (max-width: 680px) {
+  .pg-art-card__hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 0.75rem 0.9rem 0.65rem;
+  }
+
+  .pg-art-card__intro {
+    text-align: center;
+    max-width: 28rem;
+  }
+
+  .pg-art-card__intro .pg-meta-row {
+    justify-content: center;
+  }
+
+  .pg-ten-ribbon--in-card {
+    justify-content: center;
+  }
+
+  .pg-art-card__hero .pg-art-card__visual {
+    max-width: 240px;
+    margin-inline: auto;
+    justify-self: center;
+  }
 }
 
 .pg-art-card__shine {
@@ -553,15 +609,6 @@ body.media-portfolio.playground-page main.page-main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.pg-art-card__head {
-  display: block;
-}
-
-.pg-art-card__titles {
-  flex: 1;
-  min-width: 0;
 }
 
 .pg-art-card__name {
@@ -778,10 +825,12 @@ body.media-portfolio.playground-page main.page-main {
   body.media-portfolio.playground-page .pg-art-card__body {
     padding: 1.15rem 1.1rem 1.35rem;
   }
+
 }
 
 @media (max-width: 480px) {
   body.media-portfolio.playground-page .pg-title--lab {
     font-size: clamp(2rem, 10vw, 2.75rem);
   }
+
 }
