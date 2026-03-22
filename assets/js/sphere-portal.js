@@ -13,6 +13,11 @@ const PROJECTS = [
   { img: "./assets/img/fortunebear.png", title: "FortuneBear" },
   { img: "./assets/img/futurebox.png", title: "FutureBox" },
   { img: "./assets/img/yeolhil-card.png", title: "열흘" },
+  /* Playground · 기획 실험장 (projects/playground.html) */
+  { img: "./assets/img/playground-indiefilm.png", title: "IndieFilm" },
+  { img: "./assets/img/playground-gonggangpick.png", title: "공강픽" },
+  { img: "./assets/img/playground-goalchain.png", title: "GoalChain" },
+  { img: "./assets/img/playground-ppojiki.png", title: "뽀직이" },
 ];
 
 const prefersReducedMotion = () =>
