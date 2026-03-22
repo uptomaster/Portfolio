@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="õ= placeholder  tøÀ| P´X8”">
+  <defs>
+    <linearGradient id="ggg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#12202a"/>
+      <stop offset="50%" style="stop-color:#1a3040"/>
+      <stop offset="100%" style="stop-color:#0c1822"/>
+    </linearGradient>
+    <linearGradient id="ggg2" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#5eead4;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#c4b5fd;stop-opacity:0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#ggg)"/>
+  <rect width="960" height="540" fill="url(#ggg2)"/>
+  <text x="480" y="262" text-anchor="middle" fill="rgba(245,248,255,0.94)" font-family="system-ui,sans-serif" font-size="40" font-weight="800">õ= Pick!</text>
+  <text x="480" y="308" text-anchor="middle" fill="rgba(180,210,230,0.78)" font-family="ui-monospace,monospace" font-size="13" letter-spacing="0.28em">PLACEHOLDER · assets/img/playground-gonggangpick</text>
+</svg>
