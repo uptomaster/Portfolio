@@ -1,6 +1,9 @@
 /**
  * 미디어 아트 레이어 — pm 포트폴리오와 동일 인터랙션
  * portfolio-theme.json: assets/data/portfolio-theme.json
+ *
+ * 성능: 탭 비가시 시 애니메이션 일시정지, 저사양·모바일에서 플루이드 생략,
+ *       파티클에서 shadowBlur/getComputedStyle 제거, 리사이즈 디바운스
  */
 
 function hexToRgba(hex, alpha) {
@@ -13,6 +16,53 @@ function hexToRgba(hex, alpha) {
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/** 패럴랙스 보간값 — 파티클이 getComputedStyle 대신 직접 참조 */
+const motion = { mx: 0, my: 0 };
+
+function isLowEndDevice() {
+  if (prefersReducedMotion()) return true;
+  if (window.matchMedia("(max-width: 768px)").matches) return true;
+  const mem = navigator.deviceMemory;
+  if (mem && mem <= 4) return true;
+  const cores = navigator.hardwareConcurrency;
+  if (cores && cores <= 4) return true;
+  const conn = navigator.connection;
+  if (conn && conn.saveData === true) return true;
+  return false;
+}
+
+const lowEnd = isLowEndDevice();
+
+function debounce(fn, ms) {
+  let t = null;
+  return function debounced(...args) {
+    window.clearTimeout(t);
+    t = window.setTimeout(() => fn.apply(this, args), ms);
+  };
+}
+
+/**
+ * 탭이 보일 때만 rAF 연속 실행 (백그라운드에서 GPU/CPU 점유 방지)
+ */
+function startVisibilityLoop(frameFn) {
+  let id = null;
+  function loop() {
+    if (document.visibilityState !== "visible") {
+      id = null;
+      return;
+    }
+    frameFn();
+    id = requestAnimationFrame(loop);
+  }
+  function resume() {
+    if (id == null) id = requestAnimationFrame(loop);
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") resume();
+  });
+  resume();
 }
 
 async function loadTheme() {
@@ -61,23 +111,35 @@ function applyTheme(theme) {
 }
 
 function initParticles(keywords, canvas, palette) {
-  const warmHex = palette?.[0] ?? "#E07A5F";
-  const coolHex = palette?.[2] ?? "#2A9D8F";
-  const ctx = canvas.getContext("2d");
+  const warmHex = palette?.[0] ?? "#ea580c";
+  const coolHex = palette?.[2] ?? "#0d9488";
+  const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+  if (!ctx) return;
+
   const items = [];
   let cw = window.innerWidth;
   let ch = window.innerHeight;
+  let particleCap = 1;
   let t = 0;
 
-  function resize() {
+  const list = keywords.length ? keywords : ["API", "Linux", "PM"];
+  const baseCount = Math.min(22, Math.max(14, Math.ceil(list.length * 1.2)));
+  const count = lowEnd ? Math.max(6, Math.floor(baseCount * 0.45)) : baseCount;
+
+  function applyParticleResize() {
     cw = window.innerWidth;
     ch = window.innerHeight;
-    canvas.width = cw;
-    canvas.height = ch;
+    const maxSide = lowEnd ? 1280 : 1680;
+    particleCap = Math.min(1, maxSide / Math.max(cw, ch, 1));
+    const bw = Math.floor(cw * particleCap);
+    const bh = Math.floor(ch * particleCap);
+    canvas.width = bw;
+    canvas.height = bh;
+    canvas.style.width = `${cw}px`;
+    canvas.style.height = `${ch}px`;
   }
+  const resize = debounce(applyParticleResize, 120);
 
-  const list = keywords.length ? keywords : ["API", "Linux", "PM"];
-  const count = Math.min(22, Math.max(14, Math.ceil(list.length * 1.2)));
   for (let i = 0; i < count; i++) {
     items.push({
       text: list[i % list.length],
@@ -91,13 +153,16 @@ function initParticles(keywords, canvas, palette) {
     });
   }
 
+  const fontBase = lowEnd ? 9 : 10;
+  const fontRange = lowEnd ? 3 : 4;
+
   function frame() {
     t += 0.008;
-    ctx.clearRect(0, 0, cw, ch);
-    const mx =
-      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--mx")) || 0;
-    const my =
-      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--my")) || 0;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (particleCap < 1) ctx.setTransform(particleCap, 0, 0, particleCap, 0, 0);
+    const mx = motion.mx;
+    const my = motion.my;
 
     for (const p of items) {
       p.x += p.vx + mx * 0.06 * p.z;
@@ -108,30 +173,28 @@ function initParticles(keywords, canvas, palette) {
       if (p.y > ch + 30) p.y = -30;
 
       const pulse = 0.92 + Math.sin(t * 1.2 + p.z * 10) * 0.08;
-      const fs = 10 + p.z * 4;
+      const fs = fontBase + p.z * fontRange;
       ctx.font = `500 ${fs}px Pretendard, sans-serif`;
-      ctx.shadowBlur = 4 + p.z * 8;
-      ctx.shadowColor = p.warm ? hexToRgba(warmHex, 0.2) : hexToRgba(coolHex, 0.2);
       ctx.fillStyle = p.warm
         ? hexToRgba(warmHex, p.alpha * pulse)
         : hexToRgba(coolHex, p.alpha * pulse);
       ctx.fillText(p.text, p.x, p.y);
-      ctx.shadowBlur = 0;
     }
-    requestAnimationFrame(frame);
   }
 
-  window.addEventListener("resize", resize);
-  resize();
-  requestAnimationFrame(frame);
+  window.addEventListener("resize", resize, { passive: true });
+  applyParticleResize();
+  startVisibilityLoop(frame);
 }
 
 function initFluidCanvas(canvas, palette) {
-  if (prefersReducedMotion()) return;
+  if (prefersReducedMotion() || lowEnd) return;
 
-  const warm = palette?.[0] ?? "#E07A5F";
-  const cool = palette?.[2] ?? "#2A9D8F";
-  const ctx = canvas.getContext("2d");
+  const warm = palette?.[0] ?? "#ea580c";
+  const cool = palette?.[2] ?? "#0d9488";
+  const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+  if (!ctx) return;
+
   let w = 0;
   let h = 0;
   const blobs = [
@@ -140,25 +203,35 @@ function initFluidCanvas(canvas, palette) {
     { x: 0, y: 0, tx: 0, ty: 0, r: 75, lag: 0.05, hue: 2 },
   ];
 
-  function resize() {
+  let tickCount = 0;
+
+  function applyFluidResize() {
     w = window.innerWidth;
     h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
   }
+  const resizeFluid = debounce(applyFluidResize, 120);
 
-  window.addEventListener("mousemove", (e) => {
-    blobs[0].tx = e.clientX;
-    blobs[0].ty = e.clientY;
-    blobs[1].tx = e.clientX + Math.sin(Date.now() * 0.0006) * 48;
-    blobs[1].ty = e.clientY + Math.cos(Date.now() * 0.0007) * 40;
-    blobs[2].tx = e.clientX * 0.55 + w * 0.22;
-    blobs[2].ty = e.clientY * 0.55 + h * 0.22;
-  });
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      blobs[0].tx = e.clientX;
+      blobs[0].ty = e.clientY;
+      blobs[1].tx = e.clientX + Math.sin(Date.now() * 0.0006) * 48;
+      blobs[1].ty = e.clientY + Math.cos(Date.now() * 0.0007) * 40;
+      blobs[2].tx = e.clientX * 0.55 + w * 0.22;
+      blobs[2].ty = e.clientY * 0.55 + h * 0.22;
+    },
+    { passive: true }
+  );
 
   function tick() {
+    tickCount++;
+    if (tickCount % 2 !== 0) return;
+
     ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "rgba(5, 8, 13, 0.2)";
+    ctx.fillStyle = "rgba(5, 8, 13, 0.22)";
     ctx.fillRect(0, 0, w, h);
     ctx.globalCompositeOperation = "screen";
 
@@ -179,12 +252,11 @@ function initFluidCanvas(canvas, palette) {
       ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
       ctx.fill();
     }
-    requestAnimationFrame(tick);
   }
 
-  window.addEventListener("resize", resize);
-  resize();
-  requestAnimationFrame(tick);
+  window.addEventListener("resize", resizeFluid, { passive: true });
+  applyFluidResize();
+  startVisibilityLoop(tick);
 }
 
 function initParallax() {
@@ -195,6 +267,7 @@ function initParallax() {
   let my = 0;
   let tx = 0;
   let ty = 0;
+  let frame = 0;
 
   window.addEventListener(
     "mousemove",
@@ -208,11 +281,17 @@ function initParallax() {
   function smooth() {
     mx += (tx - mx) * 0.05;
     my += (ty - my) * 0.05;
-    root.style.setProperty("--mx", mx.toFixed(4));
-    root.style.setProperty("--my", my.toFixed(4));
-    requestAnimationFrame(smooth);
+    motion.mx = mx;
+    motion.my = my;
+
+    frame++;
+    if (frame % 2 === 0) {
+      root.style.setProperty("--mx", mx.toFixed(4));
+      root.style.setProperty("--my", my.toFixed(4));
+    }
   }
-  smooth();
+
+  startVisibilityLoop(smooth);
 
   window.addEventListener(
     "scroll",
@@ -224,7 +303,7 @@ function initParallax() {
 }
 
 function initCursor() {
-  if (prefersReducedMotion()) return;
+  if (prefersReducedMotion() || lowEnd) return;
 
   const glow = document.getElementById("cursor-glow");
   const dot = document.getElementById("cursor-dot");
@@ -238,6 +317,7 @@ function initCursor() {
   let gy = 0;
   let dx = 0;
   let dy = 0;
+  let cursorTick = 0;
 
   window.addEventListener(
     "mousemove",
@@ -250,15 +330,20 @@ function initCursor() {
   );
 
   function follow() {
+    cursorTick++;
     gx += (dx - gx) * 0.12;
     gy += (dy - gy) * 0.12;
-    glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
-    requestAnimationFrame(follow);
+    if (cursorTick % 2 === 0) {
+      glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
+    }
   }
-  follow();
+
+  startVisibilityLoop(follow);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  if (lowEnd) document.body.classList.add("media-portfolio--lite");
+
   initParallax();
   initCursor();
 

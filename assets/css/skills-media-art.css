@@ -1,41 +1,96 @@
-/* Skills — 미디어 아트 톤 + 가독성 우선 (index 미디어 테마 전용) */
+/* Skills — 우주 다크 테마와 동일한 글래스 톤 (index 미디어 테마 전용) */
 
 body.media-portfolio .section-skills--media {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(42, 157, 143, 0.09), transparent 50%),
-    rgba(8, 12, 20, 0.72) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-bottom: none !important;
 }
 
+/* 은은한 그리드 — 밝은 톤 제거, 별 배경과 이어지게 */
 body.media-portfolio .section-skills--media::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.22;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 75%);
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 25%, transparent 78%);
 }
 
+/* 상단 미세 글로우 — 섹션 경계만 살짝 */
+body.media-portfolio .section-skills--media::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: min(72%, 720px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.35),
+    rgba(125, 211, 252, 0.2),
+    transparent
+  );
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+body.media-portfolio #skills .section-head {
+  margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+body.media-portfolio #skills .skills-section-lead {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  padding: 0 0.25rem;
+  text-align: center;
+}
+
+/* 카드 영역 — 흰 박스 제거, 단일 글래스 패널 */
 body.media-portfolio .skills-media-shell {
   position: relative;
   z-index: 1;
-  margin-top: 0.5rem;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border-radius: 18px;
-  background: rgba(5, 9, 16, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  max-width: min(1120px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.35rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(14px) saturate(1.1);
+    0 4px 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 24px 56px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(22px) saturate(1.15);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+}
+
+body.media-portfolio .skills-media-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.28),
+    rgba(232, 168, 124, 0.18),
+    transparent
+  );
+  pointer-events: none;
 }
 
 /* 카테고리별 액센트 */
@@ -65,14 +120,21 @@ body.media-portfolio .section-skills--media .skill-card.network {
 
 body.media-portfolio .section-skills--media .skill-card {
   position: relative;
-  background: rgba(12, 18, 30, 0.88) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 14px;
-  padding: 1.35rem 1.25rem 1.4rem 1.35rem !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: rgba(5, 8, 18, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem 1.45rem 1.35rem !important;
   box-shadow:
-    0 8px 28px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    0 10px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
 }
 
 body.media-portfolio .section-skills--media .skill-card::after {
@@ -82,59 +144,60 @@ body.media-portfolio .section-skills--media .skill-card::after {
   left: 0;
   right: 0;
   height: 2px;
-  border-radius: 14px 14px 0 0;
-  background: linear-gradient(90deg, var(--skill-accent, #2a9d8f), transparent 85%);
-  opacity: 0.65;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, var(--skill-accent, #2dd4bf), transparent 82%);
+  opacity: 0.7;
   pointer-events: none;
 }
 
 body.media-portfolio .section-skills--media .skill-card:hover {
   border-color: rgba(255, 255, 255, 0.16) !important;
   box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.38),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-  transform: translateY(-3px);
+    0 16px 44px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(94, 234, 212, 0.08) inset;
+  transform: translateY(-4px);
 }
 
 body.media-portfolio .section-skills--media .skill-card[data-skill-label]::before {
   content: attr(data-skill-label);
   display: block;
   font-family: var(--mono, "JetBrains Mono", ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(126, 232, 220, 0.72);
-  margin-bottom: 0.5rem;
+  color: rgba(148, 163, 184, 0.85);
+  margin-bottom: 0.55rem;
 }
 
 body.media-portfolio .section-skills--media .skill-card h3 {
-  font-size: 1.05rem !important;
+  font-size: 1.08rem !important;
   font-weight: 700 !important;
-  line-height: 1.35;
+  line-height: 1.32;
   letter-spacing: -0.02em;
-  color: #f1f5f9 !important;
+  color: #f8fafc !important;
   margin-bottom: 0.95rem !important;
   padding-left: 0.85rem;
-  border-left: 3px solid var(--skill-accent, #2a9d8f);
+  border-left: 3px solid var(--skill-accent, #2dd4bf);
   filter: none !important;
 }
 
 body.media-portfolio .section-skills--media .skill-card ul {
   margin: 0;
+  flex: 1;
 }
 
 body.media-portfolio .section-skills--media .skill-card li {
-  font-size: 0.92rem !important;
+  font-size: 0.91rem !important;
   font-weight: 500 !important;
-  line-height: 1.65 !important;
-  color: rgba(226, 232, 240, 0.96) !important;
-  margin-bottom: 0.55rem !important;
+  line-height: 1.62 !important;
+  color: rgba(226, 232, 240, 0.94) !important;
+  margin-bottom: 0.5rem !important;
   padding-left: 1.1rem !important;
 }
 
 body.media-portfolio .section-skills--media .skill-card li strong {
-  color: #f8fafc;
+  color: #f1f5f9;
   font-weight: 700;
 }
 
@@ -144,29 +207,45 @@ body.media-portfolio .section-skills--media .skill-card li:last-child {
 
 body.media-portfolio .section-skills--media .skill-card li::before {
   content: "›";
-  color: var(--skill-accent, #7ee8dc);
+  color: var(--skill-accent, #5eead4);
   font-weight: 700;
-  opacity: 0.85;
+  opacity: 0.88;
   left: 0 !important;
 }
 
+/* 그리드: 모바일 1열 → 태블릿 2열 → 와이드 3열 */
 body.media-portfolio .section-skills--media .skills-grid {
+  display: grid;
   margin-top: 0;
-  gap: 1.15rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.35rem);
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+@media (min-width: 700px) {
+  body.media-portfolio .section-skills--media .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  body.media-portfolio .section-skills--media .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 body.media-portfolio .section-skills--media .section-head .section-title {
   text-shadow: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 699px) {
   body.media-portfolio .skills-media-shell {
-    padding: 1rem 0.75rem;
+    padding: 1.2rem 1rem 1.35rem;
+    border-radius: 20px;
   }
 
   body.media-portfolio .section-skills--media .skill-card li {
-    font-size: 0.88rem !important;
+    font-size: 0.87rem !important;
   }
 }
 

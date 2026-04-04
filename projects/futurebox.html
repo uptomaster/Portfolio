@@ -15,22 +15,25 @@
   <link rel="stylesheet" href="../assets/css/media-art-layers.css" />
   <link rel="stylesheet" href="../assets/css/media-art-github-overrides.css" />
   <link rel="stylesheet" href="../assets/css/project-futurebox-media-art.css" />
+  <link rel="stylesheet" href="../assets/css/universe-global.css" />
   <link rel="icon" href="../assets/img/favicon.png">
 </head>
 
 <body class="media-portfolio futurebox-page">
 
+  <div id="universe-bg" aria-hidden="true"></div>
+  <div id="canvas-stars" aria-hidden="true"></div>
   <div class="media-stage" id="media-stage" aria-hidden="true">
     <div class="photo-layer photo-layer--a" id="photo-a"></div>
     <div class="photo-layer photo-layer--b" id="photo-b"></div>
     <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
     <div class="photo-gradient-overlay"></div>
-    <div class="photo-vignette"></div>
-    <div class="photo-noise"></div>
+    <div class="lens-flare"></div>
     <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="photo-noise"></div>
     <div class="chromatic-edges"></div>
     <div class="scanlines"></div>
-    <div class="lens-flare"></div>
+    <div class="photo-vignette"></div>
   </div>
   <div class="ambient" aria-hidden="true"></div>
   <div class="distortion-layer" aria-hidden="true"></div>
@@ -224,7 +227,8 @@
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>AOS.init({ duration: 700, once: true });</script>
-  <script src="../assets/js/starfield.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../assets/js/universe-stars.js" defer></script>
   <script type="module" src="../assets/js/media-art.js"></script>
   <script>
     (function () {

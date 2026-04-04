@@ -1,14 +1,16 @@
 /* GitHub Portfolio — 미디어 아트 테마 오버라이드 (기존 style.css 위에 로드) */
 
 body.media-portfolio {
-  --primary: #3dd6c3;
+  --primary: #2dd4bf;
   --mono: "JetBrains Mono", ui-monospace, monospace;
-  --ink: #070b12;
-  background: transparent !important;
-  color: rgba(240, 244, 248, 0.95);
+  --ink: #0f172a;
+  --text-muted: #475569;
+  /* 참고: var(--bg-dark) #050608 — 검정 단색에 가까운 베이스 */
+  background: #050608 !important;
+  color: #334155;
 }
 
-/* 콘텐츠·배경 사이: 미세 그리드 (미디어 아트 / 스펙 시트 느낌) */
+/* 은은한 그리드 (장식만, 본문과 대비 유지) */
 body.media-portfolio::before {
   content: "";
   position: fixed;
@@ -16,8 +18,8 @@ body.media-portfolio::before {
   z-index: 6;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(61, 214, 195, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
   background-size: min(56px, 12vw) min(56px, 12vw);
   opacity: 0.22;
   mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
@@ -48,7 +50,7 @@ body.media-portfolio .section-kicker {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(142, 240, 228, 0.78);
+  color: #0d9488;
   margin-bottom: 0.85rem;
 }
 
@@ -57,42 +59,42 @@ body.media-portfolio .contact-header .section-kicker {
 }
 
 body.media-portfolio .header {
-  background: rgba(8, 12, 20, 0.72) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(14px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.86) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  backdrop-filter: blur(12px) saturate(1.05);
   z-index: 100 !important;
 }
 
 body.media-portfolio .header.scrolled {
-  background: rgba(8, 12, 20, 0.92) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06) !important;
 }
 
 body.media-portfolio .logo {
-  color: #fff !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .logo img {
-  filter: drop-shadow(0 0 10px rgba(61, 214, 195, 0.35));
+  filter: none;
 }
 
 body.media-portfolio .nav a {
-  color: rgba(255, 255, 255, 0.88) !important;
+  color: #475569 !important;
 }
 
 body.media-portfolio .nav a:hover {
-  color: #8ef0e4 !important;
+  color: #0d9488 !important;
 }
 
 body.media-portfolio .nav a.active {
-  color: #f0c4a8 !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .nav a.active::after {
   background: linear-gradient(90deg, var(--warm-1), var(--cool-1)) !important;
 }
 
-/* Hero */
+/* Hero — 우주 배경 위: 밝은 글씨·충분한 대비 */
 body.media-portfolio .hero {
   background: transparent !important;
 }
@@ -103,7 +105,7 @@ body.media-portfolio .hero-kicker {
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(142, 240, 228, 0.85);
+  color: #5eead4;
   margin-bottom: 1rem;
 }
 
@@ -112,33 +114,29 @@ body.media-portfolio .hero-manifest {
   max-width: 520px;
   font-size: 1.02rem;
   line-height: 1.65;
-  color: rgba(230, 238, 248, 0.88) !important;
+  color: #cbd5e1 !important;
 }
 
 body.media-portfolio .hero-manifest strong {
-  color: #fff;
+  color: #f8fafc;
   font-weight: 700;
 }
 
 body.media-portfolio .hero-left h1 {
-  color: #fff !important;
-  text-shadow: 0 4px 48px rgba(0, 0, 0, 0.55);
-}
-
-body.media-portfolio .hero--identity .hero-left h1 {
-  text-shadow: none;
+  color: #f8fafc !important;
+  text-shadow: 0 2px 24px rgba(2, 6, 23, 0.65);
 }
 
 body.media-portfolio .highlight {
-  background: linear-gradient(125deg, #f4c4a8 0%, #e8a87c 28%, #3dd6c3 72%, #8b78c8 100%);
+  background: linear-gradient(125deg, #5eead4 0%, #2dd4bf 35%, #fb923c 70%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 32px rgba(232, 168, 124, 0.35));
+  filter: drop-shadow(0 2px 14px rgba(2, 6, 23, 0.55));
 }
 
 body.media-portfolio .hero-desc {
-  color: rgba(240, 244, 248, 0.88) !important;
+  color: #e2e8f0 !important;
 }
 
 body.media-portfolio .hero-desc strong {
@@ -146,15 +144,16 @@ body.media-portfolio .hero-desc strong {
 }
 
 body.media-portfolio .tag-box span {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.45) !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 20px rgba(2, 6, 23, 0.35);
+  backdrop-filter: blur(8px);
 }
 
 body.media-portfolio .tag-box span:hover {
-  border-color: rgba(61, 214, 195, 0.5) !important;
-  background: rgba(61, 214, 195, 0.12) !important;
+  border-color: rgba(45, 212, 191, 0.55) !important;
+  background: rgba(15, 23, 42, 0.65) !important;
 }
 
 body.media-portfolio .hero-visual {
@@ -168,14 +167,15 @@ body.media-portfolio .hero-visual {
 body.media-portfolio .hero-spec {
   flex: 1 1 220px;
   max-width: 280px;
-  padding: 1rem 1.1rem 1.1rem;
-  border-radius: 14px;
-  background: rgba(6, 10, 18, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.05rem 1.15rem 1.15rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px) saturate(1.15);
+    0 4px 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 20px 48px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
   text-align: left;
 }
 
@@ -187,7 +187,7 @@ body.media-portfolio .hero-spec-header {
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: rgba(180, 200, 220, 0.95);
+  color: rgba(148, 163, 184, 0.95);
   padding-bottom: 0.75rem;
   margin-bottom: 0.65rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -197,8 +197,8 @@ body.media-portfolio .hero-spec-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--warm-1), var(--cool-1));
-  box-shadow: 0 0 12px rgba(61, 214, 195, 0.55);
+  background: linear-gradient(135deg, #0d9488, #ea580c);
+  box-shadow: none;
 }
 
 body.media-portfolio .hero-spec-list {
@@ -217,7 +217,7 @@ body.media-portfolio .hero-spec-list li {
   align-items: baseline;
   font-size: 0.82rem;
   line-height: 1.45;
-  color: rgba(215, 225, 238, 0.92);
+  color: rgba(226, 232, 240, 0.92);
 }
 
 body.media-portfolio .hero-spec-k {
@@ -226,73 +226,74 @@ body.media-portfolio .hero-spec-k {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: lowercase;
-  color: rgba(126, 232, 220, 0.7);
+  color: #94a3b8;
 }
 
 body.media-portfolio .hero-spec-v {
-  color: rgba(240, 244, 248, 0.95);
+  color: #f1f5f9 !important;
 }
 
 body.media-portfolio .profile-frame {
   flex-shrink: 0;
-  background: linear-gradient(135deg, rgba(232, 168, 124, 0.58), rgba(61, 214, 195, 0.48));
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.22), rgba(251, 191, 36, 0.12));
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 body.media-portfolio .profile-frame img {
-  background: #0d1117;
+  background: rgba(5, 8, 18, 0.88);
 }
 
 /* Sections */
 body.media-portfolio .section {
-  background: linear-gradient(180deg, rgba(10, 14, 24, 0.5) 0%, rgba(8, 11, 20, 0.46) 100%) !important;
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0;
 }
 
 body.media-portfolio .section-alt {
-  background: linear-gradient(180deg, rgba(12, 16, 28, 0.58) 0%, rgba(10, 13, 24, 0.52) 100%) !important;
+  background: #fff !important;
 }
 
 body.media-portfolio .section-title {
-  color: #fff !important;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  color: #0f172a !important;
+  text-shadow: none;
 }
 
 body.media-portfolio .about-text {
-  color: rgba(240, 244, 248, 0.9) !important;
+  color: #475569 !important;
 }
 
 body.media-portfolio .about-text strong {
-  color: #fff;
+  color: #0f172a;
 }
 
 body.media-portfolio .pentagon {
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 body.media-portfolio .section-skills {
-  background: rgba(10, 15, 24, 0.5) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f1f5f9 !important;
+  border-top: 1px solid #e2e8f0;
 }
 
 body.media-portfolio .skill-card {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 body.media-portfolio .skill-card:hover {
-  box-shadow: 0 18px 50px rgba(61, 214, 195, 0.16);
-  border-color: rgba(61, 214, 195, 0.35) !important;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  border-color: rgba(13, 148, 136, 0.35) !important;
 }
 
 body.media-portfolio .skill-card h3 {
-  color: #f0f4f8 !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .skill-card li {
-  color: rgba(220, 230, 240, 0.92) !important;
+  color: #475569 !important;
 }
 
 body.media-portfolio .skills-grid {
@@ -315,25 +316,21 @@ body.media-portfolio #projects:not(.section-projects--media) {
 }
 
 body.media-portfolio .slider-track .project-card {
-  background: linear-gradient(165deg, rgba(22, 32, 48, 0.95), rgba(10, 14, 22, 0.98)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset !important;
+  background: rgba(5, 8, 18, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.38) !important;
 }
 
 body.media-portfolio .slider-track .project-card:hover {
-  box-shadow:
-    0 24px 56px rgba(0, 0, 0, 0.55),
-    0 0 48px rgba(232, 168, 124, 0.14) !important;
-  border-color: rgba(232, 168, 124, 0.28) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.48) !important;
+  border-color: rgba(94, 234, 212, 0.35) !important;
 }
 
 body.media-portfolio .project-thumb::after {
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0) 55%,
-    rgba(12, 18, 28, 0.85) 100%
+    rgba(0, 0, 0, 0) 38%,
+    rgba(5, 8, 18, 0.92) 100%
   ) !important;
 }
 
@@ -342,35 +339,37 @@ body.media-portfolio .project-thumb img {
   object-fit: contain !important;
   object-position: center center !important;
   transform: none !important;
-  background: #0d1117;
+  background: rgba(15, 23, 42, 0.65) !important;
 }
 
 body.media-portfolio .project-header h3 {
-  color: #f0f4f8 !important;
+  color: #f1f5f9 !important;
 }
 
 body.media-portfolio .project-type {
-  background: rgba(0, 0, 0, 0.35) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body.media-portfolio .project-tags span {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: rgba(230, 240, 250, 0.95) !important;
+  background: rgba(13, 148, 136, 0.2) !important;
+  color: #5eead4 !important;
+  border: 1px solid rgba(94, 234, 212, 0.28);
 }
 
 body.media-portfolio .project-summary {
-  color: rgba(220, 230, 240, 0.92) !important;
+  color: rgba(226, 232, 240, 0.9) !important;
 }
 
 body.media-portfolio .project-points li {
-  color: rgba(210, 220, 235, 0.9) !important;
+  color: rgba(203, 213, 225, 0.92) !important;
 }
 
 body.media-portfolio .project-points li::before {
-  color: rgba(255, 255, 255, 0.45) !important;
+  color: #5eead4 !important;
 }
 
-/* 프로젝트 상세 — 하얀 글래스 + 빛 번짐 (잘림 방지: inset은 카드 padding과 함께) */
 body.media-portfolio .project-detail-btn {
   position: relative;
   display: inline-block;
@@ -378,23 +377,12 @@ body.media-portfolio .project-detail-btn {
   font-size: 0.88rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.98) !important;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 255, 255, 0.1) 48%,
-    rgba(255, 255, 255, 0.05) 100%
-  ) !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  color: #fff !important;
+  background: #0d9488 !important;
+  border: 1px solid #0f766e !important;
   border-radius: 999px !important;
-  box-shadow:
-    0 0 28px rgba(255, 255, 255, 0.28),
-    0 0 64px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15) !important;
-  backdrop-filter: blur(12px) saturate(1.2);
-  -webkit-backdrop-filter: blur(12px) saturate(1.2);
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25) !important;
+  text-shadow: none;
   transition:
     transform 0.28s ease,
     box-shadow 0.28s ease,
@@ -405,77 +393,64 @@ body.media-portfolio .project-detail-btn {
 body.media-portfolio .project-detail-btn:hover {
   transform: translateY(-2px) !important;
   color: #fff !important;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.42) 0%,
-    rgba(255, 255, 255, 0.16) 50%,
-    rgba(255, 255, 255, 0.08) 100%
-  ) !important;
-  border-color: rgba(255, 255, 255, 0.72) !important;
-  box-shadow:
-    0 0 40px rgba(255, 255, 255, 0.45),
-    0 0 88px rgba(255, 255, 255, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+  background: #0f766e !important;
+  border-color: #115e59 !important;
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3) !important;
 }
 
 body.media-portfolio .slider-btn {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
-  box-shadow:
-    0 0 24px rgba(255, 255, 255, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #fff !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
 }
 
 body.media-portfolio .slider-btn:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.55) !important;
-  box-shadow:
-    0 0 32px rgba(255, 255, 255, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  background: #f8fafc !important;
+  border-color: #0d9488 !important;
+  color: #0d9488 !important;
 }
 
 /* Research */
 body.media-portfolio .section-research {
-  background: rgba(8, 12, 20, 0.45) !important;
+  background: #f8fafc !important;
 }
 
 body.media-portfolio .research-card {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
 }
 
 body.media-portfolio .research-title {
-  color: #fff !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .research-abstract {
-  color: rgba(230, 240, 250, 0.9) !important;
+  color: #475569 !important;
 }
 
 body.media-portfolio .research-tags span {
-  background: rgba(61, 214, 195, 0.16) !important;
-  color: #a8f0e6 !important;
+  background: #f0fdfa !important;
+  color: #0f766e !important;
+  border: 1px solid #ccfbf1;
 }
 
 /* Certifications */
 body.media-portfolio .cert-block-title {
-  color: #f0f4f8 !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .cert-list li {
-  color: rgba(230, 240, 250, 0.92) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
 }
 
 body.media-portfolio .cert-name {
-  color: #fff !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .cert-meta {
-  color: rgba(180, 200, 220, 0.85) !important;
+  color: #64748b !important;
 }
 
 /* Timeline */
@@ -484,59 +459,60 @@ body.media-portfolio .timeline-wrapper {
 }
 
 body.media-portfolio .timeline-dot {
-  background: linear-gradient(135deg, #e8a87c, #3dd6c3) !important;
-  border-color: rgba(8, 12, 20, 0.9) !important;
+  background: linear-gradient(135deg, #0d9488, #ea580c) !important;
+  border-color: #fff !important;
 }
 
 body.media-portfolio .timeline-date {
-  color: #8ef0e4 !important;
+  color: #0d9488 !important;
 }
 
 body.media-portfolio .timeline-content h3 {
-  color: #fff !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .timeline-content p {
-  color: rgba(220, 230, 240, 0.88) !important;
+  color: #475569 !important;
 }
 
 /* Contact */
 body.media-portfolio .section-contact {
-  background: rgba(8, 12, 20, 0.5) !important;
+  background: #fff !important;
 }
 
 body.media-portfolio .contact-box {
-  background: rgba(16, 22, 34, 0.88) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.5) !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06) !important;
 }
 
 body.media-portfolio .contact-title {
-  color: #fff !important;
+  color: #0f172a !important;
 }
 
 body.media-portfolio .contact-desc {
-  color: rgba(220, 230, 240, 0.9) !important;
+  color: #475569 !important;
 }
 
 body.media-portfolio .contact-btn.primary {
-  background: linear-gradient(135deg, #e8a87c, #3dd6c3) !important;
-  box-shadow: 0 10px 32px rgba(61, 214, 195, 0.35) !important;
+  background: linear-gradient(135deg, #0d9488, #0f766e) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25) !important;
 }
 
 body.media-portfolio .contact-footer {
-  color: rgba(200, 215, 230, 0.9) !important;
+  color: #64748b !important;
 }
 
 body.media-portfolio .contact-value {
-  color: #8ef0e4 !important;
+  color: #0d9488 !important;
 }
 
 /* Footer */
 body.media-portfolio .footer {
-  background: rgba(5, 8, 13, 0.85) !important;
-  color: rgba(200, 215, 230, 0.85) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border-top: 1px solid #e2e8f0 !important;
 }
 
 /* 전체 여백·읽기 리듬 (딱딱함 완화) */

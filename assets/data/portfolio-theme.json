@@ -1,12 +1,12 @@
 {
   "visuals": {
-    "colorPalette": ["#E8A87C", "#F4C4A8", "#3DD6C3", "#5B6E8C", "#0F172A"],
+    "colorPalette": ["#ea580c", "#fb923c", "#0d9488", "#64748b", "#0f172a"],
     "rotationSpeed": 0.45,
-    "distortionIntensity": 0.08,
+    "distortionIntensity": 0.04,
     "backgrounds": {
-      "primary": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85",
-      "secondary": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85",
-      "accent": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85"
+      "primary": "https://images.unsplash.com/photo-1557682224-5b859f2a0b51?auto=format&fit=crop&w=2400&q=80",
+      "secondary": "https://images.unsplash.com/photo-1557682260-96773ebf0d4d?auto=format&fit=crop&w=2400&q=80",
+      "accent": "https://images.unsplash.com/photo-1557682224-5b859f2a0b51?auto=format&fit=crop&w=2400&q=80"
     }
   },
   "floatingParticles": [

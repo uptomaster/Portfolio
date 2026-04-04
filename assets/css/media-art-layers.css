@@ -1,21 +1,21 @@
 /* Media art — 배경·캔버스·커서 (pm 디자인 레이어) */
 
 :root {
-  /* 잉크 베이스 + 앰버·틸 액센트 (전역 분위기) */
-  --warm-1: #e8a87c;
-  --warm-2: #f4c4a8;
-  --cool-1: #3dd6c3;
-  --cool-2: #5b6e8c;
+  /* 심플·우아: 선명한 액센트 + 잉크 텍스트용 슬레이트 */
+  --warm-1: #ea580c;
+  --warm-2: #fb923c;
+  --cool-1: #0d9488;
+  --cool-2: #64748b;
   --cool-3: #0f172a;
-  --rotation-speed: 120s;
-  --distortion: 0.12;
+  --rotation-speed: 140s;
+  --distortion: 0.06;
   --mx: 0;
   --my: 0;
   --scroll: 0;
-  /* 차분한 단색 톤 위주 (테마 JSON에서 덮어씀) */
-  --bg-a: url("https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85");
-  --bg-b: url("https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85");
-  --bg-accent: url("https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2400&q=85");
+  /* 폴백 배경 — 라벤더·스카이 그라데이션 (테마 JSON에서 덮어씀) */
+  --bg-a: url("https://images.unsplash.com/photo-1557682224-5b859f2a0b51?auto=format&fit=crop&w=2400&q=85");
+  --bg-b: url("https://images.unsplash.com/photo-1557682260-96773ebf0d4d?auto=format&fit=crop&w=2400&q=85");
+  --bg-accent: url("https://images.unsplash.com/photo-1557682224-5b859f2a0b51?auto=format&fit=crop&w=2400&q=85");
 }
 
 body.media-portfolio *:focus-visible {
@@ -29,12 +29,14 @@ body.media-portfolio *:focus-visible {
   }
 }
 
+/* 검정 단색 + 미세 방사형 (참고: #universe-bg) — 성운 사진 대신 전역 우주 베이스 */
 .media-stage {
   position: fixed;
   inset: 0;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  background: radial-gradient(circle at center, #0a0c14 0%, #050608 100%);
 }
 
 .photo-layer {
@@ -48,57 +50,59 @@ body.media-portfolio *:focus-visible {
 
 .photo-layer--a {
   background-image: var(--bg-a);
-  opacity: 0.5;
-  transform: translate3d(calc(var(--mx) * 6px), calc(var(--my) * 5px + var(--scroll) * -0.06px), 0) scale(1.04);
-  filter: saturate(1.02) contrast(1.02);
+  opacity: 0;
+  transform: translate3d(calc(var(--mx) * 4px), calc(var(--my) * 3px + var(--scroll) * -0.04px), 0) scale(1.02);
+  filter: saturate(1.1) contrast(1.08) brightness(0.55);
+  mix-blend-mode: normal;
 }
 
 .photo-layer--b {
   background-image: var(--bg-b);
   mix-blend-mode: soft-light;
-  opacity: 0.14;
-  transform: translate3d(calc(var(--mx) * -4px), calc(var(--my) * -3px + var(--scroll) * -0.03px), 0) scale(1.06);
+  opacity: 0;
+  transform: translate3d(calc(var(--mx) * -3px), calc(var(--my) * -2px + var(--scroll) * -0.02px), 0) scale(1.03);
 }
 
 .photo-layer--accent {
   background-image: var(--bg-accent);
   mix-blend-mode: soft-light;
-  opacity: 0.04;
-  transform: translate3d(calc(var(--mx) * 8px), calc(var(--my) * 6px), 0) scale(1.06);
+  opacity: 0;
+  transform: translate3d(calc(var(--mx) * 5px), calc(var(--my) * 4px), 0) scale(1.03);
 }
 
-/* 잔잔한 별 (그라데이션 위, 비네트·노이즈 아래에 두면 가려지지 않음) */
-.media-stage .starfield-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-  opacity: 0.42;
-  mix-blend-mode: screen;
-}
-
+/* 컬러 성운 제거 — 베이스는 .media-stage 배경만 사용 */
 .photo-gradient-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(165deg, rgba(6, 8, 16, 0.92) 0%, rgba(12, 18, 32, 0.62) 42%, rgba(8, 10, 22, 0.94) 100%),
-    radial-gradient(ellipse 100% 70% at 50% -5%, rgba(61, 214, 195, 0.14), transparent 52%),
-    radial-gradient(ellipse 80% 55% at 100% 80%, rgba(232, 168, 124, 0.1), transparent 50%),
-    radial-gradient(ellipse 60% 50% at 0% 60%, rgba(88, 70, 140, 0.12), transparent 48%);
-  mix-blend-mode: multiply;
+  z-index: 3;
+  background: transparent;
+  mix-blend-mode: normal;
+  pointer-events: none;
+}
+
+/* 작은 별 — 참고 HTML PointsMaterial opacity ~0.6에 맞춤, 본문(z≥20)보다 뒤 */
+.media-stage .starfield-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.58;
+  mix-blend-mode: normal;
 }
 
 .photo-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 75% 65% at 50% 45%, transparent 0%, rgba(5, 8, 13, 0.85) 100%);
+  z-index: 7;
+  background: radial-gradient(ellipse 88% 75% at 50% 50%, transparent 20%, rgba(2, 6, 23, 0.55) 100%);
   pointer-events: none;
 }
 
 .photo-noise {
   position: absolute;
   inset: 0;
-  opacity: 0.022;
+  z-index: 6;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   background-size: 200px 200px;
   mix-blend-mode: overlay;
@@ -116,14 +120,15 @@ body.media-portfolio *:focus-visible {
   position: absolute;
   top: -15%;
   right: 8%;
+  z-index: 4;
   width: min(70vw, 520px);
   height: min(70vw, 520px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(61, 214, 195, 0.08) 0%, transparent 60%);
-  filter: blur(56px);
+  background: transparent;
+  filter: none;
   pointer-events: none;
-  transform: translate3d(calc(var(--mx) * 12px), calc(var(--my) * 10px), 0);
-  opacity: 0.65;
+  transform: translate3d(calc(var(--mx) * 8px), calc(var(--my) * 6px), 0);
+  opacity: 0;
 }
 
 body.media-portfolio .ambient {
@@ -131,15 +136,11 @@ body.media-portfolio .ambient {
   inset: -40%;
   z-index: 1;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 52% 42% at 25% 20%, rgba(61, 214, 195, 0.14), transparent 54%),
-    radial-gradient(ellipse 48% 40% at 78% 55%, rgba(139, 120, 200, 0.12), transparent 52%),
-    radial-gradient(ellipse 44% 34% at 50% 90%, rgba(15, 23, 42, 0.55), transparent 48%),
-    radial-gradient(ellipse 40% 30% at 10% 75%, rgba(232, 168, 124, 0.08), transparent 45%);
-  animation: media-drift var(--rotation-speed) linear infinite;
-  filter: blur(100px);
-  mix-blend-mode: screen;
-  opacity: 0.38;
+  background: transparent;
+  animation: none;
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 0;
 }
 
 @keyframes media-drift {
@@ -156,7 +157,7 @@ body.media-portfolio .distortion-layer {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: calc(var(--distortion) * 0.28);
+  opacity: calc(var(--distortion) * 0.12);
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
@@ -166,14 +167,20 @@ body.media-portfolio .distortion-layer {
 #fluid-canvas {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: -1;
   pointer-events: none;
 }
 
 #fluid-canvas {
-  z-index: 4;
-  mix-blend-mode: screen;
-  opacity: 0.2;
+  z-index: -1;
+  mix-blend-mode: multiply;
+  opacity: 0.04;
+}
+
+/* 검정+별 전용: 테마 파티클·플루이드는 색 얼룩 방지를 위해 숨김 */
+body.media-portfolio #particles-canvas,
+body.media-portfolio #fluid-canvas {
+  opacity: 0 !important;
 }
 
 .cursor-glow {
@@ -196,17 +203,43 @@ body.media-portfolio .distortion-layer {
   height: 8px;
   margin: -4px 0 0 -4px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px var(--warm-1);
+  background: var(--cool-1);
+  box-shadow: 0 0 12px rgba(13, 148, 136, 0.45);
   pointer-events: none;
   z-index: 10001;
   transform: translate3d(-9999px, -9999px, 0);
   will-change: transform;
 }
 
+/* 저사양·모바일: JS가 .media-portfolio--lite 부여 */
+body.media-portfolio.media-portfolio--lite .ambient {
+  filter: none;
+  opacity: 0;
+  animation: none;
+}
+
+body.media-portfolio.media-portfolio--lite .lens-flare {
+  filter: none;
+  opacity: 0;
+}
+
+body.media-portfolio.media-portfolio--lite .photo-layer {
+  will-change: auto;
+}
+
+@media (max-width: 768px) {
+  body.media-portfolio .ambient {
+    opacity: 0;
+  }
+
+  body.media-portfolio .lens-flare {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .media-stage .starfield-canvas {
-    opacity: 0.28;
+    opacity: 0.32;
   }
 
   .photo-layer--b,

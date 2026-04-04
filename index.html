@@ -7,15 +7,6 @@
 
   <title>이남혁 | 풀스택 엔지니어 · PM</title>
 
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -35,25 +26,28 @@
   <link rel="stylesheet" href="./assets/css/about-media-art.css" />
   <link rel="stylesheet" href="./assets/css/cert-media-art.css" />
   <link rel="stylesheet" href="./assets/css/sections-flow-media-art.css" />
-  <link rel="stylesheet" href="./assets/css/sphere-portal.css" />
   <link rel="stylesheet" href="./assets/css/skills-media-art.css" />
+  <link rel="stylesheet" href="./assets/css/universe-global.css" />
   <link rel="icon" href="./assets/img/favicon.png">
 </head>
 
 <body class="media-portfolio">
 
-  <!-- 미디어 스테이지: 실사진 + 오버레이 + 캔버스 -->
+  <div id="universe-bg" aria-hidden="true"></div>
+  <div id="canvas-stars" aria-hidden="true"></div>
+
+  <!-- 미디어 스테이지: 실사진 + 오버레이 + 캔버스 (universe-global.css에서 비활성화, 별은 Three.js) -->
   <div class="media-stage" id="media-stage" aria-hidden="true">
     <div class="photo-layer photo-layer--a" id="photo-a"></div>
     <div class="photo-layer photo-layer--b" id="photo-b"></div>
     <div class="photo-layer photo-layer--accent" id="photo-accent"></div>
     <div class="photo-gradient-overlay"></div>
-    <div class="photo-vignette"></div>
-    <div class="photo-noise"></div>
+    <div class="lens-flare"></div>
     <canvas id="starfield-canvas" class="starfield-canvas" aria-hidden="true"></canvas>
+    <div class="photo-noise"></div>
     <div class="chromatic-edges"></div>
     <div class="scanlines"></div>
-    <div class="lens-flare"></div>
+    <div class="photo-vignette"></div>
   </div>
   <div class="ambient" aria-hidden="true"></div>
   <div class="distortion-layer" aria-hidden="true"></div>
@@ -162,25 +156,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- 인터랙티브 구체 포털 → 확대 시 프로젝트 섹션으로 이동 -->
-  <section id="sphere-portal" class="sphere-portal" aria-label="프로젝트 포털 인터랙션">
-    <canvas id="sphere-canvas"></canvas>
-    <div id="sphere-portal-flash" class="sphere-portal-flash" aria-hidden="true"></div>
-    <div class="sphere-portal-ui">
-      <p class="sphere-portal-hint">드래그로 회전 · 더블클릭 또는 버튼</p>
-      
-      <div class="sphere-portal-actions">
-        <button type="button" id="sphere-portal-enter" class="sphere-portal-btn">
-          프로젝트로 바로 이동
-        </button>
-      </div>
-    </div>
-    <div class="sphere-portal-fallback">
-      <p>이 환경에서는 WebGL 미리보기를 쓸 수 없습니다.</p>
-      <a href="#projects" class="sphere-portal-btn" style="display:inline-block;text-decoration:none;margin-top:0.75rem;">프로젝트 섹션으로 이동</a>
     </div>
   </section>
 
@@ -912,11 +887,10 @@
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-  <script src="./assets/js/starfield.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./assets/js/universe-stars.js" defer></script>
   <!-- 미디어 아트 인터랙션 (패럴랙스·파티클·플루이드·커서) -->
   <script type="module" src="./assets/js/media-art.js"></script>
-  <!-- 구체 포털 (Three.js) -->
-  <script type="module" src="./assets/js/sphere-portal.js"></script>
   <!-- JS -->
   <script src="./assets/js/script.js"></script>
 

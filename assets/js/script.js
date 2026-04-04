@@ -19,9 +19,9 @@ function initAOS() {
   if (!window.AOS) return;
 
   AOS.init({
-    duration: 900,
+    duration: 650,
     once: true,
-    offset: 60,
+    offset: 48,
     easing: "ease-out-cubic",
   });
 }
@@ -82,15 +82,25 @@ function initHeaderShadow() {
   const header = document.querySelector(".header");
   if (!header) return;
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled");
-      header.style.boxShadow = "0 3px 18px rgba(0,0,0,0.1)";
-    } else {
-      header.classList.remove("scrolled");
-      header.style.boxShadow = "none";
-    }
-  });
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (window.scrollY > 10) {
+          header.classList.add("scrolled");
+          header.style.boxShadow = "0 3px 18px rgba(0,0,0,0.1)";
+        } else {
+          header.classList.remove("scrolled");
+          header.style.boxShadow = "none";
+        }
+      });
+    },
+    { passive: true }
+  );
 }
 
 /* =========================================================

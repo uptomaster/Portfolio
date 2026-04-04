@@ -1,0 +1,236 @@
+/* 전역 우주 배경 — 참고 HTML (#universe-bg + #canvas-stars) + 본문 전역 다크 (별이 보이도록 z-index 정렬) */
+
+html {
+  background-color: #050608;
+}
+
+body.media-portfolio main.page-main {
+  background: transparent !important;
+}
+
+#universe-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #0a0c14 0%, #050608 100%);
+}
+
+#canvas-stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+#canvas-stars canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 기존 .media-stage는 별·비네트가 body 그리드(z:6) 아래에 깔려 안 보였음 → 비활성화 */
+body.media-portfolio .media-stage {
+  display: none !important;
+}
+
+/* 장식 그리드는 별(z:4) 아래 */
+body.media-portfolio::before {
+  z-index: 3 !important;
+}
+
+/* 본문·헤더·푸터는 별 위 */
+body.media-portfolio > .header,
+body.media-portfolio > main.page-main,
+body.media-portfolio > footer.footer {
+  position: relative;
+  z-index: 20;
+}
+
+/* —— 섹션: 흰 배경 제거 (전역 동일 우주 배경) —— */
+body.media-portfolio .section,
+body.media-portfolio .section-alt {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+body.media-portfolio .section-title {
+  color: #f1f5f9 !important;
+  text-shadow: none;
+}
+
+body.media-portfolio .section-kicker {
+  color: #5eead4 !important;
+}
+
+body.media-portfolio .about-text {
+  color: rgba(226, 232, 240, 0.92) !important;
+}
+
+body.media-portfolio .about-text strong {
+  color: #f8fafc !important;
+}
+
+/* About */
+body.media-portfolio #about.section-about--media {
+  background: transparent !important;
+  border-top: none !important;
+}
+
+body.media-portfolio .about-media-shell {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* Skills — 상세는 skills-media-art.css (글래스 셸·그리드) */
+body.media-portfolio .section-skills,
+body.media-portfolio .section-skills--media {
+  background: transparent !important;
+}
+
+/* Projects / Research / Timeline / Contact — sections-flow */
+body.media-portfolio #projects.section-projects--media,
+body.media-portfolio #research.section-research--media,
+body.media-portfolio #timeline.section-timeline--media,
+body.media-portfolio #contact.section-contact--media {
+  background: transparent !important;
+  border-top: none !important;
+}
+
+/* Projects 셸 — sections-flow-media-art.css */
+body.media-portfolio .research-media-shell,
+body.media-portfolio .timeline-media-shell {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(20px);
+}
+
+body.media-portfolio .research-media-shell .research-card {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.media-portfolio #contact.section-contact--media .contact-box {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px);
+}
+
+body.media-portfolio .project-header h3,
+body.media-portfolio .research-title,
+body.media-portfolio .timeline-content h3,
+body.media-portfolio .contact-title {
+  color: #f1f5f9 !important;
+}
+
+body.media-portfolio .project-summary,
+body.media-portfolio .research-abstract,
+body.media-portfolio .timeline-content p,
+body.media-portfolio .contact-desc {
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+/* 홈 Projects 카드 — sections-flow-media-art.css (.projects-media-shell …)가 우선 */
+body.media-portfolio .slider-track .project-card {
+  background: rgba(5, 8, 18, 0.68) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.media-portfolio .slider-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Cert */
+body.media-portfolio #cert.section-cert--media {
+  background: transparent !important;
+}
+
+body.media-portfolio .cert-media-shell {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+}
+
+body.media-portfolio .cert-media-shell .cert-list {
+  background: rgba(15, 23, 42, 0.4) !important;
+}
+
+body.media-portfolio .cert-intro {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(226, 232, 240, 0.92) !important;
+}
+
+/* github-overrides 일괄 덮어쓰기 */
+body.media-portfolio .section-research {
+  background: transparent !important;
+}
+
+body.media-portfolio .research-card {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.media-portfolio .section-contact {
+  background: transparent !important;
+}
+
+body.media-portfolio .contact-box {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.media-portfolio .footer {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #94a3b8 !important;
+}
+
+/* 헤더: 다크 글래스 */
+body.media-portfolio .header {
+  background: rgba(5, 6, 8, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+
+body.media-portfolio .header.scrolled {
+  background: rgba(5, 6, 8, 0.88) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.media-portfolio .logo {
+  color: #f1f5f9 !important;
+}
+
+body.media-portfolio .nav a {
+  color: #cbd5e1 !important;
+}
+
+body.media-portfolio .nav a:hover,
+body.media-portfolio .nav a.active {
+  color: #5eead4 !important;
+}
+
+/* 자격·타임라인 등 잔여 다크 텍스트 */
+body.media-portfolio .cert-block-title,
+body.media-portfolio .cert-name {
+  color: #f1f5f9 !important;
+}
+
+body.media-portfolio .cert-media-shell .cert-list li {
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+body.media-portfolio .timeline-date {
+  color: #5eead4 !important;
+}
