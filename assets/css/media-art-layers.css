@@ -23,12 +23,6 @@ body.media-portfolio *:focus-visible {
   outline-offset: 3px;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body.media-portfolio.media-cursor {
-    cursor: none;
-  }
-}
-
 /* 검정 단색 + 미세 방사형 (참고: #universe-bg) — 성운 사진 대신 전역 우주 베이스 */
 .media-stage {
   position: fixed;
@@ -183,34 +177,6 @@ body.media-portfolio #fluid-canvas {
   opacity: 0 !important;
 }
 
-.cursor-glow {
-  position: fixed;
-  width: 240px;
-  height: 240px;
-  margin: -120px 0 0 -120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(61, 214, 195, 0.12) 0%, rgba(15, 23, 42, 0.08) 45%, transparent 72%);
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate3d(-9999px, -9999px, 0);
-  transition: opacity 0.3s ease;
-  will-change: transform;
-}
-
-.cursor-dot {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  border-radius: 50%;
-  background: var(--cool-1);
-  box-shadow: 0 0 12px rgba(13, 148, 136, 0.45);
-  pointer-events: none;
-  z-index: 10001;
-  transform: translate3d(-9999px, -9999px, 0);
-  will-change: transform;
-}
-
 /* 저사양·모바일: JS가 .media-portfolio--lite 부여 */
 body.media-portfolio.media-portfolio--lite .ambient {
   filter: none;
@@ -249,12 +215,4 @@ body.media-portfolio.media-portfolio--lite .photo-layer {
     animation: none !important;
   }
 
-  .cursor-glow,
-  .cursor-dot {
-    display: none !important;
-  }
-
-  body.media-portfolio.media-cursor {
-    cursor: auto !important;
-  }
 }

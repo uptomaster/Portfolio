@@ -302,50 +302,10 @@ function initParallax() {
   );
 }
 
-function initCursor() {
-  if (prefersReducedMotion() || lowEnd) return;
-
-  const glow = document.getElementById("cursor-glow");
-  const dot = document.getElementById("cursor-dot");
-  if (!glow || !dot) return;
-
-  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-
-  document.body.classList.add("media-cursor");
-
-  let gx = 0;
-  let gy = 0;
-  let dx = 0;
-  let dy = 0;
-  let cursorTick = 0;
-
-  window.addEventListener(
-    "mousemove",
-    (e) => {
-      dx = e.clientX;
-      dy = e.clientY;
-      dot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
-    },
-    { passive: true }
-  );
-
-  function follow() {
-    cursorTick++;
-    gx += (dx - gx) * 0.12;
-    gy += (dy - gy) * 0.12;
-    if (cursorTick % 2 === 0) {
-      glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
-    }
-  }
-
-  startVisibilityLoop(follow);
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   if (lowEnd) document.body.classList.add("media-portfolio--lite");
 
   initParallax();
-  initCursor();
 
   try {
     const theme = await loadTheme();

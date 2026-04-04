@@ -4,6 +4,10 @@ html {
   background-color: #050608;
 }
 
+body.media-portfolio {
+  cursor: auto;
+}
+
 body.media-portfolio main.page-main {
   background: transparent !important;
 }
