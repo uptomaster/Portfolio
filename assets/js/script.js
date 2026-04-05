@@ -133,6 +133,7 @@ function initProjectHover() {
 ========================================================= */
 function initProjectSlider() {
   const track = document.querySelector(".slider-track");
+  const viewport = document.querySelector(".slider-viewport");
   const prevBtn = document.querySelector(".slider-btn.prev");
   const nextBtn = document.querySelector(".slider-btn.next");
   const cards = document.querySelectorAll(".slider-track .project-card");
@@ -140,7 +141,15 @@ function initProjectSlider() {
   if (!track || !prevBtn || !nextBtn || !cards.length) return;
 
   let index = 0;
-  const GAP = 36;
+
+  function getGapPx() {
+    const g = window.getComputedStyle(track).gap;
+    if (g && g !== "normal") {
+      const n = parseFloat(g);
+      if (!Number.isNaN(n)) return n;
+    }
+    return 36;
+  }
 
   function getVisibleCount() {
     if (window.innerWidth <= 767) return 1;
@@ -150,29 +159,56 @@ function initProjectSlider() {
 
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
-    const moveX = (cardWidth + GAP) * index;
+    const gap = getGapPx();
+    const moveX = (cardWidth + gap) * index;
     track.style.transform = `translateX(-${moveX}px)`;
   }
 
-  nextBtn.addEventListener("click", () => {
+  function goNext() {
     const visible = getVisibleCount();
     if (index < cards.length - visible) {
       index++;
       updateSlider();
     }
-  });
+  }
 
-  prevBtn.addEventListener("click", () => {
+  function goPrev() {
     if (index > 0) {
       index--;
       updateSlider();
     }
-  });
+  }
+
+  nextBtn.addEventListener("click", goNext);
+  prevBtn.addEventListener("click", goPrev);
 
   window.addEventListener("resize", () => {
     index = 0;
     updateSlider();
   });
+
+  /* 모바일: 좌우 스와이프 */
+  if (viewport) {
+    let touchStartX = 0;
+    viewport.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+    viewport.addEventListener(
+      "touchend",
+      (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (dx < -48) goNext();
+        else if (dx > 48) goPrev();
+      },
+      { passive: true }
+    );
+  }
+
+  updateSlider();
 }
 
 /* =========================================================

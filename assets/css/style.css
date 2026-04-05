@@ -1251,7 +1251,7 @@ html {
   }
 
   /* ---------------------------
-     PROJECTS (🔥 슬라이더 → 리스트)
+     PROJECTS — 모바일도 가로 슬라이더 (1장씩)
   ---------------------------- */
   #projects {
     padding-top: 110px;
@@ -1262,24 +1262,35 @@ html {
   }
 
   .slider-viewport {
-    overflow: visible;
+    overflow: hidden !important;
+    width: 100%;
   }
 
   .slider-track {
-    flex-direction: column;
-    transform: none !important;
-    gap: 32px;
+    flex-direction: row !important;
+    gap: clamp(0.75rem, 3vw, 1.25rem);
   }
 
   .slider-track .project-card {
-    flex: none;
-    width: 100%;
+    flex: 0 0 100% !important;
     max-width: 100%;
-    margin: 0 auto;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .slider-btn {
-    display: none;
+    display: flex !important;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .slider-btn.prev {
+    left: 4px;
+  }
+
+  .slider-btn.next {
+    right: 4px;
   }
 
   /* ---------------------------
