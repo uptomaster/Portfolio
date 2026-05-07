@@ -45,7 +45,7 @@
 │   IndieFilm Platform        │
 │   공강픽 (Pick!)             │
 │   GoalChain                 │
-│   열흘[Ten days]             │
+│   HALO (안녕)               │
 └─────────────────────────────┘
 ```
 
@@ -127,10 +127,11 @@
 | ✍️ **Tech Blog** | 개발 · 서버 · 보안 학습 기록 (Naver) | [![Blog](https://img.shields.io/badge/Blog-03C75A?style=flat-square&logo=naver&logoColor=white)](https://m.blog.naver.com/hilnh__/) |
 | 🍱 **밥세권** | 소상공인 재고 최적화 및 가성비 픽업 서비스 | [![PDF](https://img.shields.io/badge/PDF-DC2626?style=flat-square&logo=adobeacrobatreader&logoColor=white)](docs/EAT_IT_Portfolio.pdf) |
 | 🏫 **YIT** | 가상 대학교 '역삼공과대학교' 인프라 · 네트워크 설계 | [![PDF](https://img.shields.io/badge/PDF-DC2626?style=flat-square&logo=adobeacrobatreader&logoColor=white)](docs/sun-project.pdf) |
-| 🛡️ **팀 푸드파이터** | 인프라 재구축 · 보안컨설팅 · 모의해킹 프로젝트 | [![PDF](https://img.shields.io/badge/PDF-DC2626?style=flat-square&logo=adobeacrobatreader&logoColor=white)](docs/foodfighter_presentation.pdf) |
+| 🛡️ **팀 푸드파이터** | **5인 팀** · 인프라 재구축 · 보안컨설팅 · 모의해킹 프로젝트 | [![PDF](https://img.shields.io/badge/PDF-DC2626?style=flat-square&logo=adobeacrobatreader&logoColor=white)](docs/foodfighter_presentation.pdf) |
 | 🔖 **Bookmarker** | 로그인 기반 개인 북마크 관리 서비스 (PHP / MySQL) | [![Site](https://img.shields.io/badge/Visit-7C3AED?style=flat-square&logoColor=white)](https://bookmarker929.dothome.co.kr/bookmarker/) |
 | ⏳ **FutureBox** | 미래의 나에게 보내는 타임캡슐 서비스 | [![Site](https://img.shields.io/badge/Visit-1E3A8A?style=flat-square&logo=vercel&logoColor=white)](https://futurebox-beta.vercel.app/) |
 | 🐻 **FortuneBear** | Node.js 기반 오늘의 운세 실험 프로젝트 | [![Site](https://img.shields.io/badge/Visit-16A34A?style=flat-square&logo=vercel&logoColor=white)](https://fortunebear.vercel.app/) |
+| 🤖 **QuizAI** | KIT 공모전 출품 · 3인(기획·FE·BE)·7일 스프린트 중 **프런트엔드** (Next.js / TypeScript / Tailwind) | [![Demo](https://img.shields.io/badge/Demo-000000?style=flat-square&logo=vercel&logoColor=white)](https://quizai-fe.vercel.app/) [![GitHub](https://img.shields.io/badge/Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/uptomaster/quizai-FE) |
 | 🎬 **IndieFilm** `진행중` | 인디 영화 제작사 · 배우 · 장소 대여자 플랫폼 | [![Site](https://img.shields.io/badge/WIP-F59E0B?style=flat-square&logo=vercel&logoColor=white)](https://indiefilm.vercel.app/) |
 | 📅 **공강픽 (Pick!)** `진행중` | 공강 시간 활용 큐레이션 서비스 | ![WIP](https://img.shields.io/badge/Coming%20Soon-6B7280?style=flat-square) |
 | ⛓️ **GoalChain** `진행중` | 목표 달성 체인 관리 서비스 | [![Site](https://img.shields.io/badge/WIP-F59E0B?style=flat-square&logo=vercel&logoColor=white)](https://goal-chain-one.vercel.app/) |
