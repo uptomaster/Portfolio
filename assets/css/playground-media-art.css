@@ -1,4 +1,4 @@
-/* Playground — 기획·아이디어 실험장 (열흘 등) */
+/* Playground — 기획·아이디어 실험장 (HALO 등) */
 
 body.media-portfolio.playground-page {
   --pg-warm: #e8a87c;
@@ -324,7 +324,7 @@ body.media-portfolio.playground-page main.page-main {
   margin-top: 0.35rem;
 }
 
-/* 열흘 — 장밋빛·따뜻한 그라데이션 테두리 */
+/* HALO(안녕) 카드 — 장밋빛·따뜻한 그라데이션 테두리 */
 .pg-art-card--ten {
   background: linear-gradient(
     135deg,
@@ -513,18 +513,29 @@ body.media-portfolio.playground-page main.page-main {
   color: rgba(195, 208, 228, 0.92);
 }
 
+.pg-halo-etym {
+  margin: 0 0 0.85rem;
+  font-size: 0.825rem;
+  line-height: 1.52;
+  color: rgba(180, 198, 224, 0.88);
+}
+
 .pg-art-card__hero .pg-art-card__visual {
   position: relative;
   margin: 0;
   width: 100%;
-  max-width: 260px;
+  max-width: min(280px, 100%);
   justify-self: start;
   align-self: center;
-  padding: 0;
+  padding: clamp(8px, 2vw, 12px);
+  box-sizing: border-box;
   overflow: hidden;
-  border-radius: 12px;
-  aspect-ratio: 3 / 4;
-  max-height: 300px;
+  border-radius: 14px;
+  aspect-ratio: 16 / 9;
+  max-height: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
     radial-gradient(ellipse 80% 70% at 50% 35%, rgba(40, 52, 78, 0.45) 0%, transparent 60%),
     #0a0e18;
@@ -533,13 +544,15 @@ body.media-portfolio.playground-page main.page-main {
 }
 
 .pg-art-card__hero .pg-art-card__visual img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  position: relative;
+  inset: auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   object-position: center center;
-  border-radius: 12px;
+  border-radius: 8px;
   z-index: 1;
   transition: opacity 0.35s ease;
 }
@@ -570,9 +583,11 @@ body.media-portfolio.playground-page main.page-main {
   }
 
   .pg-art-card__hero .pg-art-card__visual {
-    max-width: 240px;
+    max-width: min(260px, 88vw);
     margin-inline: auto;
     justify-self: center;
+    aspect-ratio: 16 / 9;
+    padding: clamp(8px, 2.4vw, 12px);
   }
 }
 
