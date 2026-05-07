@@ -334,7 +334,7 @@ body.media-portfolio .project-thumb::after {
   ) !important;
 }
 
-/* 썸네일 로고·이미지 전체가 보이도록 (cover 잘림 방지) */
+/* 로고·썸네일 전체 노출(contain); 홈 Projects는 projects-showcase-media-art.css에서 프레임 레이아웃 */
 body.media-portfolio .project-thumb img {
   object-fit: contain !important;
   object-position: center center !important;
