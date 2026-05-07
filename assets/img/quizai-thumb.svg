@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="qzTitle">
+  <title id="qzTitle">QuizAI thumbnail</title>
+  <defs>
+    <linearGradient id="qzBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#134e4a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#qzBg)"/>
+  <ellipse cx="400" cy="200" rx="200" ry="120" fill="rgba(94,234,212,0.08)"/>
+  <circle cx="400" cy="195" r="88" fill="none" stroke="rgba(94,234,212,0.5)" stroke-width="3"/>
+  <text x="400" y="220" text-anchor="middle" fill="#f1f5f9" font-family="ui-sans-serif,system-ui,sans-serif" font-size="118" font-weight="800" opacity="0.95">?</text>
+  <rect x="278" y="302" width="244" height="36" rx="10" fill="rgba(255,255,255,0.07)" stroke="rgba(148,163,184,0.35)"/>
+  <rect x="290" y="312" width="110" height="16" rx="5" fill="rgba(94,234,212,0.3)"/>
+  <text x="400" y="386" text-anchor="middle" fill="#f1f5f9" font-family="ui-sans-serif,system-ui,sans-serif" font-size="28" font-weight="800">QuizAI</text>
+  <text x="400" y="416" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">Team of 3 ? 7-day ? KIT contest ? FE</text>
+</svg>
