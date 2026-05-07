@@ -1,0 +1,963 @@
+/* Home — Projects 쇼케이스 (다크 우주 테마 위 프리미엄 슬라이더)
+   로드 순서: universe-global.css 이후 */
+
+body.media-portfolio #projects.section-projects--media {
+  padding-top: clamp(3.75rem, 9vw, 5.75rem) !important;
+  padding-bottom: clamp(3.25rem, 7vw, 5.25rem) !important;
+}
+
+body.media-portfolio #projects.section-projects--media::before {
+  opacity: 0.38;
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 88% 72% at 50% 28%, black 18%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 72% at 50% 28%, black 18%, transparent 72%);
+}
+
+/* —— 섹션 헤더 —— */
+body.media-portfolio #projects.section-projects--media .section-head {
+  margin-bottom: clamp(1.35rem, 3.5vw, 2rem);
+}
+
+body.media-portfolio #projects.section-projects--media .section-head .section-kicker {
+  letter-spacing: 0.3em;
+  margin-bottom: 0.75rem;
+}
+
+body.media-portfolio #projects.section-projects--media .section-head .section-title {
+  font-family: "Montserrat", Pretendard, system-ui, sans-serif;
+  font-size: clamp(2.25rem, 5.8vw, 3.1rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+  background: linear-gradient(
+    118deg,
+    #f8fafc 6%,
+    #99f6e4 32%,
+    #a5b4fc 58%,
+    #f5d0fe 92%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(94, 234, 212, 0.1));
+}
+
+body.media-portfolio #projects.section-projects--media .section-head::after {
+  content: "";
+  display: block;
+  width: min(220px, 46vw);
+  height: 3px;
+  margin: 1.1rem auto 0;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.85),
+    rgba(129, 140, 248, 0.75),
+    rgba(94, 234, 212, 0.85),
+    transparent
+  );
+  opacity: 0.88;
+}
+
+body.media-portfolio #projects.section-projects--media .projects-section-lead {
+  max-width: 42rem;
+  font-size: clamp(0.94rem, 1.65vw, 1.06rem);
+  line-height: 1.78;
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+/* —— 글래스 셸 + 내부 앰비언트 —— */
+body.media-portfolio .projects-media-shell {
+  position: relative;
+  isolation: isolate;
+  max-width: min(1260px, 100%) !important;
+  margin-top: 0 !important;
+  padding: clamp(1.85rem, 4.2vw, 2.85rem) clamp(1.35rem, 4vw, 2.35rem)
+    clamp(2.1rem, 4.5vw, 2.95rem) !important;
+  border-radius: 28px !important;
+  overflow: visible !important;
+  background:
+    linear-gradient(
+      168deg,
+      rgba(17, 24, 39, 0.58) 0%,
+      rgba(5, 8, 18, 0.88) 48%,
+      rgba(17, 24, 39, 0.52) 100%
+    ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 28px 64px rgba(0, 0, 0, 0.52),
+    0 0 100px -24px rgba(94, 234, 212, 0.12) !important;
+  backdrop-filter: blur(28px) saturate(1.22);
+  -webkit-backdrop-filter: blur(28px) saturate(1.22);
+}
+
+body.media-portfolio .projects-media-shell::before {
+  left: 4% !important;
+  right: 4% !important;
+  height: 2px !important;
+  opacity: 1 !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.5),
+    rgba(232, 121, 250, 0.28),
+    rgba(94, 234, 212, 0.5),
+    transparent
+  ) !important;
+}
+
+body.media-portfolio .projects-media-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 55% 42% at 96% -4%, rgba(45, 212, 191, 0.12), transparent 58%),
+    radial-gradient(ellipse 46% 40% at 2% 102%, rgba(139, 92, 246, 0.1), transparent 56%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(244, 114, 182, 0.04), transparent 72%);
+}
+
+body.media-portfolio .projects-media-shell .project-slider {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(1rem, 2.6vw, 1.65rem);
+}
+
+body.media-portfolio .projects-media-shell .slider-viewport {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0 !important;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+/* 홈 프로젝트 슬라이더: 카드 묶음 + 진행 표시 */
+body.media-portfolio #home-project-slider.project-slider {
+  display: flex;
+  align-items: stretch;
+}
+
+body.media-portfolio #home-project-slider.project-slider.projects-spotlight {
+  display: block;
+}
+
+body.media-portfolio #home-project-slider .slider-viewport-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body.media-portfolio #home-project-slider .projects-slider-footer {
+  flex-shrink: 0;
+  margin-top: clamp(0.85rem, 2.2vw, 1.15rem);
+  padding-top: clamp(0.85rem, 2vw, 1.1rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* —— 스포트라이트: 왼쪽 카드 무대 · 오른쪽 목록 —— */
+body.media-portfolio .projects-media-shell:has(#home-project-slider.projects-spotlight) {
+  max-width: min(1020px, 100%) !important;
+  overflow-x: clip;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, min(286px, 36vw));
+  gap: clamp(0.55rem, 1.5vw, 0.95rem);
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-stage {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 0;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .slider-viewport {
+  border-radius: 18px;
+  background: radial-gradient(
+    ellipse 120% 80% at 50% -10%,
+    rgba(94, 234, 212, 0.06),
+    transparent 52%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -32px 48px rgba(0, 0, 0, 0.12);
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .slider-track {
+  gap: 14px !important;
+}
+
+/* 스포트라이트: 메인 카드 영역만 적당히 좁히고 인라인 패딩(화살표) 확보 — 셀 밖으로 나가지 않음 */
+body.media-portfolio #home-project-slider.projects-spotlight .slider-viewport-wrap {
+  flex: 1;
+  min-width: 0;
+  max-width: min(620px, 100%);
+  width: 100%;
+  margin-inline-end: auto;
+  padding-inline: clamp(42px, 4.5vw, 54px);
+  box-sizing: border-box;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .slider-track .project-card {
+  min-height: 0 !important;
+  padding: 0.9rem 1.05rem 100px 1.05rem !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .slider-track .project-card:has(.project-btn-box--dual) {
+  padding-bottom: 126px !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .project-thumb {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.8rem !important;
+  padding: clamp(8px, 2.2vw, 14px);
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .project-card .project-header h3 {
+  font-size: 1.06rem !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .project-summary {
+  font-size: 0.8625rem;
+  line-height: 1.55;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .project-points li {
+  font-size: 0.82rem !important;
+  line-height: 1.45;
+  margin-bottom: 0.4rem !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-sidebar {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 14px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(15, 23, 42, 0.45) 100%
+  );
+  box-sizing: border-box;
+  align-self: stretch;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-sidebar .projects-picker-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-picker-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(94, 234, 212, 0.35) rgba(255, 255, 255, 0.06);
+  overscroll-behavior: contain;
+  padding: 0 2px 0 0;
+  margin: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight #projects-picker-rail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 5px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  padding: 0 1px 4px 0;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip {
+  display: grid;
+  grid-template-columns: auto 44px minmax(0, 1fr);
+  grid-template-rows: auto;
+  align-items: center;
+  column-gap: 0.4rem;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0.32rem 0.45rem 0.32rem 0.38rem;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: rgba(226, 232, 240, 0.9);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(15, 23, 42, 0.75) 100%
+  );
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 11px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.25) inset,
+    0 8px 22px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.28s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.28s ease;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip:hover {
+  border-color: rgba(94, 234, 212, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.12) inset,
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(94, 234, 212, 0.08);
+  transform: translateY(-2px);
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip:focus-visible {
+  outline: 2px solid rgba(94, 234, 212, 0.65);
+  outline-offset: 3px;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip.is-active {
+  border-color: rgba(94, 234, 212, 0.55);
+  background: linear-gradient(
+    155deg,
+    rgba(45, 212, 191, 0.14) 0%,
+    rgba(99, 102, 241, 0.12) 55%,
+    rgba(15, 23, 42, 0.88) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.2) inset,
+    0 0 28px rgba(94, 234, 212, 0.12),
+    0 12px 32px rgba(0, 0, 0, 0.42);
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__num {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(148, 163, 184, 0.85);
+  line-height: 1;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip.is-active .projects-pick-chip__num {
+  color: #5eead4;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__thumb {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.12), transparent 55%),
+    rgba(15, 23, 42, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__caption {
+  font-size: 0.725rem;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: rgba(241, 245, 249, 0.92);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-layout {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-viewport-wrap {
+    max-width: 100%;
+    margin-inline: 0 auto;
+    padding-inline: clamp(42px, 5vw, 52px);
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.prev {
+    left: 6px !important;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.next {
+    right: 6px !important;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-sidebar .projects-picker-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    padding: 4px 0;
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 2%,
+      #000 98%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight #projects-picker-rail {
+    flex-direction: row;
+    width: max-content;
+    gap: 10px;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip {
+    width: auto;
+    max-width: none;
+    grid-template-columns: auto 44px minmax(0, 132px);
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__caption {
+    white-space: nowrap;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+    text-overflow: ellipsis;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__thumb {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip {
+    padding: 0.4rem 0.5rem 0.4rem 0.45rem;
+    column-gap: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip,
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip:hover {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transform: none;
+  }
+}
+
+body.media-portfolio #home-project-slider .projects-slider-status {
+  margin: 0 0 0.62rem;
+  font-family:
+    ui-monospace,
+    "JetBrains Mono",
+    Menlo,
+    monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.88);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem 0.48rem;
+  text-align: center;
+}
+
+body.media-portfolio #home-project-slider .projects-slider-visually-strong {
+  color: #f1f5f9;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+body.media-portfolio #home-project-slider .projects-slider-en-dash {
+  margin: 0 0.12em;
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+body.media-portfolio #home-project-slider .projects-slider-slash {
+  opacity: 0.35;
+  margin: 0 0.1em;
+}
+
+body.media-portfolio #home-project-slider #projects-slider-total {
+  color: rgba(241, 245, 249, 0.95);
+}
+
+body.media-portfolio #home-project-slider .projects-slider-caption {
+  opacity: 0.5;
+}
+
+body.media-portfolio #home-project-slider .projects-slider-bar {
+  position: relative;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body.media-portfolio #home-project-slider .projects-slider-bar__fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #2dd4bf,
+    rgba(129, 140, 248, 0.95),
+    rgba(249, 168, 212, 0.75)
+  );
+  box-shadow: 0 0 22px rgba(94, 234, 212, 0.3);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #home-project-slider .projects-slider-bar__fill {
+    transition-duration: 0.08s;
+  }
+}
+
+/* —— 카드 —— */
+body.media-portfolio #projects.section-projects--media .slider-track .project-card {
+  --card-glow: rgba(94, 234, 212, 0.22);
+  position: relative;
+  min-height: 520px;
+  padding: 1.15rem 1.35rem 118px 1.35rem !important;
+  border-radius: 22px !important;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 17, 32, 0.95) 0%,
+    rgba(6, 9, 20, 0.9) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 18px 48px rgba(0, 0, 0, 0.48) !important;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.38s ease;
+}
+
+body.media-portfolio #projects.section-projects--media .slider-track .project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.75),
+    rgba(129, 140, 248, 0.55),
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 4;
+}
+
+body.media-portfolio #projects.section-projects--media .slider-track .project-card:hover {
+  transform: translateY(-10px) !important;
+  border-color: rgba(94, 234, 212, 0.38) !important;
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.1) inset,
+    0 26px 56px rgba(0, 0, 0, 0.55),
+    0 0 52px -10px var(--card-glow) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #projects.section-projects--media .slider-track .project-card,
+  body.media-portfolio #projects.section-projects--media .slider-track .project-card:hover {
+    transform: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:hover:not(:disabled),
+  body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:active:not(:disabled) {
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* —— 썸네일: 고정 비율 + contain (잘림 없음), 여백은 매트처럼 정리 —— */
+body.media-portfolio #projects.section-projects--media .project-thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  height: auto !important;
+  min-height: 0;
+  margin-bottom: 1.05rem !important;
+  padding: clamp(10px, 3.1vw, 20px);
+  box-sizing: border-box;
+  border-radius: 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background:
+    radial-gradient(ellipse 90% 80% at 50% 42%, rgba(71, 85, 105, 0.22) 0%, transparent 65%),
+    radial-gradient(
+      115% 100% at 50% -5%,
+      rgba(51, 65, 85, 0.45) 0%,
+      rgba(15, 23, 42, 0.98) 58%
+    ),
+    linear-gradient(180deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 1) 100%);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 48px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-thumb::before {
+  content: "";
+  position: absolute;
+  inset: clamp(8px, 2.6vw, 14px);
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background: radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.04), transparent 55%);
+}
+
+body.media-portfolio #projects.section-projects--media .project-thumb::after {
+  z-index: 2;
+  pointer-events: none;
+}
+
+body.media-portfolio #projects.section-projects--media .project-thumb img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+  background: transparent !important;
+  transition:
+    transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s ease;
+}
+
+body.media-portfolio #projects.section-projects--media .slider-track .project-card:hover .project-thumb img {
+  transform: scale(1.05) !important;
+  filter: saturate(1.1) brightness(1.04) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #projects.section-projects--media .project-thumb img,
+  body.media-portfolio #projects.section-projects--media .slider-track .project-card:hover .project-thumb img {
+    transform: none !important;
+    filter: none !important;
+    transition: none;
+  }
+}
+
+/* —— 타이포 & 뱃지 —— */
+body.media-portfolio #projects.section-projects--media .project-card .project-header h3 {
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.32;
+  background: linear-gradient(125deg, #f8fafc 0%, #e2e8f0 45%, #7dd3fc 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+body.media-portfolio #projects .project-type {
+  margin-top: 0.45rem;
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px !important;
+  border-width: 1px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.media-portfolio #projects .project-type.team {
+  color: #7dd3fc !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+body.media-portfolio #projects .project-type.personal {
+  color: #6ee7b7 !important;
+  border-color: rgba(52, 211, 153, 0.5) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+body.media-portfolio #projects .project-type.security {
+  color: #fda4af !important;
+  border-color: rgba(251, 113, 133, 0.45) !important;
+  background: rgba(244, 63, 94, 0.1) !important;
+}
+
+body.media-portfolio #projects .project-type.planning {
+  color: #c4b5fd !important;
+  border-color: rgba(167, 139, 250, 0.5) !important;
+  background: rgba(139, 92, 246, 0.12) !important;
+}
+
+body.media-portfolio #projects .project-tags span {
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  padding: 0.28rem 0.65rem !important;
+  color: rgba(226, 232, 240, 0.88) !important;
+  background: rgba(248, 250, 252, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.media-portfolio #projects.section-projects--media .project-summary {
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-summary a {
+  color: #7dd3fc;
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 211, 252, 0.45);
+  text-underline-offset: 0.15em;
+}
+
+body.media-portfolio #projects.section-projects--media .project-summary a:hover {
+  color: #5eead4;
+  text-decoration-color: rgba(94, 234, 212, 0.65);
+}
+
+body.media-portfolio #projects.section-projects--media .project-points li {
+  font-size: 0.865rem;
+  line-height: 1.52;
+  color: rgba(203, 213, 225, 0.92) !important;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-points li::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  top: 0.58em;
+  left: 0;
+  transform: translateY(-0.06em);
+  background: linear-gradient(135deg, #5eead4, #818cf8);
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.35);
+  color: transparent !important;
+}
+
+/* —— CTA —— */
+body.media-portfolio #projects .project-detail-btn {
+  padding: 0.65rem 1.65rem !important;
+  border-radius: 999px !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 38%, #0891b2 100%) !important;
+  border: 1px solid rgba(165, 243, 252, 0.38) !important;
+  box-shadow:
+    0 4px 16px rgba(13, 148, 136, 0.35),
+    0 0 20px rgba(45, 212, 191, 0.12) !important;
+}
+
+body.media-portfolio #projects .project-detail-btn:hover {
+  background: linear-gradient(135deg, #115e59 0%, #0f766e 45%, #0e7490 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow:
+    0 8px 26px rgba(13, 148, 136, 0.45),
+    0 0 28px rgba(45, 212, 191, 0.18) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #projects .project-detail-btn:hover {
+    transform: none !important;
+  }
+}
+
+body.media-portfolio #projects.section-projects--media .project-card:has(.project-btn-box--dual) {
+  padding-bottom: 148px !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-btn-box--dual {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+body.media-portfolio #projects.section-projects--media .project-detail-btn--outline {
+  margin: 0 !important;
+  background: rgba(15, 23, 42, 0.45) !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-detail-btn--outline:hover {
+  border-color: rgba(94, 234, 212, 0.45) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.media-portfolio #projects.section-projects--media .project-btn-box {
+  bottom: 22px !important;
+}
+
+/* —— 슬라이더 FAB 화살표 (홈 전용) —— */
+body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab {
+  display: grid !important;
+  place-items: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: #e8faff !important;
+  background:
+    radial-gradient(120% 100% at 30% 20%, rgba(255, 255, 255, 0.12), transparent 52%),
+    rgba(10, 16, 32, 0.88) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  border-radius: 999px !important;
+  outline: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.1) inset,
+    0 0 24px rgba(94, 234, 212, 0.08),
+    0 16px 40px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.28s ease;
+}
+
+body.media-portfolio #home-project-slider .slider-btn .slider-btn__ico {
+  display: block;
+  pointer-events: none;
+}
+
+body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:hover:not(:disabled) {
+  border-color: rgba(94, 234, 212, 0.52) !important;
+  color: #5ffbdf !important;
+  transform: translateY(-50%) scale(1.09) !important;
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.18) inset,
+    0 0 40px rgba(94, 234, 212, 0.2),
+    0 22px 50px rgba(0, 0, 0, 0.55) !important;
+}
+
+body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:active:not(:disabled) {
+  transform: translateY(-50%) scale(1.02) !important;
+}
+
+body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:disabled {
+  opacity: 0.32 !important;
+  cursor: not-allowed !important;
+  transform: translateY(-50%) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:hover:not(:disabled),
+  body.media-portfolio #home-project-slider .slider-btn.slider-btn--fab:active:not(:disabled) {
+    transform: translateY(-50%) !important;
+  }
+}
+
+body.media-portfolio #home-project-slider .slider-btn.prev {
+  left: clamp(-42px, -3vw, -28px) !important;
+}
+
+body.media-portfolio #home-project-slider .slider-btn.next {
+  right: clamp(-42px, -3vw, -28px) !important;
+}
+
+/* 스포트라이트: 화살표를 무대(스테이지) 안쪽에 두어 좌우 오버플로 방지 */
+body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.prev {
+  left: 8px !important;
+  right: auto !important;
+}
+
+body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.next {
+  right: 8px !important;
+  left: auto !important;
+}
+
+@media (max-width: 768px) {
+  body.media-portfolio .projects-media-shell .slider-viewport {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 1.5%,
+      #000 98.5%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(90deg, transparent 0%, #000 1.5%, #000 98.5%, transparent 100%);
+  }
+
+  body.media-portfolio #projects.section-projects--media .section-head::after {
+    margin-top: 0.85rem;
+  }
+}
