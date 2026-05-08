@@ -238,3 +238,19 @@ body.media-portfolio .cert-media-shell .cert-list li {
 body.media-portfolio .timeline-date {
   color: #5eead4 !important;
 }
+
+/* —— 모바일: 불필요하게 좁은 가로폭 완화 (92% 컨테이너 중첩 패딩) —— */
+@media (max-width: 680px) {
+  body.media-portfolio .container,
+  body.media-portfolio .container.section-container {
+    width: min(100%, calc(100vw - 16px)) !important;
+    max-width: 100%;
+    padding-inline: 0;
+    box-sizing: border-box;
+  }
+
+  body.media-portfolio .nav-container {
+    width: min(100%, calc(100vw - 12px)) !important;
+    box-sizing: border-box;
+  }
+}

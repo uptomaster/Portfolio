@@ -303,7 +303,17 @@ body.media-portfolio .footer::before {
     padding-right: 0;
   }
 
+  body.media-portfolio #projects .projects-section-lead {
+    padding-inline: max(0px, env(safe-area-inset-left, 0px));
+    margin-inline: 0;
+  }
+
   body.media-portfolio .skills-section-lead {
     text-align: left;
+  }
+
+  body.media-portfolio #projects.section-projects--media .projects-media-shell {
+    padding: clamp(1.05rem, 3.2vw, 1.5rem) max(10px, env(safe-area-inset-right, 0px))
+      clamp(1.2rem, 3.2vw, 1.75rem) max(10px, env(safe-area-inset-left, 0px));
   }
 }

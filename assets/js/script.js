@@ -234,6 +234,12 @@ function initProjectSlider() {
       btn.addEventListener("click", () => {
         index = clampIndex(i);
         updateSlider(true);
+        /* 터치에서 버튼 포커스로 문서가 스크롤되는 현상 완화 (키보드 사용자는 포커스 유지) */
+        if (window.matchMedia("(pointer: coarse)").matches) {
+          requestAnimationFrame(() => {
+            btn.blur();
+          });
+        }
       });
 
       rail.appendChild(btn);
@@ -251,14 +257,25 @@ function initProjectSlider() {
 
   function scrollRailToActive(prefersSmooth) {
     if (!rail || !rail.children[index]) return;
+    const chip = rail.children[index];
+    const scrollRoot = chip.closest(".projects-picker-scroll");
+    if (!scrollRoot) return;
+
     const motionReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const beh = motionReduce || !prefersSmooth ? "auto" : "smooth";
     const railVertical = window.getComputedStyle(rail).flexDirection === "column";
-    rail.children[index].scrollIntoView({
-      block:
-        railVertical && prefersSmooth ? "center" : "nearest",
-      inline: railVertical ? "nearest" : "center",
-      behavior: motionReduce || !prefersSmooth ? "auto" : "smooth",
-    });
+
+    if (railVertical) {
+      const rootRect = scrollRoot.getBoundingClientRect();
+      const chipRect = chip.getBoundingClientRect();
+      const dy = chipRect.top + chipRect.height / 2 - (rootRect.top + rootRect.height / 2);
+      scrollRoot.scrollBy({ top: dy, left: 0, behavior: beh });
+    } else {
+      const rootRect = scrollRoot.getBoundingClientRect();
+      const chipRect = chip.getBoundingClientRect();
+      const dx = chipRect.left + chipRect.width / 2 - (rootRect.left + rootRect.width / 2);
+      scrollRoot.scrollBy({ top: 0, left: dx, behavior: beh });
+    }
   }
 
   function updateIndicators(maxIndex, total, pctStep) {

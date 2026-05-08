@@ -414,15 +414,18 @@ body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip
 }
 
 @media (max-width: 900px) {
+  /* 모바일·태블릿에서도 왼쪽 카드 · 오른쪽 목록 2열 유지 (오른쪽 열은 좁게) */
   body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-layout {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: minmax(0, 1fr) minmax(96px, min(32vw, 148px));
+    gap: 0.55rem;
+    align-items: stretch;
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .slider-viewport-wrap {
     max-width: 100%;
-    margin-inline: 0 auto;
-    padding-inline: clamp(42px, 5vw, 52px);
+    margin-inline: 0;
+    /* 얇게: FAB는 카드 영역 위에 얹히며, 텍스트는 카드 안쪽 패딩으로 보호 */
+    padding-inline: max(10px, env(safe-area-inset-left, 0px)) max(10px, env(safe-area-inset-right, 0px));
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.prev {
@@ -434,50 +437,116 @@ body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-sidebar .projects-picker-scroll {
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     max-height: none;
-    padding: 4px 0;
-    mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 2%,
-      #000 98%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+    padding: 4px 2px 4px 0;
+    overflow-anchor: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight #projects-picker-rail {
-    flex-direction: row;
-    width: max-content;
-    gap: 10px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 5px;
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip {
-    width: auto;
-    max-width: none;
-    grid-template-columns: auto 44px minmax(0, 132px);
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: auto 36px minmax(0, 1fr);
+    column-gap: 0.35rem;
+    padding: 0.3rem 0.38rem 0.3rem 0.32rem;
+    touch-action: manipulation;
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__caption {
-    white-space: nowrap;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    display: block;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    white-space: normal;
+    font-size: 0.66rem;
+    line-height: 1.28;
+    word-break: break-word;
   }
 
   body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__thumb {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__num {
+    font-size: 0.58rem;
   }
 }
 
 @media (max-width: 520px) {
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-viewport-wrap {
+    padding-inline: max(10px, env(safe-area-inset-left, 0px)) max(10px, env(safe-area-inset-right, 0px));
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-track .project-card {
+    padding-left: max(14px, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(14px, env(safe-area-inset-right, 0px)) !important;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight #projects-picker-rail {
+    gap: 6px;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(84px, min(29vw, 132px));
+    gap: 0.45rem;
+  }
+
   body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip {
-    padding: 0.4rem 0.5rem 0.4rem 0.45rem;
-    column-gap: 0.45rem;
+    grid-template-columns: auto 34px minmax(0, 1fr);
+    padding: 0.28rem 0.34rem 0.28rem 0.28rem;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__thumb {
+    width: 34px;
+    height: 34px;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-pick-chip__caption {
+    font-size: 0.62rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+@media (max-width: 680px) {
+  body.media-portfolio #projects.section-projects--media .projects-media-shell,
+  body.media-portfolio .projects-media-shell:has(#home-project-slider.projects-spotlight) {
+    padding: clamp(1rem, 3vw, 1.5rem) max(11px, env(safe-area-inset-right, 0px))
+      clamp(1.25rem, 3.5vw, 1.85rem) max(11px, env(safe-area-inset-left, 0px)) !important;
+    border-radius: 18px !important;
+    max-width: min(100%, 100vw) !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  body.media-portfolio #projects.section-projects--media .projects-section-lead {
+    max-width: none;
+    padding-inline: max(6px, env(safe-area-inset-left, 0px));
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .slider-btn.slider-btn--fab {
+    z-index: 25 !important;
+  }
+
+  body.media-portfolio #home-project-slider.projects-spotlight .projects-spotlight-stage {
+    margin-inline: 0;
+    max-width: 100%;
   }
 }
 

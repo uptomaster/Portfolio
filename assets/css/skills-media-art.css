@@ -240,8 +240,11 @@ body.media-portfolio .section-skills--media .section-head .section-title {
 
 @media (max-width: 699px) {
   body.media-portfolio .skills-media-shell {
-    padding: 1.2rem 1rem 1.35rem;
+    padding: 1.15rem max(10px, env(safe-area-inset-right, 0px)) 1.3rem
+      max(10px, env(safe-area-inset-left, 0px));
     border-radius: 20px;
+    max-width: min(100%, 100vw);
+    box-sizing: border-box;
   }
 
   body.media-portfolio .section-skills--media .skill-card li {

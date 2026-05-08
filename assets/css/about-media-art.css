@@ -133,6 +133,15 @@ body.media-portfolio .section-about--media .pentagon:hover {
   body.media-portfolio #about.section-about--media .about-text {
     font-size: 1rem !important;
   }
+
+  body.media-portfolio .about-media-shell {
+    max-width: none;
+    width: 100%;
+    margin-inline: auto;
+    padding: clamp(1.1rem, 3vw, 1.5rem) max(12px, env(safe-area-inset-right, 0px))
+      clamp(1.35rem, 3.6vw, 1.85rem) max(12px, env(safe-area-inset-left, 0px));
+    box-sizing: border-box;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
